@@ -1824,9 +1824,9 @@
           <a id="nav-aanbod" href="aanbod.html" onclick="return navigatePage(event,'aanbod')">Aanbod</a>
           <div class="mega">
             <a class="mega-card" href="email-marketing.html" onclick="return navigatePage(event,'email-marketing')"><strong>Email Marketing</strong><p>Meer omzet uit bestaande klanten zonder losse campagnes of handmatig werk.</p></a>
-            <a class="mega-card" href="seo.html" onclick="return navigatePage(event,'seo')"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
-            <a class="mega-card" href="advertenties.html" onclick="return navigatePage(event,'advertenties')"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
-            <a class="mega-card" href="website-bouwen.html" onclick="return navigatePage(event,'websites')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
+            <a class="mega-card" href="/seo" onclick="return navigatePage(event,'seo')"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
+            <a class="mega-card" href="/advertenties" onclick="return navigatePage(event,'advertenties')"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
+            <a class="mega-card" href="/website-bouwen" onclick="return navigatePage(event,'websites')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
             <a class="mega-card" href="branding.html" onclick="return navigatePage(event,'branding')"><strong>Branding</strong><p>Een merklaag die vertrouwen opbouwt voordat het gesprek inhoudelijk begint.</p></a>
             <a class="mega-card" href="ai-compliance.html" onclick="return navigatePage(event,'ai-compliance')"><strong>AI Compliance</strong><p>Consent, governance en privacy-instellingen die juridisch en technisch kloppen.</p></a>
           </div>
@@ -3450,10 +3450,10 @@
       klantportaal:'klantportaal.html',
       login:'klantportaal.html',
       'email-marketing':'email-marketing.html',
-      seo:'seo.html',
-      advertenties:'advertenties.html',
-      websites:'website-bouwen.html',
-      'website-bouwen':'website-bouwen.html',
+      seo:'/seo',
+      advertenties:'/advertenties',
+      websites:'/website-bouwen',
+      'website-bouwen':'/website-bouwen',
       branding:'branding.html',
       'ai-compliance':'ai-compliance.html',
       privacy:'privacy.html',
@@ -3481,7 +3481,7 @@
       if(seoRoutes[id]) return seoRoutes[id];
       const service = services.find(item => item.slug === id);
       if(service){
-        const slugMap = {'seo':'seo.html','advertenties':'advertenties.html','websites':'website-bouwen.html'};
+        const slugMap = {'seo':'/seo','advertenties':'/advertenties','websites':'/website-bouwen'};
         return {
           path:slugMap[id] || `/${id}`,
           title:service.seoTitle || `${service.title} | AIChecked.nl`,
