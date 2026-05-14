@@ -2115,12 +2115,12 @@
             <h1 class="display" style="margin-bottom:14px">Plan een strategiegesprek dat direct <em>duidelijkheid geeft.</em></h1>
             <p class="lead" style="margin-bottom:24px">Geen standaard pitch. We kijken waar je infrastructuur, data of marketing nu tegenwerkt en wat als eerste opgelost moet worden.</p>
             <div class="overview-card">
-              <h3>Waar we meestal mee helpen</h3>
+              <h3>Herken jij dit?</h3>
               <ul class="bullet-list">
-                <li>Consent of tracking voelt niet betrouwbaar</li>
-                <li>Website levert te weinig aanvragen of omzet op</li>
-                <li>SEO en content blijven hangen zonder richting</li>
-                <li>Dashboards geven verkeerde inzichten of te weinig overzicht</li>
+                <li>AI inzetten zonder de juridische risico's te kennen</li>
+                <li>Automatisering die buiten de AVG opereert</li>
+                <li>Content maken met AI terwijl transparantie verplicht wordt</li>
+                <li>Concurrenten die AI gebruiken terwijl jij achterblijft</li>
               </ul>
             </div>
             <div class="split" style="grid-template-columns:1fr 1fr;gap:14px;margin-top:14px">
@@ -3158,6 +3158,37 @@
         ]
       },
       {
+        slug:'kennisbank-vs-blog-seo',
+        category:'SEO / AI Search',
+        title:'Kennisbank vs blog: wat werkt beter voor SEO in 2026?',
+        text:'Blogs halen verkeer, kennisbanken bouwen autoriteit. Waarom topical authority en semantische structuur in 2026 meer opleveren dan losse blogposts.',
+        description:'Blogs halen verkeer, kennisbanken bouwen autoriteit. Ontdek waarom topical authority en semantische structuur in 2026 meer opleveren dan losse blogposts.',
+        readTime:'6 min lezen',
+        intro:'Iedereen schrijft blogs. Weinig mensen bouwen een kennisbank. Dat is precies waarom een kennisbank in 2026 harder werkt.',
+        sections:[
+          ['Wat is het verschil?','Een blog is een losse post. Een kennisbank is een systeem van onderling gelinkte pagina\'s die samen één onderwerp volledig afdekken. Semrush noemt dit topical authority — en het is op dit moment een van de sterkste rankingfactoren in Google.'],
+          ['Waarom topical authority belangrijker is dan ooit',[
+            'Interne links tussen gerelateerde pagina\'s',
+            'Duidelijke definities van begrippen',
+            'FAQ-structuur die featured snippets triggert',
+            'Semantische koppen (H2/H3) die subtopics afdekken'
+          ]],
+          ['Waarom een kennisbank sterker werkt','Google beoordeelt niet meer alleen of jouw pagina het zoekwoord bevat. Het beoordeelt of jouw website het onderwerp volledig begrijpt. Een blog over <a class="inline-link" href="/ai-compliance.html" onclick="showPage(\'ai-compliance\'); return false;">AI compliance</a> scoort minder dan een kennisbank die <a class="inline-link" href="/ai-kennisbank/consent-mode-v2-uitgelegd" onclick="showPage(\'article-consent-mode-v2-uitgelegd\'); return false;">consent mode</a>, <a class="inline-link" href="/ai-kennisbank/wat-betekent-de-ai-act" onclick="showPage(\'article-wat-betekent-de-ai-act\'); return false;">EU AI Act</a>, AVG en cookiewetgeving aan elkaar koppelt.'],
+          ['Hoe AI-systemen zoals ChatGPT en Perplexity dit gebruiken',[
+            'Één begrip volledig uitleggen',
+            'Interne links hebben naar gerelateerde onderwerpen',
+            'Geen fluff bevatten maar directe antwoorden geven'
+          ]],
+          ['Wat Semrush-data laat zien','Websites met een sterk intern linkprofiel en topical clusters ranken gemiddeld 2,3x hoger op long-tail zoekwoorden dan sites met losse blogposts. De reden: Google ziet de samenhang en beoordeelt de site als expert binnen dat onderwerp.'],
+          ['Conclusie','Wil je verkeer? Schrijf blogs. Wil je autoriteit, leads en AI-zichtbaarheid? Bouw een kennisbank. Bij AIChecked is de kennisbank opgebouwd rond AI compliance, tracking, websites en advertenties — niet als losse content maar als één systeem dat Google én AI-tools begrijpen.']
+        ],
+        faq:[
+          ['Zijn blogs dan niet meer nuttig?','Zeker wel. Blogs zijn nog steeds sterk voor actuele zoekvragen en long-tail verkeer, maar zonder samenhangend cluster bouw je minder autoriteit op.'],
+          ['Wanneer is een kennisbank interessanter dan losse blogposts?','Zodra je structureel gevonden wilt worden op meerdere subonderwerpen binnen één thema, werkt een kennisbank meestal beter dan losse content.'],
+          ['Wat betekent dit voor AI search?','AI-systemen halen liever informatie uit duidelijke, semantisch opgebouwde pagina\'s met context en interne links. Een kennisbank sluit daar beter op aan.']
+        ]
+      },
+      {
         slug:'waarom-meta-ads-duurder-worden',
         category:'Advertenties',
         title:'Waarom Meta Ads duurder voelen dan vroeger',
@@ -3474,7 +3505,7 @@
         const article = knowledgeBase.find(item => `article-${item.slug}` === id);
         if(article){
           return {
-            path:`/kennisbank/${article.slug}`,
+            path:`/ai-kennisbank/${article.slug}`,
             title:`${article.title} | AIChecked.nl`,
             description:article.description
           };
@@ -4881,8 +4912,8 @@
           </ul>
           <div class="read">Lees artikel →</div>
         </button>
-        <div class="overview-card">
-          <div class="eyebrow">Waarom deze kennisbank werkt</div>
+        <button class="kb-card" onclick="showPage('article-kennisbank-vs-blog-seo')">
+          <div class="meta"><span>SEO / AI Search</span><span class="dot"></span><span>5 min lezen</span></div>
           <h3>Geen blogs voor verkeer alleen.</h3>
           <p class="lead" style="font-size:16px;max-width:none">Deze kennisbank is opgebouwd als contenthub: duidelijke definities, semantische koppen, FAQ-structuur en interne routes naar diensten die er in de praktijk echt bij horen.</p>
           <ul class="kb-proof-list">
@@ -4890,7 +4921,8 @@
             <li>Gebouwd voor AI overviews, ChatGPT, Gemini en Perplexity</li>
             <li>Gericht op topical authority rond AI, websites, tracking en performance</li>
           </ul>
-        </div>
+          <div class="read">Lees artikel →</div>
+        </button>
       ` : '';
       document.getElementById('kb-grid').innerHTML = visible.map(item => `
         <button class="kb-card" onclick="showPage('article-${item.slug}')">
@@ -6433,10 +6465,11 @@
       }
       const path = window.location.pathname.replace(/\/+$/,'') || '/';
       if(path === '/') return 'home';
-      if(path.startsWith('/kennisbank/')){
-        const articleSlug = path.replace('/kennisbank/','');
+      if(path.startsWith('/ai-kennisbank/')){
+        const articleSlug = path.replace('/ai-kennisbank/','');
         const articleId = `article-${articleSlug}`;
         if(document.getElementById(`page-${articleId}`)) return articleId;
+        if(articleSlug === 'kennisbank-vs-blog-strategie') return 'article-kennisbank-vs-blog-seo';
       }
       const explicitRoute = Object.entries(seoRoutes).find(([,meta]) => meta.path === path);
       if(explicitRoute) return explicitRoute[0];
