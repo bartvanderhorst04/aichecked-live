@@ -1752,13 +1752,13 @@
     <div class="noise"></div>
   </div>
   <div class="mobile-menu" id="mobile-menu">
-    <a onclick="showPage('home');toggleMobile(false)">Home</a>
-    <a onclick="showPage('aanbod');toggleMobile(false)">Aanbod</a>
-    <a onclick="showPage('cases');toggleMobile(false)">Cases</a>
-    <a onclick="showPage('ai-kennisbank');toggleMobile(false)">AI kennisbank</a>
-    <a onclick="showPage('over-ons');toggleMobile(false)">Over ons</a>
-    <a onclick="showPage('contact');toggleMobile(false)">Contact</a>
-    <a onclick="showPage('klantportaal');toggleMobile(false)">Klantportaal</a>
+    <a href="index.html" onclick="return navigatePage(event,'home', true)">Home</a>
+    <a href="aanbod.html" onclick="return navigatePage(event,'aanbod', true)">Aanbod</a>
+    <a href="cases.html" onclick="return navigatePage(event,'cases', true)">Cases</a>
+    <a href="ai-kennisbank.html" onclick="return navigatePage(event,'ai-kennisbank', true)">AI kennisbank</a>
+    <a href="over-ons.html" onclick="return navigatePage(event,'over-ons', true)">Over ons</a>
+    <a href="contact.html" onclick="return navigatePage(event,'contact', true)">Contact</a>
+    <a href="klantportaal.html" onclick="return navigatePage(event,'klantportaal', true)">Klantportaal</a>
   </div>
 
   <nav id="main-nav">
@@ -1768,23 +1768,23 @@
     </div>
     <ul class="nav-links" style="justify-self:center">
         <li class="nav-item">
-          <a id="nav-aanbod" onclick="showPage('aanbod')">Aanbod</a>
+          <a id="nav-aanbod" href="aanbod.html" onclick="return navigatePage(event,'aanbod')">Aanbod</a>
           <div class="mega">
-            <a class="mega-card" onclick="showPage('email-marketing')"><strong>Email Marketing</strong><p>Meer omzet uit bestaande klanten zonder losse campagnes of handmatig werk.</p></a>
-            <a class="mega-card" onclick="showPage('seo')"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
-            <a class="mega-card" onclick="showPage('advertenties')"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
-            <a class="mega-card" onclick="showPage('websites')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
-            <a class="mega-card" onclick="showPage('branding')"><strong>Branding</strong><p>Een merklaag die vertrouwen opbouwt voordat het gesprek inhoudelijk begint.</p></a>
-            <a class="mega-card" onclick="showPage('ai-compliance')"><strong>AI Compliance</strong><p>Consent, governance en privacy-instellingen die juridisch en technisch kloppen.</p></a>
+            <a class="mega-card" href="email-marketing.html" onclick="return navigatePage(event,'email-marketing')"><strong>Email Marketing</strong><p>Meer omzet uit bestaande klanten zonder losse campagnes of handmatig werk.</p></a>
+            <a class="mega-card" href="seo.html" onclick="return navigatePage(event,'seo')"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
+            <a class="mega-card" href="advertenties.html" onclick="return navigatePage(event,'advertenties')"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
+            <a class="mega-card" href="website-bouwen.html" onclick="return navigatePage(event,'websites')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
+            <a class="mega-card" href="branding.html" onclick="return navigatePage(event,'branding')"><strong>Branding</strong><p>Een merklaag die vertrouwen opbouwt voordat het gesprek inhoudelijk begint.</p></a>
+            <a class="mega-card" href="ai-compliance.html" onclick="return navigatePage(event,'ai-compliance')"><strong>AI Compliance</strong><p>Consent, governance en privacy-instellingen die juridisch en technisch kloppen.</p></a>
           </div>
         </li>
-        <li><a id="nav-cases" onclick="showPage('cases')">Cases</a></li>
-        <li><a id="nav-ai-kennisbank" onclick="showPage('ai-kennisbank')">AI kennisbank</a></li>
-        <li><a id="nav-over-ons" onclick="showPage('over-ons')">Over ons</a></li>
-        <li><a id="nav-contact" onclick="showPage('contact')">Contact</a></li>
+        <li><a id="nav-cases" href="cases.html" onclick="return navigatePage(event,'cases')">Cases</a></li>
+        <li><a id="nav-ai-kennisbank" href="ai-kennisbank.html" onclick="return navigatePage(event,'ai-kennisbank')">AI kennisbank</a></li>
+        <li><a id="nav-over-ons" href="over-ons.html" onclick="return navigatePage(event,'over-ons')">Over ons</a></li>
+        <li><a id="nav-contact" href="contact.html" onclick="return navigatePage(event,'contact')">Contact</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:14px;flex:0 0 auto;margin-left:auto">
-      <button class="btn btn-ghost nav-portal" onclick="showPage('login')">Klantportaal →</button>
+      <button class="btn btn-ghost nav-portal" onclick="showPage('klantportaal')">Klantportaal →</button>
       <div class="nav-toggle" onclick="toggleMobile()"><span></span><span></span><span></span></div>
     </div>
   </nav>
@@ -1842,8 +1842,8 @@
                     <div class="ring-copy"><strong>34</strong><span>Compliance</span></div>
                   </div>
                   <div>
-                    <h3 style="font-family:var(--serif);font-size:24px;line-height:1.15;margin-bottom:8px">Live inzicht in wat niet klopt</h3>
-                    <p class="small" style="margin-bottom:12px">Tracking klopt niet, flows missen stappen en instellingen zijn verouderd. Je ziet direct wat er misgaat en wat we verbeteren.</p>
+                    <h3 style="font-family:var(--serif);font-size:24px;line-height:1.15;margin-bottom:8px">Nieuwe EU-regels gelden nu ook voor jouw website</h3>
+                    <p class="small" style="margin-bottom:12px">De EU AI Act, cookiewet en AVG worden strenger gehandhaafd. De meeste websites voldoen niet — ook die van jou waarschijnlijk nog niet.</p>
                     <p class="small"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--green);margin-right:8px"></span><strong style="color:var(--white)">AIChecked.nl fixt het voor je.</strong> Jij ziet wat er speelt, wij zorgen dat het weer klopt.</p>
                   </div>
                 </div>
@@ -1931,17 +1931,17 @@
           </div>
           <div>
             <h4>Pagina’s</h4>
-            <a onclick="showPage('aanbod')">Aanbod</a>
-            <a onclick="showPage('cases')">Cases</a>
-            <a onclick="showPage('ai-kennisbank')">AI kennisbank</a>
-            <a onclick="showPage('contact')">Contact</a>
+            <a href="aanbod.html" onclick="return navigatePage(event,'aanbod')">Aanbod</a>
+            <a href="cases.html" onclick="return navigatePage(event,'cases')">Cases</a>
+            <a href="ai-kennisbank.html" onclick="return navigatePage(event,'ai-kennisbank')">AI kennisbank</a>
+            <a href="contact.html" onclick="return navigatePage(event,'contact')">Contact</a>
           </div>
           <div>
             <h4>Juridisch</h4>
-            <a onclick="showPage('privacy')">Privacy</a>
-            <a onclick="showPage('cookies')">Cookies</a>
-            <a onclick="showPage('algemene-voorwaarden')">Algemene voorwaarden</a>
-            <a onclick="showPage('disclaimer')">Disclaimer</a>
+            <a href="privacy.html" onclick="return navigatePage(event,'privacy')">Privacy</a>
+            <a href="cookies.html" onclick="return navigatePage(event,'cookies')">Cookies</a>
+            <a href="algemene-voorwaarden.html" onclick="return navigatePage(event,'algemene-voorwaarden')">Algemene voorwaarden</a>
+            <a href="disclaimer.html" onclick="return navigatePage(event,'disclaimer')">Disclaimer</a>
           </div>
           <div>
             <h4>Contact</h4>
@@ -3353,17 +3353,54 @@
       sitemap:{path:'/sitemap',title:'Sitemap | AIChecked.nl',description:'Overzicht van alle diensten, lokale pagina’s, kennisbankartikelen en bedrijfspagina’s van AIChecked.nl.'},
       'over-ons':{path:'/over-ons',title:'Over ons | AIChecked.nl',description:'Bart van der Horst bouwt met AIChecked aan betrouwbare digitale infrastructuur voor bedrijven die rust en controle willen.'},
       contact:{path:'/contact',title:'Contact | AIChecked.nl',description:'Plan een strategiegesprek met AIChecked over compliance, tracking, websites, dashboards en digitale basisproblemen.'},
+      klantportaal:{path:'/klantportaal',title:'Klantportaal | AIChecked.nl',description:'Log in op het klantportaal van AIChecked voor voortgang, metrics, scans en updates per actieve dienst.'},
       privacy:{path:'/privacy',title:'Privacybeleid | AIChecked.nl',description:'Lees hoe AIChecked persoonsgegevens verwerkt, bewaart en beschermt volgens de AVG / GDPR.'},
       cookies:{path:'/cookies',title:'Cookiebeleid | AIChecked.nl',description:'Lees hoe AIChecked cookies, analytics, marketingtools en consent op de website inzet.'},
       'algemene-voorwaarden':{path:'/algemene-voorwaarden',title:'Algemene voorwaarden | AIChecked.nl',description:'De algemene voorwaarden van AIChecked over diensten, betaling, aansprakelijkheid en support.'},
       disclaimer:{path:'/disclaimer',title:'Disclaimer | AIChecked.nl',description:'Lees de disclaimer van AIChecked over informatievoorziening, externe links en aansprakelijkheidsbeperking.'}
     };
 
+    const fileRoutes = {
+      home:'index.html',
+      aanbod:'aanbod.html',
+      cases:'cases.html',
+      'ai-kennisbank':'ai-kennisbank.html',
+      'over-ons':'over-ons.html',
+      contact:'contact.html',
+      klantportaal:'klantportaal.html',
+      login:'klantportaal.html',
+      'email-marketing':'email-marketing.html',
+      seo:'seo.html',
+      advertenties:'advertenties.html',
+      websites:'website-bouwen.html',
+      'website-bouwen':'website-bouwen.html',
+      branding:'branding.html',
+      'ai-compliance':'ai-compliance.html',
+      privacy:'privacy.html',
+      cookies:'cookies.html',
+      'algemene-voorwaarden':'algemene-voorwaarden.html',
+      disclaimer:'disclaimer.html',
+      sitemap:'sitemap.html'
+    };
+
+    const fileRouteToId = Object.fromEntries(Object.entries(fileRoutes).map(([id,file]) => [file,id]));
+
+    function getFileRoute(id){
+      return fileRoutes[id] || '';
+    }
+
+    function getPageHref(id){
+      if(window.location.protocol === 'file:'){
+        return getFileRoute(id) || `index.html#${id}`;
+      }
+      return getSeoRoute(id).path;
+    }
+
     function getSeoRoute(id){
       if(seoRoutes[id]) return seoRoutes[id];
       const service = services.find(item => item.slug === id);
       if(service){
-        const slugMap = {'seo':'/seo-ai-search','advertenties':'/advertenties','websites':'/websites'};
+        const slugMap = {'seo':'/seo','advertenties':'/advertenties','websites':'/website-bouwen'};
         return {
           path:slugMap[id] || `/${id}`,
           title:service.seoTitle || `${service.title} | AIChecked.nl`,
@@ -3493,18 +3530,18 @@
             </div>
             <div>
               <h4>Navigatie</h4>
-              <a href="#aanbod" role="button" onclick="showPage('aanbod'); return false;">Aanbod</a>
-              <a href="#cases" role="button" onclick="showPage('cases'); return false;">Cases</a>
-              <a href="#ai-kennisbank" role="button" onclick="showPage('ai-kennisbank'); return false;">AI kennisbank</a>
-              <a href="#over-ons" role="button" onclick="showPage('over-ons'); return false;">Over ons</a>
-              <a href="#contact" role="button" onclick="showPage('contact'); return false;">Contact</a>
+              <a href="${getPageHref('aanbod')}" role="button" onclick="return navigatePage(event,'aanbod')">Aanbod</a>
+              <a href="${getPageHref('cases')}" role="button" onclick="return navigatePage(event,'cases')">Cases</a>
+              <a href="${getPageHref('ai-kennisbank')}" role="button" onclick="return navigatePage(event,'ai-kennisbank')">AI kennisbank</a>
+              <a href="${getPageHref('over-ons')}" role="button" onclick="return navigatePage(event,'over-ons')">Over ons</a>
+              <a href="${getPageHref('contact')}" role="button" onclick="return navigatePage(event,'contact')">Contact</a>
             </div>
             <div>
               <h4>Juridisch</h4>
-              <a href="#privacy" role="button" onclick="showPage('privacy'); return false;">Privacybeleid</a>
-              <a href="#cookies" role="button" onclick="showPage('cookies'); return false;">Cookiebeleid</a>
-              <a href="#algemene-voorwaarden" role="button" onclick="showPage('algemene-voorwaarden'); return false;">Algemene voorwaarden</a>
-              <a href="#disclaimer" role="button" onclick="showPage('disclaimer'); return false;">Disclaimer</a>
+              <a href="${getPageHref('privacy')}" role="button" onclick="return navigatePage(event,'privacy')">Privacybeleid</a>
+              <a href="${getPageHref('cookies')}" role="button" onclick="return navigatePage(event,'cookies')">Cookiebeleid</a>
+              <a href="${getPageHref('algemene-voorwaarden')}" role="button" onclick="return navigatePage(event,'algemene-voorwaarden')">Algemene voorwaarden</a>
+              <a href="${getPageHref('disclaimer')}" role="button" onclick="return navigatePage(event,'disclaimer')">Disclaimer</a>
               <a href="sitemap.html">Sitemap</a>
             </div>
             <div>
@@ -4630,16 +4667,16 @@
                 <div class="overview-card">
                   <h3>Diensten</h3>
                   <ul class="bullet-list">
-                    ${services.map(item=>`<li><a href="#${item.slug}" onclick="showPage('${item.slug}'); return false;">${item.title}</a></li>`).join('')}
+                    ${services.map(item=>`<li><a href="${getPageHref(item.slug)}" onclick="return navigatePage(event,'${item.slug}')">${item.title}</a></li>`).join('')}
                   </ul>
                 </div>
                 <div class="overview-card">
                   <h3>Bedrijf</h3>
                   <ul class="bullet-list">
-                    <li><a href="#over-ons" onclick="showPage('over-ons'); return false;">Over ons</a></li>
-                    <li><a href="#cases" onclick="showPage('cases'); return false;">Cases</a></li>
-                    <li><a href="#contact" onclick="showPage('contact'); return false;">Contact</a></li>
-                    <li><a href="#klantportaal" onclick="showPage('klantportaal'); return false;">Klantportaal</a></li>
+                    <li><a href="${getPageHref('over-ons')}" onclick="return navigatePage(event,'over-ons')">Over ons</a></li>
+                    <li><a href="${getPageHref('cases')}" onclick="return navigatePage(event,'cases')">Cases</a></li>
+                    <li><a href="${getPageHref('contact')}" onclick="return navigatePage(event,'contact')">Contact</a></li>
+                    <li><a href="${getPageHref('klantportaal')}" onclick="return navigatePage(event,'klantportaal')">Klantportaal</a></li>
                   </ul>
                 </div>
               </div>
@@ -6302,7 +6339,45 @@
       window.location.href = 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1SPBgmZQ1XSYWQRkGAxUaSpRVhIIaFPBxq1EmTwHjVCdk_vOJT3Lloz3YUtpWrLd0rG-HTEPMS';
     }
 
+    function navigatePage(event, id, closeMobile = false){
+      if(event) event.preventDefault();
+      showPage(id);
+      if(closeMobile) toggleMobile(false);
+      return false;
+    }
+
+    function getRouteIdFromLocation(){
+      if(window.location.protocol === 'file:'){
+        const fileName = window.location.pathname.split('/').pop() || 'index.html';
+        if(fileRouteToId[fileName]) return fileRouteToId[fileName];
+        if(window.location.hash){
+          const hashId = window.location.hash.replace('#','');
+          if(document.getElementById(`page-${hashId}`)) return hashId;
+        }
+        return 'home';
+      }
+      const path = window.location.pathname.replace(/\/+$/,'') || '/';
+      if(path === '/') return 'home';
+      if(path.startsWith('/kennisbank/')){
+        const articleSlug = path.replace('/kennisbank/','');
+        const articleId = `article-${articleSlug}`;
+        if(document.getElementById(`page-${articleId}`)) return articleId;
+      }
+      const explicitRoute = Object.entries(seoRoutes).find(([,meta]) => meta.path === path);
+      if(explicitRoute) return explicitRoute[0];
+      const serviceRoute = services.find(item => getSeoRoute(item.slug).path === path);
+      if(serviceRoute) return serviceRoute.slug;
+      const localPageRoute = localPages.find(item => `/${item.slug}` === path);
+      if(localPageRoute) return localPageRoute.slug;
+      if(window.location.hash){
+        const hashId = window.location.hash.replace('#','');
+        if(document.getElementById(`page-${hashId}`)) return hashId;
+      }
+      return 'home';
+    }
+
     function showPage(id){
+      const requestedId = id;
       if(id === 'klantportaal' && !currentPortalClientEmail){
         id = 'login';
       }
@@ -6357,9 +6432,23 @@
         renderPortalClient();
       }
       toggleMobile(false);
-      updateSeo(id);
-      if(window.location.hash !== `#${id}`){
-        history.replaceState(null,'',`#${id}`);
+      updateSeo(requestedId === 'klantportaal' ? 'klantportaal' : id);
+      const routeId = requestedId === 'login' ? 'klantportaal' : requestedId;
+      const fileRoute = getFileRoute(routeId);
+      if(window.location.protocol === 'file:'){
+        const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+        if(fileRoute && currentFile !== fileRoute){
+          window.location.href = fileRoute;
+          return;
+        }
+        if(!fileRoute && window.location.hash !== `#${id}`){
+          history.replaceState(null,'',`#${id}`);
+        }
+      }else{
+        const targetPath = getSeoRoute(routeId).path;
+        if(window.location.pathname !== targetPath){
+          history.pushState({page:routeId},'',targetPath);
+        }
       }
       window.scrollTo({top:0,behavior:'smooth'});
     }
@@ -6445,11 +6534,18 @@
       document.getElementById('kb-search').addEventListener('input', renderKnowledgeBase);
       initRevealObserver();
       primeReveals(document);
-      const initialId = window.location.protocol === 'file:' && window.location.hash ? window.location.hash.replace('#','') : 'home';
+      const initialId = getRouteIdFromLocation();
       if(initialId && document.getElementById(`page-${initialId}`)){
         showPage(initialId);
       } else {
         updateSeo('home');
+      }
+    });
+
+    window.addEventListener('popstate', () => {
+      const routeId = getRouteIdFromLocation();
+      if(routeId && document.getElementById(`page-${routeId}`)){
+        showPage(routeId);
       }
     });
   </script>
