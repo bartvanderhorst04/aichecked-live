@@ -2117,16 +2117,18 @@
               <div class="overview-card"><h3 style="font-size:20px">Responstijd</h3><p class="small">Gemiddeld binnen één werkdag. Als iets niet past, zeggen we dat ook meteen.</p></div>
             </div>
           </div>
-          <div class="form-card">
+          <form id="contact-form" class="form-card" action="https://formspree.io/f/xkoyadew" method="POST" onsubmit="return sendContactQuestionnaire(event)">
             <div class="form-grid">
-              <div class="field"><label>Voornaam</label><input id="contact-first-name" type="text" placeholder="Sanne"></div>
-              <div class="field"><label>Achternaam</label><input id="contact-last-name" type="text" placeholder="Jansen"></div>
+              <div class="field"><label>Voornaam</label><input id="contact-first-name" name="Voornaam" type="text" placeholder="Sanne"></div>
+              <div class="field"><label>Achternaam</label><input id="contact-last-name" name="Achternaam" type="text" placeholder="Jansen"></div>
             </div>
-            <div class="field"><label>Bedrijf</label><input id="contact-company" type="text" placeholder="Jouw bedrijf"></div>
-            <div class="field"><label>E-mailadres</label><input id="contact-email" type="email" placeholder="naam@bedrijf.nl"></div>
-            <div class="field"><label>Ik wil hulp bij</label><select id="contact-service"><option>Email Marketing</option><option>SEO / AI Search</option><option>Ads & Campagnes</option><option>Websites</option><option>Branding</option><option>AI Compliance</option></select></div>
-            <div class="field"><label>Huidige situatie</label><textarea id="contact-situation" placeholder="Wat voelt nu onduidelijk, fout of traag?"></textarea></div>
-            <button class="btn btn-primary" style="width:100%;margin-top:2px" onclick="sendContactQuestionnaire()">Verstuur vragenlijst</button>
+            <div class="field"><label>Bedrijf</label><input id="contact-company" name="Bedrijf" type="text" placeholder="Jouw bedrijf"></div>
+            <div class="field"><label>E-mailadres</label><input id="contact-email" name="E-mailadres" type="email" placeholder="naam@bedrijf.nl"></div>
+            <div class="field"><label>Ik wil hulp bij</label><select id="contact-service" name="Gekozen dienst"><option>Email Marketing</option><option>SEO / AI Search</option><option>Ads & Campagnes</option><option>Websites</option><option>Branding</option><option>AI Compliance</option></select></div>
+            <div class="field"><label>Huidige situatie</label><textarea id="contact-situation" name="Huidige situatie" placeholder="Wat voelt nu onduidelijk, fout of traag?"></textarea></div>
+            <input type="hidden" name="_subject" value="Nieuwe aanvraag via AIChecked.nl">
+            <button class="btn btn-primary" type="submit" style="width:100%;margin-top:2px">Verstuur vragenlijst</button>
+            <p id="contact-form-success" class="small" style="display:none;margin-top:10px;color:var(--green)">Bedankt. Je aanvraag is verstuurd. We komen snel bij je terug.</p>
             <div class="overview-card" style="margin-top:18px;padding:18px 20px">
               <h3 style="font-size:20px">Veelgestelde vragen</h3>
               <ul class="bullet-list">
@@ -2139,7 +2141,7 @@
               <button class="btn btn-ghost" onclick="openCalendar()">Plan gesprek</button>
               <button class="btn btn-ghost" onclick="openContactMail()">Plan een gratis kennismaking</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </section>
@@ -6358,23 +6360,43 @@
       window.location.href = `mailto:bartvanderhorst04@icloud.com,info@aichecked.nl?subject=${subject}&body=${body}`;
     }
 
-    function sendContactQuestionnaire(){
+    async function sendContactQuestionnaire(event){
+      if(event) event.preventDefault();
+      const form = document.getElementById('contact-form');
+      if(!form) return false;
       const firstName = document.getElementById('contact-first-name')?.value?.trim() || '';
       const lastName = document.getElementById('contact-last-name')?.value?.trim() || '';
       const company = document.getElementById('contact-company')?.value?.trim() || '';
       const email = document.getElementById('contact-email')?.value?.trim() || '';
       const service = document.getElementById('contact-service')?.value?.trim() || '';
       const situation = document.getElementById('contact-situation')?.value?.trim() || '';
-      const subject = encodeURIComponent('Nieuwe aanvraag via AIChecked.nl');
-      const body = encodeURIComponent(
-        `Voornaam: ${firstName}\n` +
-        `Achternaam: ${lastName}\n` +
-        `Bedrijf: ${company}\n` +
-        `E-mailadres: ${email}\n` +
-        `Gekozen dienst: ${service}\n` +
-        `Huidige situatie:\n${situation || '-'}`
-      );
-      window.location.href = `mailto:bartvanderhorst04@icloud.com,info@aichecked.nl?subject=${subject}&body=${body}`;
+      if(!firstName || !email || !situation){
+        showToast('Vul minimaal je voornaam, e-mailadres en huidige situatie in.');
+        return false;
+      }
+      const success = document.getElementById('contact-form-success');
+      if(success) success.style.display = 'none';
+      const formData = new FormData(form);
+      formData.set('Voornaam', firstName);
+      formData.set('Achternaam', lastName);
+      formData.set('Bedrijf', company);
+      formData.set('E-mailadres', email);
+      formData.set('Gekozen dienst', service);
+      formData.set('Huidige situatie', situation);
+      try{
+        const response = await fetch(form.action, {
+          method:'POST',
+          body:formData,
+          headers:{'Accept':'application/json'}
+        });
+        if(!response.ok) throw new Error('Formspree request failed');
+        form.reset();
+        if(success) success.style.display = 'block';
+        showToast('Aanvraag verstuurd.');
+      }catch(error){
+        showToast('Versturen lukt nu even niet. Probeer het opnieuw.');
+      }
+      return false;
     }
 
     function openCalendar(){
