@@ -1824,9 +1824,9 @@
           <a id="nav-aanbod" href="aanbod.html" onclick="return navigatePage(event,'aanbod')">Aanbod</a>
           <div class="mega">
             <a class="mega-card" href="email-marketing.html" onclick="return navigatePage(event,'email-marketing')"><strong>Email Marketing</strong><p>Meer omzet uit bestaande klanten zonder losse campagnes of handmatig werk.</p></a>
-            <a class="mega-card" href="/seo" onclick="return navigatePage(event,'seo')"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
-            <a class="mega-card" href="/advertenties" onclick="return navigatePage(event,'advertenties')"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
-            <a class="mega-card" href="/website-bouwen" onclick="return navigatePage(event,'websites')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
+            <a class="mega-card" href="seo.html" onclick="return navigatePage(event,'seo')"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
+            <a class="mega-card" href="advertenties.html" onclick="return navigatePage(event,'advertenties')"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
+            <a class="mega-card" href="website-bouwen.html" onclick="return navigatePage(event,'websites')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
             <a class="mega-card" href="branding.html" onclick="return navigatePage(event,'branding')"><strong>Branding</strong><p>Een merklaag die vertrouwen opbouwt voordat het gesprek inhoudelijk begint.</p></a>
             <a class="mega-card" href="ai-compliance.html" onclick="return navigatePage(event,'ai-compliance')"><strong>AI Compliance</strong><p>Consent, governance en privacy-instellingen die juridisch en technisch kloppen.</p></a>
           </div>
@@ -3450,10 +3450,10 @@
       klantportaal:'klantportaal.html',
       login:'klantportaal.html',
       'email-marketing':'email-marketing.html',
-      seo:'/seo',
-      advertenties:'/advertenties',
-      websites:'/website-bouwen',
-      'website-bouwen':'/website-bouwen',
+      seo:'seo.html',
+      advertenties:'advertenties.html',
+      websites:'website-bouwen.html',
+      'website-bouwen':'website-bouwen.html',
       branding:'branding.html',
       'ai-compliance':'ai-compliance.html',
       privacy:'privacy.html',
@@ -3590,9 +3590,7 @@
       }
       const schemaEl = document.getElementById('schema-json');
       if(schemaEl) schemaEl.textContent = JSON.stringify(schema);
-      if(window.location.protocol !== 'file:'){
-        history.replaceState({}, '', meta.path);
-      } else {
+      if(window.location.protocol === 'file:'){
         window.location.hash = id;
       }
     }
@@ -6472,16 +6470,16 @@
         if(document.getElementById(`page-${articleId}`)) return articleId;
         if(articleSlug === 'kennisbank-vs-blog-strategie') return 'article-kennisbank-vs-blog-seo';
       }
+      if(window.location.hash){
+        const hashId = window.location.hash.replace('#','');
+        if(document.getElementById(`page-${hashId}`)) return hashId;
+      }
       const explicitRoute = Object.entries(seoRoutes).find(([,meta]) => meta.path === path);
       if(explicitRoute) return explicitRoute[0];
       const serviceRoute = services.find(item => getSeoRoute(item.slug).path === path);
       if(serviceRoute) return serviceRoute.slug;
       const localPageRoute = localPages.find(item => `/${item.slug}` === path);
       if(localPageRoute) return localPageRoute.slug;
-      if(window.location.hash){
-        const hashId = window.location.hash.replace('#','');
-        if(document.getElementById(`page-${hashId}`)) return hashId;
-      }
       return 'home';
     }
 
@@ -6554,9 +6552,17 @@
           history.replaceState(null,'',`#${id}`);
         }
       }else{
-        const targetPath = getSeoRoute(routeId).path;
-        if(window.location.pathname !== targetPath){
-          history.pushState({page:routeId},'',targetPath);
+        const currentRouteId = getRouteIdFromLocation();
+        const currentFileRoute = getFileRoute(currentRouteId);
+        if(fileRoute && currentFileRoute && currentFileRoute !== fileRoute){
+          window.location.href = fileRoute;
+          return;
+        }
+        if(!fileRoute){
+          const nextHash = `#${id}`;
+          if(window.location.hash !== nextHash){
+            history.replaceState({page:routeId},'',`${window.location.pathname}${nextHash}`);
+          }
         }
       }
       window.scrollTo({top:0,behavior:'smooth'});
