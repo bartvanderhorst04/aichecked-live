@@ -1816,13 +1816,13 @@
     <div class="noise"></div>
   </div>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="index.html" onclick="return navigatePage(event,'home', true)">Home</a>
-    <a href="aanbod.html" onclick="return navigatePage(event,'aanbod', true)">Aanbod</a>
-    <a href="cases.html" onclick="return navigatePage(event,'cases', true)">Cases</a>
-    <a href="ai-kennisbank.html" onclick="return navigatePage(event,'ai-kennisbank', true)">AI kennisbank</a>
-    <a href="over-ons.html" onclick="return navigatePage(event,'over-ons', true)">Over ons</a>
-    <a href="contact.html" onclick="return navigatePage(event,'contact', true)">Contact</a>
-    <a href="klantportaal.html" onclick="return navigatePage(event,'klantportaal', true)">Klantportaal</a>
+    <a href="/" onclick="return navigatePage(event,'home', true)">Home</a>
+    <a href="/aanbod" onclick="return navigatePage(event,'aanbod', true)">Aanbod</a>
+    <a href="/cases" onclick="return navigatePage(event,'cases', true)">Cases</a>
+    <a href="/ai-kennisbank" onclick="return navigatePage(event,'ai-kennisbank', true)">AI kennisbank</a>
+    <a href="/over-ons" onclick="return navigatePage(event,'over-ons', true)">Over ons</a>
+    <a href="/contact" onclick="return navigatePage(event,'contact', true)">Contact</a>
+    <a href="/klantportaal" onclick="return navigatePage(event,'klantportaal', true)">Klantportaal</a>
   </div>
 
   <nav id="main-nav">
@@ -1832,20 +1832,20 @@
     </div>
     <ul class="nav-links" style="justify-self:center">
         <li class="nav-item">
-          <a id="nav-aanbod" href="aanbod.html" onclick="return navigatePage(event,'aanbod')">Aanbod</a>
+          <a id="nav-aanbod" href="/aanbod" onclick="return navigatePage(event,'aanbod')">Aanbod</a>
           <div class="mega">
-            <a class="mega-card" href="email-marketing.html" onclick="return navigatePage(event,'email-marketing')"><strong>Email Marketing</strong><p>Meer omzet uit bestaande klanten zonder losse campagnes of handmatig werk.</p></a>
-            <a class="mega-card" href="seo.html" onclick="return navigatePage(event,'seo')"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
-            <a class="mega-card" href="advertenties.html" onclick="return navigatePage(event,'advertenties')"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
-            <a class="mega-card" href="website-bouwen.html" onclick="return navigatePage(event,'websites')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
-            <a class="mega-card" href="branding.html" onclick="return navigatePage(event,'branding')"><strong>Branding</strong><p>Een merklaag die vertrouwen opbouwt voordat het gesprek inhoudelijk begint.</p></a>
-            <a class="mega-card" href="ai-compliance.html" onclick="return navigatePage(event,'ai-compliance')"><strong>AI Compliance</strong><p>Consent, governance en privacy-instellingen die juridisch en technisch kloppen.</p></a>
+            <a class="mega-card" href="/email-marketing" onclick="return navigatePage(event,'email-marketing')"><strong>Email Marketing</strong><p>Meer omzet uit bestaande klanten zonder losse campagnes of handmatig werk.</p></a>
+            <a class="mega-card" href="/seo" onclick="return navigatePage(event,'seo')"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
+            <a class="mega-card" href="/advertenties" onclick="return navigatePage(event,'advertenties')"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
+            <a class="mega-card" href="/website-bouwen" onclick="return navigatePage(event,'websites')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
+            <a class="mega-card" href="/branding" onclick="return navigatePage(event,'branding')"><strong>Branding</strong><p>Een merklaag die vertrouwen opbouwt voordat het gesprek inhoudelijk begint.</p></a>
+            <a class="mega-card" href="/ai-compliance" onclick="return navigatePage(event,'ai-compliance')"><strong>AI Compliance</strong><p>Consent, governance en privacy-instellingen die juridisch en technisch kloppen.</p></a>
           </div>
         </li>
-        <li><a id="nav-cases" href="cases.html" onclick="return navigatePage(event,'cases')">Cases</a></li>
-        <li><a id="nav-ai-kennisbank" href="ai-kennisbank.html" onclick="return navigatePage(event,'ai-kennisbank')">AI kennisbank</a></li>
-        <li><a id="nav-over-ons" href="over-ons.html" onclick="return navigatePage(event,'over-ons')">Over ons</a></li>
-        <li><a id="nav-contact" href="contact.html" onclick="return navigatePage(event,'contact')">Contact</a></li>
+        <li><a id="nav-cases" href="/cases" onclick="return navigatePage(event,'cases')">Cases</a></li>
+        <li><a id="nav-ai-kennisbank" href="/ai-kennisbank" onclick="return navigatePage(event,'ai-kennisbank')">AI kennisbank</a></li>
+        <li><a id="nav-over-ons" href="/over-ons" onclick="return navigatePage(event,'over-ons')">Over ons</a></li>
+        <li><a id="nav-contact" href="/contact" onclick="return navigatePage(event,'contact')">Contact</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:14px;flex:0 0 auto;margin-left:auto">
       <button class="btn btn-ghost nav-portal" onclick="showPage('klantportaal')">Klantportaal →</button>
@@ -1864,7 +1864,7 @@
     <p class="cookie-text">
       Wij gebruiken cookies om de website goed te laten werken en om inzicht te krijgen in het gebruik. Analytische cookies helpen ons de site verbeteren.
       Wil je meer weten?
-      <a class="cookie-link" href="#contact" onclick="showPage('contact'); return false;">Privacyverklaring →</a>
+      <a class="cookie-link" href="/contact" onclick="return navigatePage(event,'contact')">Privacyverklaring →</a>
     </p>
     <div class="cookie-actions">
       <button class="btn btn-primary" type="button" onclick="setCookiePreference('all')">Alles accepteren</button>
@@ -1995,17 +1995,17 @@
           </div>
           <div>
             <h4>Pagina’s</h4>
-            <a href="aanbod.html" onclick="return navigatePage(event,'aanbod')">Aanbod</a>
-            <a href="cases.html" onclick="return navigatePage(event,'cases')">Cases</a>
-            <a href="ai-kennisbank.html" onclick="return navigatePage(event,'ai-kennisbank')">AI kennisbank</a>
-            <a href="contact.html" onclick="return navigatePage(event,'contact')">Contact</a>
+            <a href="/aanbod" onclick="return navigatePage(event,'aanbod')">Aanbod</a>
+            <a href="/cases" onclick="return navigatePage(event,'cases')">Cases</a>
+            <a href="/ai-kennisbank" onclick="return navigatePage(event,'ai-kennisbank')">AI kennisbank</a>
+            <a href="/contact" onclick="return navigatePage(event,'contact')">Contact</a>
           </div>
           <div>
             <h4>Juridisch</h4>
-            <a href="privacy.html" onclick="return navigatePage(event,'privacy')">Privacy</a>
-            <a href="cookies.html" onclick="return navigatePage(event,'cookies')">Cookies</a>
-            <a href="algemene-voorwaarden.html" onclick="return navigatePage(event,'algemene-voorwaarden')">Algemene voorwaarden</a>
-            <a href="disclaimer.html" onclick="return navigatePage(event,'disclaimer')">Disclaimer</a>
+            <a href="/privacy" onclick="return navigatePage(event,'privacy')">Privacy</a>
+            <a href="/cookies" onclick="return navigatePage(event,'cookies')">Cookies</a>
+            <a href="/algemene-voorwaarden" onclick="return navigatePage(event,'algemene-voorwaarden')">Algemene voorwaarden</a>
+            <a href="/disclaimer" onclick="return navigatePage(event,'disclaimer')">Disclaimer</a>
           </div>
           <div>
             <h4>Contact</h4>
@@ -3484,7 +3484,8 @@
       if(window.location.protocol === 'file:'){
         return getFileRoute(id) || `index.html#${id}`;
       }
-      return getFileRoute(id) || `index.html#${id}`;
+      if(id === 'admin' || id === 'login') return `#${id}`;
+      return getSeoRoute(id).path;
     }
 
 
@@ -3636,7 +3637,7 @@
               <a href="${getPageHref('cookies')}" role="button" onclick="return navigatePage(event,'cookies')">Cookiebeleid</a>
               <a href="${getPageHref('algemene-voorwaarden')}" role="button" onclick="return navigatePage(event,'algemene-voorwaarden')">Algemene voorwaarden</a>
               <a href="${getPageHref('disclaimer')}" role="button" onclick="return navigatePage(event,'disclaimer')">Disclaimer</a>
-              <a href="sitemap.html">Sitemap</a>
+              <a href="/sitemap">Sitemap</a>
             </div>
             <div>
               <h4>Contact</h4>
@@ -4608,7 +4609,7 @@
                     <h2 style="margin-bottom:10px">Waar dit onderwerp direct op aansluit</h2>
                     <p style="margin-bottom:16px">Dit artikel staat niet los. In de praktijk hangt dit onderwerp meestal direct samen met campagnes, websites, tracking of compliance-keuzes.</p>
                     <div class="article-service-links">
-                      ${serviceLinks.map(service => `<a class="inline-link" href="#${service.slug}" onclick="showPage('${service.slug}'); return false;">Bekijk ${service.title}</a>`).join('')}
+                      ${serviceLinks.map(service => `<a class="inline-link" href="${getPageHref(service.slug)}" onclick="return navigatePage(event,'${service.slug}')">Bekijk ${service.title}</a>`).join('')}
                     </div>
                   </section>
                   <section>
@@ -4635,11 +4636,11 @@
                   <div class="eyebrow">Gerelateerd</div>
                   <p class="small" style="margin-bottom:14px">${getKnowledgeClusterLabel(article.category)}</p>
                   <div class="article-related-list">
-                    ${relatedArticles.map(item=>`<a class="inline-link" href="#article-${item.slug}" onclick="showPage('article-${item.slug}'); return false;">${item.title}</a>`).join('')}
+                    ${relatedArticles.map(item=>`<a class="inline-link" href="${getPageHref(`article-${item.slug}`)}" onclick="return navigatePage(event,'article-${item.slug}')">${item.title}</a>`).join('')}
                   </div>
                   <div class="article-section-links" style="margin-top:20px">
                     <div class="eyebrow">Interne links</div>
-                    ${serviceLinks.map(service => `<a class="inline-link" href="#${service.slug}" onclick="showPage('${service.slug}'); return false;">Naar ${service.title}</a>`).join('')}
+                    ${serviceLinks.map(service => `<a class="inline-link" href="${getPageHref(service.slug)}" onclick="return navigatePage(event,'${service.slug}')">Naar ${service.title}</a>`).join('')}
                   </div>
                 </aside>
               </div>
@@ -4783,20 +4784,20 @@
               <div class="overview-card" style="margin-top:18px">
                 <h3>Lokale pagina’s</h3>
                 <div class="service-copy-grid">
-                  ${localPages.map(page=>`<a class="inline-link" href="#${page.slug}" onclick="showPage('${page.slug}'); return false;">${page.title}</a>`).join('')}
+                  ${localPages.map(page=>`<a class="inline-link" href="${getPageHref(page.slug)}" onclick="return navigatePage(event,'${page.slug}')">${page.title}</a>`).join('')}
                 </div>
               </div>
               <div class="two-col" style="margin-top:18px">
                 <div class="overview-card">
                   <h3>Kennisbank</h3>
                   <ul class="bullet-list">
-                    ${knowledgeBase.map(article=>`<li><a href="#article-${article.slug}" onclick="showPage('article-${article.slug}'); return false;">${article.title}</a></li>`).join('')}
+                    ${knowledgeBase.map(article=>`<li><a href="${getPageHref(`article-${article.slug}`)}" onclick="return navigatePage(event,'article-${article.slug}')">${article.title}</a></li>`).join('')}
                   </ul>
                 </div>
                 <div class="overview-card">
                   <h3>Juridisch</h3>
                   <ul class="bullet-list">
-                    ${legalPages.map(page=>`<li><a href="#${page.slug}" onclick="showPage('${page.slug}'); return false;">${page.title}</a></li>`).join('')}
+                    ${legalPages.map(page=>`<li><a href="${getPageHref(page.slug)}" onclick="return navigatePage(event,'${page.slug}')">${page.title}</a></li>`).join('')}
                   </ul>
                 </div>
               </div>
@@ -6568,15 +6569,20 @@
         }
       }else{
         const currentRouteId = getRouteIdFromLocation();
-        const currentFileRoute = getFileRoute(currentRouteId);
-        if(fileRoute && currentFileRoute && currentFileRoute !== fileRoute){
-          window.location.href = getSeoRoute(routeId).path;
-          return;
-        }
-        if(!fileRoute){
-          const nextHash = `#${id}`;
-          if(window.location.hash !== nextHash){
-            history.replaceState({page:routeId},'',`${window.location.pathname}${nextHash}`);
+        if(routeId === 'admin' || routeId === 'login'){
+          const nextHash = `#${routeId}`;
+          const currentUrl = `${window.location.pathname}${window.location.hash || ''}`;
+          const nextUrl = `${window.location.pathname}${nextHash}`;
+          if(currentUrl !== nextUrl){
+            const stateMethod = currentRouteId === routeId ? 'replaceState' : 'pushState';
+            history[stateMethod]({page:routeId},'',nextUrl);
+          }
+        }else{
+          const nextPath = getSeoRoute(routeId).path;
+          const currentPath = window.location.pathname.replace(/\/+$/,'') || '/';
+          if(currentPath !== nextPath || window.location.hash){
+            const stateMethod = currentRouteId === routeId ? 'replaceState' : 'pushState';
+            history[stateMethod]({page:routeId},'',nextPath);
           }
         }
       }
