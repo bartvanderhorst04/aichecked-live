@@ -14,20 +14,20 @@
   <link rel="icon" type="image/png" href="/Images/favicon.png">
   <link rel="apple-touch-icon" href="/Images/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIChecked.nl — AI compliance, data en digitale basis die klopt</title>
-  <meta name="description" id="meta-description" content="AIChecked helpt bedrijven met AI compliance, tracking, websites, SEO, dashboards en digitale infrastructuur die technisch en juridisch klopt.">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <title>AIChecked.nl | AI compliance, advertenties en digitale basis die klopt</title>
+  <meta name="description" id="meta-description" content="AIChecked helpt bedrijven met AI compliance, advertenties, websites, SEO / AI Search, branding en email marketing die technisch en juridisch kloppen.">
+  <meta name="robots" id="robots-meta" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#080907">
   <link rel="canonical" id="canonical-link" href="https://aichecked.nl/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AIChecked.nl">
-  <meta property="og:title" id="og-title" content="AIChecked.nl — AI compliance, data en digitale basis die klopt">
-  <meta property="og:description" id="og-description" content="AIChecked helpt bedrijven met AI compliance, tracking, websites, SEO, dashboards en digitale infrastructuur die technisch en juridisch klopt.">
+  <meta property="og:title" id="og-title" content="AIChecked.nl | AI compliance, advertenties en digitale basis die klopt">
+  <meta property="og:description" id="og-description" content="AIChecked helpt bedrijven met AI compliance, advertenties, websites, SEO / AI Search, branding en email marketing die technisch en juridisch kloppen.">
   <meta property="og:url" id="og-url" content="https://aichecked.nl/">
   <meta property="og:image" content="https://aichecked.nl/og-aichecked.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" id="twitter-title" content="AIChecked.nl — AI compliance, data en digitale basis die klopt">
-  <meta name="twitter:description" id="twitter-description" content="AIChecked helpt bedrijven met AI compliance, tracking, websites, SEO, dashboards en digitale infrastructuur die technisch en juridisch klopt.">
+  <meta name="twitter:title" id="twitter-title" content="AIChecked.nl | AI compliance, advertenties en digitale basis die klopt">
+  <meta name="twitter:description" id="twitter-description" content="AIChecked helpt bedrijven met AI compliance, advertenties, websites, SEO / AI Search, branding en email marketing die technisch en juridisch kloppen.">
   <meta name="twitter:image" content="https://aichecked.nl/og-aichecked.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -3526,6 +3526,7 @@
       document.title = meta.title;
       const descriptionEl = document.getElementById('meta-description');
       const canonicalEl = document.getElementById('canonical-link');
+      const robotsEl = document.getElementById('robots-meta');
       const ogTitle = document.getElementById('og-title');
       const ogDescription = document.getElementById('og-description');
       const ogUrl = document.getElementById('og-url');
@@ -3533,6 +3534,7 @@
       const twitterDescription = document.getElementById('twitter-description');
       if(descriptionEl) descriptionEl.setAttribute('content', meta.description);
       if(canonicalEl) canonicalEl.setAttribute('href', canonicalUrl);
+      if(robotsEl) robotsEl.setAttribute('content', noIndexIds.has(id) ? 'noindex,follow' : publicRobots);
       if(ogTitle) ogTitle.setAttribute('content', meta.title);
       if(ogDescription) ogDescription.setAttribute('content', meta.description);
       if(ogUrl) ogUrl.setAttribute('content', canonicalUrl);
@@ -3607,6 +3609,8 @@
     }
 
     const allPages = ['home','aanbod','cases','ai-kennisbank','over-ons','contact','klantportaal','admin','login'];
+    const publicRobots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
+    const noIndexIds = new Set(['admin','login','klantportaal']);
     let megaCloseTimer = null;
 
     function getSharedFooter(){
