@@ -1,4 +1,34 @@
 {
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/aanbod.html", "destination": "/aanbod", "permanent": true },
+    { "source": "/cases.html", "destination": "/cases", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/over-ons.html", "destination": "/over-ons", "permanent": true },
+    { "source": "/ai-kennisbank.html", "destination": "/ai-kennisbank", "permanent": true },
+    { "source": "/klantportaal.html", "destination": "/klantportaal", "permanent": true },
+    { "source": "/email-marketing.html", "destination": "/email-marketing", "permanent": true },
+    { "source": "/seo.html", "destination": "/seo", "permanent": true },
+    { "source": "/advertenties.html", "destination": "/advertenties", "permanent": true },
+    { "source": "/website-bouwen.html", "destination": "/website-bouwen", "permanent": true },
+    { "source": "/branding.html", "destination": "/branding", "permanent": true },
+    { "source": "/ai-compliance.html", "destination": "/ai-compliance", "permanent": true },
+    { "source": "/privacy.html", "destination": "/privacy", "permanent": true },
+    { "source": "/cookies.html", "destination": "/cookies", "permanent": true },
+    { "source": "/algemene-voorwaarden.html", "destination": "/algemene-voorwaarden", "permanent": true },
+    { "source": "/disclaimer.html", "destination": "/disclaimer", "permanent": true },
+    { "source": "/sitemap.html", "destination": "/sitemap", "permanent": true },
+    { "source": "/ai-kennisbank/ai-compliance-praktijk", "destination": "/kennisbank/ai-compliance-praktijk", "permanent": true },
+    { "source": "/ai-kennisbank/dashboard-data-betrouwbaar", "destination": "/kennisbank/dashboard-data-betrouwbaar", "permanent": true },
+    { "source": "/ai-kennisbank/seo-ai-search-basis", "destination": "/kennisbank/seo-ai-search-basis", "permanent": true },
+    { "source": "/ai-kennisbank/website-converteert-beter", "destination": "/kennisbank/website-converteert-beter", "permanent": true },
+    { "source": "/ai-kennisbank/email-retentie-groei", "destination": "/kennisbank/email-retentie-groei", "permanent": true },
+    { "source": "/ai-kennisbank/is-chatgpt-avg-proof", "destination": "/kennisbank/is-chatgpt-avg-proof", "permanent": true },
+    { "source": "/ai-kennisbank/wat-betekent-de-ai-act", "destination": "/kennisbank/wat-betekent-de-ai-act", "permanent": true },
+    { "source": "/ai-kennisbank/consent-mode-v2-uitgelegd", "destination": "/kennisbank/consent-mode-v2-uitgelegd", "permanent": true },
+    { "source": "/ai-kennisbank/kennisbank-vs-blog-seo", "destination": "/kennisbank/kennisbank-vs-blog-seo", "permanent": true },
+    { "source": "/ai-kennisbank/waarom-meta-ads-duurder-worden", "destination": "/kennisbank/waarom-meta-ads-duurder-worden", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

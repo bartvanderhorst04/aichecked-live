@@ -3908,7 +3908,7 @@ const aiSystemsUseCases = [
         const article = knowledgeBase.find(item => `article-${item.slug}` === id);
         if(article){
           return {
-            path:`/ai-kennisbank/${article.slug}`,
+            path:`/kennisbank/${article.slug}`,
             title:`${article.title} | AIChecked.nl`,
             description:article.description
           };
@@ -7085,8 +7085,8 @@ function createAiSystemsPage(){
       const path = window.location.pathname.replace(/\/+$/,'') || '/';
       if(path === '/') return 'home';
       if(path === '/website-bouwen') return 'websites';
-      if(path.startsWith('/ai-kennisbank/')){
-        const articleSlug = path.replace('/ai-kennisbank/','');
+      if(path.startsWith('/kennisbank/')){
+        const articleSlug = path.replace('/kennisbank/','');
         const articleId = `article-${articleSlug}`;
         if(document.getElementById(`page-${articleId}`)) return articleId;
         if(articleSlug === 'kennisbank-vs-blog-strategie') return 'article-kennisbank-vs-blog-seo';
