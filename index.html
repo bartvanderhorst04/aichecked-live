@@ -2452,7 +2452,7 @@
     <section class="section" style="padding-top:170px">
       <div class="wrap">
         <div class="eyebrow">Aanbod</div>
-        <h1 class="display" style="margin-bottom:14px">Alles draait om één vraag: <em>waar klopt het nog niet?</em></h1>
+        <h1 class="display" style="margin-bottom:14px">Alles draait om één vraag:<br><em>waar klopt het nog niet?</em></h1>
         <p class="lead" style="margin-bottom:28px">Van e-mail en SEO tot compliance en dashboards: elk aanbod begint bij een probleem dat eerst helder moet worden gemaakt.</p>
         <div class="service-panel">
           <div class="offer-grid" id="offer-grid-main"></div>
@@ -5489,12 +5489,12 @@ function createAiSystemsPage(){
         </button>
       `;
       target.innerHTML = `
-        <div style="grid-column:1/-1;padding:0 0 8px">
+        <div style="grid-column:1/-1;padding:0 0 8px;background:#060707">
           <div class="eyebrow" style="margin-bottom:10px">Groei</div>
           <p class="lead" style="margin:0;max-width:620px">Meer zichtbaarheid, meer verkeer en meer omzet.</p>
         </div>
         ${['websites','seo','advertenties'].map(page => renderCard(cardMap[page])).join('')}
-        <div style="grid-column:1/-1;padding:16px 0 8px">
+        <div style="grid-column:1/-1;padding:16px 0 8px;background:#060707">
           <div class="eyebrow" style="margin-bottom:10px">Systemen</div>
           <p class="lead" style="margin:0;max-width:620px">Slimmere processen, meer automatisering en minder risico.</p>
         </div>
