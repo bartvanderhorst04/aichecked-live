@@ -2268,10 +2268,10 @@
       <div class="wrap">
         <div class="hero-grid">
           <div>
-            <div class="eyebrow">AI, websites en digitale controle</div>
-            <h1 class="hero-title" style="font-size:clamp(48px,4.8vw,72px);line-height:1;max-width:720px">AI, websites en marketing.<br><em>Zonder meetruis.</em></h1>
-            <p class="lead" style="margin:16px 0 6px;color:var(--green);font-style:italic;max-width:620px">Compliance, tracking en performance op één betrouwbare basis.</p>
-            <p class="lead" style="margin:0 0 20px;max-width:650px">AIChecked helpt bedrijven grip houden op AI, advertenties, websites en AI compliance, zodat groei niet lekt op fouten in consent, meting of infrastructuur.</p>
+            <div class="eyebrow">AI, software en digitale groei</div>
+            <h1 class="hero-title" style="font-size:clamp(48px,4.8vw,72px);line-height:1;max-width:720px">AI, software en digitale groei.<br><em>Gebouwd voor wat hierna komt.</em></h1>
+            <p class="lead" style="margin:16px 0 6px;color:var(--green);font-style:italic;max-width:620px">Van websites en AI Search tot chatbots, automatisering en compliance.</p>
+            <p class="lead" style="margin:0 0 20px;max-width:650px">AIChecked bouwt de digitale infrastructuur waarmee bedrijven sneller kunnen werken, slimmer kunnen groeien en voorbereid zijn op een AI-gedreven toekomst.</p>
             <div class="btn-row">
               <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
               <button class="btn btn-ghost" onclick="showPage('aanbod')">Bekijk aanbod</button>
@@ -5477,7 +5477,8 @@ function createAiSystemsPage(){
 
     function renderOffers(targetId){
       const target = document.getElementById(targetId);
-      target.innerHTML = offerCards.map(card => `
+      const cardMap = Object.fromEntries(offerCards.map(card => [card.page, card]));
+      const renderCard = card => `
         <button class="service-card hover-sheen" onclick="showPage('${card.page}')">
           <div class="icon">${card.icon}</div>
           <div class="tag">AIChecked module</div>
@@ -5486,7 +5487,19 @@ function createAiSystemsPage(){
           <div class="issue">${card.issue}</div>
           <div class="more">Meer lezen →</div>
         </button>
-      `).join('');
+      `;
+      target.innerHTML = `
+        <div style="grid-column:1/-1;padding:0 0 8px">
+          <div class="eyebrow" style="margin-bottom:10px">Groei</div>
+          <p class="lead" style="margin:0;max-width:620px">Meer zichtbaarheid, meer verkeer en meer omzet.</p>
+        </div>
+        ${['websites','seo','advertenties'].map(page => renderCard(cardMap[page])).join('')}
+        <div style="grid-column:1/-1;padding:16px 0 8px">
+          <div class="eyebrow" style="margin-bottom:10px">Systemen</div>
+          <p class="lead" style="margin:0;max-width:620px">Slimmere processen, meer automatisering en minder risico.</p>
+        </div>
+        ${['email-marketing','ai-systemen','ai-compliance'].map(page => renderCard(cardMap[page])).join('')}
+      `;
     }
 
     function renderProblemRoutes(){
