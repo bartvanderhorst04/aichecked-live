@@ -3933,7 +3933,7 @@ const aiSystemsUseCases = [
       sitemap:'sitemap.html'
     };
 
-    const fileRouteToId = Object.fromEntries(Object.entries(fileRoutes).map(([id,file]) => [file,id]));
+    const fileRouteToId = Object.entries(fileRoutes).reduce((map, [id, file]) => { if(!(file in map)) map[file] = id; return map; }, {});
 
     function getFileRoute(id){
       return fileRoutes[id] || '';
@@ -4725,6 +4725,7 @@ const aiSystemsUseCases = [
     }
 
     function buildPackageSection(service){
+      if(service.slug === 'websites') return '';
       const config = getPackageConfig(service);
       if(!config) return '';
 
@@ -7242,7 +7243,7 @@ function createAiSystemsPage(){
       if(window.location.protocol === 'file:'){
         const currentFile = window.location.pathname.split('/').pop() || 'index.html';
         if(fileRoute && currentFile !== fileRoute){
-          window.location.href = fileRoute;
+          window.location.href = `${fileRoute}#${id}`;
           return;
         }
         if(!fileRoute && window.location.hash !== `#${id}`){
