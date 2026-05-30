@@ -2552,10 +2552,10 @@
             <div class="overview-card">
               <h3>Herken jij dit?</h3>
               <ul class="bullet-list">
-                <li>AI inzetten zonder de juridische risico's te kennen</li>
-                <li>Automatisering die buiten de AVG opereert</li>
-                <li>Content maken met AI terwijl transparantie verplicht wordt</li>
-                <li>Concurrenten die AI gebruiken terwijl jij achterblijft</li>
+                <li>Je bedrijf draait nog op handmatig werk en losse tools</li>
+                <li>Informatie zit verspreid over systemen, software en processen</li>
+                <li>Groei betekent direct meer werk voor je team</li>
+                <li>Concurrenten automatiseren sneller en werken efficiënter</li>
               </ul>
             </div>
             <div class="split" style="grid-template-columns:1fr 1fr;gap:14px;margin-top:14px">
@@ -3681,7 +3681,7 @@ const aiSystemsUseCases = [
       {title:'Klanten kopen maar één keer',text:'Je lijst groeit, maar er zit geen systeem achter dat retentie opbouwt.',page:'email-marketing'},
       {title:'Mijn ads kosten te veel',text:'Campagnes lijken slim, maar als tracking fout staat schaal je vooral ruis op.',page:'advertenties'},
       {title:'Mensen klikken te snel weg',text:'De eerste indruk, structuur of pagina-opbouw werkt nog niet overtuigend genoeg.',page:'websites'},
-      {title:'Mijn data klopt niet',text:'Je campagnes draaien, maar de meting voelt te zwak om echt op te sturen.',page:'advertenties'},
+      {title:'Ik werk te veel handmatig',text:'Taken die geautomatiseerd kunnen worden kosten nog steeds uren per week.',page:'ai-systemen'},
       {title:'Ik ben niet zichtbaar in Google',text:'Je content en technische basis zijn nog niet helder genoeg voor zoekmachines of AI.',page:'seo'},
       {title:'Ik weet niet of mijn tracking compliant is',text:'Consent, scripts en privacyverklaringen voelen te kwetsbaar om op te vertrouwen.',page:'ai-compliance'},
       {title:'Mijn dashboards geven verkeerde inzichten',text:'Cijfers lopen door elkaar heen, waardoor je niet weet waar je moet ingrijpen.',page:'advertenties'}
@@ -5517,7 +5517,7 @@ function createAiSystemsPage(){
           <div class="route-tag">AIChecked route</div>
           <div class="route-problem">${item.title}</div>
           <div class="route-copy">${item.text}</div>
-          <div class="route-service">${services.find(service => service.slug === item.page)?.title || ''}</div>
+          <div class="route-service">${offerCards.find(card => card.page === item.page)?.title || services.find(service => service.slug === item.page)?.title || ''}</div>
           <div class="route-arrow">Meer lezen →</div>
         </button>
       `).join('');
