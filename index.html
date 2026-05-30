@@ -442,7 +442,7 @@
     .stat .label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#b9b4ab;margin-top:6px}
 
     .route-grid{
-      display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+      display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
       background:var(--line);border-radius:30px;overflow:hidden
     }
     .route-card{
@@ -3678,13 +3678,11 @@ const aiSystemsUseCases = [
 
     const problemRoutes = [
       {title:'Mijn website levert niet genoeg op',text:'Je site staat live, maar doet te weinig voor aanvragen, omzet of vertrouwen.',page:'websites'},
-      {title:'Klanten kopen maar één keer',text:'Je lijst groeit, maar er zit geen systeem achter dat retentie opbouwt.',page:'email-marketing'},
-      {title:'Mijn ads kosten te veel',text:'Campagnes lijken slim, maar als tracking fout staat schaal je vooral ruis op.',page:'advertenties'},
-      {title:'Mensen klikken te snel weg',text:'De eerste indruk, structuur of pagina-opbouw werkt nog niet overtuigend genoeg.',page:'websites'},
       {title:'Ik werk te veel handmatig',text:'Taken die geautomatiseerd kunnen worden kosten nog steeds uren per week.',page:'ai-systemen'},
       {title:'Ik ben niet zichtbaar in Google',text:'Je content en technische basis zijn nog niet helder genoeg voor zoekmachines of AI.',page:'seo'},
-      {title:'Ik weet niet of mijn tracking compliant is',text:'Consent, scripts en privacyverklaringen voelen te kwetsbaar om op te vertrouwen.',page:'ai-compliance'},
-      {title:'Mijn dashboards geven verkeerde inzichten',text:'Cijfers lopen door elkaar heen, waardoor je niet weet waar je moet ingrijpen.',page:'advertenties'}
+      {title:'Klanten kopen maar één keer',text:'Je lijst groeit, maar er zit geen systeem achter dat retentie opbouwt.',page:'email-marketing'},
+      {title:'Mijn ads kosten te veel',text:'Campagnes lijken slim, maar zonder goede meting schaal je vooral verspilling op.',page:'advertenties'},
+      {title:'Ik weet niet of mijn tracking compliant is',text:'Consent, scripts en privacy-instellingen voelen te kwetsbaar om op te vertrouwen.',page:'ai-compliance'}
     ];
 
     const legalPages = [
