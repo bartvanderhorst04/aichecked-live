@@ -2214,7 +2214,7 @@
   </div>
   <div class="mobile-menu" id="mobile-menu">
     <a href="/" onclick="return navigatePage(event,'home', true)">Home</a>
-    <a href="/aanbod" onclick="return navigatePage(event,'aanbod', true)">Aanbod</a>
+    <a href="/aanbod">Aanbod</a>
     <a href="/cases" onclick="return navigatePage(event,'cases', true)">Cases</a>
     <a href="/ai-kennisbank" onclick="return navigatePage(event,'ai-kennisbank', true)">AI kennisbank</a>
     <a href="/over-ons" onclick="return navigatePage(event,'over-ons', true)">Over ons</a>
@@ -2229,7 +2229,7 @@
     </div>
     <ul class="nav-links" style="justify-self:center">
         <li class="nav-item">
-          <a id="nav-aanbod" href="/aanbod" onclick="return navigatePage(event,'aanbod')">Aanbod</a>
+          <a id="nav-aanbod" href="/aanbod">Aanbod</a>
           <div class="mega">
             <a class="mega-card" href="/email-marketing" onclick="return navigatePage(event,'email-marketing')"><strong>Email Marketing</strong><p>Meer omzet uit bestaande klanten zonder losse campagnes of handmatig werk.</p></a>
             <a class="mega-card" href="/seo" onclick="return navigatePage(event,'seo')"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
@@ -2281,7 +2281,7 @@
             <p class="lead" style="margin:0 0 20px;max-width:650px">AIChecked bouwt de digitale infrastructuur waarmee bedrijven sneller kunnen werken, slimmer kunnen groeien en voorbereid zijn op een AI-gedreven toekomst.</p>
             <div class="btn-row">
               <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
-              <button class="btn btn-ghost" onclick="showPage('aanbod')">Bekijk aanbod</button>
+              <a class="btn btn-ghost" href="/aanbod">Bekijk aanbod</a>
             </div>
             <div class="hero-kpis">
               <div class="metric-card hover-sheen"><div class="value">24u</div><div class="delta">eerste scan en duidelijke prioriteit</div></div>
@@ -2425,7 +2425,7 @@
           </div>
           <div>
             <h4>Pagina’s</h4>
-            <a href="/aanbod" onclick="return navigatePage(event,'aanbod')">Aanbod</a>
+            <a href="/aanbod">Aanbod</a>
             <a href="/cases" onclick="return navigatePage(event,'cases')">Cases</a>
             <a href="/ai-kennisbank" onclick="return navigatePage(event,'ai-kennisbank')">AI kennisbank</a>
             <a href="/contact" onclick="return navigatePage(event,'contact')">Contact</a>
@@ -4088,7 +4088,7 @@ const aiSystemsUseCases = [
             </div>
             <div>
               <h4>Navigatie</h4>
-              <a href="${getPageHref('aanbod')}" role="button" onclick="return navigatePage(event,'aanbod')">Aanbod</a>
+              <a href="/aanbod" role="button">Aanbod</a>
               <a href="${getPageHref('cases')}" role="button" onclick="return navigatePage(event,'cases')">Cases</a>
               <a href="${getPageHref('ai-kennisbank')}" role="button" onclick="return navigatePage(event,'ai-kennisbank')">AI kennisbank</a>
               <a href="${getPageHref('over-ons')}" role="button" onclick="return navigatePage(event,'over-ons')">Over ons</a>
@@ -4918,13 +4918,13 @@ const aiSystemsUseCases = [
         <div id="page-${service.slug}" class="page service-page">
           <section class="section service-hero">
             <div class="wrap">
-              <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a onclick="showPage('aanbod')">Aanbod</a><span>•</span><span>${service.title}</span></div>
+              <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Aanbod</a><span>•</span><span>${service.title}</span></div>
               <div class="eyebrow">${service.title}</div>
               <h1 class="display" style="margin-bottom:14px">${service.hero}</h1>
               <p class="lead" style="margin-bottom:20px">${service.sub}</p>
               <div class="btn-row">
                 <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
-                <button class="btn btn-ghost" onclick="showPage('aanbod')">Bekijk aanbod</button>
+                <a class="btn btn-ghost" href="/aanbod">Bekijk aanbod</a>
               </div>
             </div>
           </section>
@@ -5118,7 +5118,7 @@ function createAiSystemsPage(){
     <div id="page-ai-systemen" class="page service-page">
       <section class="section service-hero">
         <div class="wrap">
-          <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a onclick="showPage('aanbod')">Aanbod</a><span>•</span><span>AI Systems</span></div>
+          <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Aanbod</a><span>•</span><span>AI Systems</span></div>
           <div class="eyebrow">AIChecked module</div>
           <h1 class="display" style="margin-bottom:14px">AI neemt werk over.<br><em>Jouw bedrijf nog niet.</em></h1>
           <p class="lead" style="margin-bottom:16px">Slimme AI-oplossingen die processen versnellen, klantcontact automatiseren en dagelijks werk uit handen nemen.</p>
@@ -5300,7 +5300,7 @@ function createAiSystemsPage(){
                     <p>Wil je dit niet alleen lezen, maar vertalen naar je eigen setup? Dan kijken we gericht naar tooling, risico’s, quick wins en de volgorde waarin je moet ingrijpen.</p>
                     <div class="btn-row">
                       <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
-                      <button class="btn btn-ghost" onclick="showPage('aanbod')">Bekijk aanbod</button>
+                      <a class="btn btn-ghost" href="/aanbod">Bekijk aanbod</a>
                     </div>
                   </section>
                 </article>
@@ -5329,7 +5329,7 @@ function createAiSystemsPage(){
         <div id="page-${page.slug}" class="page local-page">
           <section class="section service-hero local-hero">
             <div class="wrap">
-              <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a onclick="showPage('aanbod')">Aanbod</a><span>•</span><span>${page.title}</span></div>
+              <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Aanbod</a><span>•</span><span>${page.title}</span></div>
               <div class="eyebrow">Lokale pagina</div>
               <h1 class="display" style="margin-bottom:12px">${page.title}</h1>
               <p class="lead" style="margin-bottom:18px">${page.subtitle}</p>
