@@ -30,6 +30,7 @@
     { "source": "/ai-kennisbank/waarom-meta-ads-duurder-worden", "destination": "/kennisbank/waarom-meta-ads-duurder-worden", "permanent": true }
   ],
   "rewrites": [
+    { "source": "/aanbod", "destination": "/aanbod.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
