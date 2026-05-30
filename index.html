@@ -3356,11 +3356,11 @@
     ].filter(Boolean);
 
 const offerCards = [
-  {title:'Email Marketing', page:'email-marketing', icon:'✉', short:'Meer omzet uit je bestaande lijst, zonder handmatig trekken aan campagnes.', issue:'Klanten kopen maar één keer'},
-  {title:'SEO / AI Search', page:'seo', icon:'⌕', short:'Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.', issue:'Je bent nauwelijks zichtbaar in Google'},
-  {title:'Ads & Campagnes', page:'advertenties', icon:'◎', short:'Meta en Google Ads in één structuur, met betere meting en minder verspilling.', issue:'Advertentiebudget lekt te snel weg'},
   {title:'Websites', page:'websites', icon:'◫', short:'Bouwen, verbeteren en onderhouden vanuit één duidelijke webbasis.', issue:'Je site werkt nog niet hard genoeg voor je bedrijf'},
   {title:'AI Systems', page:'ai-systemen', icon:'◌', short:'Slimme AI-oplossingen die klantvragen, workflows en dagelijkse processen automatiseren.', issue:'Bedrijven verliezen tijd aan werk dat AI al kan overnemen.'},
+  {title:'SEO / AI Search', page:'seo', icon:'⌕', short:'Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.', issue:'Je bent nauwelijks zichtbaar in Google'},
+  {title:'Email Marketing', page:'email-marketing', icon:'✉', short:'Meer omzet uit je bestaande lijst, zonder handmatig trekken aan campagnes.', issue:'Klanten kopen maar één keer'},
+  {title:'Ads & Campagnes', page:'advertenties', icon:'◎', short:'Meta en Google Ads in één structuur, met betere meting en minder verspilling.', issue:'Advertentiebudget lekt te snel weg'},
   {title:'AI Compliance', page:'ai-compliance', icon:'✓', short:'Consent, cookies en privacy-instellingen die juridisch en technisch weer kloppen.', issue:'Je weet niet of alles compliant staat'}
 ];
 
@@ -5498,12 +5498,12 @@ function createAiSystemsPage(){
           <div class="eyebrow" style="margin-bottom:10px">Groei</div>
           <p class="lead" style="margin:0;max-width:620px">Meer zichtbaarheid, meer verkeer en meer omzet.</p>
         </div>
-        ${['websites','seo','advertenties'].map(page => renderCard(cardMap[page])).join('')}
+        ${['websites','ai-systemen','seo'].map(page => renderCard(cardMap[page])).join('')}
         <div style="grid-column:1/-1;padding:16px 0 8px;background:#060707">
           <div class="eyebrow" style="margin-bottom:10px">Systemen</div>
           <p class="lead" style="margin:0;max-width:620px">Slimmere processen, meer automatisering en minder risico.</p>
         </div>
-        ${['email-marketing','ai-systemen','ai-compliance'].map(page => renderCard(cardMap[page])).join('')}
+        ${['email-marketing','advertenties','ai-compliance'].map(page => renderCard(cardMap[page])).join('')}
       `;
     }
 
