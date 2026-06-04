@@ -23,12 +23,12 @@
   <link rel="canonical" id="canonical-link" href="https://aichecked.nl/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AIChecked.nl">
-  <meta property="og:title" id="og-title" content="AIChecked.nl | AI compliance, advertenties en digitale basis die klopt">
+  <meta property="og:title" id="og-title" content="AIChecked.nl | AI, websites en automatisering voor bedrijven die willen doorgroeien">
   <meta property="og:description" id="og-description" content="AIChecked helpt bedrijven met AI compliance, advertenties, websites, SEO / AI Search, branding en email marketing die technisch en juridisch kloppen.">
   <meta property="og:url" id="og-url" content="https://aichecked.nl/">
   <meta property="og:image" content="https://aichecked.nl/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" id="twitter-title" content="AIChecked.nl | AI compliance, advertenties en digitale basis die klopt">
+  <meta name="twitter:title" id="twitter-title" content="AIChecked.nl | AI, websites en automatisering voor bedrijven die willen doorgroeien">
   <meta name="twitter:description" id="twitter-description" content="AIChecked helpt bedrijven met AI compliance, advertenties, websites, SEO / AI Search, branding en email marketing die technisch en juridisch kloppen.">
   <meta name="twitter:image" content="https://aichecked.nl/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2337,6 +2337,39 @@
 
     <section class="section-tight">
       <div class="wrap">
+        <div class="two-col">
+          <div class="overview-card">
+            <div class="eyebrow">Kernpagina’s</div>
+            <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Direct naar de belangrijkste diensten</h2>
+            <div class="inline-links">
+              <a class="inline-link" href="/email-marketing">Email Marketing</a>
+              <a class="inline-link" href="/seo">SEO / AI Search</a>
+              <a class="inline-link" href="/advertenties">Ads & Campagnes</a>
+              <a class="inline-link" href="/website-bouwen">Website bouwen</a>
+              <a class="inline-link" href="/branding">Branding</a>
+              <a class="inline-link" href="/ai-compliance">AI Compliance</a>
+              <a class="inline-link" href="/ai-systemen">AI Systems</a>
+              <a class="inline-link" href="/ai-dashboards">AI Dashboards</a>
+            </div>
+          </div>
+          <div class="overview-card">
+            <div class="eyebrow">Populaire locaties</div>
+            <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Veel bekeken webpagina’s per regio</h2>
+            <div class="inline-links">
+              <a class="inline-link" href="/website-laten-maken-amsterdam">Amsterdam</a>
+              <a class="inline-link" href="/website-laten-maken-utrecht">Utrecht</a>
+              <a class="inline-link" href="/website-laten-maken-rotterdam">Rotterdam</a>
+              <a class="inline-link" href="/website-laten-maken-culemborg">Culemborg</a>
+              <a class="inline-link" href="/website-laten-maken-gorinchem">Gorinchem</a>
+              <a class="inline-link" href="/website-laten-maken-tiel">Tiel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="wrap">
         <div class="eyebrow">Waarom nu?</div>
         <h2 class="display" style="font-size:clamp(34px,4vw,54px);margin-bottom:12px">AI verandert sneller dan de meeste bedrijven <em>kunnen bijhouden.</em></h2>
         <p class="lead" style="margin-bottom:22px;max-width:760px">Bedrijven die vandaag investeren in AI, automatisering en digitale infrastructuur bouwen een voorsprong op die later moeilijk in te halen is.</p>
@@ -3897,11 +3930,16 @@ const aiSystemsUseCases = [
     };
 
     const seoRoutes = {
-      home:{path:'/',title:'AIChecked.nl | AI compliance, advertenties en digitale basis die klopt',description:'AIChecked helpt bedrijven met AI compliance, advertenties, websites, SEO / AI Search, branding en email marketing die technisch en juridisch kloppen.'},
-      aanbod:{path:'/aanbod',title:'Aanbod | AIChecked.nl',description:'Bekijk het aanbod van AIChecked: Email Marketing, SEO / AI Search, Ads & Campagnes, Websites, Branding en AI Compliance.'},
+      home:{path:'/',title:'AIChecked.nl | AI, websites en automatisering voor bedrijven die willen doorgroeien',description:'AIChecked helpt bedrijven met AI compliance, advertenties, websites, SEO / AI Search, branding en email marketing die technisch en juridisch kloppen.'},
+            advertenties:{path:'/advertenties',title:'Ads & Campagnes | Meta en Google Ads | AIChecked.nl',description:'AIChecked beheert Meta en Google Ads vanuit één basis: correcte tracking, minder verspilling en campagnes die zakelijker sturen.'},
+      'ai-compliance':{path:'/ai-compliance',title:'AI Compliance | Consent, cookies en privacy die klopt | AIChecked.nl',description:'AIChecked helpt bedrijven met AI compliance, consent, cookies en privacy-instellingen die juridisch en technisch weer kloppen.'},
+      branding:{path:'/branding',title:'Branding | Merklaag die vertrouwen opbouwt | AIChecked.nl',description:'AIChecked ontwikkelt branding die meer rust, herkenning en overtuiging brengt in website, sales en digitale communicatie.'},
+      'email-marketing':{path:'/email-marketing',title:'Email Marketing | Meer omzet uit je bestaande lijst | AIChecked.nl',description:'AIChecked bouwt email marketing flows en campagnes die retentie, herhaalaankopen en omzet uit je bestaande lijst verhogen.'},
+      seo:{path:'/seo',title:'SEO / AI Search | Vindbaarheid voor Google en AI | AIChecked.nl',description:'AIChecked helpt bedrijven groeien met SEO / AI Search: betere structuur, sterkere content en vindbaarheid voor Google en AI-systemen.'},
+      'website-bouwen':{path:'/website-bouwen',title:'Websites | Bouwen, verbeteren en onderhouden | AIChecked.nl',description:'AIChecked bouwt, verbetert en onderhoudt websites die sneller laden, beter converteren en technisch rustig blijven werken.'},
       cases:{path:'/cases',title:'Cases | AIChecked.nl',description:'Praktische cases over tracking herstel, websiteverbetering, monitoring en digitale infrastructuur die weer klopt.'},
       'ai-kennisbank':{path:'/ai-kennisbank',title:'AI Kennisbank | AIChecked.nl',description:'Artikelen over AI compliance, tracking, SEO / AI Search, websites, dashboards en digitale infrastructuur.'},
-      'ai-systemen':{path:'/ai-systemen',title:'AI Systems voor bedrijven | AIChecked',description:'Laat slimme AI-systemen bouwen voor je bedrijf: chatbots, automatiseringen, dashboards, kennisbanken en AI-oplossingen die processen versnellen.',canonical:'https://www.aichecked.nl/ai-systemen'},
+      'ai-systemen':{path:'/ai-systemen',title:'AI Systems voor bedrijven | AIChecked',description:'Laat slimme AI-systemen bouwen voor je bedrijf: chatbots, automatiseringen, dashboards, kennisbanken en AI-oplossingen die processen versnellen.',canonical:'https://aichecked.nl/ai-systemen'},
       sitemap:{path:'/sitemap',title:'Sitemap | AIChecked.nl',description:'Overzicht van alle diensten, lokale pagina’s, kennisbankartikelen en bedrijfspagina’s van AIChecked.nl.'},
       'over-ons':{path:'/over-ons',title:'Over ons | AIChecked.nl',description:'Bart van der Horst bouwt met AIChecked aan betrouwbare digitale infrastructuur voor bedrijven die rust en controle willen.'},
       contact:{path:'/contact',title:'Contact | AIChecked.nl',description:'Plan een strategiegesprek met AIChecked over compliance, tracking, websites, dashboards en digitale basisproblemen.'},
@@ -3997,7 +4035,7 @@ const aiSystemsUseCases = [
       const twitterDescription = document.getElementById('twitter-description');
       if(descriptionEl) descriptionEl.setAttribute('content', meta.description);
       if(canonicalEl) canonicalEl.setAttribute('href', canonicalUrl);
-      if(robotsEl) robotsEl.setAttribute('content', noIndexIds.has(id) ? 'noindex,follow' : publicRobots);
+      if(robotsEl) robotsEl.setAttribute('content', noIndexIds.has(id) ? noIndexRobots : publicRobots);
       if(ogTitle) ogTitle.setAttribute('content', meta.title);
       if(ogDescription) ogDescription.setAttribute('content', meta.description);
       if(ogUrl) ogUrl.setAttribute('content', canonicalUrl);
@@ -4073,7 +4111,8 @@ const aiSystemsUseCases = [
 
     const allPages = ['home','aanbod','cases','ai-kennisbank','over-ons','contact','klantportaal','admin','login'];
     const publicRobots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
-    const noIndexIds = new Set(['admin','login','klantportaal']);
+    const noIndexRobots = 'noindex,nofollow';
+    const noIndexIds = new Set(['admin','login','klantportaal','privacy','cookies','algemene-voorwaarden','disclaimer']);
     let megaCloseTimer = null;
 
     function getSharedFooter(){

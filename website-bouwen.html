@@ -5,20 +5,20 @@
   <link rel="icon" type="image/png" href="/Images/favicon.png">
   <link rel="apple-touch-icon" href="/Images/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aanbod | AIChecked.nl</title>
-  <meta name="description" id="meta-description" content="Bekijk het aanbod van AIChecked: Email Marketing, SEO / AI Search, Ads & Campagnes, Websites, Branding en AI Compliance.">
+  <title>Websites | Bouwen, verbeteren en onderhouden | AIChecked.nl</title>
+  <meta name="description" id="meta-description" content="AIChecked bouwt, verbetert en onderhoudt websites die sneller laden, beter converteren en technisch rustig blijven werken.">
   <meta name="robots" id="robots-meta" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#080907">
-  <link rel="canonical" id="canonical-link" href="https://aichecked.nl/aanbod">
+  <link rel="canonical" id="canonical-link" href="https://aichecked.nl/website-bouwen">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AIChecked.nl">
-  <meta property="og:title" id="og-title" content="Aanbod | AIChecked.nl">
-  <meta property="og:description" id="og-description" content="Bekijk het aanbod van AIChecked: Email Marketing, SEO / AI Search, Ads & Campagnes, Websites, Branding en AI Compliance.">
-  <meta property="og:url" id="og-url" content="https://aichecked.nl/aanbod">
+  <meta property="og:title" id="og-title" content="Websites | Bouwen, verbeteren en onderhouden | AIChecked.nl">
+  <meta property="og:description" id="og-description" content="AIChecked bouwt, verbetert en onderhoudt websites die sneller laden, beter converteren en technisch rustig blijven werken.">
+  <meta property="og:url" id="og-url" content="https://aichecked.nl/websites">
   <meta property="og:image" content="https://aichecked.nl/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" id="twitter-title" content="Aanbod | AIChecked.nl">
-  <meta name="twitter:description" id="twitter-description" content="Bekijk het aanbod van AIChecked: Email Marketing, SEO / AI Search, Ads & Campagnes, Websites, Branding en AI Compliance.">
+  <meta name="twitter:title" id="twitter-title" content="Websites | Bouwen, verbeteren en onderhouden | AIChecked.nl">
+  <meta name="twitter:description" id="twitter-description" content="AIChecked bouwt, verbetert en onderhoudt websites die sneller laden, beter converteren en technisch rustig blijven werken.">
   <meta name="twitter:image" content="https://aichecked.nl/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -504,7 +504,108 @@
 .service-page .btn-ghost:focus-visible{
   background:rgba(66,216,166,.045);
 }
-    .breadcrumb-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted-2);margin-bottom:18px}
+.web-build-steps{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.web-step-card,.web-highlight-card{
+  background:linear-gradient(180deg,rgba(255,255,255,.042),rgba(255,255,255,.015));
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:24px;
+  padding:24px;
+  position:relative;
+  overflow:hidden;
+  backdrop-filter:blur(18px);
+  transition:transform .32s var(--ease),border-color .32s var(--ease),box-shadow .32s var(--ease),background .32s var(--ease);
+}
+.web-step-card:hover,.web-highlight-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(66,216,166,.22);
+  box-shadow:0 18px 34px rgba(0,0,0,.22),0 0 24px rgba(66,216,166,.1);
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.018));
+}
+.web-step-card::before,.web-highlight-card::before{
+  content:'';
+  position:absolute;
+  top:-36px;
+  right:-36px;
+  width:132px;
+  height:132px;
+  background:radial-gradient(circle, rgba(66,216,166,.12), transparent 68%);
+  pointer-events:none;
+}
+.web-step-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:16px;
+}
+.web-step-icon{
+  width:42px;
+  height:42px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:rgba(66,216,166,.07);
+  border:1px solid rgba(66,216,166,.16);
+  color:var(--green);
+  font-size:18px;
+}
+.web-step-index{
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.46);
+}
+.web-step-card h3,.web-highlight-card h3{
+  font-family:var(--serif);
+  font-size:26px;
+  line-height:1.08;
+  color:var(--white);
+  margin-bottom:12px;
+}
+.web-step-card p,.web-highlight-card p{
+  font-size:15px;
+  line-height:1.78;
+  color:#ddd7ce;
+  margin:0;
+}
+.web-mini-list{
+  list-style:none;
+  display:grid;
+  gap:10px;
+  margin:16px 0 0;
+}
+.web-mini-list li{
+  position:relative;
+  padding-left:18px;
+  color:#f1ece4;
+  font-size:14px;
+  line-height:1.62;
+}
+.web-mini-list li::before{
+  content:'✓';
+  position:absolute;
+  left:0;
+  top:0;
+  color:var(--green);
+  font-size:13px;
+}
+.web-highlight-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+@media (max-width: 1100px){
+  .web-build-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width: 768px){
+  .web-build-steps,.web-highlight-grid{grid-template-columns:1fr}
+}
+.breadcrumb-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted-2);margin-bottom:18px}
     .breadcrumb-row span{color:var(--muted-2)}
     .service-section-head{max-width:760px;margin-bottom:16px}
     .service-section-head p{font-size:17px;line-height:1.78;color:#ddd7ce;margin:0}
@@ -1698,11 +1799,6 @@
       .footer-bottom{flex-direction:column;align-items:flex-start}
       .login-grid{grid-template-columns:1fr}
     }
-    @media(max-width:767px){
-      .offer-grid > div:first-child h3{
-        padding-top:10px;
-      }
-    }
     .atmosphere{position:fixed;inset:0;pointer-events:none;z-index:-3;overflow:hidden}
     .orb{
       position:absolute;border-radius:999px;filter:blur(125px);opacity:.055;mix-blend-mode:screen;
@@ -1979,7 +2075,7 @@
     <section class="section" style="padding-top:170px">
       <div class="wrap">
         <div class="eyebrow">Aanbod</div>
-        <h1 class="display" style="margin-bottom:14px">Alles draait om één vraag:<br><em>waar klopt het nog niet?</em></h1>
+        <h1 class="display" style="margin-bottom:14px">Alles draait om één vraag: <em>waar klopt het nog niet?</em></h1>
         <p class="lead" style="margin-bottom:28px">Van e-mail en SEO tot compliance en dashboards: elk aanbod begint bij een probleem dat eerst helder moet worden gemaakt.</p>
         <div class="service-panel">
           <div class="offer-grid" id="offer-grid-main"></div>
@@ -3179,7 +3275,12 @@ const aiSystemsProcess = [
       {title:'Mijn data klopt niet',text:'Je campagnes draaien, maar de meting voelt te zwak om echt op te sturen.',page:'advertenties'},
       {title:'Ik ben niet zichtbaar in Google',text:'Je content en technische basis zijn nog niet helder genoeg voor zoekmachines of AI.',page:'seo'},
       {title:'Ik weet niet of mijn tracking compliant is',text:'Consent, scripts en privacyverklaringen voelen te kwetsbaar om op te vertrouwen.',page:'ai-compliance'},
-      {title:'Mijn dashboards geven verkeerde inzichten',text:'Cijfers lopen door elkaar heen, waardoor je niet weet waar je moet ingrijpen.',page:'advertenties'}
+      {title:'Mijn dashboards geven verkeerde inzichten',text:'Cijfers lopen door elkaar heen, waardoor je niet weet waar je moet ingrijpen.',page:'advertenties'},
+      {title:'Ik verlies te veel tijd aan handmatig werk',text:'Taken die AI kan overnemen kosten je nog steeds uren per week.',page:'ai-systemen'},
+      {title:'Klantvragen blijven terugkomen',text:'Je team beantwoordt dezelfde vragen steeds opnieuw.',page:'ai-systemen'},
+      {title:'Mijn processen zijn niet schaalbaar',text:'Meer klanten betekent direct meer handmatig werk.',page:'ai-systemen'},
+      {title:'Ik weet niet of mijn AI en tracking compliant zijn',text:'Je weet niet zeker of alles juridisch en technisch goed staat ingesteld.',page:'ai-compliance'},
+      {title:'Mijn privacy-instellingen kloppen waarschijnlijk niet',text:'Cookies, consent en tracking voelen kwetsbaar of onduidelijk.',page:'ai-compliance'}
     ];
 
     const legalPages = [
@@ -4230,6 +4331,7 @@ const aiSystemsProcess = [
     }
 
     function buildPackageSection(service){
+      if(service.slug === 'websites') return '';
       const config = getPackageConfig(service);
       if(!config) return '';
 
@@ -4322,6 +4424,96 @@ const aiSystemsProcess = [
       `;
     }
 
+    function buildWebsitesHowWeBuildSection(service){
+      if(service.slug !== 'websites') return '';
+      const steps = [
+        {
+          icon:'◫',
+          index:'Stap 1',
+          title:'Strategie vóór design',
+          text:'We analyseren eerst waar bezoekers afhaken, wat onduidelijk is en welke structuur nodig is om vertrouwen en conversie op te bouwen.',
+          bullets:['Heldere structuur','Conversiegericht','Gebouwd rondom gedrag']
+        },
+        {
+          icon:'✦',
+          index:'Stap 2',
+          title:'Premium uitstraling die rust geeft',
+          text:'We ontwerpen een website die professioneel aanvoelt, sneller vertrouwen opbouwt en duidelijk communiceert wat jouw bedrijf doet.',
+          bullets:['Meer vertrouwen','Duidelijke positionering','Minder visuele ruis']
+        },
+        {
+          icon:'◎',
+          index:'Stap 3',
+          title:'Slimme systemen achter de schermen',
+          text:'Van AI chatbots tot leadflows en slimme formulieren: we bouwen systemen die werk automatiseren en sneller opvolgen.',
+          bullets:['Slimmere opvolging','Minder handmatig werk','Meer schaalbaarheid']
+        },
+        {
+          icon:'↗',
+          index:'Stap 4',
+          title:'Meten, verbeteren en doorgroeien',
+          text:'Na livegang blijven we optimaliseren op snelheid, SEO, AI Search en conversie zodat de website blijft presteren.',
+          bullets:['SEO & AI Search','Hogere conversie','Continu verbeteren']
+        }
+      ];
+      const highlights = [
+        {
+          title:'Niet gebouwd voor alleen design',
+          text:'Maar voor structuur, duidelijkheid en conversie.'
+        },
+        {
+          title:'AI-first aanpak',
+          text:'Slimme automatisering en AI-systemen direct geïntegreerd.'
+        },
+        {
+          title:'Gebouwd voor groei',
+          text:'SEO, AI Search en schaalbaarheid vanaf de basis meegenomen.'
+        }
+      ];
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head">
+              <div class="eyebrow">Hoe wij websites bouwen</div>
+              <h2 class="display" style="font-size:clamp(30px,3.4vw,44px);margin-bottom:12px">Hoe wij websites bouwen</h2>
+              <p>Een website moet niet alleen mooi zijn. Hij moet structuur brengen, vertrouwen opbouwen en bezoekers laten converteren.</p>
+            </div>
+            <div class="web-build-steps">
+              ${steps.map(step => `
+                <div class="web-step-card hover-sheen">
+                  <div class="web-step-top">
+                    <span class="web-step-icon">${step.icon}</span>
+                    <span class="web-step-index">${step.index}</span>
+                  </div>
+                  <h3>${step.title}</h3>
+                  <p>${step.text}</p>
+                  <ul class="web-mini-list">
+                    ${step.bullets.map(item => `<li>${item}</li>`).join('')}
+                  </ul>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head">
+              <div class="eyebrow">Waarom AIChecked websites anders zijn</div>
+              <p>We bouwen websites als complete groeisystemen: duidelijk aan de voorkant, slimmer onder de motorkap en beter voorbereid op wat daarna komt.</p>
+            </div>
+            <div class="web-highlight-grid">
+              ${highlights.map(item => `
+                <div class="web-highlight-card hover-sheen">
+                  <h3>${item.title}</h3>
+                  <p>${item.text}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
     function createServicePages(){
       const root = document.getElementById('service-pages-root');
       root.innerHTML = services.map(service => `
@@ -4341,6 +4533,7 @@ const aiSystemsProcess = [
           ${buildPackageSection(service)}
           ${buildCalendarBookingSection('Plan direct een gesprek over dit traject', 'Open meteen de agenda en kies een moment om te bespreken welk pakket past, waar het nu vastloopt en wat als eerste opgelost moet worden.')}
           ${buildServiceVisualProofSection(service)}
+          ${buildWebsitesHowWeBuildSection(service)}
           <section class="section-tight">
             <div class="wrap">
               <div class="service-section-head">
@@ -4857,28 +5050,39 @@ function createAiSystemsPage(){
     function renderOffers(targetId){
       const target = document.getElementById(targetId);
       const cardMap = Object.fromEntries(offerCards.map(card => [card.page, card]));
-      const renderCard = card => `
-        <button class="service-card hover-sheen" onclick="showPage('${card.page}')">
-          <div class="icon">${card.icon}</div>
-          <div class="tag">AIChecked module</div>
-          <h3>${card.title}</h3>
-          <p>${card.short}</p>
-          <div class="issue">${card.issue}</div>
-          <div class="more">Meer lezen →</div>
-        </button>
-      `;
-      target.innerHTML = `
-        <div style="grid-column:1/-1;padding:0 0 18px;background:#060707">
-          <h3 style="font-family:var(--serif);font-style:italic;font-size:clamp(28px,3vw,40px);line-height:1;color:var(--green);margin:0 0 10px">Groei</h3>
-          <p class="lead" style="margin:0;max-width:620px">Meer zichtbaarheid, meer verkeer en meer omzet.</p>
-        </div>
-        ${['websites','ai-systemen','seo'].map(page => renderCard(cardMap[page])).join('')}
-        <div style="grid-column:1/-1;padding:34px 0 18px;background:#060707">
-          <h3 style="font-family:var(--serif);font-style:italic;font-size:clamp(28px,3vw,40px);line-height:1;color:var(--green);margin:0 0 10px">Systemen</h3>
-          <p class="lead" style="margin:0;max-width:620px">Slimmere processen, meer automatisering en minder risico.</p>
-        </div>
-        ${['email-marketing','advertenties','ai-compliance'].map(page => renderCard(cardMap[page])).join('')}
-      `;
+      const groups = [
+        {
+          title:'Groei',
+          description:'Meer zichtbaarheid, meer verkeer en meer omzet.',
+          pages:['websites','seo','advertenties']
+        },
+        {
+          title:'Systemen',
+          description:'Slimmere processen, meer automatisering en minder risico.',
+          pages:['email-marketing','ai-systemen','ai-compliance']
+        }
+      ];
+      target.innerHTML = groups.map(group => {
+        const cards = group.pages.map(page => cardMap[page]).filter(Boolean);
+        return `
+          <div style="margin-bottom:22px">
+            <div class="eyebrow" style="margin-bottom:10px">${group.title}</div>
+            <p class="lead" style="margin-bottom:18px;max-width:620px">${group.description}</p>
+            <div class="offer-grid">
+              ${cards.map(card => `
+                <button class="service-card hover-sheen" onclick="showPage('${card.page}')">
+                  <div class="icon">${card.icon}</div>
+                  <div class="tag">AIChecked module</div>
+                  <h3>${card.title}</h3>
+                  <p>${card.short}</p>
+                  <div class="issue">${card.issue}</div>
+                  <div class="more">Meer lezen →</div>
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
     }
 
     function renderProblemRoutes(){
@@ -4889,7 +5093,7 @@ function createAiSystemsPage(){
           <div class="route-tag">AIChecked route</div>
           <div class="route-problem">${item.title}</div>
           <div class="route-copy">${item.text}</div>
-          <div class="route-service">${services.find(service => service.slug === item.page)?.title || ''}</div>
+          <div class="route-service">${offerCards.find(card => card.page === item.page)?.title || services.find(service => service.slug === item.page)?.title || ''}</div>
           <div class="route-arrow">Meer lezen →</div>
         </button>
       `).join('');
