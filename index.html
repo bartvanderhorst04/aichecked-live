@@ -7200,6 +7200,7 @@ function createAiSystemsPage(){
       }
       const path = window.location.pathname.replace(/\/+$/,'') || '/';
       if(path === '/') return 'home';
+      if(path === '/aanbod' || path === '/aanbod.html') return 'aanbod';
       if(path === '/website-bouwen') return 'websites';
       if(path.startsWith('/kennisbank/')){
         const articleSlug = path.replace('/kennisbank/','');
