@@ -5,20 +5,20 @@
   <link rel="icon" type="image/png" href="/Images/favicon.png">
   <link rel="apple-touch-icon" href="/Images/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Websites | Bouwen, verbeteren en onderhouden | AIChecked.nl</title>
-  <meta name="description" id="meta-description" content="AIChecked bouwt, verbetert en onderhoudt websites die sneller laden, beter converteren en technisch rustig blijven werken.">
+  <title>SEO / AI Search | Vindbaarheid voor Google en AI | AIChecked.nl</title>
+  <meta name="description" id="meta-description" content="AIChecked helpt bedrijven groeien met SEO / AI Search: betere structuur, sterkere content en vindbaarheid voor Google en AI-systemen.">
   <meta name="robots" id="robots-meta" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#080907">
-  <link rel="canonical" id="canonical-link" href="https://aichecked.nl/website-bouwen">
+  <link rel="canonical" id="canonical-link" href="https://aichecked.nl/seo">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AIChecked.nl">
-  <meta property="og:title" id="og-title" content="Websites | Bouwen, verbeteren en onderhouden | AIChecked.nl">
-  <meta property="og:description" id="og-description" content="AIChecked bouwt, verbetert en onderhoudt websites die sneller laden, beter converteren en technisch rustig blijven werken.">
-  <meta property="og:url" id="og-url" content="https://aichecked.nl/websites">
+  <meta property="og:title" id="og-title" content="SEO / AI Search | Vindbaarheid voor Google en AI | AIChecked.nl">
+  <meta property="og:description" id="og-description" content="AIChecked helpt bedrijven groeien met SEO / AI Search: betere structuur, sterkere content en vindbaarheid voor Google en AI-systemen.">
+  <meta property="og:url" id="og-url" content="https://aichecked.nl/seo">
   <meta property="og:image" content="https://aichecked.nl/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" id="twitter-title" content="Websites | Bouwen, verbeteren en onderhouden | AIChecked.nl">
-  <meta name="twitter:description" id="twitter-description" content="AIChecked bouwt, verbetert en onderhoudt websites die sneller laden, beter converteren en technisch rustig blijven werken.">
+  <meta name="twitter:title" id="twitter-title" content="SEO / AI Search | Vindbaarheid voor Google en AI | AIChecked.nl">
+  <meta name="twitter:description" id="twitter-description" content="AIChecked helpt bedrijven groeien met SEO / AI Search: betere structuur, sterkere content en vindbaarheid voor Google en AI-systemen.">
   <meta name="twitter:image" content="https://aichecked.nl/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -504,108 +504,7 @@
 .service-page .btn-ghost:focus-visible{
   background:rgba(66,216,166,.045);
 }
-.web-build-steps{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:14px;
-}
-.web-step-card,.web-highlight-card{
-  background:linear-gradient(180deg,rgba(255,255,255,.042),rgba(255,255,255,.015));
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:24px;
-  padding:24px;
-  position:relative;
-  overflow:hidden;
-  backdrop-filter:blur(18px);
-  transition:transform .32s var(--ease),border-color .32s var(--ease),box-shadow .32s var(--ease),background .32s var(--ease);
-}
-.web-step-card:hover,.web-highlight-card:hover{
-  transform:translateY(-3px);
-  border-color:rgba(66,216,166,.22);
-  box-shadow:0 18px 34px rgba(0,0,0,.22),0 0 24px rgba(66,216,166,.1);
-  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.018));
-}
-.web-step-card::before,.web-highlight-card::before{
-  content:'';
-  position:absolute;
-  top:-36px;
-  right:-36px;
-  width:132px;
-  height:132px;
-  background:radial-gradient(circle, rgba(66,216,166,.12), transparent 68%);
-  pointer-events:none;
-}
-.web-step-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-  margin-bottom:16px;
-}
-.web-step-icon{
-  width:42px;
-  height:42px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:14px;
-  background:rgba(66,216,166,.07);
-  border:1px solid rgba(66,216,166,.16);
-  color:var(--green);
-  font-size:18px;
-}
-.web-step-index{
-  font-size:10px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.46);
-}
-.web-step-card h3,.web-highlight-card h3{
-  font-family:var(--serif);
-  font-size:26px;
-  line-height:1.08;
-  color:var(--white);
-  margin-bottom:12px;
-}
-.web-step-card p,.web-highlight-card p{
-  font-size:15px;
-  line-height:1.78;
-  color:#ddd7ce;
-  margin:0;
-}
-.web-mini-list{
-  list-style:none;
-  display:grid;
-  gap:10px;
-  margin:16px 0 0;
-}
-.web-mini-list li{
-  position:relative;
-  padding-left:18px;
-  color:#f1ece4;
-  font-size:14px;
-  line-height:1.62;
-}
-.web-mini-list li::before{
-  content:'✓';
-  position:absolute;
-  left:0;
-  top:0;
-  color:var(--green);
-  font-size:13px;
-}
-.web-highlight-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:14px;
-}
-@media (max-width: 1100px){
-  .web-build-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media (max-width: 768px){
-  .web-build-steps,.web-highlight-grid{grid-template-columns:1fr}
-}
-.breadcrumb-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted-2);margin-bottom:18px}
+    .breadcrumb-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted-2);margin-bottom:18px}
     .breadcrumb-row span{color:var(--muted-2)}
     .service-section-head{max-width:760px;margin-bottom:16px}
     .service-section-head p{font-size:17px;line-height:1.78;color:#ddd7ce;margin:0}
@@ -623,6 +522,71 @@
     .service-proof-card .value,.service-kpi .value{font-family:var(--serif);font-size:40px;line-height:1;color:var(--white);margin-bottom:10px}
     .service-proof-card .meta,.service-kpi .meta{font-size:14px;line-height:1.72;color:#d5d0c7}
     .service-kpi .value{color:var(--green)}
+    .seo-why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .seo-why-card{
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012));
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:20px;
+      backdrop-filter:blur(18px)
+    }
+    .seo-why-card h3{font-family:var(--serif);font-size:22px;line-height:1.14;color:var(--white);margin-bottom:10px}
+    .seo-why-card p{font-size:15px;line-height:1.78;color:#ddd7ce;margin:0}
+    .seo-proof-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .seo-proof-grid .service-proof-card{min-height:100%}
+    .seo-problem-grid .service-impact{
+      position:relative;
+      border-top-color:rgba(66,216,166,.28);
+      box-shadow:inset 0 1px 0 rgba(66,216,166,.12);
+      transition:border-color .28s ease,box-shadow .28s ease,transform .28s ease,background .28s ease
+    }
+    .seo-problem-grid .service-impact:hover{
+      border-color:rgba(66,216,166,.22);
+      box-shadow:inset 0 1px 0 rgba(66,216,166,.18),0 18px 36px rgba(0,0,0,.18),0 0 0 1px rgba(66,216,166,.08);
+      background:linear-gradient(180deg,rgba(255,255,255,.038),rgba(255,255,255,.016));
+      transform:translateY(-2px)
+    }
+    .seo-problem-icon{
+      width:26px;
+      height:26px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:14px;
+      color:var(--green);
+      background:rgba(66,216,166,.08);
+      border:1px solid rgba(66,216,166,.16);
+      font-size:12px;
+      line-height:1
+    }
+    .seo-steps{
+      position:relative;
+      background:transparent;
+      gap:14px
+    }
+    .seo-steps::before{
+      content:'';
+      position:absolute;
+      left:24px;
+      right:24px;
+      top:44px;
+      height:1px;
+      background:linear-gradient(90deg,rgba(66,216,166,.16),rgba(66,216,166,.08));
+      pointer-events:none
+    }
+    .seo-steps .step{
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden
+    }
+    .seo-steps .step .num{
+      font-size:46px;
+      color:var(--green);
+      opacity:1;
+      margin-bottom:12px
+    }
+    .seo-end-section .overview-card{padding:32px}
     .service-summary{
       background:rgba(255,255,255,.018);
       border:1px solid var(--line);
@@ -1761,6 +1725,7 @@
       .offer-grid{grid-template-columns:repeat(2,1fr)}
       .kb-feature{grid-template-columns:1fr}
       .kb-grid{grid-template-columns:1fr 1fr}
+      .seo-why-grid,.seo-proof-grid{grid-template-columns:1fr 1fr}
       .article-layout{grid-template-columns:1fr}
       .article-toc{position:relative;top:auto}
       .about-home{grid-template-columns:1fr}
@@ -1777,10 +1742,12 @@
       .nav-links{display:none}.nav-toggle{display:flex}
       .mega{display:none}
       .offer-grid,.kb-grid,.hero-kpis,.three-cells,.stat-strip,.steps,.module-grid,.dashboard-grid,.footer-grid,.form-grid,.problem-grid,.about-stats,.route-grid,.service-copy-grid,.service-proof-grid,.service-kpis{grid-template-columns:1fr}
+      .seo-why-grid,.seo-proof-grid{grid-template-columns:1fr}
       .admin-command-grid,.analytics-grid,.service-health-grid,.admin-glance,.role-grid,.status-board,.admin-kpi-ribbon,.admin-upload-grid{grid-template-columns:1fr}
       .ops-surface,.ops-grid,.monitor-grid,.compliance-grid,.alert-shell,.role-matrix{grid-template-columns:1fr}
       .admin-table .head,.admin-table .row{grid-template-columns:1fr}
       .service-panel{padding:10px;border-radius:24px}
+      .seo-steps::before{display:none}
       .dashboard{display:block}
       .sidebar{display:none}
       .dashboard-main{margin-left:0;padding:110px 20px 72px}
@@ -2037,7 +2004,7 @@
         <div class="footer-grid">
           <div>
             <div class="logo" style="font-size:24px;margin-bottom:10px"><div class="logo-mark">AI</div><div>AIChecked<small>Trusted digital foundation</small></div></div>
-            <p>AI compliance, advertenties, websites, SEO / AI Search, branding en email marketing voor bedrijven die rust in hun basis willen.</p>
+            <p>AI compliance, <a href="/advertenties" onclick="return navigatePage(event,'advertenties')" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(66,216,166,.42)">advertenties</a>, websites, SEO / AI Search, branding en email marketing voor bedrijven die rust in hun basis willen.</p>
           </div>
           <div>
             <h4>Pagina’s</h4>
@@ -3685,7 +3652,7 @@ const aiSystemsProcess = [
           <div class="footer-grid">
             <div>
               <div class="logo" style="font-size:24px;margin-bottom:10px"><div class="logo-mark">AI</div><div>AIChecked<small>Trusted digital foundation</small></div></div>
-              <p>AI compliance, advertenties, websites, SEO / AI Search, branding en email marketing voor bedrijven die rust in hun basis willen.</p>
+              <p>AI compliance, <a href="/advertenties" onclick="return navigatePage(event,'advertenties')" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(66,216,166,.42)">advertenties</a>, websites, SEO / AI Search, branding en email marketing voor bedrijven die rust in hun basis willen.</p>
               <p class="footer-trust">AIChecked brengt consent, data en digitale infrastructuur terug naar iets waar teams op durven te vertrouwen.</p>
             </div>
             <div>
@@ -4331,7 +4298,6 @@ const aiSystemsProcess = [
     }
 
     function buildPackageSection(service){
-      if(service.slug === 'websites') return '';
       const config = getPackageConfig(service);
       if(!config) return '';
 
@@ -4384,6 +4350,92 @@ const aiSystemsProcess = [
       `;
     }
 
+    function buildSeoWhyNowSection(){
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head">
+              <div class="eyebrow">Waarom nu?</div>
+              <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">SEO verandert.<br><em>AI Search nog sneller.</em></h2>
+              <p style="color:var(--green);font-size:16px;line-height:1.8;margin:0 0 14px">Wie wacht wordt ingehaald.</p>
+              <p>Google toont steeds vaker AI-antwoorden. ChatGPT, Gemini en andere AI-systemen bepalen steeds vaker welke bedrijven zichtbaar zijn.</p>
+              <p style="margin-top:14px">Veel websites zijn gebouwd voor zoekmachines van gisteren.</p>
+              <p style="margin-top:14px">AIChecked zorgt dat je website begrijpelijk wordt voor zowel Google als moderne AI-systemen.</p>
+            </div>
+            <div class="seo-why-grid">
+              <div class="seo-why-card">
+                <h3>AI Search groeit snel</h3>
+                <p>Steeds meer gebruikers zoeken via AI.</p>
+              </div>
+              <div class="seo-why-card">
+                <h3>Concurrenten bouwen voorsprong op</h3>
+                <p>Bedrijven die nu optimaliseren verzamelen eerder autoriteit.</p>
+              </div>
+              <div class="seo-why-card">
+                <h3>Structuur wordt belangrijker</h3>
+                <p>AI begrijpt alleen wat technisch en inhoudelijk helder is.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildSeoProofSection(){
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head">
+              <div class="eyebrow">Wat je uiteindelijk wilt zien.</div>
+              <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Niet meer verkeer.<br><em>Beter verkeer.</em></h2>
+            </div>
+            <div class="seo-proof-grid">
+              <div class="service-proof-card">
+                <span class="kicker">Resultaat</span>
+                <h3>Meer relevante bezoekers</h3>
+                <p>Mensen die daadwerkelijk zoeken naar jouw dienst.</p>
+              </div>
+              <div class="service-proof-card">
+                <span class="kicker">AI Search</span>
+                <h3>Betere AI-zichtbaarheid</h3>
+                <p>Grotere kans om genoemd te worden door AI-systemen.</p>
+              </div>
+              <div class="service-proof-card">
+                <span class="kicker">Structuur</span>
+                <h3>Sterkere contentstructuur</h3>
+                <p>Pagina’s worden beter begrepen.</p>
+              </div>
+              <div class="service-proof-card">
+                <span class="kicker">Duurzaamheid</span>
+                <h3>Minder afhankelijk van advertenties</h3>
+                <p>Meer organisch verkeer op lange termijn.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildSeoClosingSection(){
+      return `
+        <section class="section-tight seo-end-section">
+          <div class="wrap">
+            <div class="overview-card">
+              <div class="service-section-head" style="margin-bottom:0">
+                <div class="eyebrow">Zichtbaarheid is geen toeval.</div>
+                <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Het is <em>structuur.</em></h2>
+                <p>De meeste websites missen geen content. Ze missen een duidelijke technische en inhoudelijke basis.</p>
+                <p style="margin-top:14px">AIChecked helpt bedrijven om zichtbaar te worden voor zowel zoekmachines als AI-systemen.</p>
+                <div class="btn-row" style="margin-top:22px">
+                  <button class="btn btn-primary" onclick="showPage('contact')">Plan een kennismaking</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
     function buildServiceVisualProofSection(service){
       return `
         <section class="section-tight">
@@ -4424,96 +4476,6 @@ const aiSystemsProcess = [
       `;
     }
 
-    function buildWebsitesHowWeBuildSection(service){
-      if(service.slug !== 'websites') return '';
-      const steps = [
-        {
-          icon:'◫',
-          index:'Stap 1',
-          title:'Strategie vóór design',
-          text:'We analyseren eerst waar bezoekers afhaken, wat onduidelijk is en welke structuur nodig is om vertrouwen en conversie op te bouwen.',
-          bullets:['Heldere structuur','Conversiegericht','Gebouwd rondom gedrag']
-        },
-        {
-          icon:'✦',
-          index:'Stap 2',
-          title:'Premium uitstraling die rust geeft',
-          text:'We ontwerpen een website die professioneel aanvoelt, sneller vertrouwen opbouwt en duidelijk communiceert wat jouw bedrijf doet.',
-          bullets:['Meer vertrouwen','Duidelijke positionering','Minder visuele ruis']
-        },
-        {
-          icon:'◎',
-          index:'Stap 3',
-          title:'Slimme systemen achter de schermen',
-          text:'Van AI chatbots tot leadflows en slimme formulieren: we bouwen systemen die werk automatiseren en sneller opvolgen.',
-          bullets:['Slimmere opvolging','Minder handmatig werk','Meer schaalbaarheid']
-        },
-        {
-          icon:'↗',
-          index:'Stap 4',
-          title:'Meten, verbeteren en doorgroeien',
-          text:'Na livegang blijven we optimaliseren op snelheid, SEO, AI Search en conversie zodat de website blijft presteren.',
-          bullets:['SEO & AI Search','Hogere conversie','Continu verbeteren']
-        }
-      ];
-      const highlights = [
-        {
-          title:'Niet gebouwd voor alleen design',
-          text:'Maar voor structuur, duidelijkheid en conversie.'
-        },
-        {
-          title:'AI-first aanpak',
-          text:'Slimme automatisering en AI-systemen direct geïntegreerd.'
-        },
-        {
-          title:'Gebouwd voor groei',
-          text:'SEO, AI Search en schaalbaarheid vanaf de basis meegenomen.'
-        }
-      ];
-      return `
-        <section class="section-tight">
-          <div class="wrap">
-            <div class="service-section-head">
-              <div class="eyebrow">Hoe wij websites bouwen</div>
-              <h2 class="display" style="font-size:clamp(30px,3.4vw,44px);margin-bottom:12px">Hoe wij websites bouwen</h2>
-              <p>Een website moet niet alleen mooi zijn. Hij moet structuur brengen, vertrouwen opbouwen en bezoekers laten converteren.</p>
-            </div>
-            <div class="web-build-steps">
-              ${steps.map(step => `
-                <div class="web-step-card hover-sheen">
-                  <div class="web-step-top">
-                    <span class="web-step-icon">${step.icon}</span>
-                    <span class="web-step-index">${step.index}</span>
-                  </div>
-                  <h3>${step.title}</h3>
-                  <p>${step.text}</p>
-                  <ul class="web-mini-list">
-                    ${step.bullets.map(item => `<li>${item}</li>`).join('')}
-                  </ul>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        </section>
-        <section class="section-tight">
-          <div class="wrap">
-            <div class="service-section-head">
-              <div class="eyebrow">Waarom AIChecked websites anders zijn</div>
-              <p>We bouwen websites als complete groeisystemen: duidelijk aan de voorkant, slimmer onder de motorkap en beter voorbereid op wat daarna komt.</p>
-            </div>
-            <div class="web-highlight-grid">
-              ${highlights.map(item => `
-                <div class="web-highlight-card hover-sheen">
-                  <h3>${item.title}</h3>
-                  <p>${item.text}</p>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        </section>
-      `;
-    }
-
     function createServicePages(){
       const root = document.getElementById('service-pages-root');
       root.innerHTML = services.map(service => `
@@ -4530,19 +4492,21 @@ const aiSystemsProcess = [
               </div>
             </div>
           </section>
+          ${service.slug === 'seo' ? buildSeoWhyNowSection() : ''}
           ${buildPackageSection(service)}
-          ${buildCalendarBookingSection('Plan direct een gesprek over dit traject', 'Open meteen de agenda en kies een moment om te bespreken welk pakket past, waar het nu vastloopt en wat als eerste opgelost moet worden.')}
+          ${service.slug === 'seo' ? buildSeoProofSection() : ''}
+          ${buildCalendarBookingSection(service.slug === 'seo' ? 'Concurrenten bouwen zichtbaarheid op.<br><em>Jij kunt vandaag beginnen.</em>' : 'Plan direct een gesprek over dit traject', service.slug === 'seo' ? 'Niet over zes maanden. Nu.<br><br>Tijdens een kennismaking kijken we waar de grootste groeikansen liggen, welke fouten zichtbaar zijn en welke stappen de meeste impact maken.' : 'Open meteen de agenda en kies een moment om te bespreken welk pakket past, waar het nu vastloopt en wat als eerste opgelost moet worden.')}
           ${buildServiceVisualProofSection(service)}
-          ${buildWebsitesHowWeBuildSection(service)}
           <section class="section-tight">
             <div class="wrap">
               <div class="service-section-head">
                 <div class="eyebrow">Herken je dit?</div>
                 <p>${service.herkenTitle}</p>
               </div>
-              <div class="service-copy-grid">
+              <div class="service-copy-grid ${service.slug === 'seo' ? 'seo-problem-grid' : ''}">
                 ${service.herken.map((item,index) => `
                   <div class="service-impact">
+                    ${service.slug === 'seo' ? `<div class="seo-problem-icon">${['⌕','↗','◎','△'][index % 4]}</div>` : ''}
                     <h3>${item}</h3>
                     <p>${getHerkenDetail(service, index)}</p>
                   </div>
@@ -4556,9 +4520,10 @@ const aiSystemsProcess = [
                 <div class="eyebrow">Wat je merkt</div>
                 <p>Hier merk je het meestal als eerste. Niet in een dashboard, maar in hoe lastig het wordt om goed te sturen.</p>
               </div>
-              <div class="service-copy-grid">
+              <div class="service-copy-grid ${service.slug === 'seo' ? 'seo-problem-grid' : ''}">
                 ${service.merkt.map((item,index) => `
                   <div class="service-impact">
+                    ${service.slug === 'seo' ? `<div class="seo-problem-icon">${['⌕','↗','◎','△'][index % 4]}</div>` : ''}
                     <h3>${item}</h3>
                     <p>${getMerktDetail(service, index)}</p>
                   </div>
@@ -4572,7 +4537,7 @@ const aiSystemsProcess = [
                 <div class="eyebrow">Wat ik concreet doe</div>
                 <p>We beginnen niet met losse acties. Eerst maken we duidelijk waar het misgaat. Daarna lossen we dat stap voor stap op.</p>
               </div>
-              <div class="steps">${service.doSteps.map((step,index)=>`<div class="step"><div class="num">0${index+1}</div><h4>${step}</h4><p>${getStepDetail(service, index)}</p></div>`).join('')}</div>
+              <div class="steps ${service.slug === 'seo' ? 'seo-steps' : ''}">${service.doSteps.map((step,index)=>`<div class="step"><div class="num">0${index+1}</div><h4>${step}</h4><p>${getStepDetail(service, index)}</p></div>`).join('')}</div>
             </div>
           </section>
           <section class="section-tight">
@@ -4669,6 +4634,7 @@ const aiSystemsProcess = [
               </div>
             </div>
           </section>
+          ${service.slug === 'seo' ? buildSeoClosingSection() : ''}
           <footer>${getSharedFooter()}</footer>
         </div>
       `).join('');
