@@ -7223,6 +7223,10 @@ function createAiSystemsPage(){
 
     function showPage(id){
       const requestedId = id;
+      if(window.location.protocol !== 'file:' && requestedId === 'aanbod' && window.location.pathname.replace(/\/+$/,'') !== '/aanbod'){
+        window.location.assign('/aanbod');
+        return;
+      }
       if(id === 'klantportaal' && !currentPortalClientEmail){
         id = 'login';
       }
