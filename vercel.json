@@ -31,6 +31,22 @@
   ],
   "rewrites": [
     { "source": "/aanbod", "destination": "/aanbod.html" },
+    { "source": "/cases", "destination": "/cases.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/over-ons", "destination": "/over-ons.html" },
+    { "source": "/ai-kennisbank", "destination": "/ai-kennisbank.html" },
+    { "source": "/klantportaal", "destination": "/klantportaal.html" },
+    { "source": "/email-marketing", "destination": "/email-marketing.html" },
+    { "source": "/seo", "destination": "/seo.html" },
+    { "source": "/advertenties", "destination": "/advertenties.html" },
+    { "source": "/website-bouwen", "destination": "/website-bouwen.html" },
+    { "source": "/branding", "destination": "/branding.html" },
+    { "source": "/ai-compliance", "destination": "/ai-compliance.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/cookies", "destination": "/cookies.html" },
+    { "source": "/algemene-voorwaarden", "destination": "/algemene-voorwaarden.html" },
+    { "source": "/disclaimer", "destination": "/disclaimer.html" },
+    { "source": "/sitemap", "destination": "/sitemap.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
