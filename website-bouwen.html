@@ -4331,7 +4331,7 @@ const aiSystemsProcess = [
     }
 
     function buildPackageSection(service){
-      if(service.slug === 'websites') return '';
+      if(service.slug === 'websites' || service.slug === 'website-bouwen') return '';
       const config = getPackageConfig(service);
       if(!config) return '';
 
