@@ -2337,39 +2337,6 @@
 
     <section class="section-tight">
       <div class="wrap">
-        <div class="two-col">
-          <div class="overview-card">
-            <div class="eyebrow">Kernpagina’s</div>
-            <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Direct naar de belangrijkste diensten</h2>
-            <div class="inline-links">
-              <a class="inline-link" href="/email-marketing">Email Marketing</a>
-              <a class="inline-link" href="/seo">SEO / AI Search</a>
-              <a class="inline-link" href="/advertenties">Ads & Campagnes</a>
-              <a class="inline-link" href="/website-bouwen">Website bouwen</a>
-              <a class="inline-link" href="/branding">Branding</a>
-              <a class="inline-link" href="/ai-compliance">AI Compliance</a>
-              <a class="inline-link" href="/ai-systemen">AI Systems</a>
-              <a class="inline-link" href="/ai-dashboards">AI Dashboards</a>
-            </div>
-          </div>
-          <div class="overview-card">
-            <div class="eyebrow">Populaire locaties</div>
-            <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Veel bekeken webpagina’s per regio</h2>
-            <div class="inline-links">
-              <a class="inline-link" href="/website-laten-maken-amsterdam">Amsterdam</a>
-              <a class="inline-link" href="/website-laten-maken-utrecht">Utrecht</a>
-              <a class="inline-link" href="/website-laten-maken-rotterdam">Rotterdam</a>
-              <a class="inline-link" href="/website-laten-maken-culemborg">Culemborg</a>
-              <a class="inline-link" href="/website-laten-maken-gorinchem">Gorinchem</a>
-              <a class="inline-link" href="/website-laten-maken-tiel">Tiel</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-tight">
-      <div class="wrap">
         <div class="eyebrow">Waarom nu?</div>
         <h2 class="display" style="font-size:clamp(34px,4vw,54px);margin-bottom:12px">AI verandert sneller dan de meeste bedrijven <em>kunnen bijhouden.</em></h2>
         <p class="lead" style="margin-bottom:22px;max-width:760px">Bedrijven die vandaag investeren in AI, automatisering en digitale infrastructuur bouwen een voorsprong op die later moeilijk in te halen is.</p>
@@ -4765,7 +4732,7 @@ const aiSystemsUseCases = [
     }
 
     function buildPackageSection(service){
-      if(service.slug === 'websites') return '';
+      if(service.slug === 'websites' || service.slug === 'website-bouwen') return '';
       const config = getPackageConfig(service);
       if(!config) return '';
 
