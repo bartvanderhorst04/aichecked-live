@@ -174,10 +174,6 @@
       transform:translateY(-2px);
     }
     .btn-ghost{background:rgba(255,255,255,.012)}
-    .floating-cta{
-      position:fixed;right:24px;bottom:24px;z-index:1200;
-      box-shadow:0 10px 40px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.06);
-    }
     .cookie-banner{
       position:fixed;left:24px;bottom:24px;z-index:1100;
       width:min(420px,calc(100vw - 32px));
@@ -1683,7 +1679,6 @@
       .dashboard{display:block}
       .sidebar{display:none}
       .dashboard-main{margin-left:0;padding:110px 20px 72px}
-      .floating-cta{right:16px;bottom:16px}
       .cookie-banner{left:16px;right:16px;bottom:84px;width:auto}
       .cookie-launcher{left:16px;bottom:16px;width:50px;height:50px;font-size:23px}
       .cookie-actions{flex-direction:column}
@@ -1797,8 +1792,6 @@
       <div class="nav-toggle" onclick="toggleMobile()"><span></span><span></span><span></span></div>
     </div>
   </nav>
-
-  <button class="btn btn-primary floating-cta" onclick="showPage('contact')">Neem contact op met ons</button>
 
   <div id="cookie-banner" class="cookie-banner" aria-live="polite" aria-label="Cookie instellingen">
     <div class="cookie-label">Privacy instellingen</div>
