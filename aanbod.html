@@ -67,11 +67,20 @@
     }
     html{
       scroll-behavior:smooth;
+      margin:0;
+      padding:0;
+      width:100%;
+      min-height:100%;
+      background:var(--bg);
       overflow-x:hidden;
       overflow-y:visible;
       max-width:none;
     }
     body{
+      margin:0;
+      padding:0;
+      width:100%;
+      min-height:100vh;
       background:var(--bg);
       color:var(--text);
       font-family:var(--sans);
@@ -95,9 +104,8 @@
     }
     body::after{
       content:'';position:fixed;inset:0;pointer-events:none;z-index:-4;
-      background:
-        radial-gradient(circle at center, transparent 56%, rgba(0,0,0,.3) 100%);
-      opacity:.95;
+      background:none;
+      opacity:0;
     }
     a{text-decoration:none;color:inherit}
     button,input,select,textarea{font:inherit}
