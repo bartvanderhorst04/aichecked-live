@@ -40,7 +40,7 @@
     "@type": "Organization",
     "name": "AIChecked.nl",
     "url": "https://aichecked.nl/",
-    "logo": "https://aichecked.nl/logo.png",
+    "logo": "https://aichecked.nl/favicon-192x192.png",
     "email": "info@aichecked.nl",
     "telephone": "+31 6 19678372",
     "sameAs": [
@@ -74,7 +74,12 @@
       --radius:18px;
       --content:1120px;
     }
-    html{scroll-behavior:smooth}
+    html{
+      scroll-behavior:smooth;
+      overflow-x:hidden;
+      overflow-y:visible;
+      max-width:none;
+    }
     body{
       background:var(--bg);
       color:var(--text);
@@ -82,6 +87,8 @@
       font-weight:300;
       line-height:1.8;
       overflow-x:hidden;
+      overflow-y:visible;
+      max-width:none;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
       position:relative;
@@ -4023,7 +4030,7 @@ const aiSystemsUseCases = [
             "@type":"Organization",
             "name":"AIChecked.nl",
             "url":"https://aichecked.nl/",
-            "logo":"https://aichecked.nl/logo.png",
+            "logo": "https://aichecked.nl/favicon-192x192.png",
             "email":"info@aichecked.nl",
             "telephone":"+31 6 19678372"
           },
@@ -7373,6 +7380,6 @@ function createAiSystemsPage(){
       }
     });
   </script>
-<script src="https://aichecked-chatbot-2-a97mv1nth-ai-compliantnl.vercel.app/embed.js" defer></script>
+<script src="https://aichecked-chatbot-2-a97mv1nth-ai-compliantnl.vercel.app/embed.js?v=2780e63" defer></script>
 </body>
 </html>
