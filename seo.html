@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl" class="route-booting">
 <head>
   <meta charset="UTF-8">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -1816,6 +1816,7 @@
       0%,100%{transform:scale(1);box-shadow:0 0 0 4px rgba(66,216,166,.08),0 0 18px rgba(66,216,166,.55)}
       50%{transform:scale(1.12);box-shadow:0 0 0 7px rgba(66,216,166,.05),0 0 24px rgba(66,216,166,.7)}
     }
+    html.route-booting body{visibility:hidden}
   </style>
 </head>
 <body>
@@ -1847,7 +1848,7 @@
             <a class="mega-card" href="/email-marketing" onclick="return navigatePage(event,'email-marketing')"><strong>Email Marketing</strong><p>Meer omzet uit bestaande klanten zonder losse campagnes of handmatig werk.</p></a>
             <a class="mega-card" href="/seo" onclick="return navigatePage(event,'seo')"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
             <a class="mega-card" href="/advertenties" onclick="return navigatePage(event,'advertenties')"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
-            <a class="mega-card" href="/websites" onclick="return navigatePage(event,'websites')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
+            <a class="mega-card" href="/website-bouwen" onclick="return navigatePage(event,'website-bouwen')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
             <a class="mega-card" href="/ai-systemen" onclick="return navigatePage(event,'ai-systemen')"><strong>AI Systems</strong><p>Slimme AI-oplossingen die klantvragen, workflows en dagelijkse processen automatiseren.</p></a>
             <a class="mega-card" href="/ai-compliance" onclick="return navigatePage(event,'ai-compliance')"><strong>AI Compliance</strong><p>Consent, governance en privacy-instellingen die juridisch en technisch kloppen.</p></a>
           </div>
@@ -1881,7 +1882,7 @@
   </div>
   <button id="cookie-launcher" class="cookie-launcher" type="button" aria-label="Open cookie instellingen" aria-hidden="true" onclick="reopenCookieBanner()">🍪</button>
 
-  <div id="page-home" class="page active">
+  <div id="page-home" class="page">
     <section class="hero-shell">
       <div class="wrap">
         <div class="hero-grid">
@@ -3520,7 +3521,7 @@ const aiSystemsProcess = [
       if(seoRoutes[id]) return seoRoutes[id];
       const service = services.find(item => item.slug === id);
       if(service){
-        const slugMap = {'seo':'/seo','advertenties':'/advertenties','websites':'/websites'};
+        const slugMap = {'seo':'/seo','advertenties':'/advertenties','websites':'/website-bouwen'};
         return {
           path:slugMap[id] || `/${id}`,
           title:service.seoTitle || `${service.title} | AIChecked.nl`,
@@ -6683,7 +6684,8 @@ function createAiSystemsPage(){
       }
       const path = window.location.pathname.replace(/\/+$/,'') || '/';
       if(path === '/') return 'home';
-      if(path === '/website-bouwen') return 'websites';
+      if(path === '/seo/ai-search' || path === '/ai-search') return 'seo';
+      if(path === '/website' || path === '/websites' || path === '/website-bouwen') return 'websites';
       if(path.startsWith('/kennisbank/')){
         const articleSlug = path.replace('/kennisbank/','');
         const articleId = `article-${articleSlug}`;
@@ -6710,7 +6712,6 @@ function createAiSystemsPage(){
       const pageAliases = {
         'meta-ads':'advertenties',
         'google-ads':'advertenties',
-        'website-bouwen':'websites',
         'website-verbeteren':'websites',
         'website-onderhouden':'websites'
       };
@@ -6875,20 +6876,23 @@ function createAiSystemsPage(){
       initRevealObserver();
       primeReveals(document);
       const initialId = getRouteIdFromLocation();
-      if(initialId && document.getElementById(`page-${initialId}`)){
+      if(initialId){
         showPage(initialId);
       } else {
         updateSeo('home');
       }
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('route-booting');
+      });
     });
 
     window.addEventListener('popstate', () => {
       const routeId = getRouteIdFromLocation();
-      if(routeId && document.getElementById(`page-${routeId}`)){
+      if(routeId){
         showPage(routeId);
       }
     });
   </script>
-<script src="https://aichecked-chatbot-2-a97mv1nth-ai-compliantnl.vercel.app/embed.js?v=2780e63" defer></script>
+<script src="https://aichecked-chatbot-2.vercel.app/embed.js?v=2780e63" defer></script>
 </body>
 </html>

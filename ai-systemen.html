@@ -2074,7 +2074,9 @@
       0%,100%{transform:scale(1);box-shadow:0 0 0 4px rgba(66,216,166,.08),0 0 18px rgba(66,216,166,.55)}
       50%{transform:scale(1.12);box-shadow:0 0 0 7px rgba(66,216,166,.05),0 0 24px rgba(66,216,166,.7)}
     }
+    html.route-booting body{visibility:hidden}
   </style>
+  <script>document.documentElement.classList.add('route-booting');</script>
 </head>
 <body>
   <div class="atmosphere" aria-hidden="true">
@@ -2105,7 +2107,7 @@
             <a class="mega-card" href="/email-marketing" onclick="return navigatePage(event,'email-marketing')"><strong>Email Marketing</strong><p>Meer omzet uit bestaande klanten zonder losse campagnes of handmatig werk.</p></a>
             <a class="mega-card" href="/seo" onclick="return navigatePage(event,'seo')"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
             <a class="mega-card" href="/advertenties" onclick="return navigatePage(event,'advertenties')"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
-            <a class="mega-card" href="/websites" onclick="return navigatePage(event,'websites')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
+            <a class="mega-card" href="/website-bouwen" onclick="return navigatePage(event,'website-bouwen')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
             <a class="mega-card" href="/ai-systemen" onclick="return navigatePage(event,'ai-systemen')"><strong>AI Systems</strong><p>Slimme AI-oplossingen die klantvragen, workflows en dagelijkse processen automatiseren.</p></a>
             <a class="mega-card" href="/ai-compliance" onclick="return navigatePage(event,'ai-compliance')"><strong>AI Compliance</strong><p>Consent, governance en privacy-instellingen die juridisch en technisch kloppen.</p></a>
           </div>
@@ -3807,7 +3809,7 @@ const aiSystemsUseCases = [
       if(seoRoutes[id]) return seoRoutes[id];
       const service = services.find(item => item.slug === id);
       if(service){
-        const slugMap = {'seo':'/seo','advertenties':'/advertenties','websites':'/websites'};
+        const slugMap = {'seo':'/seo','advertenties':'/advertenties','websites':'/website-bouwen'};
         return {
           path:slugMap[id] || `/${id}`,
           title:service.seoTitle || `${service.title} | AIChecked.nl`,
@@ -4632,6 +4634,72 @@ const aiSystemsUseCases = [
       `;
     }
 
+    function buildSeoWhyNowSection(){
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head">
+              <div class="eyebrow">Waarom nu?</div>
+              <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">SEO verandert.<br><em>AI Search nog sneller.</em></h2>
+              <p style="color:var(--green);font-size:16px;line-height:1.8;margin:0 0 14px">Wie wacht wordt ingehaald.</p>
+              <p>Google toont steeds vaker AI-antwoorden. ChatGPT, Gemini en andere AI-systemen bepalen steeds vaker welke bedrijven zichtbaar zijn.</p>
+              <p style="margin-top:14px">Veel websites zijn gebouwd voor zoekmachines van gisteren.</p>
+              <p style="margin-top:14px">AIChecked zorgt dat je website begrijpelijk wordt voor zowel Google als moderne AI-systemen.</p>
+            </div>
+            <div class="seo-why-grid">
+              <div class="seo-why-card">
+                <h3>AI Search groeit snel</h3>
+                <p>Steeds meer gebruikers zoeken via AI.</p>
+              </div>
+              <div class="seo-why-card">
+                <h3>Concurrenten bouwen voorsprong op</h3>
+                <p>Bedrijven die nu optimaliseren verzamelen eerder autoriteit.</p>
+              </div>
+              <div class="seo-why-card">
+                <h3>Structuur wordt belangrijker</h3>
+                <p>AI begrijpt alleen wat technisch en inhoudelijk helder is.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildSeoProofSection(){
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head">
+              <div class="eyebrow">Wat je uiteindelijk wilt zien.</div>
+              <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Niet meer verkeer.<br><em>Beter verkeer.</em></h2>
+            </div>
+            <div class="seo-proof-grid">
+              <div class="service-proof-card">
+                <span class="kicker">Resultaat</span>
+                <h3>Meer relevante bezoekers</h3>
+                <p>Mensen die daadwerkelijk zoeken naar jouw dienst.</p>
+              </div>
+              <div class="service-proof-card">
+                <span class="kicker">AI Search</span>
+                <h3>Betere AI-zichtbaarheid</h3>
+                <p>Grotere kans om genoemd te worden door AI-systemen.</p>
+              </div>
+              <div class="service-proof-card">
+                <span class="kicker">Structuur</span>
+                <h3>Sterkere contentstructuur</h3>
+                <p>Pagina’s worden beter begrepen.</p>
+              </div>
+              <div class="service-proof-card">
+                <span class="kicker">Duurzaamheid</span>
+                <h3>Minder afhankelijk van advertenties</h3>
+                <p>Meer organisch verkeer op lange termijn.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
     function buildServiceVisualProofSection(service){
       return `
         <section class="section-tight">
@@ -4688,7 +4756,11 @@ const aiSystemsUseCases = [
               </div>
             </div>
           </section>
+          ${service.slug === 'seo' ? buildSeoWhyNowSection() : }
+          ${service.slug === 'seo' ? buildSeoWhyNowSection() : ''}
           ${buildPackageSection(service)}
+          ${service.slug === 'seo' ? buildSeoProofSection() : ''}
+          ${service.slug === 'seo' ? buildSeoProofSection() : }
           ${buildCalendarBookingSection('Plan direct een gesprek over dit traject', 'Open meteen de agenda en kies een moment om te bespreken welk pakket past, waar het nu vastloopt en wat als eerste opgelost moet worden.')}
           ${buildServiceVisualProofSection(service)}
           <section class="section-tight">
@@ -6935,7 +7007,8 @@ function createAiSystemsPage(){
       }
       const path = window.location.pathname.replace(/\/+$/,'') || '/';
       if(path === '/') return 'home';
-      if(path === '/website-bouwen') return 'websites';
+      if(path === '/seo/ai-search' || path === '/ai-search') return 'seo';
+      if(path === '/website' || path === '/websites' || path === '/website-bouwen') return 'websites';
       if(path.startsWith('/kennisbank/')){
         const articleSlug = path.replace('/kennisbank/','');
         const articleId = `article-${articleSlug}`;
@@ -6963,7 +7036,6 @@ function createAiSystemsPage(){
       const pageAliases = {
         'meta-ads':'advertenties',
         'google-ads':'advertenties',
-        'website-bouwen':'websites',
         'website-verbeteren':'websites',
         'website-onderhouden':'websites'
       };
@@ -7133,6 +7205,9 @@ function createAiSystemsPage(){
       } else {
         updateSeo('home');
       }
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('route-booting');
+      });
     });
 
     window.addEventListener('popstate', () => {
@@ -7142,6 +7217,6 @@ function createAiSystemsPage(){
       }
     });
   </script>
-<script src="https://aichecked-chatbot-2-a97mv1nth-ai-compliantnl.vercel.app/embed.js?v=2780e63" defer></script>
+<script src="https://aichecked-chatbot-2.vercel.app/embed.js?v=2780e63" defer></script>
 </body>
 </html>
