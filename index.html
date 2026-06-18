@@ -7451,6 +7451,9 @@ function createAiSystemsPage(){
       } else {
         updateSeo('home');
       }
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('route-booting');
+      });
     });
 
     window.addEventListener('popstate', () => {
