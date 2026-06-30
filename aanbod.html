@@ -2,10 +2,8 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48">
-  <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/Images/favicon.png">
+  <link rel="apple-touch-icon" href="/Images/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aanbod | AIChecked.nl</title>
   <meta name="description" id="meta-description" content="Bekijk het aanbod van AIChecked: Email Marketing, SEO / AI Search, Ads & Campagnes, Websites, Branding en AI Compliance.">
@@ -31,7 +29,7 @@
     "@type": "Organization",
     "name": "AIChecked.nl",
     "url": "https://aichecked.nl/",
-    "logo": "https://aichecked.nl/favicon-192x192.png",
+    "logo": "https://aichecked.nl/logo.png",
     "email": "info@aichecked.nl",
     "telephone": "+31 6 19678372",
     "sameAs": [
@@ -65,30 +63,14 @@
       --radius:18px;
       --content:1120px;
     }
-    html{
-      scroll-behavior:smooth;
-      margin:0;
-      padding:0;
-      width:100vw;
-      min-height:100%;
-      background:var(--bg);
-      overflow-x:hidden;
-      overflow-y:auto;
-      max-width:none;
-    }
+    html{scroll-behavior:smooth}
     body{
-      margin:0;
-      padding:0;
-      width:100vw;
-      min-height:100vh;
       background:var(--bg);
       color:var(--text);
       font-family:var(--sans);
       font-weight:300;
       line-height:1.8;
       overflow-x:hidden;
-      overflow-y:auto;
-      max-width:none;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
       position:relative;
@@ -104,8 +86,9 @@
     }
     body::after{
       content:'';position:fixed;inset:0;pointer-events:none;z-index:-4;
-      background:none;
-      opacity:0;
+      background:
+        radial-gradient(circle at center, transparent 56%, rgba(0,0,0,.3) 100%);
+      opacity:.95;
     }
     a{text-decoration:none;color:inherit}
     button,input,select,textarea{font:inherit}
@@ -145,7 +128,7 @@
       position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;
       min-height:44px;padding:0 20px;border-radius:999px;border:1px solid rgba(255,255,255,.14);
       color:var(--text);font-size:10px;letter-spacing:1.7px;text-transform:uppercase;font-weight:500;
-      overflow:clip;transition:border-color .52s var(--ease),color .52s var(--ease),background .52s var(--ease),box-shadow .52s var(--ease),opacity .52s var(--ease),transform .52s var(--ease);
+      overflow:hidden;transition:border-color .52s var(--ease),color .52s var(--ease),background .52s var(--ease),box-shadow .52s var(--ease),opacity .52s var(--ease),transform .52s var(--ease);
       background:rgba(255,255,255,.018);backdrop-filter:blur(12px);cursor:pointer;
       box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
     }
@@ -332,11 +315,11 @@
     .hero-shell{min-height:auto;display:flex;align-items:center;padding:104px 0 34px;position:relative}
     .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:24px;align-items:start}
     .hero-panel,.story-panel,.info-panel,.card,.kb-card,.service-card,.case-card,.module-card,.legal-card,.metric-card,.note-card,.table-card,.tab-panel,.stat-strip .stat,.overview-card,.portal-card,.upload-card,.cta-card{
-      position:relative;overflow:clip
+      position:relative;overflow:hidden
     }
-    .hover-sheen{position:relative;overflow:clip}
+    .hover-sheen{position:relative;overflow:hidden}
     .hero-side{
-      display:grid;gap:1px;background:var(--line);border-radius:22px;overflow:clip
+      display:grid;gap:1px;background:var(--line);border-radius:22px;overflow:hidden
     }
     .story-panel{
       background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:20px;padding:24px;backdrop-filter:blur(18px)
@@ -348,7 +331,7 @@
       background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.012));border:1px solid var(--line);
       border-radius:28px;padding:14px;backdrop-filter:blur(18px);align-self:start
     }
-    .browser-card{border:1px solid var(--line);border-radius:22px;overflow:clip;background:rgba(0,0,0,.18);margin-bottom:10px}
+    .browser-card{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:rgba(0,0,0,.18);margin-bottom:10px}
     .browser-top{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line)}
     .browser-dots{display:flex;gap:8px}
     .browser-dots span{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.14)}
@@ -387,10 +370,10 @@
     .metric-card .delta{font-size:12px;color:var(--green);margin-top:8px}
 
     .problem-tabs{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:start}
-    .tab-list{display:grid;gap:1px;background:var(--line);border-radius:20px;overflow:clip}
+    .tab-list{display:grid;gap:1px;background:var(--line);border-radius:20px;overflow:hidden}
     .tab-btn{
       text-align:left;background:var(--panel);padding:16px 18px;border:none;color:#bdbdb6;
-      letter-spacing:1.8px;text-transform:uppercase;font-size:11px;cursor:pointer;position:relative;overflow:clip;transition:background .22s var(--ease),color .22s var(--ease)
+      letter-spacing:1.8px;text-transform:uppercase;font-size:11px;cursor:pointer;position:relative;overflow:hidden;transition:background .22s var(--ease),color .22s var(--ease)
     }
     .tab-btn.active{background:rgba(66,216,166,.14);color:var(--white)}
     .tab-btn::before,.service-card::before,.case-card::before,.table-card::before,.metric-card::before,.portal-card::before,.module-card::before,.upload-card::before,.kb-card::before,.legal-card::before,.note-card::before,.overview-card::before{
@@ -404,20 +387,20 @@
       background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012));border:1px solid var(--line);border-radius:24px;padding:26px;backdrop-filter:blur(18px)
     }
     .tab-panel h3{font-family:var(--serif);font-size:clamp(34px,3.6vw,56px);line-height:1.08;color:var(--white);margin-bottom:12px;max-width:13ch}
-    .three-cells{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:24px;border-radius:20px;overflow:clip}
+    .three-cells{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:24px;border-radius:20px;overflow:hidden}
     .table-card{
       background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,.012));padding:20px;backdrop-filter:blur(16px)
     }
     .table-card h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:12px}
     .table-card p{font-size:15px;color:#e9e6df;line-height:1.82}
-    .stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:24px;border-radius:20px;overflow:clip}
+    .stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:24px;border-radius:20px;overflow:hidden}
     .stat-strip .stat{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012));padding:18px 20px;backdrop-filter:blur(16px)}
     .stat .value{font-family:var(--serif);font-size:32px;color:var(--green)}
     .stat .label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#b9b4ab;margin-top:6px}
 
     .route-grid{
       display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-      background:var(--line);border-radius:30px;overflow:clip
+      background:var(--line);border-radius:30px;overflow:hidden
     }
     .route-card{
       background:#060707;
@@ -439,7 +422,7 @@
     .route-card .route-service{font-size:13px;color:var(--white);opacity:.9;margin-top:auto}
     .route-card .route-arrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-top:14px}
 
-    .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-radius:30px;overflow:clip}
+    .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-radius:30px;overflow:hidden}
     .overview-hero{max-width:860px;margin:0 auto 34px;text-align:center}
     .service-panel{
       padding:16px;border-radius:34px;
@@ -455,7 +438,7 @@
     .problem-card{
       background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012));
       border:1px solid var(--line);border-radius:28px;padding:22px 24px;min-height:320px;display:flex;flex-direction:column;
-      backdrop-filter:blur(18px);position:relative;overflow:clip
+      backdrop-filter:blur(18px);position:relative;overflow:hidden
     }
     .problem-card::before{
       content:'';position:absolute;left:-110%;top:0;bottom:0;width:110%;
@@ -497,7 +480,7 @@
     .bullet-list{list-style:none;display:grid;gap:10px}
     .bullet-list li{position:relative;padding-left:18px;color:var(--muted);font-size:14px}
     .bullet-list li::before{content:'';position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:50%;background:var(--green)}
-    .steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border-radius:24px;overflow:clip}
+    .steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border-radius:24px;overflow:hidden}
     .step{background:#060707;padding:24px;position:relative;backdrop-filter:blur(18px)}
     .step .num{font-family:var(--serif);font-size:34px;color:var(--green);opacity:.88;margin-bottom:8px}
     .step h4{font-size:17px;color:var(--white);margin-bottom:10px;line-height:1.35}
@@ -544,7 +527,7 @@
       line-height:1.8;
       color:#d9d3ca;
     }
-    .trust-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border-radius:22px;overflow:clip;margin-top:14px}
+    .trust-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border-radius:22px;overflow:hidden;margin-top:14px}
     .trust-cell{background:#060707;padding:18px 20px}
     .trust-cell .label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:8px}
     .trust-cell p{font-size:15px;line-height:1.7;color:#ded8cf;margin:0}
@@ -567,7 +550,7 @@
     .inline-link{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.02);border:1px solid var(--line);font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted)}
     .inline-link:hover{color:var(--white);border-color:rgba(66,216,166,.22)}
     .authority-shell{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
-    .authority-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border-radius:22px;overflow:clip}
+    .authority-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border-radius:22px;overflow:hidden}
     .authority-card{background:#060707;padding:20px}
     .authority-card .kicker{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:10px}
     .authority-card h3{font-family:var(--serif);font-size:22px;line-height:1.12;color:var(--white);margin-bottom:8px}
@@ -597,7 +580,7 @@
     .line-chart svg{width:100%;height:100%}
     .case-list{display:grid;gap:18px}
     .case-card{
-      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012));border:1px solid var(--line);border-radius:24px;padding:0;overflow:clip;backdrop-filter:blur(18px)
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012));border:1px solid var(--line);border-radius:24px;padding:0;overflow:hidden;backdrop-filter:blur(18px)
     }
     .case-grid{display:grid;grid-template-columns:1.2fr .8fr}
     .case-content{padding:32px}
@@ -611,7 +594,7 @@
     .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
     .filter-btn{
       min-height:38px;padding:0 16px;border-radius:999px;border:1px solid var(--line-strong);background:rgba(255,255,255,.015);
-      color:var(--muted);font-size:10px;letter-spacing:1.4px;text-transform:uppercase;cursor:pointer;position:relative;overflow:clip
+      color:var(--muted);font-size:10px;letter-spacing:1.4px;text-transform:uppercase;cursor:pointer;position:relative;overflow:hidden
     }
     .filter-btn.active,.filter-btn:hover{color:var(--white);border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.03)}
     .kb-toolbar{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;margin-bottom:24px}
@@ -717,7 +700,7 @@
     .sidebar-nav{padding:18px 0;display:grid;gap:2px;flex:1}
     .side-link{
       display:flex;align-items:center;gap:12px;padding:14px 20px;color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;
-      border-left:2px solid transparent;cursor:pointer;position:relative;overflow:clip
+      border-left:2px solid transparent;cursor:pointer;position:relative;overflow:hidden
     }
     .side-link.active,.side-link:hover{color:var(--white);background:rgba(108,191,141,.08);border-left-color:var(--green)}
     .dashboard-main{margin-left:256px;flex:1;padding:40px 34px 80px}
@@ -733,7 +716,7 @@
       padding:14px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)
     }
     .table-row:last-child{border-bottom:none}
-    .progress{height:4px;background:var(--panel-3);border-radius:999px;overflow:clip}
+    .progress{height:4px;background:var(--panel-3);border-radius:999px;overflow:hidden}
     .progress span{display:block;height:100%;background:var(--green)}
     .badge{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:0 12px;border-radius:999px;border:1px solid var(--line-strong);font-size:10px;letter-spacing:2px;text-transform:uppercase}
     .badge.ok{color:var(--green);border-color:var(--green-line);background:rgba(108,191,141,.08)}
@@ -755,7 +738,7 @@
       padding:22px;
       backdrop-filter:blur(18px);
       position:relative;
-      overflow:clip
+      overflow:hidden
     }
     .admin-panel h3{
       font-family:var(--serif);
@@ -969,7 +952,7 @@
       height:5px;
       background:rgba(255,255,255,.06);
       border-radius:999px;
-      overflow:clip
+      overflow:hidden
     }
     .metric-rail .row .track span{
       display:block;
@@ -1286,7 +1269,7 @@
       gap:1px;
       background:rgba(255,255,255,.06);
       border-radius:18px;
-      overflow:clip
+      overflow:hidden
     }
     .trend-table .row{
       display:grid;
@@ -1325,7 +1308,7 @@
       gap:1px;
       background:rgba(255,255,255,.06);
       border-radius:20px;
-      overflow:clip;
+      overflow:hidden;
       margin-top:14px
     }
     .health-row{
@@ -1537,7 +1520,7 @@
       gap:0;
       border:1px solid var(--line);
       border-radius:22px;
-      overflow:clip;
+      overflow:hidden;
       background:rgba(255,255,255,.012)
     }
     .admin-table .head,.admin-table .row{
@@ -1595,7 +1578,7 @@
       border-radius:999px;
       background:rgba(255,255,255,.06);
       position:relative;
-      overflow:clip
+      overflow:hidden
     }
     .spark span{
       position:absolute;left:0;top:0;bottom:0;border-radius:999px;
@@ -1715,7 +1698,7 @@
         padding-top:10px;
       }
     }
-    .atmosphere{position:fixed;inset:0;pointer-events:none;z-index:-3;overflow:clip}
+    .atmosphere{position:fixed;inset:0;pointer-events:none;z-index:-3;overflow:hidden}
     .orb{
       position:absolute;border-radius:999px;filter:blur(125px);opacity:.055;mix-blend-mode:screen;
       background:radial-gradient(circle, rgba(66,216,166,.38) 0%, rgba(34,140,118,.18) 32%, rgba(0,0,0,0) 74%);
@@ -1768,9 +1751,7 @@
       0%,100%{transform:scale(1);box-shadow:0 0 0 4px rgba(66,216,166,.08),0 0 18px rgba(66,216,166,.55)}
       50%{transform:scale(1.12);box-shadow:0 0 0 7px rgba(66,216,166,.05),0 0 24px rgba(66,216,166,.7)}
     }
-    html.route-booting body{visibility:hidden}
   </style>
-  <script>document.documentElement.classList.add('route-booting');</script>
 </head>
 <body>
   <div class="atmosphere" aria-hidden="true">
@@ -1801,7 +1782,7 @@
             <a class="mega-card" href="/email-marketing" onclick="return navigatePage(event,'email-marketing')"><strong>Email Marketing</strong><p>Meer omzet uit bestaande klanten zonder losse campagnes of handmatig werk.</p></a>
             <a class="mega-card" href="/seo" onclick="return navigatePage(event,'seo')"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
             <a class="mega-card" href="/advertenties" onclick="return navigatePage(event,'advertenties')"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
-            <a class="mega-card" href="/website-bouwen" onclick="return navigatePage(event,'website-bouwen')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
+            <a class="mega-card" href="/websites" onclick="return navigatePage(event,'websites')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
             <a class="mega-card" href="/ai-systemen" onclick="return navigatePage(event,'ai-systemen')"><strong>AI Systems</strong><p>Slimme AI-oplossingen die klantvragen, workflows en dagelijkse processen automatiseren.</p></a>
             <a class="mega-card" href="/ai-compliance" onclick="return navigatePage(event,'ai-compliance')"><strong>AI Compliance</strong><p>Consent, governance en privacy-instellingen die juridisch en technisch kloppen.</p></a>
           </div>
@@ -3470,7 +3451,7 @@ const aiSystemsProcess = [
       if(seoRoutes[id]) return seoRoutes[id];
       const service = services.find(item => item.slug === id);
       if(service){
-        const slugMap = {'seo':'/seo','advertenties':'/advertenties','websites':'/website-bouwen'};
+        const slugMap = {'seo':'/seo','advertenties':'/advertenties','websites':'/websites'};
         return {
           path:slugMap[id] || `/${id}`,
           title:service.seoTitle || `${service.title} | AIChecked.nl`,
@@ -3539,7 +3520,7 @@ const aiSystemsProcess = [
             "@type":"Organization",
             "name":"AIChecked.nl",
             "url":"https://aichecked.nl/",
-            "logo": "https://aichecked.nl/favicon-192x192.png",
+            "logo":"https://aichecked.nl/logo.png",
             "email":"info@aichecked.nl",
             "telephone":"+31 6 19678372"
           },
@@ -4295,72 +4276,6 @@ const aiSystemsProcess = [
       `;
     }
 
-    function buildSeoWhyNowSection(){
-      return `
-        <section class="section-tight">
-          <div class="wrap">
-            <div class="service-section-head">
-              <div class="eyebrow">Waarom nu?</div>
-              <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">SEO verandert.<br><em>AI Search nog sneller.</em></h2>
-              <p style="color:var(--green);font-size:16px;line-height:1.8;margin:0 0 14px">Wie wacht wordt ingehaald.</p>
-              <p>Google toont steeds vaker AI-antwoorden. ChatGPT, Gemini en andere AI-systemen bepalen steeds vaker welke bedrijven zichtbaar zijn.</p>
-              <p style="margin-top:14px">Veel websites zijn gebouwd voor zoekmachines van gisteren.</p>
-              <p style="margin-top:14px">AIChecked zorgt dat je website begrijpelijk wordt voor zowel Google als moderne AI-systemen.</p>
-            </div>
-            <div class="seo-why-grid">
-              <div class="seo-why-card">
-                <h3>AI Search groeit snel</h3>
-                <p>Steeds meer gebruikers zoeken via AI.</p>
-              </div>
-              <div class="seo-why-card">
-                <h3>Concurrenten bouwen voorsprong op</h3>
-                <p>Bedrijven die nu optimaliseren verzamelen eerder autoriteit.</p>
-              </div>
-              <div class="seo-why-card">
-                <h3>Structuur wordt belangrijker</h3>
-                <p>AI begrijpt alleen wat technisch en inhoudelijk helder is.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      `;
-    }
-
-    function buildSeoProofSection(){
-      return `
-        <section class="section-tight">
-          <div class="wrap">
-            <div class="service-section-head">
-              <div class="eyebrow">Wat je uiteindelijk wilt zien.</div>
-              <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Niet meer verkeer.<br><em>Beter verkeer.</em></h2>
-            </div>
-            <div class="seo-proof-grid">
-              <div class="service-proof-card">
-                <span class="kicker">Resultaat</span>
-                <h3>Meer relevante bezoekers</h3>
-                <p>Mensen die daadwerkelijk zoeken naar jouw dienst.</p>
-              </div>
-              <div class="service-proof-card">
-                <span class="kicker">AI Search</span>
-                <h3>Betere AI-zichtbaarheid</h3>
-                <p>Grotere kans om genoemd te worden door AI-systemen.</p>
-              </div>
-              <div class="service-proof-card">
-                <span class="kicker">Structuur</span>
-                <h3>Sterkere contentstructuur</h3>
-                <p>Pagina’s worden beter begrepen.</p>
-              </div>
-              <div class="service-proof-card">
-                <span class="kicker">Duurzaamheid</span>
-                <h3>Minder afhankelijk van advertenties</h3>
-                <p>Meer organisch verkeer op lange termijn.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      `;
-    }
-
     function buildServiceVisualProofSection(service){
       return `
         <section class="section-tight">
@@ -4417,11 +4332,7 @@ const aiSystemsProcess = [
               </div>
             </div>
           </section>
-          ${service.slug === 'seo' ? buildSeoWhyNowSection() : }
-          ${service.slug === 'seo' ? buildSeoWhyNowSection() : ''}
           ${buildPackageSection(service)}
-          ${service.slug === 'seo' ? buildSeoProofSection() : ''}
-          ${service.slug === 'seo' ? buildSeoProofSection() : }
           ${buildCalendarBookingSection('Plan direct een gesprek over dit traject', 'Open meteen de agenda en kies een moment om te bespreken welk pakket past, waar het nu vastloopt en wat als eerste opgelost moet worden.')}
           ${buildServiceVisualProofSection(service)}
           <section class="section-tight">
@@ -6602,8 +6513,7 @@ function createAiSystemsPage(){
       const path = window.location.pathname.replace(/\/+$/,'') || '/';
       if(path === '/') return 'home';
       if(path === '/aanbod' || path === '/aanbod.html') return 'aanbod';
-      if(path === '/seo/ai-search' || path === '/ai-search') return 'seo';
-      if(path === '/website' || path === '/websites' || path === '/website-bouwen') return 'websites';
+      if(path === '/website-bouwen') return 'websites';
       if(path.startsWith('/kennisbank/')){
         const articleSlug = path.replace('/kennisbank/','');
         const articleId = `article-${articleSlug}`;
@@ -6804,9 +6714,6 @@ function createAiSystemsPage(){
       } else {
         updateSeo('home');
       }
-      requestAnimationFrame(() => {
-        document.documentElement.classList.remove('route-booting');
-      });
     });
 
     window.addEventListener('popstate', () => {
@@ -6816,6 +6723,6 @@ function createAiSystemsPage(){
       }
     });
   </script>
-<script src="https://aichecked-chatbot-2.vercel.app/embed.js?v=2780e63" defer></script>
+<script src="https://aichecked-chatbot-2-a97mv1nth-ai-compliantnl.vercel.app/embed.js" defer></script>
 </body>
 </html>
