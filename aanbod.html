@@ -4852,8 +4852,12 @@ function createAiSystemsPage(){
 
     function renderOffers(targetId){
       const target = document.getElementById(targetId);
+      if (!target) return;
+
       const cardMap = Object.fromEntries(offerCards.map(card => [card.page, card]));
-      const renderCard = card => `
+      const renderCard = card => {
+        if (!card) return '';
+        return `
         <button class="service-card hover-sheen" onclick="showPage('${card.page}')">
           <div class="icon">${card.icon}</div>
           <div class="tag">AIChecked module</div>
@@ -4863,6 +4867,7 @@ function createAiSystemsPage(){
           <div class="more">Meer lezen →</div>
         </button>
       `;
+      };
       target.innerHTML = `
         <div style="grid-column:1/-1;padding:0 0 18px;background:#060707">
           <h3 style="font-family:var(--serif);font-style:italic;font-size:clamp(28px,3vw,40px);line-height:1;color:var(--green);margin:0 0 10px">Groei</h3>
@@ -6691,6 +6696,7 @@ function createAiSystemsPage(){
     });
 
     window.addEventListener('DOMContentLoaded', () => {
+      renderOffers('offer-grid-main');
       createServicePages();
       createAiSystemsPage();
       createLegalPages();
@@ -6699,7 +6705,6 @@ function createAiSystemsPage(){
       createSitemapPage();
       allPages.push('sitemap', ...services.map(service => service.slug), 'ai-systemen', ...localPages.map(page => page.slug), ...legalPages.map(page => page.slug), ...knowledgeBase.map(article => `article-${article.slug}`));
       ensureSharedFooters();
-      renderOffers('offer-grid-main');
       renderProblemRoutes();
       renderCases();
       renderKnowledgeBase();
@@ -6707,7 +6712,8 @@ function createAiSystemsPage(){
       renderUpdates();
       renderAdminAlerts();
       initCookieBanner();
-      document.getElementById('kb-search').addEventListener('input', renderKnowledgeBase);
+      const kbSearch = document.getElementById('kb-search');
+      if (kbSearch) kbSearch.addEventListener('input', renderKnowledgeBase);
       initRevealObserver();
       primeReveals(document);
       const initialId = getRouteIdFromLocation();
