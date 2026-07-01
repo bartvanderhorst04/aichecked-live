@@ -4756,11 +4756,9 @@ const aiSystemsUseCases = [
               </div>
             </div>
           </section>
-          ${service.slug === 'seo' ? buildSeoWhyNowSection() : }
           ${service.slug === 'seo' ? buildSeoWhyNowSection() : ''}
           ${buildPackageSection(service)}
           ${service.slug === 'seo' ? buildSeoProofSection() : ''}
-          ${service.slug === 'seo' ? buildSeoProofSection() : }
           ${buildCalendarBookingSection('Plan direct een gesprek over dit traject', 'Open meteen de agenda en kies een moment om te bespreken welk pakket past, waar het nu vastloopt en wat als eerste opgelost moet worden.')}
           ${buildServiceVisualProofSection(service)}
           <section class="section-tight">
@@ -5313,6 +5311,7 @@ function createAiSystemsPage(){
 
     function renderOffers(targetId){
       const target = document.getElementById(targetId);
+      if(!target) return;
       const cardMap = Object.fromEntries(offerCards.map(card => [card.page, card]));
       const groups = [
         {
@@ -5369,6 +5368,7 @@ function createAiSystemsPage(){
       const labels = {all:'Alle cases',build:'Websites',growth:'Email & Ads',data:'Tracking & data'};
       const filterWrap = document.getElementById('case-filters');
       const list = document.getElementById('case-list');
+      if(!filterWrap || !list) return;
       filterWrap.innerHTML = filters.map(filter => `
         <button class="filter-btn ${activeCaseFilter===filter?'active':''}" onclick="setCaseFilter('${filter}')">${labels[filter]}</button>
       `).join('');
@@ -5430,11 +5430,16 @@ function createAiSystemsPage(){
 
     let activeKbFilter = 'all';
     function renderKnowledgeBase(){
+      const filtersWrap = document.getElementById('kb-filters');
+      const searchInput = document.getElementById('kb-search');
+      const feature = document.getElementById('kb-feature');
+      const grid = document.getElementById('kb-grid');
+      if(!filtersWrap || !searchInput || !feature || !grid) return;
       const categories = ['all',...new Set(knowledgeBase.map(item => item.category))];
-      document.getElementById('kb-filters').innerHTML = categories.map(category => `
+      filtersWrap.innerHTML = categories.map(category => `
         <button class="filter-btn ${activeKbFilter===category?'active':''}" onclick="setKbFilter('${category}')">${category==='all'?'Alle onderwerpen':category}</button>
       `).join('');
-      const search = document.getElementById('kb-search').value.trim().toLowerCase();
+      const search = searchInput.value.trim().toLowerCase();
       const visible = knowledgeBase.filter(item => {
         const matchesFilter = activeKbFilter === 'all' || item.category === activeKbFilter;
         const haystack = `${item.category} ${item.title} ${item.text}`.toLowerCase();
@@ -5442,7 +5447,7 @@ function createAiSystemsPage(){
         return matchesFilter && matchesSearch;
       });
       const featured = visible[0] || knowledgeBase[0];
-      document.getElementById('kb-feature').innerHTML = featured ? `
+      feature.innerHTML = featured ? `
         <button class="kb-card" onclick="showPage('article-${featured.slug}')">
           <div class="meta"><span>${featured.category}</span><span class="dot"></span><span>${featured.readTime}</span></div>
           <h3>${featured.title}</h3>
@@ -5466,7 +5471,7 @@ function createAiSystemsPage(){
           <div class="read">Lees artikel →</div>
         </button>
       ` : '';
-      document.getElementById('kb-grid').innerHTML = visible.map(item => `
+      grid.innerHTML = visible.map(item => `
         <button class="kb-card" onclick="showPage('article-${item.slug}')">
           <div class="meta"><span>${item.category}</span><span class="dot"></span><span>${item.readTime}</span></div>
           <h3>${item.title}</h3>
@@ -7005,7 +7010,7 @@ function createAiSystemsPage(){
         }
         return 'home';
       }
-      const path = window.location.pathname.replace(/\/+$/,'') || '/';
+      const path = window.location.pathname.toLowerCase().replace(/\/+$/,'') || '/';
       if(path === '/') return 'home';
       if(path === '/seo/ai-search' || path === '/ai-search') return 'seo';
       if(path === '/website' || path === '/websites' || path === '/website-bouwen') return 'websites';
@@ -7180,6 +7185,7 @@ function createAiSystemsPage(){
     });
 
     window.addEventListener('DOMContentLoaded', () => {
+      try {
       createServicePages();
       createAiSystemsPage();
       createLegalPages();
@@ -7196,7 +7202,8 @@ function createAiSystemsPage(){
       renderUpdates();
       renderAdminAlerts();
       initCookieBanner();
-      document.getElementById('kb-search').addEventListener('input', renderKnowledgeBase);
+      const kbSearch = document.getElementById('kb-search');
+      if(kbSearch) kbSearch.addEventListener('input', renderKnowledgeBase);
       initRevealObserver();
       primeReveals(document);
       const initialId = getRouteIdFromLocation();
@@ -7205,9 +7212,13 @@ function createAiSystemsPage(){
       } else {
         updateSeo('home');
       }
-      requestAnimationFrame(() => {
-        document.documentElement.classList.remove('route-booting');
-      });
+      } catch (error) {
+        console.error('Page init failed:', error);
+      } finally {
+        requestAnimationFrame(() => {
+          document.documentElement.classList.remove('route-booting');
+        });
+      }
     });
 
     window.addEventListener('popstate', () => {

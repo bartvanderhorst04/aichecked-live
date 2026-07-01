@@ -4953,6 +4953,7 @@ function createAiSystemsPage(){
 
     function renderOffers(targetId){
       const target = document.getElementById(targetId);
+      if(!target) return;
       const cardMap = Object.fromEntries(offerCards.map(card => [card.page, card]));
       const groups = [
         {
@@ -6811,6 +6812,7 @@ function createAiSystemsPage(){
     });
 
     window.addEventListener('DOMContentLoaded', () => {
+      try {
       renderCases();
       renderKnowledgeBase();
       createServicePages();
@@ -6836,6 +6838,13 @@ function createAiSystemsPage(){
         showPage(initialId);
       } else {
         updateSeo('home');
+      }
+      } catch (error) {
+        console.error('Page init failed:', error);
+      } finally {
+        requestAnimationFrame(() => {
+          document.documentElement.classList.remove('route-booting');
+        });
       }
     });
 
