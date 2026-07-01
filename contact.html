@@ -1760,39 +1760,40 @@
     <div class="noise"></div>
   </div>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="/" onclick="return navigatePage(event,'home', true)">Home</a>
+    <a href="/">Home</a>
     <a href="/aanbod">Aanbod</a>
-    <a href="/cases" onclick="return navigatePage(event,'cases', true)">Cases</a>
-    <a href="/ai-kennisbank" onclick="return navigatePage(event,'ai-kennisbank', true)">AI kennisbank</a>
-    <a href="/over-ons" onclick="return navigatePage(event,'over-ons', true)">Over ons</a>
-    <a href="/contact" onclick="return navigatePage(event,'contact', true)">Contact</a>
-    <a href="/klantportaal" onclick="return navigatePage(event,'klantportaal', true)">Klantportaal</a>
+    <a href="/cases">Cases</a>
+    <a href="/ai-kennisbank">AI kennisbank</a>
+    <a href="/over-ons">Over ons</a>
+    <a href="/contact">Contact</a>
+    <a href="/klantportaal">Klantportaal</a>
   </div>
 
   <nav id="main-nav">
-    <div class="logo" onclick="showPage('home')">
+    <a class="logo" href="/">
       <div class="logo-mark"></div>
       <div><strong>AIChecked</strong> <span>.nl</span></div>
-    </div>
+    </a>
+
     <ul class="nav-links" style="justify-self:center">
         <li class="nav-item">
           <a id="nav-aanbod" href="/aanbod">Aanbod</a>
           <div class="mega">
-            <a class="mega-card" href="/email-marketing" onclick="return navigatePage(event,'email-marketing')"><strong>Email Marketing</strong><p>Meer omzet uit bestaande klanten zonder losse campagnes of handmatig werk.</p></a>
-            <a class="mega-card" href="/seo" onclick="return navigatePage(event,'seo')"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
-            <a class="mega-card" href="/advertenties" onclick="return navigatePage(event,'advertenties')"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
-            <a class="mega-card" href="/website-bouwen" onclick="return navigatePage(event,'website-bouwen')"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
-            <a class="mega-card" href="/ai-systemen" onclick="return navigatePage(event,'ai-systemen')"><strong>AI Systems</strong><p>Slimme AI-oplossingen die klantvragen, workflows en dagelijkse processen automatiseren.</p></a>
-            <a class="mega-card" href="/ai-compliance" onclick="return navigatePage(event,'ai-compliance')"><strong>AI Compliance</strong><p>Consent, governance en privacy-instellingen die juridisch en technisch kloppen.</p></a>
+            <a class="mega-card" href="/email-marketing"><strong>Email Marketing</strong><p>Meer omzet uit bestaande klanten zonder losse campagnes of handmatig werk.</p></a>
+            <a class="mega-card" href="/seo"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
+            <a class="mega-card" href="/advertenties"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
+            <a class="mega-card" href="/website-bouwen"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
+            <a class="mega-card" href="/ai-systemen"><strong>AI Systems</strong><p>Slimme AI-oplossingen die klantvragen, workflows en dagelijkse processen automatiseren.</p></a>
+            <a class="mega-card" href="/ai-compliance"><strong>AI Compliance</strong><p>Consent, governance en privacy-instellingen die juridisch en technisch kloppen.</p></a>
           </div>
         </li>
-        <li><a id="nav-cases" href="/cases" onclick="return navigatePage(event,'cases')">Cases</a></li>
-        <li><a id="nav-ai-kennisbank" href="/ai-kennisbank" onclick="return navigatePage(event,'ai-kennisbank')">AI kennisbank</a></li>
-        <li><a id="nav-over-ons" href="/over-ons" onclick="return navigatePage(event,'over-ons')">Over ons</a></li>
-        <li><a id="nav-contact" href="/contact" onclick="return navigatePage(event,'contact')">Contact</a></li>
+        <li><a id="nav-cases" href="/cases">Cases</a></li>
+        <li><a id="nav-ai-kennisbank" href="/ai-kennisbank">AI kennisbank</a></li>
+        <li><a id="nav-over-ons" href="/over-ons">Over ons</a></li>
+        <li><a id="nav-contact" href="/contact">Contact</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:14px;flex:0 0 auto;margin-left:auto">
-      <button class="btn btn-ghost nav-portal" onclick="showPage('klantportaal')">Klantportaal →</button>
+      <a class="btn btn-ghost nav-portal" href="/klantportaal">Klantportaal →</a>
       <div class="nav-toggle" onclick="toggleMobile()"><span></span><span></span><span></span></div>
     </div>
   </nav>
@@ -1807,7 +1808,7 @@
     <p class="cookie-text">
       Wij gebruiken cookies om de website goed te laten werken en om inzicht te krijgen in het gebruik. Analytische cookies helpen ons de site verbeteren.
       Wil je meer weten?
-      <a class="cookie-link" href="/contact" onclick="return navigatePage(event,'contact')">Privacyverklaring →</a>
+      <a class="cookie-link" href="/contact">Privacyverklaring →</a>
     </p>
     <div class="cookie-actions">
       <button class="btn btn-primary" type="button" onclick="setCookiePreference('all')">Alles accepteren</button>
@@ -1939,16 +1940,16 @@
           <div>
             <h4>Pagina’s</h4>
             <a href="/aanbod">Aanbod</a>
-            <a href="/cases" onclick="return navigatePage(event,'cases')">Cases</a>
-            <a href="/ai-kennisbank" onclick="return navigatePage(event,'ai-kennisbank')">AI kennisbank</a>
-            <a href="/contact" onclick="return navigatePage(event,'contact')">Contact</a>
+            <a href="/cases">Cases</a>
+            <a href="/ai-kennisbank">AI kennisbank</a>
+            <a href="/contact">Contact</a>
           </div>
           <div>
             <h4>Juridisch</h4>
-            <a href="/privacy" onclick="return navigatePage(event,'privacy')">Privacy</a>
-            <a href="/cookies" onclick="return navigatePage(event,'cookies')">Cookies</a>
-            <a href="/algemene-voorwaarden" onclick="return navigatePage(event,'algemene-voorwaarden')">Algemene voorwaarden</a>
-            <a href="/disclaimer" onclick="return navigatePage(event,'disclaimer')">Disclaimer</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/cookies">Cookies</a>
+            <a href="/algemene-voorwaarden">Algemene voorwaarden</a>
+            <a href="/disclaimer">Disclaimer</a>
           </div>
           <div>
             <h4>Contact</h4>
@@ -3587,17 +3588,17 @@ const aiSystemsProcess = [
             <div>
               <h4>Navigatie</h4>
               <a href="/aanbod" role="button">Aanbod</a>
-              <a href="${getPageHref('cases')}" role="button" onclick="return navigatePage(event,'cases')">Cases</a>
-              <a href="${getPageHref('ai-kennisbank')}" role="button" onclick="return navigatePage(event,'ai-kennisbank')">AI kennisbank</a>
-              <a href="${getPageHref('over-ons')}" role="button" onclick="return navigatePage(event,'over-ons')">Over ons</a>
-              <a href="${getPageHref('contact')}" role="button" onclick="return navigatePage(event,'contact')">Contact</a>
+              <a href="${getPageHref('cases')}" role="button">Cases</a>
+              <a href="${getPageHref('ai-kennisbank')}" role="button">AI kennisbank</a>
+              <a href="${getPageHref('over-ons')}" role="button">Over ons</a>
+              <a href="${getPageHref('contact')}" role="button">Contact</a>
             </div>
             <div>
               <h4>Juridisch</h4>
-              <a href="${getPageHref('privacy')}" role="button" onclick="return navigatePage(event,'privacy')">Privacybeleid</a>
-              <a href="${getPageHref('cookies')}" role="button" onclick="return navigatePage(event,'cookies')">Cookiebeleid</a>
-              <a href="${getPageHref('algemene-voorwaarden')}" role="button" onclick="return navigatePage(event,'algemene-voorwaarden')">Algemene voorwaarden</a>
-              <a href="${getPageHref('disclaimer')}" role="button" onclick="return navigatePage(event,'disclaimer')">Disclaimer</a>
+              <a href="${getPageHref('privacy')}" role="button">Privacybeleid</a>
+              <a href="${getPageHref('cookies')}" role="button">Cookiebeleid</a>
+              <a href="${getPageHref('algemene-voorwaarden')}" role="button">Algemene voorwaarden</a>
+              <a href="${getPageHref('disclaimer')}" role="button">Disclaimer</a>
               <a href="/sitemap">Sitemap</a>
             </div>
             <div>
@@ -4885,10 +4886,10 @@ function createAiSystemsPage(){
                 <div class="overview-card">
                   <h3>Bedrijf</h3>
                   <ul class="bullet-list">
-                    <li><a href="${getPageHref('over-ons')}" onclick="return navigatePage(event,'over-ons')">Over ons</a></li>
-                    <li><a href="${getPageHref('cases')}" onclick="return navigatePage(event,'cases')">Cases</a></li>
-                    <li><a href="${getPageHref('contact')}" onclick="return navigatePage(event,'contact')">Contact</a></li>
-                    <li><a href="${getPageHref('klantportaal')}" onclick="return navigatePage(event,'klantportaal')">Klantportaal</a></li>
+                    <li><a href="${getPageHref('over-ons')}">Over ons</a></li>
+                    <li><a href="${getPageHref('cases')}">Cases</a></li>
+                    <li><a href="${getPageHref('contact')}">Contact</a></li>
+                    <li><a href="${getPageHref('klantportaal')}">Klantportaal</a></li>
                   </ul>
                 </div>
               </div>
@@ -6583,6 +6584,33 @@ function createAiSystemsPage(){
     }
 
     function navigatePage(event, id, closeMobile = false){
+      const publicRoutes = {
+      home:'/',
+      aanbod:'/aanbod',
+      cases:'/cases',
+      'ai-kennisbank':'/ai-kennisbank',
+      'over-ons':'/over-ons',
+      contact:'/contact',
+      'ai-systemen':'/ai-systemen',
+      'ai-compliance':'/ai-compliance',
+      advertenties:'/advertenties',
+      'email-marketing':'/email-marketing',
+      seo:'/seo',
+      websites:'/website-bouwen',
+      'website-bouwen':'/website-bouwen',
+      branding:'/branding',
+      klantportaal:'/klantportaal',
+      privacy:'/privacy',
+      cookies:'/cookies',
+      'algemene-voorwaarden':'/algemene-voorwaarden',
+      disclaimer:'/disclaimer',
+      sitemap:'/sitemap'
+    };
+      if(publicRoutes[id] && window.location.protocol !== 'file:'){
+        if(event) event.preventDefault();
+        window.location.href = publicRoutes[id];
+        return false;
+      }
       if(event) event.preventDefault();
       showPage(id);
       if(closeMobile) toggleMobile(false);
@@ -6628,6 +6656,35 @@ function createAiSystemsPage(){
 
     function showPage(id){
       const requestedId = id;
+      const publicRoutes = {
+      home:'/',
+      aanbod:'/aanbod',
+      cases:'/cases',
+      'ai-kennisbank':'/ai-kennisbank',
+      'over-ons':'/over-ons',
+      contact:'/contact',
+      'ai-systemen':'/ai-systemen',
+      'ai-compliance':'/ai-compliance',
+      advertenties:'/advertenties',
+      'email-marketing':'/email-marketing',
+      seo:'/seo',
+      websites:'/website-bouwen',
+      'website-bouwen':'/website-bouwen',
+      branding:'/branding',
+      klantportaal:'/klantportaal',
+      privacy:'/privacy',
+      cookies:'/cookies',
+      'algemene-voorwaarden':'/algemene-voorwaarden',
+      disclaimer:'/disclaimer',
+      sitemap:'/sitemap'
+    };
+      if(window.location.protocol !== 'file:' && publicRoutes[requestedId]){
+        const currentPath = window.location.pathname.replace(/\/+$/,'') || '/';
+        if(currentPath !== publicRoutes[requestedId] || window.location.hash){
+          window.location.href = publicRoutes[requestedId];
+          return;
+        }
+      }
       if(id === 'klantportaal' && !currentPortalClientEmail){
         id = 'login';
       }
