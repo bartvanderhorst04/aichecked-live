@@ -1815,7 +1815,7 @@
   </div>
   <button id="cookie-launcher" class="cookie-launcher" type="button" aria-label="Open cookie instellingen" aria-hidden="true" onclick="reopenCookieBanner()">🍪</button>
 
-  <div id="page-home" class="page active">
+  <div id="page-home" class="page">
     <section class="hero-shell">
       <div class="wrap">
         <div class="hero-grid">
@@ -2018,7 +2018,7 @@
     </section>
   </div>
 
-  <div id="page-over-ons" class="page">
+  <div id="page-over-ons" class="page active">
     <section class="section" style="padding-top:170px">
       <div class="wrap">
         <div class="about-home" style="margin-bottom:34px">
@@ -4401,11 +4401,9 @@ const aiSystemsProcess = [
               </div>
             </div>
           </section>
-          ${service.slug === 'seo' ? buildSeoWhyNowSection() : }
           ${service.slug === 'seo' ? buildSeoWhyNowSection() : ''}
           ${buildPackageSection(service)}
           ${service.slug === 'seo' ? buildSeoProofSection() : ''}
-          ${service.slug === 'seo' ? buildSeoProofSection() : }
           ${buildCalendarBookingSection('Plan direct een gesprek over dit traject', 'Open meteen de agenda en kies een moment om te bespreken welk pakket past, waar het nu vastloopt en wat als eerste opgelost moet worden.')}
           ${buildServiceVisualProofSection(service)}
           <section class="section-tight">
@@ -4979,6 +4977,7 @@ function createAiSystemsPage(){
       const labels = {all:'Alle cases',build:'Websites',growth:'Email & Ads',data:'Tracking & data'};
       const filterWrap = document.getElementById('case-filters');
       const list = document.getElementById('case-list');
+      if(!filterWrap || !list) return;
       filterWrap.innerHTML = filters.map(filter => `
         <button class="filter-btn ${activeCaseFilter===filter?'active':''}" onclick="setCaseFilter('${filter}')">${labels[filter]}</button>
       `).join('');
@@ -5040,11 +5039,16 @@ function createAiSystemsPage(){
 
     let activeKbFilter = 'all';
     function renderKnowledgeBase(){
+      const filtersWrap = document.getElementById('kb-filters');
+      const searchInput = document.getElementById('kb-search');
+      const feature = document.getElementById('kb-feature');
+      const grid = document.getElementById('kb-grid');
+      if(!filtersWrap || !searchInput || !feature || !grid) return;
       const categories = ['all',...new Set(knowledgeBase.map(item => item.category))];
-      document.getElementById('kb-filters').innerHTML = categories.map(category => `
+      filtersWrap.innerHTML = categories.map(category => `
         <button class="filter-btn ${activeKbFilter===category?'active':''}" onclick="setKbFilter('${category}')">${category==='all'?'Alle onderwerpen':category}</button>
       `).join('');
-      const search = document.getElementById('kb-search').value.trim().toLowerCase();
+      const search = searchInput.value.trim().toLowerCase();
       const visible = knowledgeBase.filter(item => {
         const matchesFilter = activeKbFilter === 'all' || item.category === activeKbFilter;
         const haystack = `${item.category} ${item.title} ${item.text}`.toLowerCase();
@@ -5052,7 +5056,7 @@ function createAiSystemsPage(){
         return matchesFilter && matchesSearch;
       });
       const featured = visible[0] || knowledgeBase[0];
-      document.getElementById('kb-feature').innerHTML = featured ? `
+      feature.innerHTML = featured ? `
         <button class="kb-card" onclick="showPage('article-${featured.slug}')">
           <div class="meta"><span>${featured.category}</span><span class="dot"></span><span>${featured.readTime}</span></div>
           <h3>${featured.title}</h3>
@@ -5075,7 +5079,7 @@ function createAiSystemsPage(){
           </ul>
         </div>
       ` : '';
-      document.getElementById('kb-grid').innerHTML = visible.map(item => `
+      grid.innerHTML = visible.map(item => `
         <button class="kb-card" onclick="showPage('article-${item.slug}')">
           <div class="meta"><span>${item.category}</span><span class="dot"></span><span>${item.readTime}</span></div>
           <h3>${item.title}</h3>
@@ -6594,8 +6598,13 @@ function createAiSystemsPage(){
         }
         return 'home';
       }
-      const path = window.location.pathname.replace(/\/+$/,'') || '/';
+      const path = window.location.pathname.toLowerCase().replace(/\/+$/,'') || '/';
       if(path === '/') return 'home';
+      if(path.includes('aanbod')) return 'aanbod';
+      if(path.includes('cases')) return 'cases';
+      if(path.includes('ai-kennisbank')) return 'ai-kennisbank';
+      if(path.includes('over-ons')) return 'over-ons';
+      if(path.includes('contact')) return 'contact';
       if(path === '/seo/ai-search' || path === '/ai-search') return 'seo';
       if(path === '/website' || path === '/websites' || path === '/website-bouwen') return 'websites';
       if(path.startsWith('/kennisbank/')){
@@ -6768,6 +6777,8 @@ function createAiSystemsPage(){
     });
 
     window.addEventListener('DOMContentLoaded', () => {
+      renderCases();
+      renderKnowledgeBase();
       createServicePages();
       createAiSystemsPage();
       createLegalPages();
@@ -6778,13 +6789,12 @@ function createAiSystemsPage(){
       ensureSharedFooters();
       renderOffers('offer-grid-main');
       renderProblemRoutes();
-      renderCases();
-      renderKnowledgeBase();
       renderAdminClients();
       renderUpdates();
       renderAdminAlerts();
       initCookieBanner();
-      document.getElementById('kb-search').addEventListener('input', renderKnowledgeBase);
+      const kbSearch = document.getElementById('kb-search');
+      if(kbSearch) kbSearch.addEventListener('input', renderKnowledgeBase);
       initRevealObserver();
       primeReveals(document);
       const initialId = getRouteIdFromLocation();
@@ -6802,6 +6812,6 @@ function createAiSystemsPage(){
       }
     });
   </script>
-<script src="https://aichecked-chatbot-2.vercel.app/embed.js?v=2780e63" defer></script>
+<script src="https://aichecked-chatbot-2-a97mv1nth-ai-compliantnl.vercel.app/embed.js" defer></script>
 </body>
 </html>
