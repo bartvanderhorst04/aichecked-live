@@ -4332,7 +4332,13 @@ const aiSystemsProcess = [
               </div>
             </div>
           </section>
+<<<<<<< HEAD
           ${buildPackageSection(service)}
+=======
+          ${service.slug === 'seo' ? buildSeoWhyNowSection() : ''}
+          ${buildPackageSection(service)}
+          ${service.slug === 'seo' ? buildSeoProofSection() : ''}
+>>>>>>> 23b4df5 (fix: repair aanbod.html script syntax)
           ${buildCalendarBookingSection('Plan direct een gesprek over dit traject', 'Open meteen de agenda en kies een moment om te bespreken welk pakket past, waar het nu vastloopt en wat als eerste opgelost moet worden.')}
           ${buildServiceVisualProofSection(service)}
           <section class="section-tight">
