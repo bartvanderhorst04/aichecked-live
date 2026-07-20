@@ -258,10 +258,10 @@
     .logo strong{font-weight:650;color:#faf7f1}
     .logo span{color:#cfc8bc}
     .nav-links{
-      display:flex;align-items:center;gap:24px;list-style:none;
+      display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:24px;list-style:none;
       position:absolute;left:50%;transform:translateX(-50%);
     }
-    .nav-item{position:relative;padding-bottom:14px;margin-bottom:-14px}
+    .nav-item{position:relative;padding-bottom:14px;margin-bottom:-14px;display:flex;align-items:center;flex:0 0 auto}
     .mega{
       position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(8px) scale(.985);
       transform-origin:top center;
@@ -290,13 +290,37 @@
     .mega-card strong{display:block;font-family:var(--serif);font-size:22px;line-height:1.08;margin-bottom:6px;color:var(--white)}
     .mega-card p{font-size:13px;color:var(--muted);line-height:1.7}
     .nav-links a{
-      color:rgba(255,255,255,.7);font-size:12px;letter-spacing:0;text-transform:none;position:relative;padding-bottom:2px;font-weight:400
+      color:rgba(255,255,255,.7);font-size:12px;letter-spacing:0;text-transform:none;position:relative;padding-bottom:2px;font-weight:400;white-space:nowrap;display:inline-flex;align-items:center
     }
+    .nav-link-row{display:inline-flex;align-items:center;gap:8px}
+    .nav-link-label{display:inline-flex;align-items:center}
+    .nav-link-chevron{width:10px;height:10px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;color:rgba(255,255,255,.5);transition:transform .16s var(--ease),color .16s var(--ease),opacity .16s var(--ease)}
+    .nav-link-chevron svg{display:block;width:10px;height:10px}
+    .nav-dropdown > a[aria-expanded='true'] .nav-link-chevron,
+    .nav-dropdown:hover > a .nav-link-chevron,
+    .nav-dropdown:focus-within > a .nav-link-chevron{color:var(--green);transform:translateY(1px) rotate(180deg)}
+    .nav-dropdown-panel{
+      position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(8px);
+      min-width:190px;padding:8px;border-radius:14px;border:1px solid rgba(255,255,255,.08);
+      background:rgba(12,14,13,.96);box-shadow:0 18px 44px rgba(0,0,0,.28);
+      opacity:0;pointer-events:none;transition:opacity .16s var(--ease),transform .16s var(--ease)
+    }
+    .nav-dropdown-panel::before{content:'';position:absolute;left:0;right:0;top:-14px;height:14px}
+    .nav-dropdown-list{display:grid;gap:4px}
+    .nav-dropdown-link{
+      width:100%;padding:10px 12px;border-radius:10px;border:1px solid transparent;
+      color:rgba(255,255,255,.82);background:rgba(255,255,255,.015);
+      transition:transform .16s var(--ease),border-color .16s var(--ease),background-color .16s var(--ease),color .16s var(--ease),opacity .16s var(--ease),box-shadow .16s var(--ease)
+    }
+    .nav-dropdown-link:hover{background:rgba(255,255,255,.03);border-color:rgba(66,216,166,.14);box-shadow:0 0 0 1px rgba(66,216,166,.18)}
+    .nav-dropdown:hover .nav-dropdown-panel,
+    .nav-dropdown:focus-within .nav-dropdown-panel,
+    .nav-dropdown.open .nav-dropdown-panel{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
     .nav-links a::after{
       content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--green);transition:width .16s var(--ease)
     }
     .nav-links a:hover,.nav-links a.active{color:var(--white);text-shadow:0 0 16px rgba(66,216,166,.1)}
-    .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+    .nav-links a:hover::after,.nav-links a.active::after,.nav-dropdown:hover > a::after,.nav-dropdown:focus-within > a::after,.nav-dropdown > a[aria-expanded='true']::after{width:100%}
     .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer}
     .nav-toggle span{display:block;width:22px;height:1.5px;background:var(--green)}
     .mobile-menu{
@@ -304,15 +328,21 @@
       align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .16s var(--ease);backdrop-filter:blur(6px)
     }
     .mobile-menu.open{opacity:1;pointer-events:auto;backdrop-filter:blur(18px)}
-    .mobile-menu a{font-family:var(--serif);font-size:34px;transform:translateY(10px);opacity:0;transition:opacity .16s var(--ease),transform .16s var(--ease)}
-    .mobile-menu.open a{transform:translateY(0);opacity:1}
+    .mobile-menu a,.mobile-menu button{font-family:var(--serif);font-size:34px;transform:translateY(10px);opacity:0;transition:opacity .16s var(--ease),transform .16s var(--ease)}
+    .mobile-menu.open a,.mobile-menu.open button,.mobile-menu.open .mobile-nav-group{transform:translateY(0);opacity:1}
     .mobile-menu.open a:nth-child(1){transition-delay:0s}
-    .mobile-menu.open a:nth-child(2){transition-delay:0s}
+    .mobile-menu.open .mobile-nav-group:nth-child(2){transition-delay:0s}
     .mobile-menu.open a:nth-child(3){transition-delay:0s}
     .mobile-menu.open a:nth-child(4){transition-delay:0s}
     .mobile-menu.open a:nth-child(5){transition-delay:0s}
-    .mobile-menu.open a:nth-child(6){transition-delay:0s}
-    .mobile-menu.open a:nth-child(7){transition-delay:0s}
+    .mobile-nav-group{display:grid;justify-items:center;gap:10px;transform:translateY(10px);opacity:0;transition:opacity .16s var(--ease),transform .16s var(--ease)}
+    .mobile-nav-trigger{display:inline-flex;align-items:center;gap:12px;background:none;border:none;color:var(--white);padding:0;cursor:pointer}
+    .mobile-nav-trigger .nav-link-chevron{width:14px;height:14px}
+    .mobile-nav-trigger .nav-link-chevron svg{width:14px;height:14px}
+    .mobile-nav-group.open .mobile-nav-trigger .nav-link-chevron{color:var(--green);transform:translateY(1px) rotate(180deg)}
+    .mobile-nav-panel{display:grid;gap:8px;max-height:0;overflow:hidden;opacity:0;transition:max-height .18s var(--ease),opacity .16s var(--ease)}
+    .mobile-nav-group.open .mobile-nav-panel{max-height:220px;opacity:1}
+    .mobile-nav-panel a{font-family:var(--sans);font-size:15px;letter-spacing:0;color:rgba(255,255,255,.82);padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);transform:none;opacity:1}
 
     .hero-shell{min-height:auto;display:flex;align-items:center;padding:104px 0 34px;position:relative}
     .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:24px;align-items:start}
@@ -1869,12 +1899,18 @@
   </div>
   <div class="mobile-menu" id="mobile-menu">
     <a href="/">Home</a>
-    <a href="/aanbod">Aanbod</a>
+    <div class="mobile-nav-group">
+      <button class="mobile-nav-trigger" type="button" aria-expanded="false" aria-controls="mobile-nav-oplossingen"><span class="nav-link-label">Oplossingen</span><span class="nav-link-chevron" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+      <div class="mobile-nav-panel" id="mobile-nav-oplossingen">
+        <a href="/website-bouwen">Websites</a>
+        <a href="/ai-systemen">AI &amp; Automation</a>
+        <a href="/advertenties">Advertenties</a>
+        <a href="/email-marketing">Email</a>
+      </div>
+    </div>
     <a href="/cases">Cases</a>
-    <a href="/ai-kennisbank">AI kennisbank</a>
-    <a href="/over-ons">Over ons</a>
+    <a href="/over-ons">About</a>
     <a href="/contact">Contact</a>
-    <a href="/klantportaal">Klantportaal</a>
   </div>
 
   <nav id="main-nav">
@@ -1884,24 +1920,23 @@
     </a>
 
     <ul class="nav-links" style="justify-self:center">
-        <li class="nav-item">
-          <a id="nav-aanbod" href="/aanbod">Aanbod</a>
-          <div class="mega">
-            <a class="mega-card" href="/email-marketing"><strong>Email Marketing</strong><p>Meer omzet uit bestaande klanten zonder losse campagnes of handmatig werk.</p></a>
-            <a class="mega-card" href="/seo"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
-            <a class="mega-card" href="/advertenties"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
-            <a class="mega-card" href="/website-bouwen"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
-            <a class="mega-card" href="/ai-systemen"><strong>AI Systems</strong><p>Slimme AI-oplossingen die klantvragen, workflows en dagelijkse processen automatiseren.</p></a>
-            <a class="mega-card" href="/ai-compliance"><strong>AI Compliance</strong><p>Consent, governance en privacy-instellingen die juridisch en technisch kloppen.</p></a>
+        <li><a id="nav-home" href="/">Home</a></li>
+        <li class="nav-item nav-dropdown">
+          <a id="nav-oplossingen" href="/aanbod" aria-expanded="false"><span class="nav-link-row"><span class="nav-link-label">Oplossingen</span><span class="nav-link-chevron" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a>
+          <div class="nav-dropdown-panel" role="menu" aria-label="Oplossingen submenu">
+            <div class="nav-dropdown-list">
+              <a class="nav-dropdown-link" href="/website-bouwen" role="menuitem">Websites</a>
+              <a class="nav-dropdown-link" href="/ai-systemen" role="menuitem">AI &amp; Automation</a>
+              <a class="nav-dropdown-link" href="/advertenties" role="menuitem">Advertenties</a>
+              <a class="nav-dropdown-link" href="/email-marketing" role="menuitem">Email</a>
+            </div>
           </div>
         </li>
         <li><a id="nav-cases" href="/cases">Cases</a></li>
-        <li><a id="nav-ai-kennisbank" href="/ai-kennisbank">AI kennisbank</a></li>
-        <li><a id="nav-over-ons" href="/over-ons">Over ons</a></li>
+        <li><a id="nav-over-ons" href="/over-ons">About</a></li>
         <li><a id="nav-contact" href="/contact">Contact</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:14px;flex:0 0 auto;margin-left:auto">
-      <a class="btn btn-ghost nav-portal" href="/klantportaal">Klantportaal →</a>
       <div class="nav-toggle" onclick="toggleMobile()"><span></span><span></span><span></span></div>
     </div>
   </nav>
@@ -1935,7 +1970,7 @@
             <p class="lead" style="margin:0 0 20px;max-width:650px">AIChecked helpt bedrijven grip houden op AI, advertenties, websites en compliance, zodat groei niet lekt op fouten in consent, meting of infrastructuur.</p>
             <div class="btn-row">
               <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
-              <a class="btn btn-ghost" href="/aanbod">Bekijk aanbod</a>
+              <a class="btn btn-ghost" href="/aanbod">Bekijk services</a>
             </div>
             <div class="hero-kpis">
               <div class="metric-card hover-sheen"><div class="value">24u</div><div class="delta">eerste scan en duidelijke prioriteit</div></div>
@@ -2046,7 +2081,7 @@
           </div>
           <div>
             <h4>Pagina’s</h4>
-            <a href="/aanbod">Aanbod</a>
+            <a href="/aanbod">Services</a>
             <a href="/cases">Cases</a>
             <a href="/ai-kennisbank">AI kennisbank</a>
             <a href="/contact">Contact</a>
@@ -2079,9 +2114,9 @@
   <div id="page-aanbod" class="page">
     <section class="section" style="padding-top:170px">
       <div class="wrap">
-        <div class="eyebrow">Aanbod</div>
-        <h1 class="display" style="margin-bottom:14px">Alles draait om één vraag: <em>waar klopt het nog niet?</em></h1>
-        <p class="lead" style="margin-bottom:28px">Van e-mail en SEO tot compliance en dashboards: elk aanbod begint bij een probleem dat eerst helder moet worden gemaakt.</p>
+        <div class="eyebrow">Core services</div>
+        <h1 class="display" style="margin-bottom:14px">Vier kernservices.<br><em>Eén groeibasis.</em></h1>
+        <p class="lead" style="margin-bottom:28px">Websites, AI &amp; Automation, Advertenties en Email Marketing zijn bewust compact gehouden zodat elk traject duidelijk blijft en elkaar kan versterken.</p>
         <div class="service-panel">
           <div class="offer-grid" id="offer-grid-main"></div>
         </div>
@@ -2096,8 +2131,8 @@
     <section class="section" style="padding-top:170px">
       <div class="wrap">
         <div class="eyebrow">Cases</div>
-        <h1 class="display" style="margin-bottom:12px">Cases en trajecten.<br><em>Wat er in de praktijk veranderde.</em></h1>
-        <p class="lead" style="margin-bottom:24px">Praktijkvoorbeelden van websites, tracking, campagnes en systemen die beter gingen presteren.</p>
+        <h1 class="display" style="margin-bottom:12px">Werk dat laat zien hoe de vier kernservices <em>samen renderen.</em></h1>
+        <p class="lead" style="margin-bottom:24px">Elke case kan website, ads, AI, email marketing en resultaten combineren, zodat direct zichtbaar wordt welke mix de groei droeg.</p>
         <div class="filters" id="case-filters"></div>
         <div class="case-list" id="case-list"></div>
       </div>
@@ -2197,7 +2232,7 @@
             </div>
             <div class="field"><label>Bedrijf</label><input id="contact-company" type="text" placeholder="Jouw bedrijf"></div>
             <div class="field"><label>E-mailadres</label><input id="contact-email" type="email" placeholder="naam@bedrijf.nl"></div>
-            <div class="field"><label>Ik wil hulp bij</label><select id="contact-service"><option>Email Marketing</option><option>SEO / AI Search</option><option>Ads & Campagnes</option><option>Websites</option><option>Branding</option><option>AI Compliance</option></select></div>
+            <div class="field"><label>Ik wil hulp bij</label><select id="contact-service"><option>Email Marketing</option><option>SEO / AI Search</option><option>Advertenties</option><option>Websites</option><option>Branding</option><option>AI Compliance</option></select></div>
             <div class="field"><label>Huidige situatie</label><textarea id="contact-situation" placeholder="Wat voelt nu onduidelijk, fout of traag?"></textarea></div>
             <button class="btn btn-primary" style="width:100%;margin-top:2px" onclick="sendContactQuestionnaire()">Verstuur vragenlijst</button>
             <div class="overview-card" style="margin-top:18px;padding:18px 20px">
@@ -2932,25 +2967,24 @@
 
     const services = [
       allServices.find(service => service.slug === 'email-marketing'),
-      allServices.find(service => service.slug === 'seo'),
       {
         slug:'advertenties',
-        title:'Ads & Campagnes',
-        short:'Meta en Google Ads die minder budget lekken en beter meten, sturen en opschalen.',
+        title:'Advertenties',
+        short:'Meta Ads, LinkedIn Ads en Google Ads die minder budget lekken en beter meten, sturen en opschalen.',
         seoTitle:'Ads & Campagnes | Meta en Google Ads | AIChecked.nl',
-        metaDescription:'AIChecked beheert Meta en Google Ads vanuit één basis: correcte tracking, minder verspilling en campagnes die zakelijker sturen.',
-        hero:'Je advertenties draaien.<br>Maar lekken <em>budget.</em>',
-        sub:'Meta Ads, Google Ads, funnels, tracking en performance moeten samen kloppen voordat opschalen logisch wordt.',
-        herkenTitle:'Campagnes lijken actief. Ondertussen verdwijnt er vaak budget zonder dat duidelijk is of Meta, Google, de funnel of de meting zelf de boosdoener is.',
+        metaDescription:'AIChecked beheert Meta Ads, LinkedIn Ads en Google Ads vanuit één basis: correcte tracking, minder verspilling en campagnes die zakelijker sturen.',
+        hero:'Campagnes draaien sneller goed<br>als de <em>landingsbasis klopt.</em>',
+        sub:'Advertenties bij AIChecked gaan over meer dan media inkopen. We verbinden Meta Ads, LinkedIn Ads, Google Ads, tracking, landingspagina’s en budgetsturing tot één schaalbare acquisitielaag.',
+        herkenTitle:'Campagnes lijken actief. Ondertussen verdwijnt er vaak budget zonder dat duidelijk is of Meta, Google, de funnel of de landingspagina de boosdoener is.',
         herken:['Meta en Google meten niet betrouwbaar genoeg','Budget gaat naar verkeer dat niet converteert','Campagnes worden gestuurd op te weinig echte signalen'],
         merkt:['ROAS of CPA voelt instabiel en moeilijk uit te leggen','Je betaalt voor klikken of impressies die niets opleveren','Opschalen voelt riskant omdat de basisdata te zwak is'],
-        doSteps:['Campagne-audit van Meta, Google en funnel','Tracking, consent en meetpunten herstellen','Structuur, creatives en landingspagina’s aanscherpen','Doorlopend optimaliseren op kosten en resultaat'],
-        result:['Minder verspild budget','Betere meting over Meta en Google heen','Campagnes die sturen op aanvragen, omzet of echte leadkwaliteit'],
+        doSteps:['Campagne-audit van Meta Ads, LinkedIn Ads, Google Ads, funnel en landingspagina’s','Tracking, consent en meetpunten herstellen','Structuur, creatives en copy aanscherpen','Doorlopend optimaliseren op kosten, leadkwaliteit en omzet'],
+        result:['Minder verspild budget','Betere meting over Meta, LinkedIn en Google heen','Campagnes die sturen op aanvragen, omzet of echte leadkwaliteit'],
         metricA:'2 kanalen', metricALabel:'in één structuur', metricB:'Minder ruis', metricBLabel:'in tracking en spend', metricC:'Meer grip', metricCLabel:'op budget en resultaat',
         proof:[
-          {kicker:'Meta Ads',value:'Social',title:'Meta wordt beoordeeld op creatives, doelgroepen en retargeting',text:'Je ziet sneller of het probleem in de funnel, de boodschap of de meetlaag zit.'},
-          {kicker:'Google Ads',value:'Search',title:'Google wordt apart gestuurd op zoekintentie en conversiekwaliteit',text:'Zo voorkom je dat dure klikken verborgen blijven achter te brede campagnes.'},
-          {kicker:'Sturing',value:'Resultaat',title:'Je ziet sneller welk kanaal wel of niet werkt',text:'Dat maakt bijsturen eenvoudiger en opschalen minder spannend.'}
+          {kicker:'Meta Ads',value:'Social',title:'Meta wordt beoordeeld op creatives, doelgroepen en retargeting',text:'Je ziet sneller of het probleem in de boodschap, doelgroep of funnel zit.'},
+          {kicker:'Google Ads',value:'Search',title:'Google wordt gestuurd op intentie en conversiekwaliteit',text:'Zo voorkom je dat dure klikken verborgen blijven achter te brede campagnes.'},
+          {kicker:'Sturing',value:'Resultaat',title:'Je ziet sneller welk kanaal echt omzet toevoegt',text:'Dat maakt bijsturen eenvoudiger en opschalen minder spannend.'}
         ],
         icon:'◎',
         category:'growth'
@@ -2958,39 +2992,35 @@
       {
         slug:'websites',
         title:'Websites',
-        short:'Bouwen, verbeteren en onderhouden vanuit één technische en conversiegerichte basis.',
+        short:'Bouwen, verbeteren en onderhouden vanuit één technische, conversiegerichte en SEO-ready basis.',
         seoTitle:'Websites | Bouwen, verbeteren en onderhouden | AIChecked.nl',
         metaDescription:'AIChecked bouwt, verbetert en onderhoudt websites die sneller laden, beter converteren en technisch rustig blijven werken.',
-        hero:'Je website staat online.<br>Maar werkt hij <em>echt?</em>',
-        sub:'Nieuwe websites, verbeteringen, onderhoud, snelheid, UX en CRO horen bij één sterke webbasis — niet bij losse trajecten.',
-        herkenTitle:'Veel websites hebben niet één probleem. Ze zijn tegelijk te traag, te vaag, te onderhoudsgevoelig of te zwak in conversie.',
+        hero:'Je website staat online.<br>Maar werkt hij al als <em>groeimotor?</em>',
+        sub:'Nieuwe websites, verbeteringen, onderhoud, conversie en technische vindbaarheid voor Google én AI-search horen bij één sterke webbasis.',
+        herkenTitle:'Veel websites hebben niet één probleem. Ze zijn tegelijk te traag, te vaag, te onderhoudsgevoelig of te zwak in conversie en vindbaarheid.',
         herken:['De site converteert niet sterk genoeg','Snelheid, UX en structuur werken tegen','Onderhoud en updates voelen te kwetsbaar'],
         merkt:['Bezoekers klikken weg voordat ze contact opnemen','Mobiel voelt zwakker dan desktop','Elke wijziging voelt groter of riskanter dan nodig'],
-        doSteps:['Website-audit op structuur, snelheid en frictie','Prioriteiten bepalen voor bouw, CRO en onderhoud','Design, techniek en contentlaag aanscherpen','Doorlopende optimalisatie en monitoring inrichten'],
+        doSteps:['Website-audit op structuur, snelheid en frictie','Informatiearchitectuur, content en CRO aanscherpen','Technische basis voor Google en AI-search versterken','Doorlopende optimalisatie en monitoring inrichten'],
         result:['Een site die duidelijker converteert','Meer rust in techniek, updates en formulieren','Een webbasis waarop je veilig kunt doorgroeien'],
-        metricA:'Sneller', metricALabel:'in laadtijd en route', metricB:'Duidelijker', metricBLabel:'in UX en conversie', metricC:'Stabieler', metricCLabel:'in onderhoud en monitoring',
+        metricA:'Sneller', metricALabel:'in laadtijd en route', metricB:'Duidelijker', metricBLabel:'in UX, inhoud en zoekstructuur', metricC:'Stabieler', metricCLabel:'in onderhoud en monitoring',
         proof:[
-          {kicker:'Bouwen',value:'Structuur',title:'Nieuwe websites starten meteen op een sterk fundament',text:'Design, techniek en inhoud worden vanaf het begin ingericht op duidelijkheid en vertrouwen.'},
-          {kicker:'Verbeteren',value:'CRO',title:'Bestaande sites worden scherper in snelheid, UX en conversie',text:'Niet mooier om het mooier, maar duidelijker, sneller en zakelijk sterker.'},
-          {kicker:'Onderhouden',value:'Monitoring',title:'De site blijft rustiger draaien na livegang',text:'Updates, formulieren, scripts en performance blijven onder controle in plaats van op hoop.'}
+          {kicker:'Bouwen',value:'Structuur',title:'Nieuwe websites starten meteen op een sterk fundament',text:'Design, techniek en inhoud worden vanaf het begin ingericht op duidelijkheid, vertrouwen en schaalbaarheid.'},
+          {kicker:'Vindbaarheid',value:'Google + AI',title:'Elke website wordt technisch geoptimaliseerd voor zoekmachines en AI-systemen',text:'Semantiek, interne structuur en performance worden vanaf de basis goed neergezet.'},
+          {kicker:'Verbeteren',value:'CRO',title:'Bestaande sites worden scherper in snelheid, UX en conversie',text:'Niet mooier om het mooier, maar duidelijker, sneller en zakelijk sterker.'}
         ],
         icon:'◫',
         category:'build'
-      },
-      allServices.find(service => service.slug === 'branding'),
-      allServices.find(service => service.slug === 'ai-compliance')
+      }
     ].filter(Boolean);
 
 const offerCards = [
-  {title:'Email Marketing', page:'email-marketing', icon:'✉', short:'Meer omzet uit je bestaande lijst, zonder handmatig trekken aan campagnes.', issue:'Klanten kopen maar één keer'},
-  {title:'SEO / AI Search', page:'seo', icon:'⌕', short:'Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.', issue:'Je bent nauwelijks zichtbaar in Google'},
-  {title:'Ads & Campagnes', page:'advertenties', icon:'◎', short:'Meta en Google Ads in één structuur, met betere meting en minder verspilling.', issue:'Advertentiebudget lekt te snel weg'},
-  {title:'Websites', page:'websites', icon:'◫', short:'Bouwen, verbeteren en onderhouden vanuit één duidelijke webbasis.', issue:'Je site werkt nog niet hard genoeg voor je bedrijf'},
-  {title:'AI Systems', page:'ai-systemen', icon:'◌', short:'Slimme AI-oplossingen die klantvragen, workflows en dagelijkse processen automatiseren.', issue:'Bedrijven verliezen tijd aan werk dat AI al kan overnemen.'},
-  {title:'AI Compliance', page:'ai-compliance', icon:'✓', short:'Consent, cookies en privacy-instellingen die juridisch en technisch weer kloppen.', issue:'Je weet niet of alles compliant staat'}
+  {title:'Websites', page:'websites', icon:'◫', short:'Bouwen, verbeteren en onderhouden vanuit één duidelijke webbasis.', issue:'Je site oogt prima, maar converteert en vertelt nog niet scherp genoeg.'},
+  {title:'AI & Automation', page:'ai-systemen', icon:'◌', short:'Slimme automatisering voor klantcontact, workflows en dagelijkse operatie.', issue:'Je team blijft te veel tijd verliezen aan handmatig werk.'},
+  {title:'Advertenties', page:'advertenties', icon:'◎', short:'Meta en Google Ads in één structuur, met betere meting en minder verspilling.', issue:'Advertentiebudget lekt te snel weg.'},
+  {title:'Email Marketing', page:'email-marketing', icon:'✉', short:'Meer omzet uit je bestaande lijst, zonder handmatig trekken aan campagnes.', issue:'Klanten kopen maar één keer.'}
 ];
 
-const serviceRouteItems = [...services, {slug:'ai-systemen', title:'AI Systems'}];
+const serviceRouteItems = [...services, {slug:'ai-systemen', title:'AI & Automation'}];
 
 const aiSystemsSolutions = [
   {title:'AI Chatbots',description:'24/7 klantenservice en automatische leadopvolging voor websites en webshops.',audience:'Webshops / bedrijven'},
@@ -3273,19 +3303,10 @@ const aiSystemsProcess = [
     ];
 
     const problemRoutes = [
-      {title:'Mijn website levert niet genoeg op',text:'Je site staat live, maar doet te weinig voor aanvragen, omzet of vertrouwen.',page:'websites'},
-      {title:'Klanten kopen maar één keer',text:'Je lijst groeit, maar er zit geen systeem achter dat retentie opbouwt.',page:'email-marketing'},
-      {title:'Mijn ads kosten te veel',text:'Campagnes lijken slim, maar als tracking fout staat schaal je vooral ruis op.',page:'advertenties'},
-      {title:'Mensen klikken te snel weg',text:'De eerste indruk, structuur of pagina-opbouw werkt nog niet overtuigend genoeg.',page:'websites'},
-      {title:'Mijn data klopt niet',text:'Je campagnes draaien, maar de meting voelt te zwak om echt op te sturen.',page:'advertenties'},
-      {title:'Ik ben niet zichtbaar in Google',text:'Je content en technische basis zijn nog niet helder genoeg voor zoekmachines of AI.',page:'seo'},
-      {title:'Ik weet niet of mijn tracking compliant is',text:'Consent, scripts en privacyverklaringen voelen te kwetsbaar om op te vertrouwen.',page:'ai-compliance'},
-      {title:'Mijn dashboards geven verkeerde inzichten',text:'Cijfers lopen door elkaar heen, waardoor je niet weet waar je moet ingrijpen.',page:'advertenties'},
-      {title:'Ik verlies te veel tijd aan handmatig werk',text:'Taken die AI kan overnemen kosten je nog steeds uren per week.',page:'ai-systemen'},
-      {title:'Klantvragen blijven terugkomen',text:'Je team beantwoordt dezelfde vragen steeds opnieuw.',page:'ai-systemen'},
-      {title:'Mijn processen zijn niet schaalbaar',text:'Meer klanten betekent direct meer handmatig werk.',page:'ai-systemen'},
-      {title:'Ik weet niet of mijn AI en tracking compliant zijn',text:'Je weet niet zeker of alles juridisch en technisch goed staat ingesteld.',page:'ai-compliance'},
-      {title:'Mijn privacy-instellingen kloppen waarschijnlijk niet',text:'Cookies, consent en tracking voelen kwetsbaar of onduidelijk.',page:'ai-compliance'}
+      {title:'Mijn website oogt goed, maar converteert te weinig',text:'Je hebt een sterkere webbasis nodig voor duidelijkheid, snelheid en vindbaarheid in Google en AI-search.',page:'websites'},
+      {title:'Mijn team verliest te veel tijd aan handmatig werk',text:'AI & automation maken processen sneller, rustiger en schaalbaarder zonder extra chaos.',page:'ai-systemen'},
+      {title:'Mijn advertenties sturen verkeer, maar te weinig resultaat',text:'Campagnes presteren pas als targeting, landingspagina’s en meetpunten dezelfde richting op staan.',page:'advertenties'},
+      {title:'Nieuwe leads of klanten worden niet goed opgevolgd',text:'Email marketing bouwt retentie, herhaalaankopen en follow-up als vast onderdeel van je groeisysteem.',page:'email-marketing'}
     ];
 
     const legalPages = [
@@ -3493,16 +3514,22 @@ const aiSystemsProcess = [
     });
 
     const navMap = {
-      'aanbod':'nav-aanbod',
-      'cases':'nav-cases',
-      'ai-kennisbank':'nav-ai-kennisbank',
+      home:'nav-home',
+      aanbod:'nav-oplossingen',
+      websites:'nav-oplossingen',
+      'website-bouwen':'nav-oplossingen',
+      seo:'nav-oplossingen',
+      'ai-systemen':'nav-oplossingen',
+      advertenties:'nav-oplossingen',
+      'email-marketing':'nav-oplossingen',
+      cases:'nav-cases',
       'over-ons':'nav-over-ons',
-      'contact':'nav-contact'
+      contact:'nav-contact'
     };
 
     const seoRoutes = {
       home:{path:'/',title:'AIChecked.nl | AI compliance, advertenties en digitale basis die klopt',description:'AIChecked helpt bedrijven met AI compliance, advertenties, websites, SEO / AI Search, branding en email marketing die technisch en juridisch kloppen.'},
-            advertenties:{path:'/advertenties',title:'Ads & Campagnes | Meta en Google Ads | AIChecked.nl',description:'AIChecked beheert Meta en Google Ads vanuit één basis: correcte tracking, minder verspilling en campagnes die zakelijker sturen.'},
+            advertenties:{path:'/advertenties',title:'Ads & Campagnes | Meta en Google Ads | AIChecked.nl',description:'AIChecked beheert Meta Ads, LinkedIn Ads en Google Ads vanuit één basis: correcte tracking, minder verspilling en campagnes die zakelijker sturen.'},
       'ai-compliance':{path:'/ai-compliance',title:'AI Compliance | Consent, cookies en privacy die klopt | AIChecked.nl',description:'AIChecked helpt bedrijven met AI compliance, consent, cookies en privacy-instellingen die juridisch en technisch weer kloppen.'},
       branding:{path:'/branding',title:'Branding | Merklaag die vertrouwen opbouwt | AIChecked.nl',description:'AIChecked ontwikkelt branding die meer rust, herkenning en overtuiging brengt in website, sales en digitale communicatie.'},
       'email-marketing':{path:'/email-marketing',title:'Email Marketing | Meer omzet uit je bestaande lijst | AIChecked.nl',description:'AIChecked bouwt email marketing flows en campagnes die retentie, herhaalaankopen en omzet uit je bestaande lijst verhogen.'},
@@ -3690,16 +3717,19 @@ const aiSystemsProcess = [
           <div class="footer-grid">
             <div>
               <div class="logo" style="font-size:24px;margin-bottom:10px"><div class="logo-mark">AI</div><div>AIChecked<small>Trusted digital foundation</small></div></div>
-              <p>AI compliance, advertenties, websites, SEO / AI Search, branding en email marketing voor bedrijven die rust in hun basis willen.</p>
-              <p class="footer-trust">AIChecked brengt consent, data en digitale infrastructuur terug naar iets waar teams op durven te vertrouwen.</p>
+              <p>AIChecked bouwt een premium groeibasis waarin website, automation, advertenties en emailmarketing elkaar versterken.</p>
+              <p class="footer-trust">Minder versnippering, meer regie over zichtbaarheid, conversie en klantwaarde.</p>
             </div>
             <div>
               <h4>Navigatie</h4>
-              <a href="/aanbod" role="button">Aanbod</a>
+              <a href="/website-bouwen" role="button">Websites</a>
+              <a href="/ai-systemen" role="button">AI &amp; Automation</a>
+              <a href="/advertenties" role="button">Advertenties</a>
+              <a href="/email-marketing" role="button">Email Marketing</a>
               <a href="${getPageHref('cases')}" role="button">Cases</a>
-              <a href="${getPageHref('ai-kennisbank')}" role="button">AI kennisbank</a>
-              <a href="${getPageHref('over-ons')}" role="button">Over ons</a>
+              <a href="${getPageHref('over-ons')}" role="button">About</a>
               <a href="${getPageHref('contact')}" role="button">Contact</a>
+              <a href="${getPageHref('klantportaal')}" role="button">Klantportaal</a>
             </div>
             <div>
               <h4>Juridisch</h4>
@@ -4591,19 +4621,19 @@ const aiSystemsProcess = [
         <div id="page-${service.slug}" class="page service-page">
           <section class="section service-hero">
             <div class="wrap">
-              <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Aanbod</a><span>•</span><span>${service.title}</span></div>
+              <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Services</a><span>•</span><span>${service.title}</span></div>
               <div class="eyebrow">${service.title}</div>
               <h1 class="display" style="margin-bottom:14px">${service.hero}</h1>
               <p class="lead" style="margin-bottom:20px">${service.sub}</p>
               <div class="btn-row">
                 <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
-                <a class="btn btn-ghost" href="/aanbod">Bekijk aanbod</a>
+                <a class="btn btn-ghost" href="/aanbod">Bekijk services</a>
               </div>
             </div>
           </section>
-          ${service.slug === 'seo' ? buildSeoWhyNowSection() : ''}
+          ${service.slug === 'websites' ? buildSeoWhyNowSection() : ''}
           ${buildPackageSection(service)}
-          ${service.slug === 'seo' ? buildSeoProofSection() : ''}
+          ${service.slug === 'websites' ? buildSeoProofSection() : ''}
           ${buildCalendarBookingSection('Plan direct een gesprek over dit traject', 'Open meteen de agenda en kies een moment om te bespreken welk pakket past, waar het nu vastloopt en wat als eerste opgelost moet worden.')}
           ${buildServiceVisualProofSection(service)}
           ${buildWebsitesHowWeBuildSection(service)}
@@ -4793,14 +4823,14 @@ function createAiSystemsPage(){
     <div id="page-ai-systemen" class="page service-page">
       <section class="section service-hero">
         <div class="wrap">
-          <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Aanbod</a><span>•</span><span>AI Systems</span></div>
-          <div class="eyebrow">AIChecked module</div>
-          <h1 class="display" style="margin-bottom:14px">AI Systems voor bedrijven</h1>
-          <p class="lead" style="margin-bottom:16px">Slimme AI-oplossingen die processen versnellen, klantcontact automatiseren en dagelijks werk uit handen nemen.</p>
-          <p class="small" style="max-width:760px;margin-bottom:22px">AI verandert sneller dan de meeste bedrijven kunnen bijhouden. AIChecked helpt organisaties om AI praktisch, veilig en schaalbaar toe te passen.</p>
+          <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Services</a><span>•</span><span>AI &amp; Automation</span></div>
+          <div class="eyebrow">AI &amp; Automation</div>
+          <h1 class="display" style="margin-bottom:14px">AI &amp; Automation voor bedrijven</h1>
+          <p class="lead" style="margin-bottom:16px">Praktische AI-oplossingen die processen versnellen, klantcontact automatiseren en teams schaalbaarder laten werken.</p>
+          <p class="small" style="max-width:760px;margin-bottom:22px">We bouwen geen losse AI-demo’s, maar automatisering die echt aansluit op je website, salesproces en dagelijkse operatie.</p>
           <div class="btn-row">
             <button class="btn btn-primary" onclick="openCalendar()">Plan een AI scan</button>
-            <a class="btn btn-ghost" href="/aanbod">Bekijk aanbod</a>
+            <a class="btn btn-ghost" href="/aanbod">Bekijk services</a>
           </div>
         </div>
       </section>
@@ -4824,7 +4854,7 @@ function createAiSystemsPage(){
       <section class="section-tight">
         <div class="wrap">
           <div class="service-section-head">
-            <div class="eyebrow">Waarom bedrijven AI Systems gebruiken</div>
+            <div class="eyebrow">Waarom bedrijven AI &amp; Automation inzetten</div>
             <p>De waarde van AI zit niet alleen in snelheid, maar in hoeveel handmatig werk je structureel uit processen haalt.</p>
           </div>
           <div class="service-proof-grid">
@@ -4860,10 +4890,10 @@ function createAiSystemsPage(){
             <div class="split" style="align-items:center">
               <div>
                 <h2 class="display" style="font-size:clamp(28px,3.2vw,40px);margin-bottom:12px">Klaar om AI praktisch in je bedrijf toe te passen?</h2>
-                <p class="lead">Laat zien waar tijd verloren gaat en ontdek welke AI-systemen direct waarde toevoegen.</p>
+                <p class="lead">Laat zien waar tijd verloren gaat en ontdek welke automatisering direct waarde toevoegt.</p>
               </div>
               <div class="btn-row" style="justify-content:flex-end">
-                <button class="btn btn-primary" onclick="openCalendar()">Plan een AI Systems scan</button>
+                <button class="btn btn-primary" onclick="openCalendar()">Plan een AI &amp; Automation scan</button>
               </div>
             </div>
           </div>
@@ -4940,7 +4970,7 @@ function createAiSystemsPage(){
                     <p>Wil je dit niet alleen lezen, maar vertalen naar je eigen setup? Dan kijken we gericht naar tooling, risico’s, quick wins en de volgorde waarin je moet ingrijpen.</p>
                     <div class="btn-row">
                       <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
-                      <a class="btn btn-ghost" href="/aanbod">Bekijk aanbod</a>
+                      <a class="btn btn-ghost" href="/aanbod">Bekijk services</a>
                     </div>
                   </section>
                 </article>
@@ -4969,7 +4999,7 @@ function createAiSystemsPage(){
         <div id="page-${page.slug}" class="page local-page">
           <section class="section service-hero local-hero">
             <div class="wrap">
-              <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Aanbod</a><span>•</span><span>${page.title}</span></div>
+              <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Services</a><span>•</span><span>${page.title}</span></div>
               <div class="eyebrow">Lokale pagina</div>
               <h1 class="display" style="margin-bottom:12px">${page.title}</h1>
               <p class="lead" style="margin-bottom:18px">${page.subtitle}</p>
@@ -5124,39 +5154,28 @@ function createAiSystemsPage(){
       const target = document.getElementById(targetId);
       if(!target) return;
       const cardMap = Object.fromEntries(offerCards.map(card => [card.page, card]));
-      const groups = [
-        {
-          title:'Groei',
-          description:'Meer zichtbaarheid, meer verkeer en meer omzet.',
-          pages:['websites','seo','advertenties']
-        },
-        {
-          title:'Systemen',
-          description:'Slimmere processen, meer automatisering en minder risico.',
-          pages:['email-marketing','ai-systemen','ai-compliance']
-        }
-      ];
-      target.innerHTML = groups.map(group => {
-        const cards = group.pages.map(page => cardMap[page]).filter(Boolean);
-        return `
-          <div style="margin-bottom:22px">
-            <div class="eyebrow" style="margin-bottom:10px">${group.title}</div>
-            <p class="lead" style="margin-bottom:18px;max-width:620px">${group.description}</p>
-            <div class="offer-grid">
-              ${cards.map(card => `
-                <button class="service-card hover-sheen" onclick="showPage('${card.page}')">
-                  <div class="icon">${card.icon}</div>
-                  <div class="tag">AIChecked module</div>
-                  <h3>${card.title}</h3>
-                  <p>${card.short}</p>
-                  <div class="issue">${card.issue}</div>
-                  <div class="more">Meer lezen →</div>
-                </button>
-              `).join('')}
-            </div>
-          </div>
-        `;
-      }).join('');
+      const renderCard = card => `
+        <button class="service-card hover-sheen" onclick="showPage('${card.page}')">
+          <div class="icon">${card.icon}</div>
+          <div class="tag">Core service</div>
+          <h3>${card.title}</h3>
+          <p>${card.short}</p>
+          <div class="issue">${card.issue}</div>
+          <div class="more">Meer lezen →</div>
+        </button>
+      `;
+      target.innerHTML = `
+        <div style="grid-column:1/-1;padding:0 0 8px;background:#060707">
+          <div class="eyebrow" style="margin-bottom:10px">Foundation</div>
+          <p class="lead" style="margin:0;max-width:620px">De basis voor een premium merkervaring, duidelijke customer journey en schaalbare operatie.</p>
+        </div>
+        ${['websites','ai-systemen'].map(page => renderCard(cardMap[page])).join('')}
+        <div style="grid-column:1/-1;padding:16px 0 8px;background:#060707">
+          <div class="eyebrow" style="margin-bottom:10px">Growth</div>
+          <p class="lead" style="margin:0;max-width:620px">Acquisitie en retentie die slimmer sturen op rendement, niet op losse acties.</p>
+        </div>
+        ${['advertenties','email-marketing'].map(page => renderCard(cardMap[page])).join('')}
+      `;
     }
 
     function renderProblemRoutes(){
@@ -5175,8 +5194,14 @@ function createAiSystemsPage(){
 
     let activeCaseFilter = 'all';
     function renderCases(){
-      const filters = ['all','build','growth','data'];
-      const labels = {all:'Alle cases',build:'Websites',growth:'Email & Ads',data:'Tracking & data'};
+      const filters = ['all','websites','ai-automation','advertisements','email-marketing'];
+      const labels = {
+        all:'Alle cases',
+        websites:'Websites',
+        'ai-automation':'AI & Automation',
+        advertisements:'Advertenties',
+        'email-marketing':'Email Marketing'
+      };
       const filterWrap = document.getElementById('case-filters');
       const list = document.getElementById('case-list');
       if(!filterWrap || !list) return;
@@ -5194,7 +5219,20 @@ function createAiSystemsPage(){
               </div>
               <h3 class="case-title">${item.title}</h3>
               <p class="lead" style="font-size:15px;max-width:none;margin-bottom:16px">${item.summary}</p>
-              <ul class="bullet-list">${item.steps.map(step=>`<li>${step}</li>`).join('')}</ul>
+              <div class="service-copy-grid" style="margin-top:0">
+                ${[
+                  ['Website', item.website],
+                  ['Ads', item.ads],
+                  ['AI', item.ai],
+                  ['Email Marketing', item.emailMarketing]
+                ].filter(([, value]) => value).map(([label, value]) => `
+                  <div class="service-impact">
+                    <h3>${label}</h3>
+                    <p>${value}</p>
+                  </div>
+                `).join('')}
+              </div>
+              ${item.results ? `<div class="overview-card" style="margin-top:16px"><h3 style="font-size:20px">Results</h3><ul class="bullet-list">${item.results.map(result => `<li>${result}</li>`).join('')}</ul></div>` : ''}
             </div>
             <div class="case-side">
               ${item.metrics.map(metric=>`<div class="case-metric"><div class="value">${metric[0]}</div><div class="label">${metric[1]}</div></div>`).join('')}
@@ -6967,12 +7005,59 @@ function createAiSystemsPage(){
       window.scrollTo({top:0,behavior:'smooth'});
     }
 
+    function closeNavDropdowns(scope = document){
+      scope.querySelectorAll('.nav-dropdown.open').forEach(item => {
+        item.classList.remove('open');
+        const trigger = item.querySelector('a[aria-expanded]');
+        if(trigger) trigger.setAttribute('aria-expanded', 'false');
+      });
+      scope.querySelectorAll('.mobile-nav-group.open').forEach(group => {
+        group.classList.remove('open');
+        const trigger = group.querySelector('.mobile-nav-trigger');
+        if(trigger) trigger.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    function bindNavDropdowns(){
+      document.querySelectorAll('.nav-dropdown > a[aria-expanded]').forEach(trigger => {
+        trigger.addEventListener('click', event => {
+          if(window.innerWidth > 860) return;
+          event.preventDefault();
+          const item = trigger.closest('.nav-dropdown');
+          const willOpen = !item.classList.contains('open');
+          closeNavDropdowns(document.querySelector('#main-nav') || document);
+          item.classList.toggle('open', willOpen);
+          trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        });
+      });
+
+      document.querySelectorAll('.mobile-nav-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const group = trigger.closest('.mobile-nav-group');
+          const willOpen = !group.classList.contains('open');
+          closeNavDropdowns(document.getElementById('mobile-menu') || document);
+          group.classList.toggle('open', willOpen);
+          trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        });
+      });
+
+      document.addEventListener('click', event => {
+        if(!event.target.closest('#main-nav') && !event.target.closest('#mobile-menu')) closeNavDropdowns();
+      });
+
+      window.addEventListener('resize', () => {
+        if(window.innerWidth > 860) closeNavDropdowns();
+      });
+    }
+
     function toggleMobile(force){
       const menu = document.getElementById('mobile-menu');
       if(typeof force === 'boolean'){
         menu.classList.toggle('open', force);
+        if(!force) closeNavDropdowns(menu);
       }else{
         menu.classList.toggle('open');
+        if(!menu.classList.contains('open')) closeNavDropdowns(menu);
       }
     }
 
@@ -7030,6 +7115,7 @@ function createAiSystemsPage(){
     });
 
     window.addEventListener('DOMContentLoaded', () => {
+      bindNavDropdowns();
       try {
       createServicePages();
       createAiSystemsPage();
@@ -7073,6 +7159,7 @@ function createAiSystemsPage(){
       }
     });
   </script>
+
 <script src="https://aichecked-chatbot-2.vercel.app/embed.js" defer></script>
 </body>
 </html>
