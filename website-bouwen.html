@@ -4652,34 +4652,33 @@ const aiSystemsProcess = [
       const steps = [
         {
           title:'Strategie vóór design',
-          text:'We starten bij propositie, pagina-opbouw en de route naar contact. Zo wordt duidelijk wat de website moet bewijzen voordat er iets visueel wordt uitgewerkt.'
+          text:'We bepalen eerst wat de website moet bewijzen en welke route bezoekers logisch naar contact moet leiden.'
         },
         {
           title:'Premium uitstraling die rust geeft',
-          text:'Daarna vertalen we die structuur naar een rustige, overtuigende ervaring die sneller vertrouwen opbouwt en beter past bij je prijs, aanbod en merk.'
+          text:'Daarna vertalen we die structuur naar een rustige uitstraling die sneller vertrouwen opbouwt en beter past bij je merk.'
         },
         {
           title:'Slimme systemen achter de schermen',
-          text:'Formulieren, tracking, opvolging en interne logica sluiten we aan op hoe je team werkt, zodat de website niet losstaat van je operatie.'
+          text:'Formulieren, tracking en opvolging sluiten we aan op je operatie, zodat de website niet losstaat van sales en marketing.'
         },
         {
           title:'Meten, verbeteren en doorgroeien',
-          text:'Na livegang blijven we kijken naar snelheid, AI-search, formulieren en conversie, zodat de website niet alleen live staat maar ook blijft bijdragen.'
+          text:'Na livegang blijven snelheid, AI-search en conversie zichtbaar, zodat de website ook daarna blijft bijdragen.'
         }
       ];
       return `
         <section class="section-tight">
           <div class="wrap">
             <div class="service-section-head">
-              <div class="eyebrow">Hoe wij websites bouwen</div>
               <h2 class="display" style="font-size:clamp(30px,3.4vw,44px);margin-bottom:12px">Hoe wij websites bouwen</h2>
-              <p>Een goede website voelt niet als een verzameling pagina’s. Hij legt de route naar vertrouwen, contact en groei in de juiste volgorde neer.</p>
+              <p>Geen losse ontwerpstappen, maar een rustige bouwvolgorde waarin strategie, uitstraling, techniek en optimalisatie elkaar logisch versterken.</p>
             </div>
-            <div class="website-timeline">
+            <div class="steps">
               ${steps.map((step,index) => `
-                <article class="website-timeline-step">
-                  <span class="num">0${index + 1}</span>
-                  <h3>${step.title}</h3>
+                <article class="step">
+                  <div class="num">0${index + 1}</div>
+                  <h4>${step.title}</h4>
                   <p>${step.text}</p>
                 </article>
               `).join('')}
@@ -4695,24 +4694,21 @@ const aiSystemsProcess = [
         <section class="section-tight">
           <div class="wrap">
             <div class="service-section-head">
-              <div class="eyebrow">Waarom AIChecked websites anders zijn</div>
+              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Waarom AIChecked websites anders zijn</h2>
             </div>
-            <div class="website-editorial-split">
-              <article class="website-principle-lead">
-                <div class="eyebrow">Groeibasis</div>
-                <h3>Niet gebouwd voor alleen design.</h3>
-                <p>We bouwen websites als groeisystemen: helder in propositie, rustiger in gebruik en sterker in de route naar contact. Dat maakt de site niet alleen mooier, maar zakelijk overtuigender.</p>
+            <div class="service-copy-grid">
+              <article class="service-impact">
+                <h3>Niet gebouwd voor alleen design</h3>
+                <p>De website moet sneller duidelijk maken wat je aanbiedt, waarom dat telt en welke stap daarna logisch is.</p>
               </article>
-              <div class="website-principle-stack">
-                <article class="website-principle-card">
-                  <h3>AI-first aanpak</h3>
-                  <p>De website wordt meteen voorbereid op moderne vindbaarheid, slimme systemen en een operatie waarin AI, formulieren en opvolging op elkaar aansluiten.</p>
-                </article>
-                <article class="website-principle-card">
-                  <h3>Gebouwd voor groei</h3>
-                  <p>Structuur, performance en inhoud worden zo neergezet dat advertenties, AI-search en opvolging later niet opnieuw om de basis heen hoeven te werken.</p>
-                </article>
-              </div>
+              <article class="service-impact">
+                <h3>AI-first aanpak</h3>
+                <p>Structuur, semantiek en techniek worden meteen voorbereid op moderne vindbaarheid, formulieren en slimme opvolging.</p>
+              </article>
+              <article class="service-impact">
+                <h3>Gebouwd voor groei</h3>
+                <p>De basis wordt zo neergezet dat advertenties, AI-search en sales later niet opnieuw om zwakke fundering heen hoeven te werken.</p>
+              </article>
             </div>
           </div>
         </section>
@@ -4721,72 +4717,32 @@ const aiSystemsProcess = [
 
     function buildWebsitesDiagnosticSection(service){
       if(service.slug !== 'websites') return '';
-      return `
-        <section class="section-tight">
-          <div class="wrap">
-            <div class="website-diagnostic-shell">
-              <div class="service-section-head">
-                <div class="eyebrow">Herken je dit?</div>
-                <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">De website staat er.<br><em>Maar draagt nog te weinig.</em></h2>
-                <p>${service.herkenTitle}</p>
-              </div>
-              <div class="website-diagnostic-list website-action-shell">
-                ${service.herken.map((item,index) => `
-                  <article class="website-diagnostic-item">
-                    <span class="num">0${index + 1}</span>
-                    <h3>${item}</h3>
-                    <p>${getHerkenDetail(service, index)}</p>
-                  </article>
-                `).join('')}
-              </div>
-            </div>
-          </div>
-        </section>
-      `;
-    }
-
-    function buildWebsitesConsequencesSection(service){
-      if(service.slug !== 'websites') return '';
-      return `
-        <section class="section-tight">
-          <div class="wrap">
-            <div class="website-consequence-shell">
-              <div class="service-section-head">
-                <div class="eyebrow">Wat je merkt</div>
-                <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">De gevolgen zitten niet in abstracte metrics.<br><em>Ze raken je dagelijkse groei.</em></h2>
-                <p>Een zwakke website vraagt daarna compensatie van sales, campagnes en opvolging. Dat voel je meestal eerder in het proces dan in een rapport.</p>
-              </div>
-              <div class="website-consequence-list website-action-shell">
-                ${service.merkt.map((item,index) => `
-                  <article class="website-consequence-row">
-                    <span class="num">0${index + 1}</span>
-                    <h3>${item}</h3>
-                    <p>${getMerktDetail(service, index)}</p>
-                  </article>
-                `).join('')}
-              </div>
-            </div>
-          </div>
-        </section>
-      `;
-    }
-
-    function buildWebsitesActionPlanSection(service){
-      if(service.slug !== 'websites') return '';
+      const items = [
+        {
+          title:'De site overtuigt te laat of te weinig',
+          consequence:'Bezoekers begrijpen te laat waarom ze hier goed zitten, waardoor aanvragen en gesprekken wegvallen.'
+        },
+        {
+          title:'Snelheid, UX en inhoud werken tegen conversie',
+          consequence:'De route naar contact voelt onrustig of stroperig, waardoor vertrouwen en momentum sneller weglekken.'
+        },
+        {
+          title:'Marketingkanalen landen op een te zwakke basis',
+          consequence:'Advertenties, SEO en AI-search sturen verkeer naar pagina’s die te weinig opvangen en te weinig doorgeven.'
+        }
+      ];
       return `
         <section class="section-tight">
           <div class="wrap">
             <div class="service-section-head">
-              <div class="eyebrow">Wat ik concreet doe</div>
-              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Van audit naar een website die weer rust en richting geeft.</h2>
-              <p>We beginnen niet met losse cosmetische aanpassingen. Eerst maken we de route helder, daarna leggen we de basis opnieuw strak neer.</p>
+              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Herken je dit?</h2>
+              <p>${service.herkenTitle}</p>
             </div>
-            <div class="website-action-flow website-action-shell">
-              ${service.doSteps.map((step,index)=>`
-                <article class="website-action-step">
-                  <span class="num">0${index + 1}</span>
-                  <h3>${step}</h3>
-                  <p>${getStepDetail(service, index)}</p>
+            <div class="service-copy-grid">
+              ${items.map(item => `
+                <article class="service-impact">
+                  <h3>${item.title}</h3>
+                  <p>${item.consequence}</p>
                 </article>
               `).join('')}
             </div>
@@ -4795,38 +4751,32 @@ const aiSystemsProcess = [
       `;
     }
 
-    function buildWebsitesResultStorySection(service){
+    function buildWebsitesActionPlanSection(service){
       if(service.slug !== 'websites') return '';
-      const resultCards = getResultCards(service);
+      const steps = [
+        'Website-audit',
+        'Structuur, copy en design aanscherpen',
+        'Technische basis herstellen',
+        'Doorlopende optimalisatie inrichten'
+      ];
       return `
         <section class="section-tight">
           <div class="wrap">
             <div class="service-section-head">
-              <div class="eyebrow">Resultaat / nieuwe situatie</div>
-              <p>${getResultLead(service)}</p>
+              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wat ik concreet doe</h2>
+              <p>We brengen eerst de knelpunten terug tot een helder plan en werken daarna in vier logische stappen naar een sterkere groeibasis.</p>
             </div>
-            <div class="website-result-shell">
-              <article class="website-result-lead">
-                <h3>De website wordt weer een basis waarop je kunt bouwen.</h3>
-                <p>Niet nog een losse optimalisatie, maar een rustigere basis waar verkeer, opvolging en vertrouwen beter samenkomen.</p>
-                <ul class="website-result-list">
-                  ${service.result.map(item=>`<li>${item}</li>`).join('')}
-                </ul>
-              </article>
-              <div class="website-result-support">
-                ${resultCards.map(item => `
-                  <article class="service-proof-card">
-                    <span class="kicker">${item.kicker}</span>
-                    <h3>${item.title}</h3>
-                    <p>${item.text}</p>
-                  </article>
-                `).join('')}
-                <div class="website-trust-rail">
-                  <div class="trust-cell"><div class="label">Audit</div><p>We maken eerst zichtbaar waar structuur, inhoud en techniek nu tegenwerken.</p></div>
-                  <div class="trust-cell"><div class="label">Monitoring</div><p>Na livegang blijft zichtbaar of formulieren, snelheid en updates ook echt in lijn blijven.</p></div>
-                  <div class="trust-cell"><div class="label">Controle</div><p>Je team stuurt daarna vanuit een basis die rustiger werkt en minder uitleg nodig heeft.</p></div>
-                </div>
-              </div>
+            <div class="steps">
+              ${steps.map((step,index)=>`
+                <article class="step">
+                  <div class="num">0${index + 1}</div>
+                  <h4>${step}</h4>
+                  <p>${getStepDetail(service, index)}</p>
+                </article>
+              `).join('')}
+            </div>
+            <div class="btn-row" style="margin-top:20px;justify-content:flex-start">
+              <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
             </div>
           </div>
         </section>
@@ -4836,29 +4786,26 @@ const aiSystemsProcess = [
     function buildWebsitesGrowthOutcomeSection(service){
       if(service.slug !== 'websites') return '';
       const items = [
-        ['Resultaat','Meer relevante bezoekers','Mensen komen sneller binnen op pagina’s die echt aansluiten op wat ze zoeken of nodig hebben.'],
-        ['AI Search','Betere AI-zichtbaarheid','Een helderdere structuur maakt het waarschijnlijker dat moderne AI-systemen je website goed kunnen duiden.'],
-        ['Structuur','Sterkere contentstructuur','Pagina’s, koppen en interne routes gaan elkaar ondersteunen in plaats van elkaar te verdunnen.'],
-        ['Duurzaamheid','Minder afhankelijk van advertenties','Een sterkere website vangt meer waarde op uit organisch verkeer en maakt betaalde acquisitie efficiënter.']
+        ['Resultaat','Meer relevante bezoekers','Bezoekers landen sneller op pagina’s die hun vraag beantwoorden en eerder richting gesprek of aanvraag sturen.'],
+        ['AI Search','Betere AI-zichtbaarheid','Een sterkere semantische basis vergroot de kans dat moderne AI-systemen je website goed kunnen duiden en meenemen.'],
+        ['Structuur','Sterkere contentstructuur','Koppen, pagina’s en interne routes werken samen in plaats van elkaar te verdunnen of te laten concurreren.'],
+        ['Duurzaamheid','Minder afhankelijk van advertenties','Een sterkere website vangt meer waarde op uit organisch verkeer en maakt betaalde acquisitie minder kwetsbaar.']
       ];
       return `
         <section class="section-tight">
           <div class="wrap">
-            <div class="website-growth-shell">
-              <div class="service-section-head">
-                <div class="eyebrow">Niet meer verkeer. Beter verkeer.</div>
-                <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">De winst zit niet alleen in meer bereik.<br><em>Maar in een sterkere bestemming.</em></h2>
-                <p>Als de website duidelijker, sneller en inhoudelijk sterker wordt, komt verkeer niet alleen makkelijker binnen. Het landt ook beter.</p>
-              </div>
-              <div class="website-growth-grid">
-                ${items.map(item => `
-                  <article class="website-growth-item">
-                    <span class="kicker">${item[0]}</span>
-                    <h3>${item[1]}</h3>
-                    <p>${item[2]}</p>
-                  </article>
-                `).join('')}
-              </div>
+            <div class="service-section-head">
+              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Niet meer verkeer. Beter verkeer.</h2>
+              <p>${getResultLead(service)}</p>
+            </div>
+            <div class="steps">
+              ${items.map(item => `
+                <article class="step">
+                  <div class="num">${item[0]}</div>
+                  <h4>${item[1]}</h4>
+                  <p>${item[2]}</p>
+                </article>
+              `).join('')}
             </div>
           </div>
         </section>
@@ -4867,57 +4814,29 @@ const aiSystemsProcess = [
 
     function buildWebsitesStructureSection(service){
       if(service.slug !== 'websites') return '';
-      const snippet = getAuditSnippet(service);
+      const items = [
+        ['Structuur','De route van eerste landing naar contact wordt logischer, duidelijker en minder afhankelijk van uitleg door sales.'],
+        ['Snelheid','Performance ondersteunt vertrouwen in plaats van twijfel, afhakers of verloren momentum te veroorzaken.'],
+        ['Onderhoud','Nieuwe wijzigingen komen op een fundament dat controleerbaar blijft en minder snel nieuwe ruis introduceert.']
+      ];
       return `
         <section class="section-tight">
           <div class="wrap">
-            <div class="website-structure-shell">
-              <div class="service-section-head">
-                <div class="eyebrow">Structuur, snelheid en onderhoud</div>
-                <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Een premium website blijft alleen sterk als de basis rustig blijft werken.</h2>
-                <p>Daarom kijken we niet alleen naar design of copy. We letten ook op hoe pagina’s op elkaar aansluiten, hoe snel de site reageert en hoe goed updates landen zonder nieuwe ruis te veroorzaken.</p>
-              </div>
-              <article class="website-structure-panel">
-                <h3>${snippet.title}</h3>
-                <p>${snippet.text}</p>
-                <div class="website-structure-points">
-                  <div class="website-structure-point"><strong>Structuur</strong><span>De route van landingspagina naar contact wordt logischer en zakelijk duidelijker.</span></div>
-                  <div class="website-structure-point"><strong>Snelheid</strong><span>Performance ondersteunt weer vertrouwen in plaats van twijfel of afhakers te veroorzaken.</span></div>
-                  <div class="website-structure-point"><strong>Onderhoud</strong><span>Nieuwe wijzigingen komen op een fundament dat controleerbaar en minder foutgevoelig blijft.</span></div>
-                </div>
-                <div class="inline-links">${snippet.links.map(link=>`<span class="inline-link">${link}</span>`).join('')}</div>
-              </article>
+            <div class="service-section-head">
+              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Structuur, snelheid en onderhoud</h2>
+              <p>Een website blijft alleen sterk als de basis ook na livegang rustig blijft werken en zichtbaar beheersbaar blijft.</p>
             </div>
-          </div>
-        </section>
-      `;
-    }
-
-    function buildWebsitesMonitoringSection(service){
-      if(service.slug !== 'websites') return '';
-      return `
-        <section class="section-tight">
-          <div class="wrap">
-            <div class="website-structure-shell">
-              <div class="service-section-head">
-                <div class="eyebrow">Monitoring</div>
-                <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Waar je daarna op wilt blijven letten</h2>
-                <p>Een website blijft alleen een groeibasis als je ook na livegang zicht houdt op de onderdelen die het eerst terug kunnen glijden.</p>
-              </div>
-              <article class="website-monitor-board">
-                <h3>Live overzicht van de basis</h3>
-                <p>Niet bedoeld als druk dashboard, maar als rustige controlelaag voor de onderdelen die het verschil blijven maken.</p>
-                <div class="website-monitor-list">
-                  ${getTrustRows(service).map((row,index) => `
-                    <div class="website-monitor-item">
-                      <span class="num">0${index + 1}</span>
-                      <h3>${row[0]}</h3>
-                      <p>${row[1]}</p>
-                      <span class="state">${row[2]}</span>
-                    </div>
-                  `).join('')}
-                </div>
-              </article>
+            <div class="service-copy-grid">
+              ${items.map(item => `
+                <article class="service-impact">
+                  <h3>${item[0]}</h3>
+                  <p>${item[1]}</p>
+                </article>
+              `).join('')}
+            </div>
+            <div class="overview-card" style="margin-top:18px">
+              <h3>Monitoring na livegang</h3>
+              <p class="lead" style="font-size:16px;max-width:none">Na livegang blijven deze drie onderdelen zichtbaar, zodat structuur, snelheid en onderhoud niet opnieuw langzaam uit lijn raken.</p>
             </div>
           </div>
         </section>
@@ -4932,9 +4851,8 @@ const aiSystemsProcess = [
             <div class="website-closing-panel">
               <div class="website-closing-shell">
                 <div class="service-section-head">
-                  <div class="eyebrow">Laatste stap</div>
-                  <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wil je weten wat er bij jou nu nog niet klopt?</h2>
-                  <p>Dan kijken we samen waar de website nu te weinig draagt, wat dat in marketing en sales kost en wat als eerste opgelost moet worden.</p>
+                  <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wil je weten waar je website nu nog te weinig draagt?</h2>
+                  <p>We brengen in kaart waar structuur, inhoud, snelheid of opvolging de groei afremt en welke verbetering als eerste het meeste verschil maakt.</p>
                 </div>
                 <div style="display:grid;gap:18px">
                   <div class="website-closing-actions">
@@ -4942,8 +4860,7 @@ const aiSystemsProcess = [
                     <button class="btn btn-ghost" onclick="showPage('contact')">Neem contact op</button>
                   </div>
                   <div class="website-closing-note">
-                    <strong>Wat je krijgt</strong>
-                    <span>Een helder beeld van waar structuur, inhoud, snelheid of opvolging nu de groei afremmen — en welke stap het meeste verschil maakt.</span>
+                    <span>Je krijgt een helder beeld van de belangrijkste knelpunten en een concrete eerste prioriteit.</span>
                   </div>
                 </div>
               </div>
@@ -4961,7 +4878,7 @@ const aiSystemsProcess = [
               <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Services</a><span>•</span><span>${service.title}</span></div>
               <div class="eyebrow">${service.title}</div>
               <h1 class="display" style="margin-bottom:14px">${service.hero}</h1>
-              <p class="lead" style="margin-bottom:20px">${service.sub}</p>
+              <p class="lead" style="margin-bottom:20px">We bouwen en verbeteren websites die sneller vertrouwen opbouwen, duidelijker richting geven en steviger dragen onder leads, sales en zichtbaarheid.</p>
               <div class="btn-row">
                 <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
                 <a class="btn btn-ghost" href="/aanbod">Bekijk services</a>
@@ -4970,12 +4887,9 @@ const aiSystemsProcess = [
           </section>
           ${buildWebsitesDifferentiatorSection(service)}
           ${buildWebsitesDiagnosticSection(service)}
-          ${buildWebsitesConsequencesSection(service)}
           ${buildWebsitesActionPlanSection(service)}
-          ${buildWebsitesResultStorySection(service)}
           ${buildWebsitesGrowthOutcomeSection(service)}
           ${buildWebsitesStructureSection(service)}
-          ${buildWebsitesMonitoringSection(service)}
           ${buildWebsitesHowWeBuildSection(service)}
           ${buildWebsitesClosingSection(service)}
           <footer>${getSharedFooter()}</footer>
