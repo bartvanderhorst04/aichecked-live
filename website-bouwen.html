@@ -712,6 +712,133 @@
     .inline-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
     .inline-link{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.02);border:1px solid var(--line);font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted)}
     .inline-link:hover{color:var(--white);border-color:rgba(66,216,166,.22)}
+    .website-editorial-split{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);gap:28px;align-items:start}
+    .website-principle-lead{
+      display:grid;gap:18px;padding:30px 32px;border-radius:30px;border:1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(circle at top left, rgba(66,216,166,.08), transparent 42%),
+        linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012));
+      backdrop-filter:blur(18px)
+    }
+    .website-principle-lead .eyebrow{margin-bottom:0}
+    .website-principle-lead h3{font-family:var(--serif);font-size:clamp(32px,4vw,50px);line-height:1.02;color:var(--white);margin:0}
+    .website-principle-lead p{font-size:17px;line-height:1.82;color:#ddd7ce;margin:0;max-width:58ch}
+    .website-principle-stack{display:grid;gap:14px}
+    .website-principle-card{
+      padding:24px;border-radius:24px;border:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.024),rgba(255,255,255,.01))
+    }
+    .website-principle-card h3{font-family:var(--serif);font-size:27px;line-height:1.08;color:var(--white);margin:0 0 10px}
+    .website-principle-card p{font-size:15px;line-height:1.76;color:#d8d2c9;margin:0}
+    .website-diagnostic-shell,.website-consequence-shell,.website-structure-shell,.website-closing-shell{
+      display:grid;grid-template-columns:minmax(0,.74fr) minmax(360px,1.06fr);gap:28px;align-items:start
+    }
+    .website-diagnostic-list,.website-consequence-list,.website-action-flow,.website-monitor-list{display:grid;gap:14px}
+    .website-diagnostic-item,.website-consequence-row,.website-action-step,.website-monitor-item{
+      position:relative;padding:20px 22px 20px 82px;border-top:1px solid rgba(255,255,255,.08)
+    }
+    .website-diagnostic-item:last-child,.website-consequence-row:last-child,.website-action-step:last-child,.website-monitor-item:last-child{padding-bottom:0}
+    .website-diagnostic-item .num,.website-consequence-row .num,.website-action-step .num,.website-monitor-item .num{
+      position:absolute;left:0;top:18px;width:58px;font-family:var(--serif);font-size:34px;line-height:1;color:rgba(66,216,166,.92)
+    }
+    .website-diagnostic-item h3,.website-consequence-row h3,.website-action-step h3,.website-monitor-item h3{
+      font-family:var(--serif);font-size:28px;line-height:1.08;color:var(--white);margin:0 0 8px
+    }
+    .website-diagnostic-item p,.website-consequence-row p,.website-action-step p,.website-monitor-item p{
+      font-size:15px;line-height:1.8;color:#d9d3ca;margin:0
+    }
+    .website-consequence-shell .service-section-head,
+    .website-diagnostic-shell .service-section-head,
+    .website-structure-shell .service-section-head,
+    .website-closing-shell .service-section-head{margin-bottom:0}
+    .website-action-shell{
+      border-top:1px solid rgba(255,255,255,.08);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      padding:8px 0
+    }
+    .website-result-shell{
+      display:grid;grid-template-columns:minmax(0,.98fr) minmax(340px,.92fr);gap:28px;align-items:start
+    }
+    .website-result-lead{
+      padding:30px 32px;border-radius:30px;border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012))
+    }
+    .website-result-lead h3{font-family:var(--serif);font-size:clamp(34px,3.8vw,48px);line-height:1.04;color:var(--white);margin:0 0 12px}
+    .website-result-lead p{font-size:16px;line-height:1.82;color:#ddd7ce;margin:0 0 18px;max-width:56ch}
+    .website-result-list{display:grid;gap:10px;margin:0;padding:0}
+    .website-result-list li{
+      list-style:none;padding-left:18px;position:relative;font-size:15px;line-height:1.78;color:#ddd7ce
+    }
+    .website-result-list li::before{
+      content:'';position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:999px;background:rgba(66,216,166,.92)
+    }
+    .website-result-support{display:grid;gap:12px}
+    .website-result-support .service-proof-card{height:100%}
+    .website-trust-rail{
+      display:grid;gap:1px;background:var(--line);border-radius:24px;overflow:hidden
+    }
+    .website-trust-rail .trust-cell{padding:20px 22px}
+    .website-growth-shell{display:grid;grid-template-columns:minmax(0,.82fr) minmax(360px,1.18fr);gap:28px;align-items:start}
+    .website-growth-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .website-growth-item{
+      padding:22px 24px;border-radius:24px;border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg,rgba(255,255,255,.024),rgba(255,255,255,.008))
+    }
+    .website-growth-item .kicker{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+    .website-growth-item h3{font-family:var(--serif);font-size:24px;line-height:1.1;color:var(--white);margin:0 0 10px}
+    .website-growth-item p{font-size:15px;line-height:1.74;color:#d8d2c9;margin:0}
+    .website-structure-panel{
+      padding:28px;border-radius:28px;border:1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(circle at top right, rgba(66,216,166,.08), transparent 38%),
+        linear-gradient(180deg,rgba(255,255,255,.024),rgba(255,255,255,.01))
+    }
+    .website-structure-panel h3,.website-monitor-board h3,.website-closing-panel h3{
+      font-family:var(--serif);font-size:30px;line-height:1.08;color:var(--white);margin:0 0 10px
+    }
+    .website-structure-panel p,.website-monitor-board p,.website-closing-panel p{font-size:15px;line-height:1.8;color:#d9d3ca;margin:0}
+    .website-structure-points{display:grid;gap:12px;margin-top:18px}
+    .website-structure-point{
+      padding-top:12px;border-top:1px solid rgba(255,255,255,.08)
+    }
+    .website-structure-point strong{display:block;color:var(--white);font-size:15px;margin-bottom:4px}
+    .website-monitor-board{
+      padding:28px;border-radius:28px;border:1px solid rgba(255,255,255,.08);
+      background:#060707
+    }
+    .website-monitor-item{padding-right:98px}
+    .website-monitor-item .state{
+      position:absolute;right:0;top:26px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green)
+    }
+    .website-timeline{
+      position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px
+    }
+    .website-timeline::before{
+      content:'';position:absolute;left:0;right:0;top:42px;height:1px;background:rgba(255,255,255,.08)
+    }
+    .website-timeline-step{
+      position:relative;padding-top:76px
+    }
+    .website-timeline-step::before{
+      content:'';position:absolute;top:34px;left:0;width:16px;height:16px;border-radius:999px;background:#060707;border:1px solid rgba(66,216,166,.36);box-shadow:0 0 0 6px rgba(66,216,166,.06)
+    }
+    .website-timeline-step .num{
+      display:block;font-family:var(--serif);font-size:44px;line-height:1;color:rgba(66,216,166,.9);margin-bottom:12px
+    }
+    .website-timeline-step h3{font-family:var(--serif);font-size:24px;line-height:1.1;color:var(--white);margin:0 0 10px}
+    .website-timeline-step p{font-size:15px;line-height:1.78;color:#d8d2c9;margin:0}
+    .website-closing-panel{
+      padding:32px;border-radius:30px;border:1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(circle at center top, rgba(66,216,166,.1), transparent 34%),
+        linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012))
+    }
+    .website-closing-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:flex-end}
+    .website-closing-note{
+      display:grid;gap:10px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)
+    }
+    .website-closing-note strong{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--green)}
+    .website-closing-note span{font-size:15px;line-height:1.7;color:#d7d1c8}
     .authority-shell{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
     .authority-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border-radius:22px;overflow:hidden}
     .authority-card{background:#060707;padding:20px}
@@ -838,6 +965,28 @@
     .field textarea{min-height:140px;resize:vertical}
     .legal-layout{display:grid;grid-template-columns:260px 1fr;gap:28px}
     .toc{position:sticky;top:110px;height:fit-content}
+    @media (max-width: 1100px){
+      .website-editorial-split,
+      .website-diagnostic-shell,
+      .website-consequence-shell,
+      .website-structure-shell,
+      .website-result-shell,
+      .website-growth-shell,
+      .website-closing-shell{grid-template-columns:1fr}
+      .website-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .website-timeline::before{display:none}
+      .website-timeline-step{padding-top:0;padding-left:54px}
+      .website-timeline-step::before{top:6px;left:0}
+      .website-timeline-step .num{font-size:34px}
+    }
+    @media (max-width: 768px){
+      .website-growth-grid{grid-template-columns:1fr}
+      .website-timeline{grid-template-columns:1fr}
+      .website-diagnostic-item,.website-consequence-row,.website-action-step,.website-monitor-item{padding-left:62px;padding-right:0}
+      .website-diagnostic-item .num,.website-consequence-row .num,.website-action-step .num,.website-monitor-item .num{width:44px;font-size:28px}
+      .website-monitor-item .state{position:static;display:inline-flex;margin-top:12px}
+      .website-principle-lead,.website-result-lead,.website-structure-panel,.website-monitor-board,.website-closing-panel{padding:24px}
+    }
     .toc a{display:block;padding:12px 14px;border-radius:14px;color:var(--muted);font-size:13px}
     .toc a:hover{background:rgba(108,191,141,.06);color:var(--white)}
     .accordion{display:grid;gap:10px}
@@ -4377,27 +4526,6 @@ const aiSystemsProcess = [
         },
         'meta-ads': 'advertenties',
         'google-ads': 'advertenties',
-        'websites': 'website-bouwen',
-        'website-bouwen': {
-          eyebrow: 'Kies je pakket',
-          intro: sharedIntro,
-          note: sharedNote,
-          title: 'Website pakketten',
-          columns: ['Starter', 'Pro', 'Ultra'],
-          highlight: 1,
-          badge: 'Meest gekozen',
-          rows: rowsToObjects([
-            ['Voor wie','Je wilt snel een sterke landingspagina of compacte site live','Je wilt een volledige website die leads en vertrouwen opbouwt','Je wilt een uitgebreid platform of webshop als groeimotor'],
-            ['Scope','Landingspagina of compacte website','Volledige website met strategische paginaroute','Uitgebreid traject met maatwerk, shop of portaalstructuur'],
-            ['Structuur & copy','Basis structuur en conversieroute','Volledige informatiearchitectuur en conversiegerichte copy','Diep uitgewerkte route per doelgroep, aanbod en funnelstap'],
-            ['SEO & AI-search basis','✔','✔ verdiept','✔ volledig meegenomen'],
-            ['Tracking & formulieren','Basis','Volledig ingericht','Volledig + geavanceerde events'],
-            ['Conversie-optimalisatie','—','✔','✔ doorlopend'],
-            ['Dashboard','—','✔ via klantportaal','✔ via klantportaal'],
-            ['Strategiesessie','—','—','Maandelijks 1 uur'],
-            ['Klantportaal','Basis toegang','+ dashboard','+ dashboard + strategierapport']
-          ], ['Starter', 'Pro', 'Ultra'])
-        },
         'ai-systemen': {
           eyebrow: 'Kies je pakket',
           intro: sharedIntro,
@@ -4479,72 +4607,6 @@ const aiSystemsProcess = [
       `;
     }
 
-    function buildSeoWhyNowSection(){
-      return `
-        <section class="section-tight">
-          <div class="wrap">
-            <div class="service-section-head">
-              <div class="eyebrow">Waarom nu?</div>
-              <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">SEO verandert.<br><em>AI Search nog sneller.</em></h2>
-              <p style="color:var(--green);font-size:16px;line-height:1.8;margin:0 0 14px">Wie wacht wordt ingehaald.</p>
-              <p>Google toont steeds vaker AI-antwoorden. ChatGPT, Gemini en andere AI-systemen bepalen steeds vaker welke bedrijven zichtbaar zijn.</p>
-              <p style="margin-top:14px">Veel websites zijn gebouwd voor zoekmachines van gisteren.</p>
-              <p style="margin-top:14px">AIChecked zorgt dat je website begrijpelijk wordt voor zowel Google als moderne AI-systemen.</p>
-            </div>
-            <div class="seo-why-grid">
-              <div class="seo-why-card">
-                <h3>AI Search groeit snel</h3>
-                <p>Steeds meer gebruikers zoeken via AI.</p>
-              </div>
-              <div class="seo-why-card">
-                <h3>Concurrenten bouwen voorsprong op</h3>
-                <p>Bedrijven die nu optimaliseren verzamelen eerder autoriteit.</p>
-              </div>
-              <div class="seo-why-card">
-                <h3>Structuur wordt belangrijker</h3>
-                <p>AI begrijpt alleen wat technisch en inhoudelijk helder is.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      `;
-    }
-
-    function buildSeoProofSection(){
-      return `
-        <section class="section-tight">
-          <div class="wrap">
-            <div class="service-section-head">
-              <div class="eyebrow">Wat je uiteindelijk wilt zien.</div>
-              <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Niet meer verkeer.<br><em>Beter verkeer.</em></h2>
-            </div>
-            <div class="seo-proof-grid">
-              <div class="service-proof-card">
-                <span class="kicker">Resultaat</span>
-                <h3>Meer relevante bezoekers</h3>
-                <p>Mensen die daadwerkelijk zoeken naar jouw dienst.</p>
-              </div>
-              <div class="service-proof-card">
-                <span class="kicker">AI Search</span>
-                <h3>Betere AI-zichtbaarheid</h3>
-                <p>Grotere kans om genoemd te worden door AI-systemen.</p>
-              </div>
-              <div class="service-proof-card">
-                <span class="kicker">Structuur</span>
-                <h3>Sterkere contentstructuur</h3>
-                <p>Pagina’s worden beter begrepen.</p>
-              </div>
-              <div class="service-proof-card">
-                <span class="kicker">Duurzaamheid</span>
-                <h3>Minder afhankelijk van advertenties</h3>
-                <p>Meer organisch verkeer op lange termijn.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      `;
-    }
-
     function buildServiceVisualProofSection(service){
       return `
         <section class="section-tight">
@@ -4589,46 +4651,20 @@ const aiSystemsProcess = [
       if(service.slug !== 'websites') return '';
       const steps = [
         {
-          icon:'◫',
-          index:'Stap 1',
           title:'Strategie vóór design',
-          text:'We analyseren eerst waar bezoekers afhaken, wat onduidelijk is en welke structuur nodig is om vertrouwen en conversie op te bouwen.',
-          bullets:['Heldere structuur','Conversiegericht','Gebouwd rondom gedrag']
+          text:'We starten bij propositie, pagina-opbouw en de route naar contact. Zo wordt duidelijk wat de website moet bewijzen voordat er iets visueel wordt uitgewerkt.'
         },
         {
-          icon:'✦',
-          index:'Stap 2',
           title:'Premium uitstraling die rust geeft',
-          text:'We ontwerpen een website die professioneel aanvoelt, sneller vertrouwen opbouwt en duidelijk communiceert wat jouw bedrijf doet.',
-          bullets:['Meer vertrouwen','Duidelijke positionering','Minder visuele ruis']
+          text:'Daarna vertalen we die structuur naar een rustige, overtuigende ervaring die sneller vertrouwen opbouwt en beter past bij je prijs, aanbod en merk.'
         },
         {
-          icon:'◎',
-          index:'Stap 3',
           title:'Slimme systemen achter de schermen',
-          text:'Van AI chatbots tot leadflows en slimme formulieren: we bouwen systemen die werk automatiseren en sneller opvolgen.',
-          bullets:['Slimmere opvolging','Minder handmatig werk','Meer schaalbaarheid']
+          text:'Formulieren, tracking, opvolging en interne logica sluiten we aan op hoe je team werkt, zodat de website niet losstaat van je operatie.'
         },
         {
-          icon:'↗',
-          index:'Stap 4',
           title:'Meten, verbeteren en doorgroeien',
-          text:'Na livegang blijven we optimaliseren op snelheid, SEO, AI Search en conversie zodat de website blijft presteren.',
-          bullets:['SEO & AI Search','Hogere conversie','Continu verbeteren']
-        }
-      ];
-      const highlights = [
-        {
-          title:'Niet gebouwd voor alleen design',
-          text:'Maar voor structuur, duidelijkheid en conversie.'
-        },
-        {
-          title:'AI-first aanpak',
-          text:'Slimme automatisering en AI-systemen direct geïntegreerd.'
-        },
-        {
-          title:'Gebouwd voor groei',
-          text:'SEO, AI Search en schaalbaarheid vanaf de basis meegenomen.'
+          text:'Na livegang blijven we kijken naar snelheid, AI-search, formulieren en conversie, zodat de website niet alleen live staat maar ook blijft bijdragen.'
         }
       ];
       return `
@@ -4637,37 +4673,15 @@ const aiSystemsProcess = [
             <div class="service-section-head">
               <div class="eyebrow">Hoe wij websites bouwen</div>
               <h2 class="display" style="font-size:clamp(30px,3.4vw,44px);margin-bottom:12px">Hoe wij websites bouwen</h2>
-              <p>Een website moet niet alleen mooi zijn. Hij moet structuur brengen, vertrouwen opbouwen en bezoekers laten converteren.</p>
+              <p>Een goede website voelt niet als een verzameling pagina’s. Hij legt de route naar vertrouwen, contact en groei in de juiste volgorde neer.</p>
             </div>
-            <div class="web-build-steps">
-              ${steps.map(step => `
-                <div class="web-step-card hover-sheen">
-                  <div class="web-step-top">
-                    <span class="web-step-icon">${step.icon}</span>
-                    <span class="web-step-index">${step.index}</span>
-                  </div>
+            <div class="website-timeline">
+              ${steps.map((step,index) => `
+                <article class="website-timeline-step">
+                  <span class="num">0${index + 1}</span>
                   <h3>${step.title}</h3>
                   <p>${step.text}</p>
-                  <ul class="web-mini-list">
-                    ${step.bullets.map(item => `<li>${item}</li>`).join('')}
-                  </ul>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        </section>
-        <section class="section-tight">
-          <div class="wrap">
-            <div class="service-section-head">
-              <div class="eyebrow">Waarom AIChecked websites anders zijn</div>
-              <p>We bouwen websites als complete groeisystemen: duidelijk aan de voorkant, slimmer onder de motorkap en beter voorbereid op wat daarna komt.</p>
-            </div>
-            <div class="web-highlight-grid">
-              ${highlights.map(item => `
-                <div class="web-highlight-card hover-sheen">
-                  <h3>${item.title}</h3>
-                  <p>${item.text}</p>
-                </div>
+                </article>
               `).join('')}
             </div>
           </div>
@@ -4675,9 +4689,272 @@ const aiSystemsProcess = [
       `;
     }
 
-    function createServicePages(){
-      const root = document.getElementById('service-pages-root');
-      root.innerHTML = services.map(service => `
+    function buildWebsitesDifferentiatorSection(service){
+      if(service.slug !== 'websites') return '';
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head">
+              <div class="eyebrow">Waarom AIChecked websites anders zijn</div>
+            </div>
+            <div class="website-editorial-split">
+              <article class="website-principle-lead">
+                <div class="eyebrow">Groeibasis</div>
+                <h3>Niet gebouwd voor alleen design.</h3>
+                <p>We bouwen websites als groeisystemen: helder in propositie, rustiger in gebruik en sterker in de route naar contact. Dat maakt de site niet alleen mooier, maar zakelijk overtuigender.</p>
+              </article>
+              <div class="website-principle-stack">
+                <article class="website-principle-card">
+                  <h3>AI-first aanpak</h3>
+                  <p>De website wordt meteen voorbereid op moderne vindbaarheid, slimme systemen en een operatie waarin AI, formulieren en opvolging op elkaar aansluiten.</p>
+                </article>
+                <article class="website-principle-card">
+                  <h3>Gebouwd voor groei</h3>
+                  <p>Structuur, performance en inhoud worden zo neergezet dat advertenties, AI-search en opvolging later niet opnieuw om de basis heen hoeven te werken.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildWebsitesDiagnosticSection(service){
+      if(service.slug !== 'websites') return '';
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="website-diagnostic-shell">
+              <div class="service-section-head">
+                <div class="eyebrow">Herken je dit?</div>
+                <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">De website staat er.<br><em>Maar draagt nog te weinig.</em></h2>
+                <p>${service.herkenTitle}</p>
+              </div>
+              <div class="website-diagnostic-list website-action-shell">
+                ${service.herken.map((item,index) => `
+                  <article class="website-diagnostic-item">
+                    <span class="num">0${index + 1}</span>
+                    <h3>${item}</h3>
+                    <p>${getHerkenDetail(service, index)}</p>
+                  </article>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildWebsitesConsequencesSection(service){
+      if(service.slug !== 'websites') return '';
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="website-consequence-shell">
+              <div class="service-section-head">
+                <div class="eyebrow">Wat je merkt</div>
+                <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">De gevolgen zitten niet in abstracte metrics.<br><em>Ze raken je dagelijkse groei.</em></h2>
+                <p>Een zwakke website vraagt daarna compensatie van sales, campagnes en opvolging. Dat voel je meestal eerder in het proces dan in een rapport.</p>
+              </div>
+              <div class="website-consequence-list website-action-shell">
+                ${service.merkt.map((item,index) => `
+                  <article class="website-consequence-row">
+                    <span class="num">0${index + 1}</span>
+                    <h3>${item}</h3>
+                    <p>${getMerktDetail(service, index)}</p>
+                  </article>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildWebsitesActionPlanSection(service){
+      if(service.slug !== 'websites') return '';
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head">
+              <div class="eyebrow">Wat ik concreet doe</div>
+              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Van audit naar een website die weer rust en richting geeft.</h2>
+              <p>We beginnen niet met losse cosmetische aanpassingen. Eerst maken we de route helder, daarna leggen we de basis opnieuw strak neer.</p>
+            </div>
+            <div class="website-action-flow website-action-shell">
+              ${service.doSteps.map((step,index)=>`
+                <article class="website-action-step">
+                  <span class="num">0${index + 1}</span>
+                  <h3>${step}</h3>
+                  <p>${getStepDetail(service, index)}</p>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildWebsitesResultStorySection(service){
+      if(service.slug !== 'websites') return '';
+      const resultCards = getResultCards(service);
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head">
+              <div class="eyebrow">Resultaat / nieuwe situatie</div>
+              <p>${getResultLead(service)}</p>
+            </div>
+            <div class="website-result-shell">
+              <article class="website-result-lead">
+                <h3>De website wordt weer een basis waarop je kunt bouwen.</h3>
+                <p>Niet nog een losse optimalisatie, maar een rustigere basis waar verkeer, opvolging en vertrouwen beter samenkomen.</p>
+                <ul class="website-result-list">
+                  ${service.result.map(item=>`<li>${item}</li>`).join('')}
+                </ul>
+              </article>
+              <div class="website-result-support">
+                ${resultCards.map(item => `
+                  <article class="service-proof-card">
+                    <span class="kicker">${item.kicker}</span>
+                    <h3>${item.title}</h3>
+                    <p>${item.text}</p>
+                  </article>
+                `).join('')}
+                <div class="website-trust-rail">
+                  <div class="trust-cell"><div class="label">Audit</div><p>We maken eerst zichtbaar waar structuur, inhoud en techniek nu tegenwerken.</p></div>
+                  <div class="trust-cell"><div class="label">Monitoring</div><p>Na livegang blijft zichtbaar of formulieren, snelheid en updates ook echt in lijn blijven.</p></div>
+                  <div class="trust-cell"><div class="label">Controle</div><p>Je team stuurt daarna vanuit een basis die rustiger werkt en minder uitleg nodig heeft.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildWebsitesGrowthOutcomeSection(service){
+      if(service.slug !== 'websites') return '';
+      const items = [
+        ['Resultaat','Meer relevante bezoekers','Mensen komen sneller binnen op pagina’s die echt aansluiten op wat ze zoeken of nodig hebben.'],
+        ['AI Search','Betere AI-zichtbaarheid','Een helderdere structuur maakt het waarschijnlijker dat moderne AI-systemen je website goed kunnen duiden.'],
+        ['Structuur','Sterkere contentstructuur','Pagina’s, koppen en interne routes gaan elkaar ondersteunen in plaats van elkaar te verdunnen.'],
+        ['Duurzaamheid','Minder afhankelijk van advertenties','Een sterkere website vangt meer waarde op uit organisch verkeer en maakt betaalde acquisitie efficiënter.']
+      ];
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="website-growth-shell">
+              <div class="service-section-head">
+                <div class="eyebrow">Niet meer verkeer. Beter verkeer.</div>
+                <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">De winst zit niet alleen in meer bereik.<br><em>Maar in een sterkere bestemming.</em></h2>
+                <p>Als de website duidelijker, sneller en inhoudelijk sterker wordt, komt verkeer niet alleen makkelijker binnen. Het landt ook beter.</p>
+              </div>
+              <div class="website-growth-grid">
+                ${items.map(item => `
+                  <article class="website-growth-item">
+                    <span class="kicker">${item[0]}</span>
+                    <h3>${item[1]}</h3>
+                    <p>${item[2]}</p>
+                  </article>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildWebsitesStructureSection(service){
+      if(service.slug !== 'websites') return '';
+      const snippet = getAuditSnippet(service);
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="website-structure-shell">
+              <div class="service-section-head">
+                <div class="eyebrow">Structuur, snelheid en onderhoud</div>
+                <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Een premium website blijft alleen sterk als de basis rustig blijft werken.</h2>
+                <p>Daarom kijken we niet alleen naar design of copy. We letten ook op hoe pagina’s op elkaar aansluiten, hoe snel de site reageert en hoe goed updates landen zonder nieuwe ruis te veroorzaken.</p>
+              </div>
+              <article class="website-structure-panel">
+                <h3>${snippet.title}</h3>
+                <p>${snippet.text}</p>
+                <div class="website-structure-points">
+                  <div class="website-structure-point"><strong>Structuur</strong><span>De route van landingspagina naar contact wordt logischer en zakelijk duidelijker.</span></div>
+                  <div class="website-structure-point"><strong>Snelheid</strong><span>Performance ondersteunt weer vertrouwen in plaats van twijfel of afhakers te veroorzaken.</span></div>
+                  <div class="website-structure-point"><strong>Onderhoud</strong><span>Nieuwe wijzigingen komen op een fundament dat controleerbaar en minder foutgevoelig blijft.</span></div>
+                </div>
+                <div class="inline-links">${snippet.links.map(link=>`<span class="inline-link">${link}</span>`).join('')}</div>
+              </article>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildWebsitesMonitoringSection(service){
+      if(service.slug !== 'websites') return '';
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="website-structure-shell">
+              <div class="service-section-head">
+                <div class="eyebrow">Monitoring</div>
+                <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Waar je daarna op wilt blijven letten</h2>
+                <p>Een website blijft alleen een groeibasis als je ook na livegang zicht houdt op de onderdelen die het eerst terug kunnen glijden.</p>
+              </div>
+              <article class="website-monitor-board">
+                <h3>Live overzicht van de basis</h3>
+                <p>Niet bedoeld als druk dashboard, maar als rustige controlelaag voor de onderdelen die het verschil blijven maken.</p>
+                <div class="website-monitor-list">
+                  ${getTrustRows(service).map((row,index) => `
+                    <div class="website-monitor-item">
+                      <span class="num">0${index + 1}</span>
+                      <h3>${row[0]}</h3>
+                      <p>${row[1]}</p>
+                      <span class="state">${row[2]}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildWebsitesClosingSection(service){
+      if(service.slug !== 'websites') return '';
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="website-closing-panel">
+              <div class="website-closing-shell">
+                <div class="service-section-head">
+                  <div class="eyebrow">Laatste stap</div>
+                  <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wil je weten wat er bij jou nu nog niet klopt?</h2>
+                  <p>Dan kijken we samen waar de website nu te weinig draagt, wat dat in marketing en sales kost en wat als eerste opgelost moet worden.</p>
+                </div>
+                <div style="display:grid;gap:18px">
+                  <div class="website-closing-actions">
+                    <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
+                    <button class="btn btn-ghost" onclick="showPage('contact')">Neem contact op</button>
+                  </div>
+                  <div class="website-closing-note">
+                    <strong>Wat je krijgt</strong>
+                    <span>Een helder beeld van waar structuur, inhoud, snelheid of opvolging nu de groei afremmen — en welke stap het meeste verschil maakt.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildWebsitesServicePage(service){
+      return `
         <div id="page-${service.slug}" class="page service-page">
           <section class="section service-hero">
             <div class="wrap">
@@ -4691,9 +4968,38 @@ const aiSystemsProcess = [
               </div>
             </div>
           </section>
-          ${service.slug === 'websites' ? buildSeoWhyNowSection() : ''}
+          ${buildWebsitesDifferentiatorSection(service)}
+          ${buildWebsitesDiagnosticSection(service)}
+          ${buildWebsitesConsequencesSection(service)}
+          ${buildWebsitesActionPlanSection(service)}
+          ${buildWebsitesResultStorySection(service)}
+          ${buildWebsitesGrowthOutcomeSection(service)}
+          ${buildWebsitesStructureSection(service)}
+          ${buildWebsitesMonitoringSection(service)}
+          ${buildWebsitesHowWeBuildSection(service)}
+          ${buildWebsitesClosingSection(service)}
+          <footer>${getSharedFooter()}</footer>
+        </div>
+      `;
+    }
+
+    function createServicePages(){
+      const root = document.getElementById('service-pages-root');
+      root.innerHTML = services.map(service => service.slug === 'websites' ? buildWebsitesServicePage(service) : `
+        <div id="page-${service.slug}" class="page service-page">
+          <section class="section service-hero">
+            <div class="wrap">
+              <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Services</a><span>•</span><span>${service.title}</span></div>
+              <div class="eyebrow">${service.title}</div>
+              <h1 class="display" style="margin-bottom:14px">${service.hero}</h1>
+              <p class="lead" style="margin-bottom:20px">${service.sub}</p>
+              <div class="btn-row">
+                <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
+                <a class="btn btn-ghost" href="/aanbod">Bekijk services</a>
+              </div>
+            </div>
+          </section>
           ${buildPackageSection(service)}
-          ${service.slug === 'websites' ? buildSeoProofSection() : ''}
           ${buildCalendarBookingSection('Plan direct een gesprek over dit traject', 'Open meteen de agenda en kies een moment om te bespreken welk pakket past, waar het nu vastloopt en wat als eerste opgelost moet worden.')}
           ${buildServiceVisualProofSection(service)}
           ${buildWebsitesHowWeBuildSection(service)}
