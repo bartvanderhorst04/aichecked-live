@@ -1835,12 +1835,13 @@
   </div>
   <div class="mobile-menu" id="mobile-menu">
     <a href="/">Home</a>
-    <a href="/aanbod">Aanbod</a>
+    <a href="/website-bouwen">Websites</a>
+    <a href="/ai-systemen">AI &amp; Automation</a>
+    <a href="/advertenties">Advertisements</a>
+    <a href="/email-marketing">Email Marketing</a>
     <a href="/cases">Cases</a>
-    <a href="/ai-kennisbank">AI kennisbank</a>
-    <a href="/over-ons">Over ons</a>
+    <a href="/over-ons">About</a>
     <a href="/contact">Contact</a>
-    <a href="/klantportaal">Klantportaal</a>
   </div>
 
   <nav id="main-nav">
@@ -1850,24 +1851,16 @@
     </a>
 
     <ul class="nav-links" style="justify-self:center">
-        <li class="nav-item">
-          <a id="nav-aanbod" href="/aanbod">Aanbod</a>
-          <div class="mega">
-            <a class="mega-card" href="/email-marketing"><strong>Email Marketing</strong><p>Meer omzet uit bestaande klanten zonder losse campagnes of handmatig werk.</p></a>
-            <a class="mega-card" href="/seo"><strong>SEO / AI Search</strong><p>Vindbaarheid voor Google en AI-systemen begint bij heldere structuur en inhoud.</p></a>
-            <a class="mega-card" href="/advertenties"><strong>Ads & Campagnes</strong><p>Meta en Google Ads in één systeem met tracking, funnels en performancecontrole.</p></a>
-            <a class="mega-card" href="/website-bouwen"><strong>Websites</strong><p>Bouwen, verbeteren en onderhouden vanuit één conversiegerichte basis.</p></a>
-            <a class="mega-card" href="/ai-systemen"><strong>AI Systems</strong><p>Slimme AI-oplossingen die klantvragen, workflows en dagelijkse processen automatiseren.</p></a>
-            <a class="mega-card" href="/ai-compliance"><strong>AI Compliance</strong><p>Consent, governance en privacy-instellingen die juridisch en technisch kloppen.</p></a>
-          </div>
-        </li>
+        <li><a id="nav-home" href="/">Home</a></li>
+        <li><a id="nav-websites" href="/website-bouwen">Websites</a></li>
+        <li><a id="nav-ai-automation" href="/ai-systemen">AI &amp; Automation</a></li>
+        <li><a id="nav-advertisements" href="/advertenties">Advertisements</a></li>
+        <li><a id="nav-email-marketing" href="/email-marketing">Email Marketing</a></li>
         <li><a id="nav-cases" href="/cases">Cases</a></li>
-        <li><a id="nav-ai-kennisbank" href="/ai-kennisbank">AI kennisbank</a></li>
-        <li><a id="nav-over-ons" href="/over-ons">Over ons</a></li>
+        <li><a id="nav-over-ons" href="/over-ons">About</a></li>
         <li><a id="nav-contact" href="/contact">Contact</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:14px;flex:0 0 auto;margin-left:auto">
-      <a class="btn btn-ghost nav-portal" href="/klantportaal">Klantportaal →</a>
       <div class="nav-toggle" onclick="toggleMobile()"><span></span><span></span><span></span></div>
     </div>
   </nav>
@@ -3656,16 +3649,19 @@ const aiSystemsProcess = [
           <div class="footer-grid">
             <div>
               <div class="logo" style="font-size:24px;margin-bottom:10px"><div class="logo-mark">AI</div><div>AIChecked<small>Trusted digital foundation</small></div></div>
-              <p>AI compliance, <a href="/advertenties" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(66,216,166,.42)">advertenties</a>, websites, SEO / AI Search, branding en email marketing voor bedrijven die rust in hun basis willen.</p>
-              <p class="footer-trust">AIChecked brengt consent, data en digitale infrastructuur terug naar iets waar teams op durven te vertrouwen.</p>
+              <p>AIChecked bouwt een premium groeibasis waarin website, automation, advertenties en emailmarketing elkaar versterken.</p>
+              <p class="footer-trust">Minder versnippering, meer regie over zichtbaarheid, conversie en klantwaarde.</p>
             </div>
             <div>
               <h4>Navigatie</h4>
-              <a href="/aanbod" role="button">Aanbod</a>
+              <a href="/website-bouwen" role="button">Websites</a>
+              <a href="/ai-systemen" role="button">AI &amp; Automation</a>
+              <a href="/advertenties" role="button">Advertisements</a>
+              <a href="/email-marketing" role="button">Email Marketing</a>
               <a href="${getPageHref('cases')}" role="button">Cases</a>
-              <a href="${getPageHref('ai-kennisbank')}" role="button">AI kennisbank</a>
-              <a href="${getPageHref('over-ons')}" role="button">Over ons</a>
+              <a href="${getPageHref('over-ons')}" role="button">About</a>
               <a href="${getPageHref('contact')}" role="button">Contact</a>
+              <a href="${getPageHref('klantportaal')}" role="button">Klantportaal</a>
             </div>
             <div>
               <h4>Juridisch</h4>
@@ -4690,11 +4686,11 @@ function createAiSystemsPage(){
     <div id="page-ai-systemen" class="page service-page">
       <section class="section service-hero">
         <div class="wrap">
-          <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Aanbod</a><span>•</span><span>AI Systems</span></div>
-          <div class="eyebrow">AIChecked module</div>
+          <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Services</a><span>•</span><span>AI &amp; Automation</span></div>
+          <div class="eyebrow">AI &amp; Automation</div>
           <h1 class="display" style="margin-bottom:14px">AI Systems voor bedrijven</h1>
-          <p class="lead" style="margin-bottom:16px">Slimme AI-oplossingen die processen versnellen, klantcontact automatiseren en dagelijks werk uit handen nemen.</p>
-          <p class="small" style="max-width:760px;margin-bottom:22px">AI verandert sneller dan de meeste bedrijven kunnen bijhouden. AIChecked helpt organisaties om AI praktisch, veilig en schaalbaar toe te passen.</p>
+          <p class="lead" style="margin-bottom:16px">Praktische AI-oplossingen die processen versnellen, klantcontact automatiseren en teams schaalbaarder laten werken.</p>
+          <p class="small" style="max-width:760px;margin-bottom:22px">We bouwen geen losse AI-demo’s, maar automatisering die echt aansluit op je website, salesproces en dagelijkse operatie.</p>
           <div class="btn-row">
             <button class="btn btn-primary" onclick="openCalendar()">Plan een AI scan</button>
             <a class="btn btn-ghost" href="/aanbod">Bekijk aanbod</a>
@@ -4721,7 +4717,7 @@ function createAiSystemsPage(){
       <section class="section-tight">
         <div class="wrap">
           <div class="service-section-head">
-            <div class="eyebrow">Waarom bedrijven AI Systems gebruiken</div>
+            <div class="eyebrow">Waarom bedrijven AI &amp; Automation inzetten</div>
             <p>De waarde van AI zit niet alleen in snelheid, maar in hoeveel handmatig werk je structureel uit processen haalt.</p>
           </div>
           <div class="service-proof-grid">
@@ -4757,10 +4753,10 @@ function createAiSystemsPage(){
             <div class="split" style="align-items:center">
               <div>
                 <h2 class="display" style="font-size:clamp(28px,3.2vw,40px);margin-bottom:12px">Klaar om AI praktisch in je bedrijf toe te passen?</h2>
-                <p class="lead">Laat zien waar tijd verloren gaat en ontdek welke AI-systemen direct waarde toevoegen.</p>
+                <p class="lead">Laat zien waar tijd verloren gaat en ontdek welke automatisering direct waarde toevoegt.</p>
               </div>
               <div class="btn-row" style="justify-content:flex-end">
-                <button class="btn btn-primary" onclick="openCalendar()">Plan een AI Systems scan</button>
+                <button class="btn btn-primary" onclick="openCalendar()">Plan een AI &amp; Automation scan</button>
               </div>
             </div>
           </div>
@@ -6970,6 +6966,7 @@ function createAiSystemsPage(){
       }
     });
   </script>
+
 <script src="https://aichecked-chatbot-2.vercel.app/embed.js" defer></script>
 </body>
 </html>
