@@ -834,6 +834,69 @@
   .ai-usecase-row{grid-template-columns:1fr}
   .ai-solution-card{min-height:auto}
 }
+    .ai-compact-hero{display:grid;grid-template-columns:1.02fr .98fr;gap:26px;align-items:center}
+    .ai-compact-copy{max-width:660px}
+    .ai-flow-visual{
+      position:relative;border:1px solid var(--line);border-radius:28px;padding:24px;
+      background:radial-gradient(circle at top right, rgba(66,216,166,.08), transparent 36%),linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012));
+      overflow:hidden
+    }
+    .ai-flow-visual::before{content:"";position:absolute;inset:20px;border:1px solid rgba(255,255,255,.04);border-radius:20px;pointer-events:none}
+    .ai-flow-top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}
+    .ai-flow-status{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted-2)}
+    .ai-flow-stack{display:grid;gap:14px}
+    .ai-flow-node{
+      position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:16px 18px;
+      border-radius:20px;border:1px solid rgba(255,255,255,.06);background:rgba(6,7,7,.72)
+    }
+    .ai-flow-node:not(:last-child)::after{content:"";position:absolute;left:22px;bottom:-15px;width:1px;height:15px;background:linear-gradient(180deg,rgba(66,216,166,.5),rgba(66,216,166,0))}
+    .ai-flow-dot{width:9px;height:9px;border-radius:999px;background:var(--green);box-shadow:0 0 0 6px rgba(66,216,166,.08)}
+    .ai-flow-node strong{display:block;font-size:15px;color:var(--white);margin-bottom:3px}
+    .ai-flow-node span{font-size:13px;color:#d6d0c7}
+    .ai-flow-state{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);text-align:right}
+    .ai-outcome-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border-radius:26px;overflow:hidden;border:1px solid var(--line)}
+    .ai-outcome-cell{background:#060707;padding:22px 24px;min-height:138px;display:grid;align-content:start;gap:10px}
+    .ai-outcome-cell strong{font-family:var(--serif);font-size:30px;line-height:1.04;color:var(--white)}
+    .ai-outcome-cell p{font-size:14px;line-height:1.72;color:#d5d0c7;margin:0}
+    .ai-problem-shell{border:1px solid var(--line);border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.026),rgba(255,255,255,.012));overflow:hidden}
+    .ai-problem-head{padding:30px 32px 22px;border-bottom:1px solid var(--line)}
+    .ai-problem-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+    .ai-problem-item{padding:24px 28px;display:grid;gap:12px}
+    .ai-problem-item + .ai-problem-item{border-left:1px solid var(--line)}
+    .ai-problem-item h3{font-family:var(--serif);font-size:24px;line-height:1.08;color:var(--white);margin:0}
+    .ai-problem-item p{font-size:15px;line-height:1.78;color:#d7d1c8;margin:0}
+    .ai-problem-item .mini-note{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green)}
+    .ai-result-block{
+      border:1px solid rgba(66,216,166,.14);border-radius:30px;padding:34px;
+      background:radial-gradient(circle at 50% 0, rgba(66,216,166,.11), transparent 42%),linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012))
+    }
+    .ai-result-block h2{max-width:860px;font-size:clamp(36px,4vw,58px);margin-bottom:14px}
+    .ai-result-block p{max-width:760px;font-size:17px;line-height:1.82;color:#dbd5cb;margin:0}
+    .ai-result-tags{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
+    .ai-result-tags span{
+      display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 18px;border-radius:18px;border:1px solid var(--line);
+      background:rgba(6,7,7,.78);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--green);text-align:center
+    }
+    .ai-application-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .ai-application-card{
+      min-height:188px;padding:22px;border-radius:24px;border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012));
+      transition:transform .16s var(--ease),border-color .16s var(--ease),background-color .16s var(--ease),color .16s var(--ease),opacity .16s var(--ease),box-shadow .16s var(--ease)
+    }
+    .ai-application-card:hover{transform:translateY(-3px);border-color:rgba(66,216,166,.22);box-shadow:0 0 0 1px rgba(66,216,166,.18)}
+    .ai-application-card .mini-note{margin-bottom:12px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green)}
+    .ai-application-card h3{font-family:var(--serif);font-size:24px;line-height:1.08;color:var(--white);margin:0 0 10px}
+    .ai-application-card p{font-size:14px;line-height:1.76;color:#ddd7ce;margin:0}
+    @media (max-width:1100px){
+      .ai-compact-hero,.ai-outcome-strip,.ai-problem-grid,.ai-result-tags,.ai-application-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:768px){
+      .ai-flow-visual,.ai-problem-head,.ai-problem-item,.ai-result-block,.website-closing-panel{padding:24px}
+      .ai-flow-node{grid-template-columns:auto 1fr;align-items:start}
+      .ai-flow-state{grid-column:2/3;text-align:left}
+      .ai-result-tags span{width:100%;justify-content:center}
+      .ai-problem-item + .ai-problem-item{border-left:none;border-top:1px solid var(--line)}
+    }
     .breadcrumb-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted-2);margin-bottom:18px}
     .breadcrumb-row span{color:var(--muted-2)}
     .service-section-head{max-width:760px;margin-bottom:16px}
@@ -5047,74 +5110,167 @@ function createAiSystemsPage(){
       <section class="section service-hero">
         <div class="wrap">
           <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Services</a><span>•</span><span>AI &amp; Automation</span></div>
-          <div class="eyebrow">AI &amp; Automation</div>
-          <h1 class="display" style="margin-bottom:14px">Automatiseer het werk dat groei <em>vertraagt.</em></h1>
-          <p class="lead" style="margin-bottom:20px">Wij bouwen AI-systemen die repetitief werk automatiseren, klanten sneller helpen en je team tijd teruggeven.</p>
-          <div class="btn-row">
-            <button class="btn btn-primary" onclick="openCalendar()">Plan een AI Scan</button>
-            <button class="btn btn-ghost" onclick="document.getElementById('ai-what-we-do')?.scrollIntoView({behavior:'smooth',block:'start'})">Bekijk AI-oplossingen</button>
+          <div class="ai-compact-hero">
+            <div class="ai-compact-copy">
+              <div class="eyebrow">AI &amp; Automation</div>
+              <h1 class="display" style="margin-bottom:14px">Je kent ChatGPT.<br>Maar je bedrijf werkt nog steeds handmatig.</h1>
+              <p class="lead" style="margin-bottom:20px">Losse AI-tools besparen soms tijd. Maar de echte winst zit in systemen die klantvragen beantwoorden, leads opvolgen, afspraken plannen en terugkerend werk overnemen.</p>
+              <div class="btn-row">
+                <button class="btn btn-primary" onclick="openCalendar()">Plan een AI Scan</button>
+                <button class="btn btn-ghost" onclick="document.getElementById('ai-examples')?.scrollIntoView({behavior:'smooth',block:'start'})">Bekijk voorbeelden</button>
+              </div>
+            </div>
+            <div class="ai-flow-visual" aria-label="AI workflow overzicht">
+              <div class="ai-flow-top">
+                <span class="snippet-badge">AI workflow</span>
+                <span class="ai-flow-status">Praktische automatisering</span>
+              </div>
+              <div class="ai-flow-stack">
+                <div class="ai-flow-node">
+                  <span class="ai-flow-dot"></span>
+                  <div><strong>Nieuwe aanvraag</strong><span>Een lead of vraag komt direct binnen in de juiste flow.</span></div>
+                  <span class="ai-flow-state">Ontvangen</span>
+                </div>
+                <div class="ai-flow-node">
+                  <span class="ai-flow-dot"></span>
+                  <div><strong>AI intake</strong><span>Relevante informatie wordt direct verzameld en geordend.</span></div>
+                  <span class="ai-flow-state">Geanalyseerd</span>
+                </div>
+                <div class="ai-flow-node">
+                  <span class="ai-flow-dot"></span>
+                  <div><strong>Opvolging</strong><span>De eerste reactie of reminder wordt automatisch gestart.</span></div>
+                  <span class="ai-flow-state">Gestart</span>
+                </div>
+                <div class="ai-flow-node">
+                  <span class="ai-flow-dot"></span>
+                  <div><strong>Teamactie</strong><span>Je team pakt alleen nog het deel op dat echt aandacht vraagt.</span></div>
+                  <span class="ai-flow-state">Doorgezet</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-tight" style="padding-top:0">
+        <div class="wrap">
+          <div class="ai-outcome-strip">
+            <div class="ai-outcome-cell">
+              <strong>Minder handmatig werk</strong>
+              <p>AI neemt terugkerende taken over die nu steeds opnieuw gebeuren.</p>
+            </div>
+            <div class="ai-outcome-cell">
+              <strong>Snellere opvolging</strong>
+              <p>Leads, klantvragen en aanvragen krijgen sneller een reactie.</p>
+            </div>
+            <div class="ai-outcome-cell">
+              <strong>Meer rust in je operatie</strong>
+              <p>Je team houdt meer tijd over voor werk dat echt aandacht vraagt.</p>
+            </div>
           </div>
         </div>
       </section>
       <section class="section-tight">
         <div class="wrap">
-          <div class="service-section-head">
-            <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Waarom gaat het mis?</h2>
+          <div class="ai-problem-shell">
+            <div class="ai-problem-head">
+              <div class="eyebrow">Waarom dit blijft hangen</div>
+              <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Je gebruikt AI al.<br>Maar nog niet als systeem.</h2>
+              <p>Veel bedrijven gebruiken ChatGPT voor losse taken, maar klantvragen, leads en interne processen blijven alsnog handmatig lopen.</p>
+            </div>
+            <div class="ai-problem-grid">
+              <article class="ai-problem-item">
+                <div class="mini-note">Pijnpunt 01</div>
+                <h3>Losse prompts, weinig structuur</h3>
+                <p>AI wordt gebruikt voor losse teksten of ideeën, maar niet gekoppeld aan je dagelijkse werk.</p>
+              </article>
+              <article class="ai-problem-item">
+                <div class="mini-note">Pijnpunt 02</div>
+                <h3>Leads blijven liggen</h3>
+                <p>Nieuwe aanvragen komen binnen, maar opvolging gebeurt nog te laat of te rommelig.</p>
+              </article>
+              <article class="ai-problem-item">
+                <div class="mini-note">Pijnpunt 03</div>
+                <h3>Te veel herhaalwerk</h3>
+                <p>Je team beantwoordt steeds dezelfde vragen, mails en formulieren opnieuw.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-tight">
+        <div class="wrap">
+          <div class="ai-result-block">
+            <h2 class="display">Je hebt niet méér AI-tools nodig.<br>Je hebt een systeem nodig dat werk overneemt.</h2>
+            <p>Wij zetten AI om in praktische workflows die passen bij je website, formulieren, e-mail, CRM of dagelijkse processen.</p>
+            <div class="ai-result-tags">
+              <span>Minder handmatig werk</span>
+              <span>Snellere reacties</span>
+              <span>Meer grip op opvolging</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-tight">
+        <div class="wrap">
+          <div class="service-section-head" style="max-width:860px">
+            <div class="eyebrow">Hoe het werkt</div>
+            <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Zo maken we AI praktisch.</h2>
           </div>
           <div class="service-copy-grid">
             <article class="service-impact">
-              <h3>Leads worden niet opgevolgd</h3>
-              <p>Nieuwe aanvragen blijven liggen of krijgen te laat een reactie.</p>
+              <div class="mini-note" style="margin-bottom:10px">01</div>
+              <h3>Processen checken</h3>
+              <p>We bekijken waar tijd verloren gaat in klantcontact, opvolging of interne taken.</p>
             </article>
             <article class="service-impact">
-              <h3>Te veel handmatig werk</h3>
-              <p>Je team doet iedere week dezelfde taken opnieuw.</p>
+              <div class="mini-note" style="margin-bottom:10px">02</div>
+              <h3>Systeem ontwerpen</h3>
+              <p>We bepalen welke AI-flow logisch past bij jouw bedrijf en bestaande tools.</p>
             </article>
             <article class="service-impact">
-              <h3>Klanten wachten te lang</h3>
-              <p>Vragen, afspraken en offertes kosten onnodig veel tijd.</p>
+              <div class="mini-note" style="margin-bottom:10px">03</div>
+              <h3>Bouwen &amp; verbeteren</h3>
+              <p>We bouwen, testen en scherpen het systeem aan zodat het bruikbaar blijft in de praktijk.</p>
             </article>
           </div>
         </div>
       </section>
       <section class="section-tight">
         <div class="wrap">
-          <div class="service-section-head">
-            <h2 id="ai-what-we-do" class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wat wij doen</h2>
+          <div class="service-section-head" style="max-width:860px">
+            <div class="eyebrow">Toepassingen</div>
+            <h2 id="ai-examples" class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Voorbeelden van systemen die direct werk uit handen nemen.</h2>
           </div>
-          <div class="service-copy-grid">
-            <article class="service-impact">
-              <h3>AI Chatbots</h3>
-              <p>Beantwoord klantvragen automatisch en vang nieuwe leads op.</p>
+          <div class="ai-application-grid">
+            <article class="ai-application-card">
+              <div class="mini-note">01</div>
+              <h3>AI Chatbot</h3>
+              <p>Beantwoordt klantvragen op je website en verzamelt relevante informatie.</p>
             </article>
-            <article class="service-impact">
-              <h3>AI Automatiseringen</h3>
-              <p>Automatiseer terugkerende processen en bespaar tijd.</p>
+            <article class="ai-application-card">
+              <div class="mini-note">02</div>
+              <h3>AI Leadopvolging</h3>
+              <p>Volgt nieuwe aanvragen automatisch op via mail, WhatsApp of CRM.</p>
             </article>
-            <article class="service-impact">
-              <h3>AI Assistenten voor je team</h3>
-              <p>Ondersteun je team met slimme AI die dagelijks werk uit handen neemt.</p>
+            <article class="ai-application-card">
+              <div class="mini-note">03</div>
+              <h3>AI Intake Systeem</h3>
+              <p>Verzamelt klantinformatie voordat jij tijd kwijt bent aan uitzoekwerk.</p>
             </article>
-          </div>
-        </div>
-      </section>
-      <section class="section-tight">
-        <div class="wrap">
-          <div class="service-section-head">
-            <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wat levert dat op?</h2>
-          </div>
-          <div class="service-copy-grid">
-            <article class="service-impact">
-              <h3>Minder handmatig werk</h3>
-              <p>Je team houdt meer tijd over voor belangrijk werk.</p>
+            <article class="ai-application-card">
+              <div class="mini-note">04</div>
+              <h3>AI Afspraakplanner</h3>
+              <p>Helpt klanten sneller een moment kiezen zonder heen-en-weer mailen.</p>
             </article>
-            <article class="service-impact">
-              <h3>Snellere opvolging</h3>
-              <p>Leads en klanten krijgen direct een reactie.</p>
+            <article class="ai-application-card">
+              <div class="mini-note">05</div>
+              <h3>AI Mail Assistent</h3>
+              <p>Helpt terugkerende mails sneller en consistenter beantwoorden.</p>
             </article>
-            <article class="service-impact">
-              <h3>Meer ruimte om te groeien</h3>
-              <p>Je bedrijf groeit zonder dat ieder proces extra personeel vraagt.</p>
+            <article class="ai-application-card">
+              <div class="mini-note">06</div>
+              <h3>AI FAQ Systeem</h3>
+              <p>Geeft klanten direct antwoord op veelgestelde vragen.</p>
             </article>
           </div>
         </div>
@@ -5124,8 +5280,8 @@ function createAiSystemsPage(){
           <div class="website-closing-panel" style="padding:38px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.016));border-color:rgba(255,255,255,.1)">
             <div class="website-closing-shell">
               <div class="service-section-head">
-                <h2 class="display" style="font-size:clamp(34px,3.5vw,48px);margin-bottom:12px">Benieuwd welke processen jij kunt automatiseren?</h2>
-                <p>We laten je zien waar AI direct tijd kan besparen en welke automatiseringen de meeste impact hebben.</p>
+                <h2 class="display" style="font-size:clamp(34px,3.5vw,48px);margin-bottom:12px">Benieuwd waar AI jouw bedrijf tijd kan besparen?</h2>
+                <p>Plan een korte AI Scan. Dan bekijken we welke taken, vragen of processen slimmer kunnen zonder dat je meteen alles hoeft om te gooien.</p>
               </div>
               <div class="website-closing-actions">
                 <button class="btn btn-primary" onclick="openCalendar()">Plan een AI Scan</button>
