@@ -677,6 +677,52 @@
     }
     .service-impact h3,.service-proof-card h3{font-family:var(--serif);font-size:22px;line-height:1.14;color:var(--white);margin-bottom:10px}
     .service-impact p,.service-proof-card p{font-size:15px;line-height:1.78;color:#ddd7ce;margin:0}
+    .website-hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:26px;align-items:center}
+    .website-hero-copy{max-width:660px}
+    .website-hero-visual{
+      position:relative;
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:24px;
+      background:radial-gradient(circle at top right, rgba(66,216,166,.08), transparent 36%),linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012));
+      overflow:hidden
+    }
+    .website-hero-visual::before{content:"";position:absolute;inset:20px;border:1px solid rgba(255,255,255,.04);border-radius:20px;pointer-events:none}
+    .website-hero-top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}
+    .website-hero-status{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted-2)}
+    .website-hero-flow{display:grid;gap:14px}
+    .website-hero-node{
+      position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:16px 18px;
+      border-radius:20px;border:1px solid rgba(255,255,255,.06);background:rgba(6,7,7,.72)
+    }
+    .website-hero-node:not(:last-child)::after{content:"";position:absolute;left:22px;bottom:-15px;width:1px;height:15px;background:linear-gradient(180deg,rgba(66,216,166,.5),rgba(66,216,166,0))}
+    .website-node-dot{width:9px;height:9px;border-radius:999px;background:var(--green);box-shadow:0 0 0 6px rgba(66,216,166,.08)}
+    .website-hero-node strong{display:block;font-size:15px;color:var(--white);margin-bottom:3px}
+    .website-hero-node span{font-size:13px;color:#d6d0c7}
+    .website-node-state{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);text-align:right}
+    .website-outcome-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border-radius:26px;overflow:hidden;border:1px solid var(--line)}
+    .website-outcome-cell{background:#060707;padding:22px 24px;min-height:138px;display:grid;align-content:start;gap:10px}
+    .website-outcome-cell strong{font-family:var(--serif);font-size:30px;line-height:1.04;color:var(--white)}
+    .website-outcome-cell p{font-size:14px;line-height:1.72;color:#d5d0c7;margin:0}
+    .website-problem-shell{border:1px solid var(--line);border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.026),rgba(255,255,255,.012));overflow:hidden}
+    .website-problem-head{padding:30px 32px 22px;border-bottom:1px solid var(--line)}
+    .website-problem-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+    .website-problem-item{padding:24px 28px;display:grid;gap:12px}
+    .website-problem-item + .website-problem-item{border-left:1px solid var(--line)}
+    .website-problem-item h3{font-family:var(--serif);font-size:24px;line-height:1.08;color:var(--white);margin:0}
+    .website-problem-item p{font-size:15px;line-height:1.78;color:#d7d1c8;margin:0}
+    .website-problem-item .mini-note{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green)}
+    .website-result-block{
+      border:1px solid rgba(66,216,166,.14);border-radius:30px;padding:34px;
+      background:radial-gradient(circle at 50% 0, rgba(66,216,166,.11), transparent 42%),linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012))
+    }
+    .website-result-block h2{max-width:860px;font-size:clamp(36px,4vw,58px);margin-bottom:14px}
+    .website-result-block p{max-width:760px;font-size:17px;line-height:1.82;color:#dbd5cb;margin:0}
+    .website-result-tags{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
+    .website-result-tags span{
+      display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 18px;border-radius:18px;border:1px solid var(--line);
+      background:rgba(6,7,7,.78);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--green);text-align:center
+    }
     .service-proof-card .kicker,.service-kpi .kicker{display:block;font-size:10px;letter-spacing:2.6px;text-transform:uppercase;color:var(--green);margin-bottom:12px}
     .service-proof-card .value,.service-kpi .value{font-family:var(--serif);font-size:40px;line-height:1;color:var(--white);margin-bottom:10px}
     .service-proof-card .meta,.service-kpi .meta{font-size:14px;line-height:1.72;color:#d5d0c7}
@@ -966,6 +1012,7 @@
     .legal-layout{display:grid;grid-template-columns:260px 1fr;gap:28px}
     .toc{position:sticky;top:110px;height:fit-content}
     @media (max-width: 1100px){
+      .website-hero-grid,.website-outcome-strip,.website-problem-grid,.website-result-tags{grid-template-columns:1fr}
       .website-editorial-split,
       .website-diagnostic-shell,
       .website-consequence-shell,
@@ -980,6 +1027,11 @@
       .website-timeline-step .num{font-size:34px}
     }
     @media (max-width: 768px){
+      .website-hero-visual,.website-problem-head,.website-problem-item,.website-result-block,.website-closing-panel{padding:24px}
+      .website-hero-node{grid-template-columns:auto 1fr;align-items:start}
+      .website-node-state{grid-column:2/3;text-align:left}
+      .website-result-tags span{width:100%;justify-content:center}
+      .website-problem-item + .website-problem-item{border-left:none;border-top:1px solid var(--line)}
       .website-growth-grid{grid-template-columns:1fr}
       .website-timeline{grid-template-columns:1fr}
       .website-diagnostic-item,.website-consequence-row,.website-action-step,.website-monitor-item{padding-left:62px;padding-right:0}
@@ -4873,22 +4925,50 @@ const aiSystemsProcess = [
     function buildWebsitesWhySection(service){
       if(service.slug !== 'websites') return '';
       const items = [
-        ['Je boodschap is niet direct duidelijk','Bezoekers begrijpen niet snel genoeg wat je doet en waarom ze voor jou moeten kiezen.'],
-        ['Er ontbreekt een duidelijke volgende stap','Mensen bekijken je website, maar worden onvoldoende richting contact of een aanvraag gestuurd.'],
-        ['Verkeer komt binnen, maar converteert niet','Advertenties en Google sturen bezoekers naar pagina’s die nog te weinig vertrouwen of urgentie opbouwen.']
+        ['Onduidelijke boodschap','Bezoekers snappen niet snel genoeg wat je doet en waarom ze moeten blijven.'],
+        ['Geen sterke vervolgstap','Contact, offerte of afspraak voelt niet logisch genoeg.'],
+        ['Verkeer zonder conversie','Marketing levert minder op als de website niet overtuigt.']
       ];
       return `
         <section class="section-tight">
           <div class="wrap">
-            <div class="service-section-head">
-              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Waarom levert jouw website te weinig op?</h2>
+            <div class="website-problem-shell">
+              <div class="website-problem-head">
+                <div class="eyebrow">Waarom dit gebeurt</div>
+                <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Je krijgt bezoekers.<br>Maar te weinig actie.</h2>
+                <p>Veel websites zien er prima uit, maar sturen bezoekers niet duidelijk genoeg naar de volgende stap.</p>
+              </div>
+              <div class="website-problem-grid">
+                ${items.map((item,index) => `
+                  <article class="website-problem-item">
+                    <div class="mini-note">Pijnpunt 0${index+1}</div>
+                    <h3>${item[0]}</h3>
+                    <p>${item[1]}</p>
+                  </article>
+                `).join('')}
+              </div>
             </div>
-            <div class="service-copy-grid">
+          </div>
+        </section>
+      `;
+    }
+
+    function buildWebsitesOutcomeStrip(service){
+      if(service.slug !== 'websites') return '';
+      const items = [
+        ['Meer aanvragen','Bezoekers worden sneller richting contact, offerte of kennismaking gestuurd.'],
+        ['Meer vertrouwen','Je bedrijf oogt professioneler en duidelijker vanaf het eerste moment.'],
+        ['Meer rendement','Ads, SEO en socials landen op een website die beter converteert.']
+      ];
+      return `
+        <section class="section-tight" style="padding-top:0">
+          <div class="wrap">
+            <div class="website-outcome-strip">
               ${items.map(item => `
-                <article class="service-impact">
-                  <h3>${item[0]}</h3>
+                <div class="website-outcome-cell">
+                  <strong>${item[0]}</strong>
                   <p>${item[1]}</p>
-                </article>
+                </div>
               `).join('')}
             </div>
           </div>
@@ -4896,24 +4976,26 @@ const aiSystemsProcess = [
       `;
     }
 
-    function buildWebsitesWhatWeDoSection(service){
+    function buildWebsitesProcessSection(service){
       if(service.slug !== 'websites') return '';
       const items = [
-        ['Een boodschap die direct duidelijk is','Bezoekers zien binnen enkele seconden wat je aanbiedt en waarom dat relevant voor hen is.'],
-        ['Pagina’s die naar actie sturen','We bouwen iedere pagina rondom één duidelijke vervolgstap, zonder afleiding of overbodige informatie.'],
-        ['Techniek die meewerkt','We zorgen voor snelheid, mobiel gebruiksgemak, betrouwbare formulieren en een sterke technische basis.']
+        ['01','Website checken','We bekijken waar bezoekers nu afhaken of twijfelen.'],
+        ['02','Structuur aanscherpen','We maken de boodschap, pagina-opbouw en CTA’s duidelijker.'],
+        ['03','Bouwen & verbeteren','We zetten de verbeteringen door en zorgen dat de website logisch richting aanvraag stuurt.']
       ];
       return `
         <section class="section-tight">
           <div class="wrap">
-            <div class="service-section-head">
-              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wat wij doen</h2>
+            <div class="service-section-head" style="max-width:860px">
+              <div class="eyebrow">Hoe het werkt</div>
+              <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Zo maken we je website sterker.</h2>
             </div>
             <div class="service-copy-grid">
               ${items.map(item => `
                 <article class="service-impact">
-                  <h3>${item[0]}</h3>
-                  <p>${item[1]}</p>
+                  <div class="mini-note" style="margin-bottom:10px">${item[0]}</div>
+                  <h3>${item[1]}</h3>
+                  <p>${item[2]}</p>
                 </article>
               `).join('')}
             </div>
@@ -4924,24 +5006,16 @@ const aiSystemsProcess = [
 
     function buildWebsitesResultSection(service){
       if(service.slug !== 'websites') return '';
-      const items = [
-        ['Meer aanvragen','Meer bezoekers zetten de stap naar contact, offerte of kennismaking.'],
-        ['Meer vertrouwen','Je bedrijf oogt professioneel, duidelijk en betrouwbaar vanaf het eerste moment.'],
-        ['Meer rendement uit je marketing','Advertenties, campagnes en organisch verkeer landen op een website die beter converteert.']
-      ];
+      const items = ['Meer aanvragen','Meer vertrouwen','Meer grip op conversie'];
       return `
         <section class="section-tight">
           <div class="wrap">
-            <div class="service-section-head">
-              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wat dat oplevert</h2>
-            </div>
-            <div class="service-copy-grid">
-              ${items.map(item => `
-                <article class="service-impact">
-                  <h3>${item[0]}</h3>
-                  <p>${item[1]}</p>
-                </article>
-              `).join('')}
+            <div class="website-result-block">
+              <h2 class="display">Je hebt niet per se meer bezoekers nodig.<br>Je hebt een website nodig die beter stuurt.</h2>
+              <p>Met een duidelijke structuur, betere CTA’s en sterkere bewijsvoering wordt je website meer dan alleen een online visitekaartje.</p>
+              <div class="website-result-tags">
+                ${items.map(item => `<span>${item}</span>`).join('')}
+              </div>
             </div>
           </div>
         </section>
@@ -4957,10 +5031,10 @@ const aiSystemsProcess = [
               <div class="website-closing-shell">
                 <div class="service-section-head">
                   <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Toe aan een website die wél voor je werkt?</h2>
-                  <p>Laat zien waar je nu tegenaan loopt. Dan bekijken we wat er concreet beter kan.</p>
+                  <p>Plan een korte websitescan. Dan bekijken we waar je website nu vertrouwen, duidelijkheid of aanvragen laat liggen.</p>
                 </div>
                 <div class="website-closing-actions">
-                  <button class="btn btn-primary" onclick="openCalendar()">Plan een gesprek</button>
+                  <button class="btn btn-primary" onclick="openCalendar()">Plan een websitescan</button>
                   <a class="btn btn-ghost" href="${getPageHref('contact')}">Neem contact op</a>
                 </div>
               </div>
@@ -4976,18 +5050,51 @@ const aiSystemsProcess = [
           <section class="section service-hero">
             <div class="wrap">
               <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Services</a><span>•</span><span>${service.title}</span></div>
-              <div class="eyebrow">${service.title}</div>
-              <h1 class="display" style="margin-bottom:14px">Je <span style="color:var(--green)">website</span> staat online. Maar levert hij ook klanten op?</h1>
-              <p class="lead" style="margin-bottom:20px">AIChecked bouwt snelle websites die vertrouwen opbouwen en bezoekers richting contact sturen.</p>
-              <div class="btn-row">
-                <button class="btn btn-primary" onclick="openCalendar()">Plan een gesprek</button>
-                <a class="btn btn-ghost" href="${getPageHref('cases')}">Bekijk cases</a>
+              <div class="website-hero-grid">
+                <div class="website-hero-copy">
+                  <div class="eyebrow">${service.title}</div>
+                  <h1 class="display" style="margin-bottom:14px">Je website staat online.<br>Maar levert hij ook aanvragen op?</h1>
+                  <p class="lead" style="margin-bottom:20px">Een website is geen online visitekaartje. Hij moet direct duidelijk maken waarom iemand voor jou kiest, vertrouwen opbouwen en bezoekers richting contact sturen.</p>
+                  <div class="btn-row">
+                    <button class="btn btn-primary" onclick="openCalendar()">Plan een websitescan</button>
+                    <a class="btn btn-ghost" href="${getPageHref('cases')}">Bekijk cases</a>
+                  </div>
+                </div>
+                <div class="website-hero-visual" aria-label="Website scan overzicht">
+                  <div class="website-hero-top">
+                    <span class="snippet-badge">Website scan</span>
+                    <span class="website-hero-status">Conversie flow</span>
+                  </div>
+                  <div class="website-hero-flow">
+                    <div class="website-hero-node">
+                      <span class="website-node-dot"></span>
+                      <div><strong>Eerste indruk</strong><span>De propositie staat direct scherp.</span></div>
+                      <span class="website-node-state">Duidelijk</span>
+                    </div>
+                    <div class="website-hero-node">
+                      <span class="website-node-dot"></span>
+                      <div><strong>Vertrouwen</strong><span>Bewijs en rust ondersteunen je aanbod.</span></div>
+                      <span class="website-node-state">Opgebouwd</span>
+                    </div>
+                    <div class="website-hero-node">
+                      <span class="website-node-dot"></span>
+                      <div><strong>CTA</strong><span>De volgende stap is zichtbaar en logisch.</span></div>
+                      <span class="website-node-state">Zichtbaar</span>
+                    </div>
+                    <div class="website-hero-node">
+                      <span class="website-node-dot"></span>
+                      <div><strong>Aanvraag</strong><span>Bezoekers worden actief naar contact gestuurd.</span></div>
+                      <span class="website-node-state">Gestuurd</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
+          ${buildWebsitesOutcomeStrip(service)}
           ${buildWebsitesWhySection(service)}
-          ${buildWebsitesWhatWeDoSection(service)}
           ${buildWebsitesResultSection(service)}
+          ${buildWebsitesProcessSection(service)}
           ${buildWebsitesFinalCta(service)}
           <footer>${getSharedFooter()}</footer>
         </div>
