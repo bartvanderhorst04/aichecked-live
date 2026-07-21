@@ -4484,9 +4484,134 @@ const aiSystemsProcess = [
       `;
     }
 
+    function buildEmailMarketingWhySection(service){
+      if(service.slug !== 'email-marketing') return '';
+      const items = [
+        ['Klanten verdwijnen na één aankoop','Na de eerste aankoop ontbreekt een logische en relevante opvolging.'],
+        ['Leads worden niet opgevolgd','Interesse ontstaat, maar zonder automatische opvolging koelt die snel af.'],
+        ['Nieuwsbrieven leveren weinig op','Je mailt wel, maar zonder structuur, timing of slimme flows.']
+      ];
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head">
+              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Waarom gaat het mis?</h2>
+            </div>
+            <div class="service-copy-grid">
+              ${items.map(item => `
+                <article class="service-impact">
+                  <h3>${item[0]}</h3>
+                  <p>${item[1]}</p>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildEmailMarketingWhatWeDoSection(service){
+      if(service.slug !== 'email-marketing') return '';
+      const items = [
+        ['Nieuwe klanten activeren','We bouwen welkomst- en leadflows die vertrouwen opbouwen en richting actie sturen.'],
+        ['Bestaande klanten terughalen','We creëren herhaalaankoop- en win-backflows die klanten opnieuw relevant benaderen.'],
+        ['Gemiste kansen opvolgen','We automatiseren de opvolging van verlaten winkelwagens, offertes en slapende leads.']
+      ];
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head">
+              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wat wij doen</h2>
+            </div>
+            <div class="service-copy-grid">
+              ${items.map(item => `
+                <article class="service-impact">
+                  <h3>${item[0]}</h3>
+                  <p>${item[1]}</p>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildEmailMarketingResultSection(service){
+      if(service.slug !== 'email-marketing') return '';
+      const items = [
+        ['Meer terugkerende klanten','Klanten krijgen op relevante momenten een logische reden om terug te komen.'],
+        ['Betere opvolging','Leads en klanten verdwijnen niet meer stilletjes uit beeld.'],
+        ['Meer waarde uit je klantenbestand','Je haalt meer uit bestaande relaties zonder steeds opnieuw vanaf nul te beginnen.']
+      ];
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head">
+              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wat levert dat op?</h2>
+            </div>
+            <div class="service-copy-grid">
+              ${items.map(item => `
+                <article class="service-impact">
+                  <h3>${item[0]}</h3>
+                  <p>${item[1]}</p>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildEmailMarketingFinalCta(service){
+      if(service.slug !== 'email-marketing') return '';
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="website-closing-panel">
+              <div class="website-closing-shell">
+                <div class="service-section-head">
+                  <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Laat je klanten niet verdwijnen na één aankoop.</h2>
+                  <p>Plan een korte scan. Dan bekijken we waar jouw bedrijf opvolging en terugkerende klanten laat liggen.</p>
+                </div>
+                <div class="website-closing-actions">
+                  <button class="btn btn-primary" onclick="openCalendar()">Plan een e-mailscan</button>
+                  <a class="btn btn-ghost" href="${getPageHref('contact')}">Stuur een bericht</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildEmailMarketingPage(service){
+      if(service.slug !== 'email-marketing') return '';
+      return `
+        <div id="page-${service.slug}" class="page service-page">
+          <section class="section service-hero">
+            <div class="wrap">
+              <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Services</a><span>•</span><span>${service.title}</span></div>
+              <div class="eyebrow">${service.title}</div>
+              <h1 class="display" style="margin-bottom:14px">Klanten kopen één keer.<br>Maar komen niet <em>terug.</em></h1>
+              <p class="lead" style="margin-bottom:20px">Wij bouwen e-mailflows die klanten op het juiste moment opvolgen en bestaande klantrelaties opnieuw activeren.</p>
+              <div class="btn-row">
+                <button class="btn btn-primary" onclick="openCalendar()">Plan een e-mailscan</button>
+                <a class="btn btn-ghost" href="${getPageHref('contact')}">Neem contact op</a>
+              </div>
+            </div>
+          </section>
+          ${buildEmailMarketingWhySection(service)}
+          ${buildEmailMarketingWhatWeDoSection(service)}
+          ${buildEmailMarketingResultSection(service)}
+          ${buildEmailMarketingFinalCta(service)}
+          <footer>${getSharedFooter()}</footer>
+        </div>
+      `;
+    }
+
     function createServicePages(){
       const root = document.getElementById('service-pages-root');
-      root.innerHTML = services.map(service => `
+      root.innerHTML = services.map(service => service.slug === 'email-marketing' ? buildEmailMarketingPage(service) : `
         <div id="page-${service.slug}" class="page service-page">
           <section class="section service-hero">
             <div class="wrap">
