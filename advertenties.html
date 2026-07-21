@@ -580,6 +580,16 @@
     .service-proof-card .value,.service-kpi .value{font-family:var(--serif);font-size:40px;line-height:1;color:var(--white);margin-bottom:10px}
     .service-proof-card .meta,.service-kpi .meta{font-size:14px;line-height:1.72;color:#d5d0c7}
     .service-kpi .value{color:var(--green)}
+    .ads-benefit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .ads-benefit-card{
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012));
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      backdrop-filter:blur(18px);
+    }
+    .ads-benefit-card h3{font-family:var(--serif);font-size:24px;line-height:1.12;color:var(--white);margin:0 0 10px}
+    .ads-benefit-card p{font-size:15px;line-height:1.78;color:#ddd7ce;margin:0}
     .ads-route-shell{display:grid;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
     .ads-route-row{
       display:grid;
@@ -1805,6 +1815,7 @@
       .admin-command-grid,.analytics-grid,.service-health-grid{grid-template-columns:1fr 1fr}
       .role-grid{grid-template-columns:1fr 1fr 1fr}
       .footer-grid{grid-template-columns:1fr 1fr}
+      .ads-benefit-grid{grid-template-columns:1fr}
       .ads-route-row{grid-template-columns:92px 1fr;gap:18px}
       .ads-route-result{grid-column:2}
       .ads-signal-row{grid-template-columns:76px 1fr;gap:16px}
@@ -1820,6 +1831,7 @@
       .ops-surface,.ops-grid,.monitor-grid,.compliance-grid,.alert-shell,.role-matrix{grid-template-columns:1fr}
       .admin-table .head,.admin-table .row{grid-template-columns:1fr}
       .service-panel{padding:10px;border-radius:24px}
+      .ads-benefit-card{padding:20px}
       .ads-route-row{grid-template-columns:1fr;gap:12px;padding:24px 0}
       .ads-route-result{grid-column:auto;padding-top:0}
       .ads-route-copy h3{font-size:26px}
@@ -2993,8 +3005,8 @@
         short:'Meta Ads, LinkedIn Ads en Google Ads die minder budget lekken en beter meten, sturen en opschalen.',
         seoTitle:'Ads & Campagnes | Meta en Google Ads | AIChecked.nl',
         metaDescription:'AIChecked beheert Meta Ads, LinkedIn Ads en Google Ads vanuit één basis: correcte tracking, minder verspilling en campagnes die zakelijker sturen.',
-        hero:'Bereik opbouwen is één ding.<br>Resultaat op <em>schaal</em> is iets anders.',
-        sub:'We sturen Meta Ads, LinkedIn Ads en Google Ads als één acquisitiesysteem, met tracking, budgetverdeling en landingspagina’s die klaar zijn om bereik om te zetten in omzet.',
+        hero:'Bereik nieuwe klanten.<br>Niet alleen meer <em>klikken.</em>',
+        sub:'Met Meta en Google Ads brengen we jouw bedrijf onder de aandacht bij mensen die je nog niet kennen, maar wel interesse hebben in wat je aanbiedt. Vervolgens sturen we hen naar een pagina die aanzet tot contact.',
         herkenTitle:'Bereik groeit pas echt door als Meta, LinkedIn en Google samen gestuurd worden op dezelfde data, boodschap en landingsbasis.',
         herken:['Campagnes draaien, maar bereik vertaalt niet naar genoeg resultaat','Budget is versnipperd over kanalen zonder duidelijke rol','Tracking en landingspagina’s remmen schaalbaarheid'],
         merkt:['Je haalt zichtbaar bereik, maar te weinig kwalitatieve leads of omzet','Opschalen voelt riskant omdat data, funnel en spend niet strak genoeg zijn','Meta, LinkedIn en Google versterken elkaar nog niet als geheel'],
@@ -4395,25 +4407,59 @@ const aiSystemsProcess = [
       return typeof config === 'string' ? packageMaps[config] : config;
     }
 
-    function buildAdsRouteSection(){
+    function buildAdsBenefitsSection(){
+      const items = [
+        {
+          title:'Nieuwe klanten bereiken',
+          text:'We tonen je aanbod aan mensen die jouw bedrijf nog niet kennen, maar wel binnen je doelgroep vallen.'
+        },
+        {
+          title:'Meer goede aanvragen ontvangen',
+          text:'Advertenties, boodschap en landingspagina worden op elkaar afgestemd om bezoekers richting contact te bewegen.'
+        },
+        {
+          title:'Budget besteden aan wat werkt',
+          text:'We meten welke campagnes daadwerkelijk aanvragen opleveren en verschuiven budget naar de sterkste combinaties.'
+        }
+      ];
+
+      return `
+        <section class="section-tight" id="ads-approach">
+          <div class="wrap">
+            <div class="service-section-head" style="max-width:920px">
+              <div class="eyebrow">Van onbekend naar aanvraag</div>
+              <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Van onbekend naar aanvraag</h2>
+              <p>Advertenties moeten niet alleen bereik inkopen. Ze moeten nieuwe potentiële klanten aantrekken en duidelijk maken waarom zij juist bij jou moeten zijn.</p>
+            </div>
+            <div class="ads-benefit-grid">
+              ${items.map(item => `
+                <div class="ads-benefit-card">
+                  <h3>${item.title}</h3>
+                  <p>${item.text}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildAdsApproachSection(){
       const steps = [
         {
           num:'01',
-          title:'Eerst zorgen dat we betrouwbaar kunnen meten.',
-          text:'We controleren tracking, conversiepunten, landingspagina’s en de route naar contact. Zo wordt duidelijk waar budget nu verloren gaat en welke basis eerst moet worden hersteld.',
-          result:'Een campagnebasis waarop beslissingen niet op gevoel hoeven te worden genomen.'
+          title:'Campagnes en tracking controleren',
+          text:'We controleren of klikken, formulieren en aanvragen correct worden gemeten.'
         },
         {
           num:'02',
-          title:'Niet gokken op één advertentie.',
-          text:'We testen verschillende invalshoeken, boodschappen, doelgroepen en creatieve varianten. Daarbij kijken we niet alleen naar bereik of klikken, maar vooral naar de kwaliteit van het verkeer en de aanvragen.',
-          result:'Sneller herkennen welke boodschap daadwerkelijk beweging veroorzaakt.'
+          title:'Doelgroepen en advertenties verbeteren',
+          text:'We testen welke boodschap, doelgroep en creatieve variant de meeste relevante reacties oplevert.'
         },
         {
           num:'03',
-          title:'Budget verschuiven naar wat aantoonbaar werkt.',
-          text:'We blijven campagnes, advertenties en landingspagina’s aanscherpen. Zwakke onderdelen worden gestopt of aangepast en kansrijke combinaties krijgen gericht meer ruimte.',
-          result:'Minder verspilling en meer controle over de kosten per relevante aanvraag.'
+          title:'Doorlopend optimaliseren',
+          text:'We stoppen zwakke onderdelen en geven succesvolle campagnes meer ruimte.'
         }
       ];
 
@@ -4421,9 +4467,8 @@ const aiSystemsProcess = [
         <section class="section-tight">
           <div class="wrap">
             <div class="service-section-head" style="max-width:920px">
-              <div class="eyebrow">Van budget naar resultaat</div>
-              <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Advertenties werken pas wanneer de hele route klopt.</h2>
-              <p>Een goede campagne bestaat niet alleen uit advertenties. Propositie, tracking, creatie, landingspagina en opvolging moeten samen één duidelijke route naar een aanvraag vormen.</p>
+              <div class="eyebrow">Aanpak</div>
+              <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Zo maken we advertenties meetbaar</h2>
             </div>
             <div class="ads-route-shell">
               ${steps.map(step => `
@@ -4433,46 +4478,30 @@ const aiSystemsProcess = [
                     <h3>${step.title}</h3>
                     <p>${step.text}</p>
                   </div>
-                  <div class="ads-route-result">
-                    <strong>Resultaat</strong>
-                    <span>${step.result}</span>
-                  </div>
                 </div>
               `).join('')}
-            </div>
-            <div class="ads-route-cta">
-              <div class="eyebrow">Campagne-audit</div>
-              <h3>Waar lekt jouw advertentiebudget nu weg?</h3>
-              <p>We brengen eerst in kaart wat er in de campagne, meting en route naar contact niet goed op elkaar aansluit. Daarna weet je welke verbetering als eerste het meeste verschil maakt.</p>
-              <div class="btn-row" style="margin-top:20px">
-                <button class="btn btn-primary" onclick="openCalendar()">Plan campagne-audit</button>
-                <a class="btn btn-ghost" href="contact.html">Neem contact op</a>
-              </div>
             </div>
           </div>
         </section>
       `;
     }
 
-    function buildAdsSignalsSection(){
+    function buildAdsResultsSection(){
       const items = [
         {
           num:'01',
-          title:'Campagnes leveren bereik, maar te weinig goede aanvragen',
-          text:'Meta, LinkedIn en Google brengen bezoekers binnen, maar de route naar contact overtuigt nog onvoldoende.',
-          outcome:'Gevolg: budget levert minder commerciële waarde op dan mogelijk is.'
+          title:'Meer relevante bezoekers',
+          text:'Niet zomaar extra websiteverkeer, maar mensen met aantoonbare interesse.'
         },
         {
           num:'02',
-          title:'Budget wordt verdeeld zonder duidelijke rol per kanaal',
-          text:'Kanalen, doelgroepen en campagnes concurreren met elkaar doordat niet helder is welke stap ieder onderdeel in de funnel ondersteunt.',
-          outcome:'Gevolg: opschalen voelt risicovol en resultaten zijn lastig te verklaren.'
+          title:'Meer meetbare aanvragen',
+          text:'Je ziet beter welke campagnes, doelgroepen en advertenties contactmomenten opleveren.'
         },
         {
           num:'03',
-          title:'Tracking en landingspagina’s remmen schaalbaarheid',
-          text:'Conversiemeting, consent en landingspagina’s sluiten nog niet strak genoeg aan op de campagnes.',
-          outcome:'Gevolg: optimalisaties worden gestuurd op onvolledige of onduidelijke data.'
+          title:'Minder verspild advertentiebudget',
+          text:'Campagnes die weinig bijdragen worden aangepast of gestopt.'
         }
       ];
 
@@ -4480,9 +4509,8 @@ const aiSystemsProcess = [
         <section class="section-tight">
           <div class="wrap">
             <div class="service-section-head" style="max-width:920px">
-              <div class="eyebrow">Herken je dit?</div>
-              <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Je advertenties draaien.<br>Maar het systeem eromheen remt het resultaat.</h2>
-              <p>Bereik alleen is niet genoeg. Campagnes presteren pas echt wanneer boodschap, tracking, budget en landingspagina als één systeem samenwerken.</p>
+              <div class="eyebrow">Resultaat</div>
+              <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Wat goede advertenties je opleveren</h2>
             </div>
             <div class="ads-signal-panel">
               ${items.map(item => `
@@ -4492,10 +4520,6 @@ const aiSystemsProcess = [
                     <h3>${item.title}</h3>
                     <p>${item.text}</p>
                   </div>
-                  <div class="ads-signal-outcome">
-                    <strong>Gevolg</strong>
-                    <span>${item.outcome}</span>
-                  </div>
                 </div>
               `).join('')}
             </div>
@@ -4504,16 +4528,16 @@ const aiSystemsProcess = [
       `;
     }
 
-    function buildAdsClosingCta(){
+    function buildAdsFinalCta(){
       return `
         <section class="section-tight">
           <div class="wrap">
             <div class="ads-route-cta">
               <div class="eyebrow">Volgende stap</div>
-              <h3>Wil je eerst scherp zien waar advertentiebudget nu weglekt?</h3>
-              <p>We brengen tracking, campagne-opbouw en de route naar contact samen in beeld, zodat je weet waar bijsturen het meeste oplevert.</p>
+              <h3>Haal je genoeg nieuwe klanten uit je advertentiebudget?</h3>
+              <p>We bekijken je campagnes, tracking en landingspagina’s en laten zien waar aanvragen verloren gaan en waar de grootste kans op verbetering zit.</p>
               <div class="btn-row" style="margin-top:20px">
-                <button class="btn btn-primary" onclick="openCalendar()">Plan campagne-audit</button>
+                <button class="btn btn-primary" onclick="openCalendar()">Laat mijn advertenties beoordelen</button>
                 <a class="btn btn-ghost" href="contact.html">Neem contact op</a>
               </div>
             </div>
@@ -4523,7 +4547,7 @@ const aiSystemsProcess = [
     }
 
     function buildPackageSection(service){
-      if(service.slug === 'advertenties') return buildAdsRouteSection();
+      if(service.slug === 'advertenties') return buildAdsBenefitsSection();
       const config = getPackageConfig(service);
       if(!config) return '';
 
@@ -4693,8 +4717,11 @@ const aiSystemsProcess = [
               <h1 class="display" style="margin-bottom:14px">${service.hero}</h1>
               <p class="lead" style="margin-bottom:20px">${service.sub}</p>
               <div class="btn-row">
-                <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
-                <a class="btn btn-ghost" href="/aanbod">Bekijk services</a>
+                ${service.slug === 'advertenties'
+                  ? `<button class="btn btn-primary" onclick="openCalendar()">Laat mijn campagnes beoordelen</button>
+                <a class="btn btn-ghost" href="#ads-approach">Bekijk onze aanpak</a>`
+                  : `<button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
+                <a class="btn btn-ghost" href="/aanbod">Bekijk services</a>`}
               </div>
             </div>
           </section>
@@ -4702,8 +4729,8 @@ const aiSystemsProcess = [
           ${buildPackageSection(service)}
           ${service.slug === 'websites' ? buildSeoProofSection() : ''}
           ${service.slug === 'advertenties' ? '' : buildCalendarBookingSection('Plan direct een gesprek over dit traject', 'Open meteen de agenda en kies een moment om te bespreken welk pakket past, waar het nu vastloopt en wat als eerste opgelost moet worden.')}
-          ${buildServiceVisualProofSection(service)}
-          ${service.slug === 'advertenties' ? buildAdsSignalsSection() : `
+          ${service.slug === 'advertenties' ? buildAdsApproachSection() : buildServiceVisualProofSection(service)}
+          ${service.slug === 'advertenties' ? buildAdsResultsSection() : `
           <section class="section-tight">
             <div class="wrap">
               <div class="service-section-head">
@@ -4771,7 +4798,7 @@ const aiSystemsProcess = [
               </div>
             </div>
           </section>
-          ${service.slug === 'advertenties' ? buildAdsClosingCta() : ''}
+          ${service.slug === 'advertenties' ? buildAdsFinalCta() : ''}
           ${service.slug === 'ai-compliance' ? `
           <section class="section-tight">
             <div class="wrap">
