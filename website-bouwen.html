@@ -677,102 +677,6 @@
     }
     .service-impact h3,.service-proof-card h3{font-family:var(--serif);font-size:22px;line-height:1.14;color:var(--white);margin-bottom:10px}
     .service-impact p,.service-proof-card p{font-size:15px;line-height:1.78;color:#ddd7ce;margin:0}
-    .website-compare-panel{
-      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.012));
-      border:1px solid var(--line);
-      border-radius:28px;
-      padding:30px;
-      display:grid;
-      gap:0;
-      backdrop-filter:blur(18px);
-    }
-    .website-compare-head{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-      gap:28px;
-      padding-bottom:18px;
-      margin-bottom:8px;
-      border-bottom:1px solid var(--line);
-    }
-    .website-compare-label{
-      display:block;
-      font-size:10px;
-      letter-spacing:2.4px;
-      text-transform:uppercase;
-      color:var(--green);
-      margin-bottom:10px;
-    }
-    .website-compare-heading{
-      font-family:var(--serif);
-      font-size:clamp(22px,2.3vw,30px);
-      line-height:1.08;
-      color:var(--white);
-      margin:0;
-      max-width:12ch;
-    }
-    .website-compare-rows{
-      display:grid;
-      gap:0;
-    }
-    .website-compare-row{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
-      gap:24px;
-      align-items:stretch;
-      padding:24px 0;
-      border-top:1px solid var(--line);
-    }
-    .website-compare-row:first-child{border-top:none}
-    .website-compare-side{
-      min-height:100%;
-      display:grid;
-      gap:10px;
-      align-content:start;
-      padding:0 4px;
-    }
-    .website-compare-side h3{
-      font-family:var(--serif);
-      font-size:26px;
-      line-height:1.08;
-      color:var(--white);
-      margin:0;
-      max-width:17ch;
-    }
-    .website-compare-side p{
-      font-size:15px;
-      line-height:1.72;
-      color:#ddd7ce;
-      margin:0;
-      max-width:34ch;
-    }
-    .website-compare-arrow{
-      align-self:center;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:42px;
-      color:var(--green);
-      font-size:22px;
-      line-height:1;
-    }
-    .website-compare-problem .website-compare-label{color:#8f8a82}
-    .website-compare-solution .website-compare-label{color:var(--green)}
-    .website-compare-deliverables{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:12px;
-      padding-top:24px;
-      margin-top:8px;
-      border-top:1px solid var(--line);
-    }
-    .website-compare-deliverables .service-impact{
-      min-height:100%;
-      display:grid;
-      align-content:start;
-      gap:10px;
-    }
-    .website-compare-deliverables .service-impact h3{margin:0}
-    .website-compare-deliverables .service-impact p{max-width:30ch}
     .service-proof-card .kicker,.service-kpi .kicker{display:block;font-size:10px;letter-spacing:2.6px;text-transform:uppercase;color:var(--green);margin-bottom:12px}
     .service-proof-card .value,.service-kpi .value{font-family:var(--serif);font-size:40px;line-height:1;color:var(--white);margin-bottom:10px}
     .service-proof-card .meta,.service-kpi .meta{font-size:14px;line-height:1.72;color:#d5d0c7}
@@ -1068,20 +972,7 @@
       .website-structure-shell,
       .website-result-shell,
       .website-growth-shell,
-      .website-closing-shell,
-      .website-compare-head,
-      .website-compare-row,
-      .website-compare-deliverables{grid-template-columns:1fr}
-      .website-compare-panel{padding:24px}
-      .website-compare-heading{max-width:none}
-      .website-compare-arrow{
-        width:auto;
-        min-height:24px;
-        justify-content:flex-start;
-        padding-left:4px;
-      }
-      .website-compare-side{padding:0}
-      .website-compare-side p{max-width:none}
+      .website-closing-shell{grid-template-columns:1fr}
       .website-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}
       .website-timeline::before{display:none}
       .website-timeline-step{padding-top:0;padding-left:54px}
@@ -4979,112 +4870,76 @@ const aiSystemsProcess = [
       `;
     }
 
-    function buildWebsitesCoreSection(service){
+    function buildWebsitesWhySection(service){
       if(service.slug !== 'websites') return '';
-      const comparisons = [
-        ['Bezoekers zien te laat waarom ze contact moeten opnemen.','We maken de boodschap scherper en bouwen een logische route naar contact.'],
-        ['Pagina’s sturen te weinig duidelijk richting actie.','We verbeteren hiërarchie, CTA-plaatsing en paginastructuur zodat de volgende stap vanzelfsprekender voelt.'],
-        ['Marketing stuurt verkeer naar pagina’s die nog te weinig opvangen.','We bouwen landingspagina’s en servicepagina’s die aandacht beter omzetten in vertrouwen en leads.']
-      ];
-      const deliverables = [
-        ['Wat je ontvangt','Een duidelijkere route naar contact','Pagina’s die sneller uitleggen wat je doet en bezoekers logischer richting aanvraag sturen.'],
-        ['Wat je ontvangt','Een website die vertrouwen opbouwt','Meer rust in structuur, inhoud en flow zodat de eerste indruk sterker wordt.'],
-        ['Wat je ontvangt','Een sterkere basis voor marketing','Landingspagina’s, formulieren en performance die campagnes ondersteunen in plaats van afremmen.']
+      const items = [
+        ['Je boodschap is niet direct duidelijk','Bezoekers begrijpen niet snel genoeg wat je doet en waarom ze voor jou moeten kiezen.'],
+        ['Er ontbreekt een duidelijke volgende stap','Mensen bekijken je website, maar worden onvoldoende richting contact of een aanvraag gestuurd.'],
+        ['Verkeer komt binnen, maar converteert niet','Advertenties en Google sturen bezoekers naar pagina’s die nog te weinig vertrouwen of urgentie opbouwen.']
       ];
       return `
         <section class="section-tight">
           <div class="wrap">
-            <div class="service-section-head" style="max-width:860px">
-              <div class="eyebrow">Vergelijking</div>
-              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Hier lopen websites conversie mis. Zo lost AIChecked dat op.</h2>
-              <p>Eén samenhangend overzicht van het probleem en de verbetering die het verschil maakt.</p>
+            <div class="service-section-head">
+              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Waarom levert jouw website te weinig op?</h2>
             </div>
-            <div class="website-compare-panel">
-              <div class="website-compare-head">
-                <div>
-                  <span class="website-compare-label">Waar bedrijven conversie verliezen</span>
-                  <h3 class="website-compare-heading">Hier haken bezoekers af voordat ze contact opnemen.</h3>
-                </div>
-                <div>
-                  <span class="website-compare-label">Hoe AIChecked dit oplost</span>
-                  <h3 class="website-compare-heading">Dit maakt de route naar een aanvraag duidelijker en sterker.</h3>
-                </div>
-              </div>
-              <div class="website-compare-rows">
-                ${comparisons.map((item, index) => `
-                  <article class="website-compare-row">
-                    <div class="website-compare-side website-compare-problem">
-                      <span class="website-compare-label">Probleem ${String(index + 1).padStart(2,'0')}</span>
-                      <h3>${item[0]}</h3>
-                      <p>${index === 0 ? 'Het aanbod staat er wel, maar de reden om nu te handelen blijft te makkelijk liggen.' : index === 1 ? 'Bewijs, richting en calls to action werken nog niet samen als één logische flow.' : 'Campagnes en content trekken aandacht, maar de pagina eronder verliest nog te veel momentum.'}</p>
-                    </div>
-                    <div class="website-compare-arrow" aria-hidden="true">→</div>
-                    <div class="website-compare-side website-compare-solution">
-                      <span class="website-compare-label">Oplossing ${String(index + 1).padStart(2,'0')}</span>
-                      <h3>${item[1]}</h3>
-                      <p>${index === 0 ? 'We maken positionering, relevantie en de volgende stap binnen de eerste seconden duidelijker.' : index === 1 ? 'We brengen rust in de pagina zodat de juiste boodschap en CTA op het juiste moment zichtbaar worden.' : 'We versterken de pagina’s die verkeer ontvangen zodat meer bezoeken leiden tot relevant contact.'}</p>
-                    </div>
-                  </article>
-                `).join('')}
-              </div>
-              <div class="website-compare-deliverables">
-                ${deliverables.map(item => `
-                  <article class="service-impact">
-                    <span class="kicker" style="display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:10px">${item[0]}</span>
-                    <h3>${item[1]}</h3>
-                    <p>${item[2]}</p>
-                  </article>
-                `).join('')}
-              </div>
+            <div class="service-copy-grid">
+              ${items.map(item => `
+                <article class="service-impact">
+                  <h3>${item[0]}</h3>
+                  <p>${item[1]}</p>
+                </article>
+              `).join('')}
             </div>
           </div>
         </section>
       `;
     }
 
-    function buildWebsitesCaseStudiesSection(service){
+    function buildWebsitesWhatWeDoSection(service){
       if(service.slug !== 'websites') return '';
-      const featuredCases = cases.filter(item => item.category === 'build').slice(0, 2);
+      const items = [
+        ['Een boodschap die direct duidelijk is','Bezoekers zien binnen enkele seconden wat je aanbiedt en waarom dat relevant voor hen is.'],
+        ['Pagina’s die naar actie sturen','We bouwen iedere pagina rondom één duidelijke vervolgstap, zonder afleiding of overbodige informatie.'],
+        ['Techniek die meewerkt','We zorgen voor snelheid, mobiel gebruiksgemak, betrouwbare formulieren en een sterke technische basis.']
+      ];
       return `
         <section class="section-tight">
           <div class="wrap">
             <div class="service-section-head">
-              <div class="eyebrow">Case Studies</div>
-              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Eerst bewijs. Dan de rest.</h2>
-              <p>Voor websites telt vooral wat er verandert in duidelijkheid, vertrouwen en het aantal momenten waarop iemand daadwerkelijk contact opneemt.</p>
+              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wat wij doen</h2>
             </div>
-            <div class="case-list">
-              ${featuredCases.map(item => `
-                <article class="case-card hover-sheen">
-                  <div class="case-grid">
-                    <div class="case-content">
-                      <div class="case-meta">
-                        <span class="pill">${item.type}</span>
-                        <span class="pill">${item.period}</span>
-                      </div>
-                      <h3 class="case-title">${item.title}</h3>
-                      <div class="service-copy-grid" style="margin-top:0">
-                        <div class="service-impact">
-                          <h3>Challenge</h3>
-                          <p>${item.summary}</p>
-                        </div>
-                        <div class="service-impact">
-                          <h3>Solution</h3>
-                          <p>${item.steps.join(', ')}.</p>
-                        </div>
-                        <div class="service-impact">
-                          <h3>Result</h3>
-                          <p>${item.metrics.map(metric => `${metric[0]} ${metric[1].toLowerCase()}`).join(', ')}.</p>
-                        </div>
-                      </div>
-                      <div class="btn-row" style="margin-top:18px">
-                        <a class="btn btn-ghost" href="${getPageHref('cases')}">Bekijk case</a>
-                      </div>
-                    </div>
-                    <div class="case-side">
-                      ${item.metrics.map(metric=>`<div class="case-metric"><div class="value">${metric[0]}</div><div class="label">${metric[1]}</div></div>`).join('')}
-                    </div>
-                  </div>
+            <div class="service-copy-grid">
+              ${items.map(item => `
+                <article class="service-impact">
+                  <h3>${item[0]}</h3>
+                  <p>${item[1]}</p>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildWebsitesResultSection(service){
+      if(service.slug !== 'websites') return '';
+      const items = [
+        ['Meer aanvragen','Meer bezoekers zetten de stap naar contact, offerte of kennismaking.'],
+        ['Meer vertrouwen','Je bedrijf oogt professioneel, duidelijk en betrouwbaar vanaf het eerste moment.'],
+        ['Meer rendement uit je marketing','Advertenties, campagnes en organisch verkeer landen op een website die beter converteert.']
+      ];
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head">
+              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wat dat oplevert</h2>
+            </div>
+            <div class="service-copy-grid">
+              ${items.map(item => `
+                <article class="service-impact">
+                  <h3>${item[0]}</h3>
+                  <p>${item[1]}</p>
                 </article>
               `).join('')}
             </div>
@@ -5101,14 +4956,12 @@ const aiSystemsProcess = [
             <div class="website-closing-panel">
               <div class="website-closing-shell">
                 <div class="service-section-head">
-                  <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wil je weten waar jouw website nog kansen laat liggen?</h2>
-                  <p>We laten zien waar structuur, inhoud, snelheid of formulieren nu nog te weinig bijdragen aan vertrouwen, aanvragen en zichtbaarheid.</p>
+                  <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Toe aan een website die wél voor je werkt?</h2>
+                  <p>Laat zien waar je nu tegenaan loopt. Dan bekijken we wat er concreet beter kan.</p>
                 </div>
-                <div style="display:grid;gap:18px">
-                  <div class="website-closing-actions">
-                    <button class="btn btn-primary" onclick="openCalendar()">Ontvang gratis websitescan</button>
-                    <a class="btn btn-ghost" href="${getPageHref('cases')}">Bekijk cases</a>
-                  </div>
+                <div class="website-closing-actions">
+                  <button class="btn btn-primary" onclick="openCalendar()">Plan een gesprek</button>
+                  <a class="btn btn-ghost" href="${getPageHref('contact')}">Neem contact op</a>
                 </div>
               </div>
             </div>
@@ -5124,16 +4977,17 @@ const aiSystemsProcess = [
             <div class="wrap">
               <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Services</a><span>•</span><span>${service.title}</span></div>
               <div class="eyebrow">${service.title}</div>
-              <h1 class="display" style="margin-bottom:14px">${service.hero}</h1>
-              <p class="lead" style="margin-bottom:20px">We bouwen en verbeteren websites die sneller vertrouwen opbouwen, duidelijker richting geven en steviger dragen onder leads, sales en zichtbaarheid.</p>
+              <h1 class="display" style="margin-bottom:14px">Je website staat online. Maar levert hij ook klanten op?</h1>
+              <p class="lead" style="margin-bottom:20px">AIChecked bouwt snelle websites die vertrouwen opbouwen en bezoekers richting contact sturen.</p>
               <div class="btn-row">
-                <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
-                <a class="btn btn-ghost" href="/aanbod">Bekijk services</a>
+                <button class="btn btn-primary" onclick="openCalendar()">Plan een gesprek</button>
+                <a class="btn btn-ghost" href="${getPageHref('cases')}">Bekijk cases</a>
               </div>
             </div>
           </section>
-          ${buildWebsitesCoreSection(service)}
-          ${buildWebsitesCaseStudiesSection(service)}
+          ${buildWebsitesWhySection(service)}
+          ${buildWebsitesWhatWeDoSection(service)}
+          ${buildWebsitesResultSection(service)}
           ${buildWebsitesFinalCta(service)}
           <footer>${getSharedFooter()}</footer>
         </div>
