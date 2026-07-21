@@ -605,6 +605,59 @@
     }
     .ads-route-cta h3{font-family:var(--serif);font-size:clamp(28px,3vw,40px);line-height:1.08;color:var(--white);margin:0 0 10px;max-width:640px}
     .ads-route-cta p{font-size:16px;line-height:1.84;color:#ddd7ce;margin:0;max-width:700px}
+    .ads-signal-panel{
+      background:rgba(255,255,255,.018);
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      backdrop-filter:blur(18px);
+    }
+    .ads-signal-row{
+      display:grid;
+      grid-template-columns:88px minmax(0,1.35fr) minmax(240px,.8fr);
+      gap:22px;
+      align-items:start;
+      padding:24px 24px 22px;
+      border-top:1px solid var(--line);
+    }
+    .ads-signal-row:first-child{border-top:none}
+    .ads-signal-num{
+      font-family:var(--serif);
+      font-size:28px;
+      line-height:1;
+      color:var(--green);
+      opacity:.92;
+    }
+    .ads-signal-copy h3{
+      font-family:var(--serif);
+      font-size:26px;
+      line-height:1.12;
+      color:var(--white);
+      margin:0 0 10px;
+      max-width:720px;
+    }
+    .ads-signal-copy p{
+      font-size:15px;
+      line-height:1.8;
+      color:#ddd7ce;
+      margin:0;
+      max-width:740px;
+    }
+    .ads-signal-outcome{
+      padding-top:2px;
+      font-size:13px;
+      line-height:1.75;
+      color:#d4cec5;
+    }
+    .ads-signal-outcome strong{
+      display:block;
+      margin-bottom:10px;
+      font-size:10px;
+      letter-spacing:2.3px;
+      text-transform:uppercase;
+      color:var(--green);
+      font-weight:500;
+    }
     .service-summary{
       background:rgba(255,255,255,.018);
       border:1px solid var(--line);
@@ -1754,6 +1807,8 @@
       .footer-grid{grid-template-columns:1fr 1fr}
       .ads-route-row{grid-template-columns:92px 1fr;gap:18px}
       .ads-route-result{grid-column:2}
+      .ads-signal-row{grid-template-columns:76px 1fr;gap:16px}
+      .ads-signal-outcome{grid-column:2}
     }
     @media(max-width:860px){
       #main-nav{padding:18px 20px}#main-nav.scrolled{padding:14px 20px}
@@ -1771,6 +1826,9 @@
       .ads-route-cta{padding:22px}
       .ads-route-cta .btn-row{flex-direction:column}
       .ads-route-cta .btn{width:100%}
+      .ads-signal-row{grid-template-columns:1fr;gap:12px;padding:22px 20px}
+      .ads-signal-copy h3{font-size:24px}
+      .ads-signal-outcome{grid-column:auto;padding-top:0}
       .dashboard{display:block}
       .sidebar{display:none}
       .dashboard-main{margin-left:0;padding:110px 20px 72px}
@@ -4396,6 +4454,74 @@ const aiSystemsProcess = [
       `;
     }
 
+    function buildAdsSignalsSection(){
+      const items = [
+        {
+          num:'01',
+          title:'Campagnes leveren bereik, maar te weinig goede aanvragen',
+          text:'Meta, LinkedIn en Google brengen bezoekers binnen, maar de route naar contact overtuigt nog onvoldoende.',
+          outcome:'Gevolg: budget levert minder commerciële waarde op dan mogelijk is.'
+        },
+        {
+          num:'02',
+          title:'Budget wordt verdeeld zonder duidelijke rol per kanaal',
+          text:'Kanalen, doelgroepen en campagnes concurreren met elkaar doordat niet helder is welke stap ieder onderdeel in de funnel ondersteunt.',
+          outcome:'Gevolg: opschalen voelt risicovol en resultaten zijn lastig te verklaren.'
+        },
+        {
+          num:'03',
+          title:'Tracking en landingspagina’s remmen schaalbaarheid',
+          text:'Conversiemeting, consent en landingspagina’s sluiten nog niet strak genoeg aan op de campagnes.',
+          outcome:'Gevolg: optimalisaties worden gestuurd op onvolledige of onduidelijke data.'
+        }
+      ];
+
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head" style="max-width:920px">
+              <div class="eyebrow">Herken je dit?</div>
+              <h2 class="display" style="font-size:clamp(28px,3vw,40px);margin-bottom:12px">Je advertenties draaien.<br>Maar het systeem eromheen remt het resultaat.</h2>
+              <p>Bereik alleen is niet genoeg. Campagnes presteren pas echt wanneer boodschap, tracking, budget en landingspagina als één systeem samenwerken.</p>
+            </div>
+            <div class="ads-signal-panel">
+              ${items.map(item => `
+                <div class="ads-signal-row">
+                  <div class="ads-signal-num">${item.num}</div>
+                  <div class="ads-signal-copy">
+                    <h3>${item.title}</h3>
+                    <p>${item.text}</p>
+                  </div>
+                  <div class="ads-signal-outcome">
+                    <strong>Gevolg</strong>
+                    <span>${item.outcome}</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildAdsClosingCta(){
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="ads-route-cta">
+              <div class="eyebrow">Volgende stap</div>
+              <h3>Wil je eerst scherp zien waar advertentiebudget nu weglekt?</h3>
+              <p>We brengen tracking, campagne-opbouw en de route naar contact samen in beeld, zodat je weet waar bijsturen het meeste oplevert.</p>
+              <div class="btn-row" style="margin-top:20px">
+                <button class="btn btn-primary" onclick="openCalendar()">Plan campagne-audit</button>
+                <a class="btn btn-ghost" href="contact.html">Neem contact op</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
     function buildPackageSection(service){
       if(service.slug === 'advertenties') return buildAdsRouteSection();
       const config = getPackageConfig(service);
@@ -4575,8 +4701,9 @@ const aiSystemsProcess = [
           ${service.slug === 'websites' ? buildSeoWhyNowSection() : ''}
           ${buildPackageSection(service)}
           ${service.slug === 'websites' ? buildSeoProofSection() : ''}
-          ${buildCalendarBookingSection('Plan direct een gesprek over dit traject', 'Open meteen de agenda en kies een moment om te bespreken welk pakket past, waar het nu vastloopt en wat als eerste opgelost moet worden.')}
+          ${service.slug === 'advertenties' ? '' : buildCalendarBookingSection('Plan direct een gesprek over dit traject', 'Open meteen de agenda en kies een moment om te bespreken welk pakket past, waar het nu vastloopt en wat als eerste opgelost moet worden.')}
           ${buildServiceVisualProofSection(service)}
+          ${service.slug === 'advertenties' ? buildAdsSignalsSection() : `
           <section class="section-tight">
             <div class="wrap">
               <div class="service-section-head">
@@ -4617,7 +4744,7 @@ const aiSystemsProcess = [
               </div>
               <div class="steps">${service.doSteps.map((step,index)=>`<div class="step"><div class="num">0${index+1}</div><h4>${step}</h4><p>${getStepDetail(service, index)}</p></div>`).join('')}</div>
             </div>
-          </section>
+          </section>`}
           <section class="section-tight">
             <div class="wrap">
               <div class="service-section-head">
@@ -4644,6 +4771,7 @@ const aiSystemsProcess = [
               </div>
             </div>
           </section>
+          ${service.slug === 'advertenties' ? buildAdsClosingCta() : ''}
           ${service.slug === 'ai-compliance' ? `
           <section class="section-tight">
             <div class="wrap">
