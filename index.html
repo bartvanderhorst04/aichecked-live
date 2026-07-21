@@ -5235,104 +5235,88 @@ function createAiSystemsPage(){
         <div class="wrap">
           <div class="breadcrumb-row"><a onclick="showPage('home')">Home</a><span>•</span><a href="/aanbod">Services</a><span>•</span><span>AI &amp; Automation</span></div>
           <div class="eyebrow">AI &amp; Automation</div>
-          <h1 class="display" style="margin-bottom:14px">Automatiseer het werk dat groei nu <em>vertraagt.</em></h1>
-          <p class="lead" style="margin-bottom:16px">Praktische AI-oplossingen die processen versnellen, klantcontact automatiseren en teams schaalbaarder laten werken.</p>
-          <p class="small" style="max-width:760px;margin-bottom:24px">We bouwen geen losse AI-demo’s, maar automatisering die echt aansluit op je website, salesproces en dagelijkse operatie.</p>
+          <h1 class="display" style="margin-bottom:14px">Automatiseer het werk dat groei <em>vertraagt.</em></h1>
+          <p class="lead" style="margin-bottom:20px">Wij bouwen AI-systemen die repetitief werk automatiseren, klanten sneller helpen en je team meer tijd geven voor belangrijk werk.</p>
           <div class="btn-row">
-            <button class="btn btn-primary" onclick="openCalendar()">Plan een AI scan</button>
-            <button class="btn btn-ghost" onclick="document.getElementById('ai-solutions-grid')?.scrollIntoView({behavior:'smooth',block:'start'})">Bekijk AI-oplossingen</button>
+            <button class="btn btn-primary" onclick="openCalendar()">Plan een AI Scan</button>
+            <a class="btn btn-ghost" href="${getPageHref('contact')}">Neem contact op</a>
           </div>
         </div>
       </section>
       <section class="section-tight">
         <div class="wrap">
           <div class="service-section-head">
-            <div class="eyebrow">AI-oplossingen die we bouwen</div>
-            <p>Praktische automation die dagelijkse operatie verlicht, klantcontact slimmer maakt en teams sneller laat werken zonder extra ruis.</p>
+            <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Waarom gaat het mis?</h2>
           </div>
-          <div id="ai-solutions-grid" class="ai-solutions-grid">
-            ${aiSystemsSolutions.map(item => `
-              <div class="ai-solution-card hover-sheen ai-fade">
-                <div class="ai-solution-top">
-                  <span class="ai-line-icon">${item.icon}</span>
-                  <span class="ai-audience-pill">${item.audience}</span>
-                </div>
-                <h3>${item.title}</h3>
-                <p class="ai-solution-copy">${item.description}</p>
-                <ul class="ai-mini-list">
-                  ${item.bullets.map(bullet => `<li>${bullet}</li>`).join('')}
-                </ul>
-                <div class="ai-mini-result">${item.result}</div>
-              </div>
-            `).join('')}
+          <div class="service-copy-grid">
+            <article class="service-impact">
+              <h3>Leads worden niet opgevolgd</h3>
+              <p>Nieuwe aanvragen blijven liggen of krijgen te laat een reactie.</p>
+            </article>
+            <article class="service-impact">
+              <h3>Te veel handmatig werk</h3>
+              <p>Je team doet iedere week dezelfde taken opnieuw.</p>
+            </article>
+            <article class="service-impact">
+              <h3>Klanten wachten te lang</h3>
+              <p>Vragen, afspraken en offertes kosten onnodig veel tijd.</p>
+            </article>
           </div>
         </div>
       </section>
       <section class="section-tight">
         <div class="wrap">
           <div class="service-section-head">
-            <div class="eyebrow">Voorbeelden uit de praktijk</div>
-            <h2 class="display" style="font-size:clamp(28px,3.2vw,42px);margin-bottom:12px">Voorbeelden uit de praktijk</h2>
-            <p>Geen abstracte AI-verhalen, maar concrete toepassingen die direct tijd besparen en klantcontact rustiger maken.</p>
+            <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wat wij doen</h2>
           </div>
-          <div class="ai-usecase-row">
-            ${aiSystemsUseCases.map(item => `
-              <div class="ai-usecase-card hover-sheen ai-fade">
-                <div class="ai-usecase-line"></div>
-                <h3>${item.title}</h3>
-                <p>${item.description}</p>
-                <div class="ai-usecase-tags">
-                  ${item.tags.map(tag => `<span>${tag}</span>`).join('')}
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      </section>
-      <section class="section-tight">
-        <div class="wrap">
-          <div class="service-section-head">
-            <div class="eyebrow">Waarom bedrijven AI &amp; Automation inzetten</div>
-            <p>De waarde van AI zit niet alleen in snelheid, maar in hoeveel handmatig werk je structureel uit processen haalt.</p>
-          </div>
-          <div class="service-proof-grid">
-            ${aiSystemsBenefits.map(item => `
-              <div class="service-proof-card ai-benefit-card ai-fade">
-                <span class="ai-benefit-icon">${item.icon}</span>
-                <h3>${item.title}</h3>
-                <p>${item.text}</p>
-              </div>
-            `).join('')}
+          <div class="service-copy-grid">
+            <article class="service-impact">
+              <h3>AI Chatbots</h3>
+              <p>Beantwoord klantvragen automatisch en vang nieuwe leads op.</p>
+            </article>
+            <article class="service-impact">
+              <h3>AI Automatiseringen</h3>
+              <p>Automatiseer terugkerende processen en bespaar tijd.</p>
+            </article>
+            <article class="service-impact">
+              <h3>AI Assistenten</h3>
+              <p>Ondersteun je team met slimme AI die dagelijks werk uit handen neemt.</p>
+            </article>
           </div>
         </div>
       </section>
       <section class="section-tight">
         <div class="wrap">
           <div class="service-section-head">
-            <div class="eyebrow">Proces</div>
-            <p>We bouwen geen losse AI-trucjes, maar een werkbare structuur die in je bedrijf blijft functioneren.</p>
+            <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wat levert dat op?</h2>
           </div>
-          <div class="steps ai-process">
-            ${aiSystemsProcess.map((step,index)=>`
-              <div class="step">
-                <div class="num">${String(index + 1).padStart(2,'0')}</div>
-                <h4>${step}</h4>
-                <p>${index===0?'We brengen processen, tijdlekken en kansen voor automatisering in kaart.':index===1?'We bepalen waar AI logisch past binnen klantcontact, operatie of interne workflows.':index===2?'Daarna bouwen we de gekozen AI-oplossing in de juiste vorm en toolstack.':index===3?'We testen op kwaliteit, bruikbaarheid, output en betrouwbaarheid in de praktijk.':index===4?'Na akkoord zetten we het systeem live binnen een werkbare dagelijkse flow.':'We blijven verbeteren op output, gebruik, schaalbaarheid en nieuwe kansen.'}</p>
-              </div>
-            `).join('')}
+          <div class="service-copy-grid">
+            <article class="service-impact">
+              <h3>Minder handmatig werk</h3>
+              <p>Je team houdt meer tijd over voor belangrijk werk.</p>
+            </article>
+            <article class="service-impact">
+              <h3>Snellere opvolging</h3>
+              <p>Leads en klanten krijgen direct een reactie.</p>
+            </article>
+            <article class="service-impact">
+              <h3>Meer ruimte om te groeien</h3>
+              <p>Je bedrijf groeit zonder dat ieder proces extra personeel vraagt.</p>
+            </article>
           </div>
         </div>
       </section>
       <section class="section-tight">
         <div class="wrap">
-          <div class="cta-card surface ai-cta-card ai-fade" style="padding:32px">
-            <div class="split" style="align-items:center">
-              <div>
-                <h2 class="display" style="font-size:clamp(28px,3.2vw,40px);margin-bottom:12px">Klaar om AI praktisch in je bedrijf toe te passen?</h2>
-                <p class="lead">Laat zien waar tijd verloren gaat en ontdek welke automatisering direct waarde toevoegt.</p>
+          <div class="website-closing-panel">
+            <div class="website-closing-shell">
+              <div class="service-section-head">
+                <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Benieuwd welke processen jij kunt automatiseren?</h2>
+                <p>We laten je zien waar AI direct tijd kan besparen en welke automatiseringen de meeste impact hebben.</p>
               </div>
-              <div class="btn-row" style="justify-content:flex-end">
-                <button class="btn btn-primary" onclick="openCalendar()">Plan een AI &amp; Automation scan</button>
+              <div class="website-closing-actions">
+                <button class="btn btn-primary" onclick="openCalendar()">Plan een AI Scan</button>
+                <a class="btn btn-ghost" href="${getPageHref('contact')}">Neem contact op</a>
               </div>
             </div>
           </div>
