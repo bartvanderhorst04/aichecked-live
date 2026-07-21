@@ -517,12 +517,18 @@
       position:relative;z-index:0;
       transition:transform .16s var(--ease),border-color .16s var(--ease),background-color .16s var(--ease),color .16s var(--ease),opacity .16s var(--ease),box-shadow .16s var(--ease)
     }
+    #page-aanbod{
+      --offer-green:#64ddb6;
+      --offer-green-soft:rgba(100,221,182,.18);
+      --offer-green-line:rgba(100,221,182,.24);
+    }
     #page-aanbod .service-panel{
       --offer-green:#64ddb6;
       --offer-green-soft:rgba(100,221,182,.18);
       --offer-green-line:rgba(100,221,182,.24);
     }
     #page-aanbod .eyebrow{color:var(--offer-green)}
+    #page-aanbod .offer-accent{color:var(--offer-green)}
     .service-card:hover,
     .service-card:focus-visible,
     .service-card:active{
@@ -2056,7 +2062,7 @@
     <section class="section" style="padding-top:170px">
       <div class="wrap">
         <div class="eyebrow">Aanbod</div>
-        <h1 class="display" style="margin-bottom:14px">Waar wil je als eerste verbetering zien?</h1>
+        <h1 class="display" style="margin-bottom:14px">Waar wil je als eerste <span class="offer-accent">verbetering</span> zien?</h1>
         <p class="lead" style="margin-bottom:28px">Kies het resultaat dat nu het meeste verschil maakt voor jouw bedrijf.</p>
         <div class="service-panel">
           <div class="offer-grid" id="offer-grid-main"></div>
