@@ -526,7 +526,7 @@
       outline:none;
     }
     .service-card .icon{font-size:18px;color:var(--green);margin-bottom:18px}
-    .service-card .tag{font-size:10px;letter-spacing:2.6px;text-transform:uppercase;color:var(--muted-2);margin-bottom:14px}
+    .service-card .tag{font-size:10px;letter-spacing:2.6px;text-transform:uppercase;color:var(--green);margin-bottom:14px}
     .service-card h3{font-family:var(--serif);font-size:26px;line-height:1.08;margin-bottom:12px;color:var(--white);max-width:13ch}
     .service-card p{font-size:14px;color:#d7d1c8;margin-bottom:16px;line-height:1.72}
     .service-card .issue{font-size:13px;color:var(--white);opacity:.9;line-height:1.75;margin-top:auto}
@@ -2047,8 +2047,8 @@
     <section class="section" style="padding-top:170px">
       <div class="wrap">
         <div class="eyebrow">Aanbod</div>
-        <h1 class="display" style="margin-bottom:14px">Alles draait om één vraag:<br><em>waar klopt het nog niet?</em></h1>
-        <p class="lead" style="margin-bottom:28px">Van e-mail en SEO tot compliance en dashboards: elk aanbod begint bij een probleem dat eerst helder moet worden gemaakt.</p>
+        <h1 class="display" style="margin-bottom:14px">Waar wil je als eerste verbetering zien?</h1>
+        <p class="lead" style="margin-bottom:28px">Kies het resultaat dat nu het meeste verschil maakt voor jouw bedrijf.</p>
         <div class="service-panel">
           <div class="offer-grid" id="offer-grid-main"></div>
         </div>
@@ -2946,10 +2946,10 @@
     ].filter(Boolean);
 
 const offerCards = [
-  {title:'Websites', page:'websites', icon:'◫', short:'Bouwen, verbeteren en onderhouden vanuit één duidelijke webbasis.', issue:'Mijn website oogt goed, maar converteert te weinig.'},
-  {title:'AI & Automation', page:'ai-systemen', icon:'◌', short:'Slimme automatisering voor klantcontact, workflows en dagelijkse operatie.', issue:'Ik verlies te veel tijd aan handmatig werk.'},
-  {title:'Advertenties', page:'advertenties', icon:'◎', short:'Meta en Google Ads gekoppeld aan sterke landingspagina’s, betrouwbare meting en gerichte optimalisatie.', issue:'Mijn advertenties krijgen bereik,<br>maar te weinig goede aanvragen.'},
-  {title:'Email Marketing', page:'email-marketing', icon:'◇', short:'Meer omzet uit je bestaande lijst, zonder handmatig trekken aan campagnes.', issue:'Klanten kopen één keer, maar komen niet terug.'}
+  {title:'Websites', page:'websites', short:'Een duidelijke, snelle website die vertrouwen opbouwt en bezoekers richting contact stuurt.', issue:'Ik wil een website die meer aanvragen oplevert.', cta:'Bekijk websites →'},
+  {title:'AI & Automation', page:'ai-systemen', short:'Automatiseer terugkerende taken, klantcontact en opvolging zonder de persoonlijke benadering kwijt te raken.', issue:'Ik wil minder tijd verliezen aan handmatig werk.', cta:'Bekijk automatisering →'},
+  {title:'Advertenties', page:'advertenties', short:'Meta en Google Ads met sterke landingspagina’s, betrouwbare tracking en gerichte optimalisatie.', issue:'Ik wil meer goede aanvragen uit mijn advertenties.', cta:'Bekijk advertenties →'},
+  {title:'Email Marketing', page:'email-marketing', short:'Slimme e-mailflows die klanten opnieuw laten kopen en automatisch op het juiste moment opvolgen.', issue:'Ik wil meer herhaalaankopen uit mijn bestaande klanten.', cta:'Bekijk emailmarketing →'}
 ];
 
 const serviceRouteItems = [...services, {slug:'ai-systemen', title:'AI & Automation'}];
@@ -4995,12 +4995,10 @@ function createAiSystemsPage(){
       const cardMap = Object.fromEntries(offerCards.map(card => [card.page, card]));
       const renderCard = card => `
         <button class="service-card hover-sheen" onclick="showPage('${card.page}')">
-          <div class="icon">${card.icon}</div>
-          <div class="tag">Core service</div>
+          <div class="tag">${card.title}</div>
           <h3>${card.issue}</h3>
           <p>${card.short}</p>
-          <div class="issue">${card.title}</div>
-          <div class="more">Meer lezen →</div>
+          <div class="more">${card.cta}</div>
         </button>
       `;
       target.innerHTML = `
