@@ -4605,9 +4605,9 @@ const aiSystemsProcess = [
     function buildEmailMarketingOutcomeStrip(service){
       if(service.slug !== 'email-marketing') return '';
       const items = [
-        ['Meer terugkerende klanten','Flows die op logische momenten opnieuw contact maken.'],
-        ['Betere opvolging','Leads en klanten verdwijnen minder snel uit beeld.'],
-        ['Meer waarde per klant','Meer uit bestaande relaties zonder harder te trekken aan losse campagnes.']
+        ['Meer terugkerende klanten','Relevant contact op het moment dat het telt.'],
+        ['Betere opvolging','Leads en klanten raken minder snel uit beeld.'],
+        ['Meer waarde per klant','Meer uit bestaande relaties zonder losse acties.']
       ];
       return `
         <section class="section-tight" style="padding-top:0">
@@ -4690,72 +4690,24 @@ const aiSystemsProcess = [
       `;
     }
 
-    function buildEmailMarketingWhatWeDoSection(service){
-      if(service.slug !== 'email-marketing') return '';
-      const panels = [
-        {
-          title:'Welkom & vertrouwen',
-          flow:[['Start','Inschrijving'],['Flow','Welkomstmail'],['Actie','Eerste actie']],
-          text:'We bouwen een logische eerste opvolging voor nieuwe klanten en leads.'
-        },
-        {
-          title:'Terughalen & herhalen',
-          flow:[['Moment','Aankoop'],['Flow','Relevant moment'],['Doel','Herhaalaankoop']],
-          text:'We activeren bestaande klanten opnieuw met relevante opvolging.'
-        },
-        {
-          title:'Opvolgen & afronden',
-          flow:[['Start','Lead of winkelwagen'],['Flow','Herinnering'],['Doel','Contact of aankoop']],
-          text:'We volgen gemiste kansen automatisch op voordat ze uit beeld verdwijnen.'
-        }
-      ];
-      return `
-        <section class="section-tight">
-          <div class="wrap">
-            <div class="service-section-head" style="max-width:860px">
-              <div class="eyebrow">Wat AIChecked bouwt</div>
-              <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Wat wij bouwen</h2>
-            </div>
-            <div class="email-flow-panel-grid">
-              ${panels.map(panel => `
-                <article class="email-flow-panel">
-                  <h3>${panel.title}</h3>
-                  <div class="email-flow-line">
-                    ${panel.flow.map(step => `
-                      <div class="email-flow-step">
-                        <span class="label">${step[0]}</span>
-                        <strong>${step[1]}</strong>
-                      </div>
-                    `).join('')}
-                  </div>
-                  <p>${panel.text}</p>
-                </article>
-              `).join('')}
-            </div>
-          </div>
-        </section>
-      `;
-    }
-
     function buildEmailMarketingProcessSection(service){
       if(service.slug !== 'email-marketing') return '';
       const steps = [
-        ['01','Analyse','We bekijken waar klanten, leads en omzet nu uit beeld verdwijnen.'],
-        ['02','Structuur','We bepalen welke opvolgmomenten en flows werkelijk relevant zijn.'],
-        ['03','Bouwen','We richten de automatiseringen, teksten en segmenten zorgvuldig in.'],
-        ['04','Verbeteren','We controleren wat werkt en scherpen de opvolging verder aan.']
+        ['01','Klantreis checken','We bekijken waar klanten, leads of aanvragen nu uit beeld verdwijnen.'],
+        ['02','Flows bouwen','We maken automatische opvolging voor de momenten die ertoe doen.'],
+        ['03','Live zetten & verbeteren','We testen de flows, zetten ze live en scherpen ze aan op basis van gedrag.']
       ];
       return `
         <section class="section-tight">
           <div class="wrap">
             <div class="service-section-head" style="max-width:860px">
               <div class="eyebrow">Hoe het werkt</div>
-              <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Zo bouwen we jouw opvolging</h2>
+              <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Zo maken we je opvolging slimmer.</h2>
             </div>
-            <div class="email-process-track">
+            <div class="service-copy-grid">
               ${steps.map(step => `
-                <article class="email-process-step">
-                  <div class="num">${step[0]}</div>
+                <article class="service-impact">
+                  <div class="mini-note" style="margin-bottom:10px">${step[0]}</div>
                   <h3>${step[1]}</h3>
                   <p>${step[2]}</p>
                 </article>
@@ -4889,9 +4841,8 @@ const aiSystemsProcess = [
           ${buildEmailMarketingOutcomeStrip(service)}
           ${buildEmailMarketingWhySection(service)}
           ${buildEmailMarketingJourneySection(service)}
-          ${buildEmailMarketingWhatWeDoSection(service)}
-          ${buildEmailMarketingProcessSection(service)}
           ${buildEmailMarketingResultSection(service)}
+          ${buildEmailMarketingProcessSection(service)}
           ${buildEmailMarketingFaqSection(service)}
           ${buildEmailMarketingFinalCta(service)}
           <footer>${getSharedFooter()}</footer>
