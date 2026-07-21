@@ -657,11 +657,32 @@
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:14px;
 }
+.website-trust-bar{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+}
+.website-trust-pill{
+  min-height:44px;
+  padding:0 14px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.018);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:11px;
+  letter-spacing:1.7px;
+  text-transform:uppercase;
+  color:var(--muted);
+}
 @media (max-width: 1100px){
   .web-build-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .website-trust-bar{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width: 768px){
-  .web-build-steps,.web-highlight-grid{grid-template-columns:1fr}
+  .web-build-steps,.web-highlight-grid,.website-trust-bar{grid-template-columns:1fr}
 }
 .breadcrumb-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted-2);margin-bottom:18px}
     .breadcrumb-row span{color:var(--muted-2)}
@@ -4870,6 +4891,166 @@ const aiSystemsProcess = [
       `;
     }
 
+    function buildWebsitesTrustBar(service){
+      if(service.slug !== 'websites') return '';
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="website-trust-bar">
+              ${['AI Systems','Websites','Advertenties','Email Marketing'].map(item => `<div class="website-trust-pill">${item}</div>`).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildWebsitesCoreSection(service){
+      if(service.slug !== 'websites') return '';
+      const problems = [
+        ['01','Bezoekers zien te laat waarom ze contact moeten opnemen.','De site oogt netjes, maar vertelt niet snel genoeg wat je doet, voor wie het is en waarom jij de juiste partij bent.'],
+        ['02','Pagina’s leiden te weinig richting actie.','Belangrijke informatie, overtuiging en contactmomenten staan niet scherp genoeg in dezelfde route.'],
+        ['03','Marketing stuurt verkeer naar een basis die te weinig opvangt.','Advertenties, SEO en e-mail werken minder hard wanneer de website zelf geen duidelijke volgende stap geeft.']
+      ];
+      const solutions = [
+        ['01','We scherpen de route van eerste indruk naar contact aan.','Structuur, copy en volgorde worden zo opgebouwd dat iemand sneller begrijpt wat relevant is en wat de volgende stap moet zijn.'],
+        ['02','We bouwen meer rust en vertrouwen in de pagina-opbouw.','Sterkere hiërarchie, duidelijkere inhoud en een rustiger ontwerp zorgen dat de site minder uitleg nodig heeft van sales.'],
+        ['03','We zorgen dat techniek, snelheid en formulieren weer meewerken.','De website wordt een sterkere basis voor zichtbaarheid, campagnes en opvolging in plaats van een rem daarop.']
+      ];
+      const deliverables = [
+        ['Wat je ontvangt','Een duidelijke route naar contact','Pagina’s die sneller uitleggen wat je doet en bezoekers logischer richting aanvraag sturen.'],
+        ['Wat je ontvangt','Een website die vertrouwen opbouwt','Meer rust in structuur, inhoud en uitstraling zodat de eerste indruk sterker wordt.'],
+        ['Wat je ontvangt','Een basis die beter blijft werken','Snelheid, formulieren en techniek sluiten weer aan op groei in plaats van losse frustratie te veroorzaken.']
+      ];
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="website-diagnostic-shell">
+              <div>
+                <div class="service-section-head">
+                  <div class="eyebrow">Veelvoorkomende problemen</div>
+                  <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Waar websites vaak te weinig opleveren</h2>
+                  <p>Veel websites zijn niet stuk, maar vangen nog te weinig vertrouwen, aandacht en contactmomenten op.</p>
+                </div>
+                <div class="website-diagnostic-list">
+                  ${problems.map(item => `
+                    <article class="website-diagnostic-item">
+                      <div class="num">${item[0]}</div>
+                      <h3>${item[1]}</h3>
+                      <p>${item[2]}</p>
+                    </article>
+                  `).join('')}
+                </div>
+              </div>
+              <div>
+                <div class="service-section-head">
+                  <div class="eyebrow">Hoe AIChecked dit oplost</div>
+                  <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Van losse pagina’s naar een website die verkoopt</h2>
+                  <p>We behandelen structuur, overtuiging en techniek als één geheel, zodat de website ook echt helpt in groei.</p>
+                </div>
+                <div class="website-consequence-list">
+                  ${solutions.map(item => `
+                    <article class="website-consequence-row">
+                      <div class="num">${item[0]}</div>
+                      <h3>${item[1]}</h3>
+                      <p>${item[2]}</p>
+                    </article>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+            <div class="service-section-head" style="margin-top:26px">
+              <div class="eyebrow">Wat je ontvangt</div>
+              <p>Geen los redesign-traject, maar een websitesysteem dat duidelijker, overtuigender en bruikbaarder wordt.</p>
+            </div>
+            <div class="service-copy-grid">
+              ${deliverables.map(item => `
+                <article class="service-impact">
+                  <span class="kicker" style="display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:10px">${item[0]}</span>
+                  <h3>${item[1]}</h3>
+                  <p>${item[2]}</p>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildWebsitesCaseStudiesSection(service){
+      if(service.slug !== 'websites') return '';
+      const featuredCases = cases.filter(item => item.category === 'build').slice(0, 2);
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="service-section-head">
+              <div class="eyebrow">Case Studies</div>
+              <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Eerst bewijs. Dan de rest.</h2>
+              <p>Voor websites telt vooral wat er verandert in duidelijkheid, vertrouwen en het aantal momenten waarop iemand daadwerkelijk contact opneemt.</p>
+            </div>
+            <div class="case-list">
+              ${featuredCases.map(item => `
+                <article class="case-card hover-sheen">
+                  <div class="case-grid">
+                    <div class="case-content">
+                      <div class="case-meta">
+                        <span class="pill">${item.type}</span>
+                        <span class="pill">${item.period}</span>
+                      </div>
+                      <h3 class="case-title">${item.title}</h3>
+                      <div class="service-copy-grid" style="margin-top:0">
+                        <div class="service-impact">
+                          <h3>Challenge</h3>
+                          <p>${item.summary}</p>
+                        </div>
+                        <div class="service-impact">
+                          <h3>Solution</h3>
+                          <p>${item.steps.join(', ')}.</p>
+                        </div>
+                        <div class="service-impact">
+                          <h3>Result</h3>
+                          <p>${item.metrics.map(metric => `${metric[0]} ${metric[1].toLowerCase()}`).join(', ')}.</p>
+                        </div>
+                      </div>
+                      <div class="btn-row" style="margin-top:18px">
+                        <a class="btn btn-ghost" href="${getPageHref('cases')}">Bekijk case</a>
+                      </div>
+                    </div>
+                    <div class="case-side">
+                      ${item.metrics.map(metric=>`<div class="case-metric"><div class="value">${metric[0]}</div><div class="label">${metric[1]}</div></div>`).join('')}
+                    </div>
+                  </div>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildWebsitesFinalCta(service){
+      if(service.slug !== 'websites') return '';
+      return `
+        <section class="section-tight">
+          <div class="wrap">
+            <div class="website-closing-panel">
+              <div class="website-closing-shell">
+                <div class="service-section-head">
+                  <h2 class="display" style="font-size:clamp(30px,3.2vw,44px);margin-bottom:12px">Wil je weten waar jouw website nog kansen laat liggen?</h2>
+                  <p>We laten zien waar structuur, inhoud, snelheid of formulieren nu nog te weinig bijdragen aan vertrouwen, aanvragen en zichtbaarheid.</p>
+                </div>
+                <div style="display:grid;gap:18px">
+                  <div class="website-closing-actions">
+                    <button class="btn btn-primary" onclick="openCalendar()">Ontvang gratis websitescan</button>
+                    <a class="btn btn-ghost" href="${getPageHref('cases')}">Bekijk cases</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
     function buildWebsitesServicePage(service){
       return `
         <div id="page-${service.slug}" class="page service-page">
@@ -4885,13 +5066,10 @@ const aiSystemsProcess = [
               </div>
             </div>
           </section>
-          ${buildWebsitesDifferentiatorSection(service)}
-          ${buildWebsitesDiagnosticSection(service)}
-          ${buildWebsitesActionPlanSection(service)}
-          ${buildWebsitesGrowthOutcomeSection(service)}
-          ${buildWebsitesStructureSection(service)}
-          ${buildWebsitesHowWeBuildSection(service)}
-          ${buildWebsitesClosingSection(service)}
+          ${buildWebsitesTrustBar(service)}
+          ${buildWebsitesCoreSection(service)}
+          ${buildWebsitesCaseStudiesSection(service)}
+          ${buildWebsitesFinalCta(service)}
           <footer>${getSharedFooter()}</footer>
         </div>
       `;
