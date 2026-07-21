@@ -517,20 +517,29 @@
       position:relative;z-index:0;
       transition:transform .16s var(--ease),border-color .16s var(--ease),background-color .16s var(--ease),color .16s var(--ease),opacity .16s var(--ease),box-shadow .16s var(--ease)
     }
+    #page-aanbod .service-panel{
+      --offer-green:#64ddb6;
+      --offer-green-soft:rgba(100,221,182,.18);
+      --offer-green-line:rgba(100,221,182,.24);
+    }
+    #page-aanbod .eyebrow{color:var(--offer-green)}
     .service-card:hover,
     .service-card:focus-visible,
     .service-card:active{
       background:#0b0c0b;
-      box-shadow:0 0 0 1px rgba(66,216,166,.18);
+      box-shadow:0 0 0 1px var(--offer-green-line);
       z-index:2;
       outline:none;
     }
     .service-card .icon{font-size:18px;color:var(--green);margin-bottom:18px}
-    .service-card .tag{font-size:10px;letter-spacing:2.6px;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+    #page-aanbod .service-card .tag{font-size:10px;letter-spacing:2.6px;text-transform:uppercase;color:var(--offer-green);margin-bottom:14px}
     .service-card h3{font-family:var(--serif);font-size:26px;line-height:1.08;margin-bottom:12px;color:var(--white);max-width:13ch}
     .service-card p{font-size:14px;color:#d7d1c8;margin-bottom:16px;line-height:1.72}
     .service-card .issue{font-size:13px;color:var(--white);opacity:.9;line-height:1.75;margin-top:auto}
-    .service-card .more{font-size:11px;letter-spacing:2.2px;text-transform:uppercase;color:var(--green);margin-top:auto;padding-top:20px}
+    #page-aanbod .service-card .more{font-size:11px;letter-spacing:2.2px;text-transform:uppercase;color:var(--offer-green);margin-top:auto;padding-top:20px}
+    #page-aanbod .service-card:hover .more,
+    #page-aanbod .service-card:focus-visible .more,
+    #page-aanbod .service-card:active .more{color:#8ae8c9}
 
     .split{display:grid;grid-template-columns:1fr 1fr;gap:28px}
     .overview-card,.note-card,.portal-card,.kb-card,.legal-card,.module-card,.upload-card{
