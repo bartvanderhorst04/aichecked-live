@@ -31,7 +31,7 @@
   <meta name="twitter:image" content="https://aichecked.nl/og-aichecked.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet">
   <script type="application/ld+json" id="schema-json">
   {
     "@context": "https://schema.org",
@@ -64,9 +64,10 @@
       --green-line:rgba(66,216,166,.28);
       --green-glow:rgba(66,216,166,.12);
       --white:#fbfaf7;
-      --serif:'Playfair Display',serif;
-      --sans:'Inter',sans-serif;
-      --cookie-sans:'Manrope',sans-serif;
+      --font-primary:'Montserrat',sans-serif;
+      --serif:var(--font-primary);
+      --sans:var(--font-primary);
+      --cookie-sans:var(--font-primary);
       --mono:'JetBrains Mono',monospace;
       --ease:cubic-bezier(.22,.61,.36,1);
       --radius:18px;
@@ -76,8 +77,8 @@
     body{
       background:var(--bg);
       color:var(--text);
-      font-family:var(--sans);
-      font-weight:300;
+      font-family:var(--font-primary);
+      font-weight:400;
       line-height:1.8;
       overflow-x:hidden;
       -webkit-font-smoothing:antialiased;
@@ -118,16 +119,17 @@
       margin-bottom:20px
     }
     .eyebrow::before{content:'';width:18px;height:1px;background:rgba(255,255,255,.3)}
-    h1,h2,h3,h4{font-weight:400}
+    h1,h2,h3,h4{font-family:var(--font-primary);font-weight:800}
+    em{font-style:normal}
     .hero-title,.display{
-      font-family:var(--serif);
+      font-family:var(--font-primary);
       color:var(--white);
       line-height:1.02;
       letter-spacing:-.75px;
     }
     .hero-title{font-size:clamp(52px,6.8vw,82px)}
     .display{font-size:clamp(38px,4.4vw,62px)}
-    .hero-title em,.display em{color:var(--green);font-style:italic}
+    .hero-title em,.display em{color:var(--green);font-style:normal}
     .lead{font-size:16px;color:var(--muted);max-width:620px;line-height:1.92}
     .small{font-size:14px;color:var(--muted);line-height:1.9}
     .muted{color:var(--muted)}
@@ -978,7 +980,7 @@
     .dashboard-main{margin-left:256px;flex:1;padding:40px 34px 80px}
     .dashboard-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--line)}
     .dashboard-top h1{font-family:var(--serif);font-size:52px;line-height:1.02}
-    .dashboard-top h1 em{color:var(--green);font-style:italic}
+    .dashboard-top h1 em{color:var(--green);font-style:normal}
     .dashboard-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
     .note-card{border-left:2px solid var(--green);margin-bottom:16px}
     .two-col{display:grid;grid-template-columns:1.6fr .9fr;gap:14px}
@@ -1045,7 +1047,7 @@
       letter-spacing:-.04em;
       margin-bottom:18px
     }
-    .admin-hero-copy h1 em{color:var(--green);font-style:italic}
+    .admin-hero-copy h1 em{color:var(--green);font-style:normal}
     .admin-hero-copy p{
       max-width:620px;
       font-size:17px;
@@ -2146,7 +2148,7 @@
           <div>
             <div class="eyebrow">AI, websites en digitale controle</div>
             <h1 class="hero-title" style="font-size:clamp(48px,4.8vw,72px);line-height:1;max-width:720px">AI, websites en marketing.<br><em>Zonder meetruis.</em></h1>
-            <p class="lead" style="margin:16px 0 6px;color:var(--green);font-style:italic;max-width:620px">Compliance, tracking en performance op één betrouwbare basis.</p>
+            <p class="lead" style="margin:16px 0 6px;color:var(--green);font-style:normal;max-width:620px">Compliance, tracking en performance op één betrouwbare basis.</p>
             <p class="lead" style="margin:0 0 20px;max-width:650px">AIChecked helpt bedrijven grip houden op AI, advertenties, websites en AI compliance, zodat groei niet lekt op fouten in consent, meting of infrastructuur.</p>
             <div class="btn-row">
               <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
@@ -2887,7 +2889,7 @@
       <div class="login-grid">
         <div class="form-card login-card hover-sheen">
           <div class="eyebrow">Klant login</div>
-          <h2 style="font-family:var(--serif);font-size:38px;line-height:1.06;margin-bottom:10px">Jouw status,<br><em style="color:var(--green);font-style:italic">scans en updates.</em></h2>
+          <h2 style="font-family:var(--serif);font-size:38px;line-height:1.06;margin-bottom:10px">Jouw status,<br><em style="color:var(--green);font-style:normal">scans en updates.</em></h2>
           <p class="small" style="margin-bottom:18px">Log in om je actieve diensten, laatste updates, rapportages en open acties terug te zien.</p>
           <div class="field"><label>E-mailadres</label><input id="login-email" type="email" placeholder="naam@bedrijf.nl"></div>
           <div class="field"><label>Wachtwoord</label><input id="login-pass" type="password" placeholder="••••••••"></div>

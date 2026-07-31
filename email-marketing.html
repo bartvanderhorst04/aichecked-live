@@ -24,7 +24,7 @@
   <meta name="twitter:image" content="https://aichecked.nl/favicon-192x192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet">
   <script type="application/ld+json" id="schema-json">
   {
     "@context": "https://schema.org",
@@ -57,9 +57,10 @@
       --green-line:rgba(66,216,166,.28);
       --green-glow:rgba(66,216,166,.12);
       --white:#fbfaf7;
-      --serif:'Playfair Display',serif;
-      --sans:'Inter',sans-serif;
-      --cookie-sans:'Manrope',sans-serif;
+      --font-primary:'Montserrat',sans-serif;
+      --serif:var(--font-primary);
+      --sans:var(--font-primary);
+      --cookie-sans:var(--font-primary);
       --mono:'JetBrains Mono',monospace;
       --ease:cubic-bezier(.22,.61,.36,1);
       --radius:18px;
@@ -69,8 +70,8 @@
     body{
       background:var(--bg);
       color:var(--text);
-      font-family:var(--sans);
-      font-weight:300;
+      font-family:var(--font-primary);
+      font-weight:400;
       line-height:1.8;
       overflow-x:hidden;
       -webkit-font-smoothing:antialiased;
@@ -111,16 +112,17 @@
       margin-bottom:20px
     }
     .eyebrow::before{content:'';width:18px;height:1px;background:rgba(255,255,255,.3)}
-    h1,h2,h3,h4{font-weight:400}
+    h1,h2,h3,h4{font-family:var(--font-primary);font-weight:800}
+    em{font-style:normal}
     .hero-title,.display{
-      font-family:var(--serif);
+      font-family:var(--font-primary);
       color:var(--white);
       line-height:1.02;
       letter-spacing:-.75px;
     }
     .hero-title{font-size:clamp(52px,6.8vw,82px)}
     .display{font-size:clamp(38px,4.4vw,62px)}
-    .hero-title em,.display em{color:var(--green);font-style:italic}
+    .hero-title em,.display em{color:var(--green);font-style:normal}
     .lead{font-size:16px;color:var(--muted);max-width:620px;line-height:1.92}
     .small{font-size:14px;color:var(--muted);line-height:1.9}
     .muted{color:var(--muted)}
@@ -616,17 +618,63 @@
     .email-problem-item h3{font-family:var(--serif);font-size:24px;line-height:1.08;color:var(--white);margin:0}
     .email-problem-item p{font-size:15px;line-height:1.78;color:#d7d1c8;margin:0}
     .email-problem-item .mini-note{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green)}
-    .email-journey-section{display:grid;gap:18px}
-    .email-journey-track{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
-    .email-journey-track::before{content:"";position:absolute;left:0;right:0;top:23px;height:1px;background:linear-gradient(90deg,rgba(66,216,166,.18),rgba(66,216,166,.55),rgba(66,216,166,.18))}
-    .email-journey-stage{position:relative;display:grid;gap:12px}
-    .email-stage-marker{
-      width:46px;height:46px;border-radius:999px;border:1px solid rgba(66,216,166,.22);display:grid;place-items:center;
-      background:#060707;color:var(--green);font-size:12px;letter-spacing:2px;text-transform:uppercase;z-index:1
+    .email-journey-section{display:grid;gap:28px}
+    .email-journey-track{
+      position:relative;
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:1.5rem;
+      align-items:stretch;
+      padding-inline:4px
     }
-    .email-stage-card{min-height:174px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.026),rgba(255,255,255,.012));padding:20px}
-    .email-stage-card strong{display:block;font-family:var(--serif);font-size:24px;line-height:1.08;color:var(--white);margin-bottom:10px}
-    .email-stage-card p{font-size:14px;line-height:1.72;color:#d5d0c7;margin:0}
+    .email-journey-track::before{
+      content:"";
+      position:absolute;
+      left:10%;
+      right:10%;
+      top:23px;
+      height:1px;
+      background:rgba(255,255,255,.15)
+    }
+    .email-journey-stage{
+      position:relative;
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      align-items:stretch;
+      gap:14px;
+      height:100%
+    }
+    .email-stage-marker{
+      width:46px;height:46px;border-radius:999px;border:1px solid rgba(66,216,166,.26);display:grid;place-items:center;
+      background:#060707;color:var(--green);font-size:12px;letter-spacing:2px;text-transform:uppercase;z-index:1;
+      margin:0 auto
+    }
+    .email-stage-card{
+      min-height:174px;
+      height:100%;
+      flex:1;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:linear-gradient(180deg,rgba(255,255,255,.026),rgba(255,255,255,.012));
+      padding:22px 20px 20px
+    }
+    .email-stage-card strong{
+      display:block;
+      font-family:var(--serif);
+      font-size:clamp(18px,1.35vw,23px);
+      line-height:1.08;
+      color:var(--white);
+      margin-bottom:12px;
+      text-wrap:balance;
+      overflow-wrap:anywhere
+    }
+    .email-stage-card p{
+      font-size:14px;
+      line-height:1.72;
+      color:#d5d0c7;
+      margin:0
+    }
     .email-flow-panel-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
     .email-flow-panel{
       border:1px solid var(--line);border-radius:24px;padding:22px;
@@ -685,8 +733,6 @@
     }
     @media (max-width:900px){
       .email-hero-grid,.email-problem-grid,.email-flow-panel-grid,.email-outcome-strip,.email-result-list{grid-template-columns:1fr}
-      .email-journey-track,.email-process-track{grid-template-columns:1fr}
-      .email-journey-track::before,.email-process-track::before{display:none}
       .email-stage-card,.email-outcome-cell{min-height:auto}
       .email-flow-line{grid-template-columns:1fr}
       .email-flow-step:not(:last-child)::after{display:none}
@@ -698,6 +744,30 @@
       .email-hero-node{grid-template-columns:auto 1fr;align-items:start}
       .email-node-state{grid-column:2/3;text-align:left}
       .email-final-trust span,.email-result-list span{width:100%;justify-content:center}
+      .email-journey-track{
+        grid-template-columns:1fr;
+        gap:1.5rem;
+        padding-inline:0
+      }
+      .email-journey-track::before{
+        left:22px;
+        right:auto;
+        top:22px;
+        bottom:22px;
+        width:1px;
+        height:auto;
+        background:linear-gradient(180deg,rgba(66,216,166,.14),rgba(66,216,166,.52),rgba(66,216,166,.14))
+      }
+      .email-journey-stage{
+        grid-template-columns:auto 1fr;
+        grid-template-rows:none;
+        align-items:start;
+        gap:16px
+      }
+      .email-stage-marker{
+        width:44px;
+        height:44px
+      }
     }
     .service-proof-card .kicker,.service-kpi .kicker{display:block;font-size:10px;letter-spacing:2.6px;text-transform:uppercase;color:var(--green);margin-bottom:12px}
     .service-proof-card .value,.service-kpi .value{font-family:var(--serif);font-size:40px;line-height:1;color:var(--white);margin-bottom:10px}
@@ -891,7 +961,7 @@
     .dashboard-main{margin-left:256px;flex:1;padding:40px 34px 80px}
     .dashboard-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--line)}
     .dashboard-top h1{font-family:var(--serif);font-size:52px;line-height:1.02}
-    .dashboard-top h1 em{color:var(--green);font-style:italic}
+    .dashboard-top h1 em{color:var(--green);font-style:normal}
     .dashboard-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
     .note-card{border-left:2px solid var(--green);margin-bottom:16px}
     .two-col{display:grid;grid-template-columns:1.6fr .9fr;gap:14px}
@@ -958,7 +1028,7 @@
       letter-spacing:-.04em;
       margin-bottom:18px
     }
-    .admin-hero-copy h1 em{color:var(--green);font-style:italic}
+    .admin-hero-copy h1 em{color:var(--green);font-style:normal}
     .admin-hero-copy p{
       max-width:620px;
       font-size:17px;
@@ -2018,7 +2088,7 @@
           <div>
             <div class="eyebrow">AI, websites en digitale controle</div>
             <h1 class="hero-title" style="font-size:clamp(48px,4.8vw,72px);line-height:1;max-width:720px">AI, websites en marketing.<br><em>Zonder meetruis.</em></h1>
-            <p class="lead" style="margin:16px 0 6px;color:var(--green);font-style:italic;max-width:620px">Compliance, tracking en performance op één betrouwbare basis.</p>
+            <p class="lead" style="margin:16px 0 6px;color:var(--green);font-style:normal;max-width:620px">Compliance, tracking en performance op één betrouwbare basis.</p>
             <p class="lead" style="margin:0 0 20px;max-width:650px">AIChecked helpt bedrijven grip houden op AI, advertenties, websites en compliance, zodat groei niet lekt op fouten in consent, meting of infrastructuur.</p>
             <div class="btn-row">
               <button class="btn btn-primary" onclick="openCalendar()">Plan gesprek</button>
@@ -2763,7 +2833,7 @@
       <div class="login-grid">
         <div class="form-card login-card hover-sheen">
           <div class="eyebrow">Klant login</div>
-          <h2 style="font-family:var(--serif);font-size:38px;line-height:1.06;margin-bottom:10px">Jouw status,<br><em style="color:var(--green);font-style:italic">scans en updates.</em></h2>
+          <h2 style="font-family:var(--serif);font-size:38px;line-height:1.06;margin-bottom:10px">Jouw status,<br><em style="color:var(--green);font-style:normal">scans en updates.</em></h2>
           <p class="small" style="margin-bottom:18px">Log in om je actieve diensten, laatste updates, rapportages en open acties terug te zien.</p>
           <div class="field"><label>E-mailadres</label><input id="login-email" type="email" placeholder="naam@bedrijf.nl"></div>
           <div class="field"><label>Wachtwoord</label><input id="login-pass" type="password" placeholder="••••••••"></div>
@@ -4643,7 +4713,7 @@ const aiSystemsProcess = [
             <div class="email-problem-shell">
               <div class="email-problem-head">
                 <div class="eyebrow">Waarom klanten verdwijnen</div>
-                <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Je haalt een klant binnen.<br>Daarna stopt de opvolging.</h2>
+                <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Je haalt een klant binnen.<br>Daarna stopt de <span style="color:var(--green)">opvolging</span>.</h2>
                 <p>Goede e-mailmarketing draait niet om vaker mailen, maar om op het juiste moment relevant opvolgen.</p>
               </div>
               <div class="email-problem-grid">
@@ -4676,10 +4746,10 @@ const aiSystemsProcess = [
             <div class="email-journey-section">
               <div class="service-section-head" style="max-width:880px">
                 <div class="eyebrow">Visual customer journey</div>
-                <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Van eerste contact naar een klant die terugkomt.</h2>
+                <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Van eerste contact naar een klant die <span style="color:var(--green)">terugkomt</span>.</h2>
               </div>
-              <div class="email-journey-track">
-                ${steps.map(step => `
+            <div class="email-journey-track">
+              ${steps.map(step => `
                   <div class="email-journey-stage">
                     <div class="email-stage-marker">${step[0]}</div>
                     <div class="email-stage-card">
@@ -4697,30 +4767,7 @@ const aiSystemsProcess = [
 
     function buildEmailMarketingProcessSection(service){
       if(service.slug !== 'email-marketing') return '';
-      const steps = [
-        ['01','Klantreis checken','We bekijken waar klanten, leads of aanvragen nu uit beeld verdwijnen.'],
-        ['02','Flows bouwen','We maken automatische opvolging voor de momenten die ertoe doen.'],
-        ['03','Live zetten & verbeteren','We testen de flows, zetten ze live en scherpen ze aan op basis van gedrag.']
-      ];
-      return `
-        <section class="section-tight">
-          <div class="wrap">
-            <div class="service-section-head" style="max-width:860px">
-              <div class="eyebrow">Hoe het werkt</div>
-              <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Zo maken we je opvolging slimmer.</h2>
-            </div>
-            <div class="service-copy-grid">
-              ${steps.map(step => `
-                <article class="service-impact">
-                  <div class="mini-note" style="margin-bottom:10px">${step[0]}</div>
-                  <h3>${step[1]}</h3>
-                  <p>${step[2]}</p>
-                </article>
-              `).join('')}
-            </div>
-          </div>
-        </section>
-      `;
+      return '';
     }
 
     function buildEmailMarketingResultSection(service){
@@ -4730,7 +4777,7 @@ const aiSystemsProcess = [
         <section class="section-tight">
           <div class="wrap">
             <div class="email-result-block">
-              <h2 class="display">Je hoeft niet vaker te mailen.<br>Je moet beter opvolgen.</h2>
+              <h2 class="display" style="font-size:clamp(32px,3.35vw,56px);line-height:1.02"><span style="display:block;white-space:nowrap">Je hoeft niet vaker te mailen.</span><span style="display:block;white-space:nowrap">Je moet <span style="color:var(--green)">beter opvolgen</span>.</span></h2>
               <p>Met een duidelijke klantreis verdwijnen klanten en leads niet meer stilletjes uit beeld.</p>
               <div class="email-result-list">
                 ${items.map(item => `<span>${item}</span>`).join('')}
@@ -4755,7 +4802,7 @@ const aiSystemsProcess = [
           <div class="wrap">
             <div class="service-section-head" style="max-width:860px">
               <div class="eyebrow">Veelgestelde vragen</div>
-              <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Veelgestelde vragen</h2>
+              <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Veelgestelde <span style="color:var(--green)">vragen</span></h2>
             </div>
             <div class="email-faq-list">
               ${items.map((item,index) => `
@@ -4779,7 +4826,7 @@ const aiSystemsProcess = [
             <div class="email-final-cta">
               <div class="service-section-head" style="max-width:780px">
                 <div class="eyebrow">Final CTA</div>
-                <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Laat je klanten niet verdwijnen na één aankoop.</h2>
+                <h2 class="display" style="font-size:clamp(34px,3.8vw,54px);margin-bottom:12px">Laat je klanten niet <span style="color:var(--green)">verdwijnen</span> na één aankoop.</h2>
                 <p>Plan een korte scan. Dan bekijken we waar jouw bedrijf opvolging, herhaalaankopen en klantcommunicatie laat liggen.</p>
               </div>
               <div class="website-closing-actions">

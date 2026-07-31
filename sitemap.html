@@ -17,7 +17,7 @@
     *{box-sizing:border-box;margin:0;padding:0}
     :root{
       --bg:#080907;--panel:#111311;--line:rgba(255,255,255,.08);--text:#f0ede7;--muted:#b1aca2;--green:#42d8a6;
-      --serif:"Playfair Display",serif;--sans:Inter,system-ui,sans-serif;--content:1120px;--radius:18px;
+      --font-primary:"Montserrat",sans-serif;--serif:var(--font-primary);--sans:var(--font-primary);--content:1120px;--radius:18px;
     }
     body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.8;-webkit-font-smoothing:antialiased}
     .wrap{max-width:var(--content);margin:0 auto;padding:0 32px}
@@ -25,9 +25,9 @@
     .hero{padding:140px 0 36px}
     .eyebrow{display:inline-flex;align-items:center;gap:12px;color:rgba(255,255,255,.48);font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:500;margin-bottom:18px}
     .eyebrow:before{content:"";width:18px;height:1px;background:rgba(255,255,255,.3)}
-    h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05}
+    h1,h2,h3{font-family:var(--serif);font-weight:800;line-height:1.05}
     h1{font-size:clamp(42px,5vw,66px);margin-bottom:14px}
-    h1 em{color:var(--green);font-style:italic}
+    h1 em{color:var(--green);font-style:normal}
     p{color:var(--muted);font-size:16px}
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));border:1px solid var(--line);border-radius:var(--radius);padding:24px}
@@ -42,7 +42,7 @@
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <main>
