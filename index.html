@@ -478,27 +478,26 @@
       text-transform:uppercase;
       color:rgba(240,245,242,.58)
     }
-    .logo-marquee,
-    .logo-slider-card{
-      mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);
-      -webkit-mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent)
-    }
     .logo-marquee{
       position:relative;
-      overflow:hidden
+      overflow:hidden;
+      mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);
+      -webkit-mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent)
     }
     .logo-track,
     .logo-slider-track{
       display:flex;
-      gap:1.5rem;
+      gap:16px;
       width:max-content;
-      animation:logoMarquee 30s linear infinite
+      animation:logoMarquee 32s linear infinite;
+      will-change:transform
     }
     @keyframes logoMarquee{
       from{transform:translateX(0)}
-      to{transform:translateX(calc(-50% - 9px))}
+      to{transform:translateX(calc(-50% - 8px))}
     }
-    .logo-marquee:hover .logo-track{animation-play-state:paused}
+    .logo-slider-card:hover .logo-track,
+    .logo-slider-card:hover .logo-slider-track{animation-play-state:paused}
     .logo-slide{
       width:156px;
       min-width:156px;
@@ -509,7 +508,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:18px;
+      padding:16px 18px;
       transition:opacity .16s var(--ease),border-color .16s var(--ease),background-color .16s var(--ease),transform .16s var(--ease)
     }
     .logo-slide:hover{
@@ -522,23 +521,15 @@
       width:100%;
       height:100%;
       object-fit:contain;
-      filter:grayscale(1) brightness(1.45);
-      opacity:.6;
-      transition:opacity .16s var(--ease),filter .16s var(--ease)
+      object-position:center;
+      opacity:.96;
+      transition:opacity .16s var(--ease),filter .16s var(--ease),transform .16s var(--ease)
     }
     .logo-slide:hover img{
       opacity:1;
-      filter:grayscale(1) brightness(1.7)
+      transform:scale(1.01)
     }
-    .logo-slide span{
-      display:none;
-      font-size:12px;
-      font-weight:500;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:rgba(240,245,242,.72)
-    }
-    .logo-slide.is-placeholder span{display:block}
+    .logo-slide span{display:none}
     @keyframes heroLoadUp{
       from{opacity:0;transform:translateY(20px)}
       to{opacity:1;transform:translateY(0)}
@@ -553,6 +544,11 @@
       .hero-home-copy > *:nth-child(3){animation-delay:240ms}
     }
     @media (prefers-reduced-motion:reduce){
+      .logo-track,
+      .logo-slider-track{
+        animation:none!important;
+        transform:none!important
+      }
       .hero-home-copy > *{
         animation:none!important;
         opacity:1!important;
@@ -2624,15 +2620,15 @@
             </div>
           </div>
           <div class="hero-home-slider logo-slider-card" aria-label="Merken waarmee AIChecked werkt">
-            <p class="hero-home-slider-label">Samenwerkingen & merken</p>
+            <p class="hero-home-slider-label">Samenwerkingen</p>
             <div class="logo-marquee">
               <div class="logo-track logo-slider-track">
-                <div class="logo-slide"><img src="/assets/logos/logo-1.png" alt="Logo 1" onerror="this.style.display='none';this.parentElement.classList.add('is-placeholder')"><span>Logo 1</span></div>
-                <div class="logo-slide"><img src="/assets/logos/logo-2.png" alt="Logo 2" onerror="this.style.display='none';this.parentElement.classList.add('is-placeholder')"><span>Logo 2</span></div>
-                <div class="logo-slide"><img src="/assets/logos/logo-3.png" alt="Logo 3" onerror="this.style.display='none';this.parentElement.classList.add('is-placeholder')"><span>Logo 3</span></div>
-                <div class="logo-slide"><img src="/assets/logos/logo-1.png" alt="Logo 1" onerror="this.style.display='none';this.parentElement.classList.add('is-placeholder')"><span>Logo 1</span></div>
-                <div class="logo-slide"><img src="/assets/logos/logo-2.png" alt="Logo 2" onerror="this.style.display='none';this.parentElement.classList.add('is-placeholder')"><span>Logo 2</span></div>
-                <div class="logo-slide"><img src="/assets/logos/logo-3.png" alt="Logo 3" onerror="this.style.display='none';this.parentElement.classList.add('is-placeholder')"><span>Logo 3</span></div>
+                <div class="logo-slide"><img src="public/images/merken/thm.png" alt="THM logo"></div>
+                <div class="logo-slide"><img src="public/images/merken/dbs-kozijnen.png" alt="DBS Kozijnen logo"></div>
+                <div class="logo-slide"><img src="public/images/merken/wim-van-breda.png" alt="Wim van Breda logo"></div>
+                <div class="logo-slide" aria-hidden="true"><img src="public/images/merken/thm.png" alt=""></div>
+                <div class="logo-slide" aria-hidden="true"><img src="public/images/merken/dbs-kozijnen.png" alt=""></div>
+                <div class="logo-slide" aria-hidden="true"><img src="public/images/merken/wim-van-breda.png" alt=""></div>
               </div>
             </div>
           </div>
