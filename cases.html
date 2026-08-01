@@ -3044,31 +3044,40 @@ const aiSystemsProcess = [
 
     const cases = [
       {
-        title:'Nieuwe website met betere structuur en hogere conversie',
-        type:'Website build',
-        period:'8 weken',
-        category:'build',
-        summary:'De vorige website voelde verouderd aan, laadde traag en stuurde bezoekers slecht door. Door een nieuwe structuur, rustigere UX en technische optimalisatie ontstond een sterkere basis voor zichtbaarheid en aanvragen.',
-        steps:['Nieuwe informatiearchitectuur','Conversiegerichte opbouw','SEO-technische basis verbeterd'],
-        metrics:[['+29%','Meer aanvragen'],['1.4s','Gemiddelde laadtijd'],['+41%','Meer mobiel verkeer']]
+        company:'DBS Kozijnen',
+        title:'Regionale Meta Ads voor meer verkeer naar DBS Kozijnen',
+        type:'ADVERTENTIES',
+        period:'META ADS',
+        category:'advertisements',
+        summary:'Voor DBS Kozijnen zijn gerichte Meta-campagnes ingericht voor Facebook en Instagram. De advertenties werden regionaal vertoond aan mensen met interesse in nieuwe kozijnen, waardoor aanzienlijk meer relevante bezoekers naar de website werden gestuurd.',
+        results:['11× meer websitebezoekers','6,01% CTR','€0,17 gemiddelde CPC'],
+        metrics:[['11×','Meer websitebezoekers'],['6,01%','CTR'],['€0,17','Gemiddelde CPC']],
+        metricNote:'Resultaten gemeten tijdens de campagneperiode. Websiteverkeer vergeleken met de eerdere vergelijkbare periode.',
+        ctaLabel:'BEKIJK CASE'
       },
       {
-        title:'Flows en campagnes opnieuw ingericht voor meer controle',
-        type:'Email & Ads',
-        period:'Doorlopend',
-        category:'growth',
-        summary:'Campagnes draaiden zonder vaste structuur en emailflows werden nauwelijks benut. Door segmentatie, automatisering en een nieuwe campagne-opbouw ontstond meer grip op retentie en acquisitie.',
-        steps:['Emailflows opnieuw ingericht','Campagnes opgesplitst per funnel','Tracking en attributie verbeterd'],
-        metrics:[['44%','Gemiddelde open rate'],['4.7x','Gemiddelde ROAS'],['+31%','Meer terugkerende klanten']]
+        company:'Wim van Breda',
+        title:'Meerdere machines afzonderlijk gepositioneerd via Meta Ads',
+        type:'ADVERTENTIES',
+        period:'MACHINECAMPAGNES',
+        category:'advertisements',
+        summary:'Voor Wim van Breda zijn meerdere Meta-advertenties ingericht voor verschillende machines en toepassingen. Iedere machine kreeg een eigen campagne, boodschap, advertentiemateriaal en relevante landingspagina. Hierdoor kon iedere doelgroep gerichter worden aangesproken.',
+        results:['+35% meer websitebezoekers','Meerdere machinecampagnes','Facebook & Instagram'],
+        metrics:[['+35%','Meer websitebezoekers'],['Meerdere','Machinecampagnes'],['Facebook','& Instagram']],
+        metricNote:'Websiteverkeer gemeten tijdens de campagneperiode ten opzichte van de eerdere vergelijkbare periode.',
+        ctaLabel:'BEKIJK CASE'
       },
       {
-        title:'Tracking en dashboards opnieuw stabiel ingericht',
-        type:'Tracking & data',
-        period:'6 weken',
-        category:'data',
-        summary:'Door foutieve consentinstellingen en dubbele events waren rapportages onbetrouwbaar geworden. Tracking, dashboards en monitoring zijn opnieuw ingericht voor stabielere data en beter inzicht.',
-        steps:['Consentinstellingen aangepast','Dubbele events verwijderd','Dashboardstructuur verbeterd'],
-        metrics:[['+38%','Meer bruikbare data'],['-62%','Minder meetfouten'],['100%','Correcte eventmeting']]
+        company:'Wim van Breda',
+        title:'Gerichte e-mailcampagnes voor machines, onderdelen en seizoensaanbod',
+        type:'EMAIL MARKETING',
+        period:'MAILCHIMP',
+        category:'email-marketing',
+        summary:'Voor Wim van Breda zijn structurele Mailchimp-campagnes ontwikkeld rondom machines, onderdelen, occasions en actuele seizoensmomenten. Door relevante onderwerpen naar passende doelgroepen te sturen, werden klanten opnieuw naar het aanbod en de website geleid.',
+        results:['28,8% gemiddelde open rate','4,6% gemiddelde klikrate','6,9% hoogste klikrate'],
+        metrics:[['28,8%','Gemiddelde open rate'],['4,6%','Gemiddelde klikrate'],['6,9%','Hoogste klikrate']],
+        metricNote:'Gebaseerd op de oorspronkelijke campagnes uit de gemeten periode. Resends zijn niet meegenomen in de gemiddelden.',
+        ctaLabel:'BEKIJK CASE'
       }
     ];
 
@@ -5060,10 +5069,16 @@ function createAiSystemsPage(){
               <div class="case-meta">
                 <span class="pill">${item.type}</span>
                 <span class="pill">${item.period}</span>
+                ${item.company ? `<span class="pill">${item.company}</span>` : ''}
               </div>
               <h3 class="case-title">${item.title}</h3>
               <p class="lead" style="font-size:15px;max-width:none;margin-bottom:16px">${item.summary}</p>
-              <div class="service-copy-grid" style="margin-top:0">
+              ${[
+                ['Website', item.website],
+                ['Ads', item.ads],
+                ['AI', item.ai],
+                ['Email Marketing', item.emailMarketing]
+              ].filter(([, value]) => value).length ? `<div class="service-copy-grid" style="margin-top:0">
                 ${[
                   ['Website', item.website],
                   ['Ads', item.ads],
@@ -5075,11 +5090,12 @@ function createAiSystemsPage(){
                     <p>${value}</p>
                   </div>
                 `).join('')}
-              </div>
+              </div>` : ''}
               ${item.results ? `<div class="overview-card" style="margin-top:16px"><h3 style="font-size:20px">Results</h3><ul class="bullet-list">${item.results.map(result => `<li>${result}</li>`).join('')}</ul></div>` : ''}
             </div>
             <div class="case-side">
               ${item.metrics.map(metric=>`<div class="case-metric"><div class="value">${metric[0]}</div><div class="label">${metric[1]}</div></div>`).join('')}
+              ${item.metricNote ? `<div class="case-metric" style="background:transparent;padding:4px 0 0;border-radius:0"><div class="label" style="letter-spacing:0;text-transform:none;font-size:12px;line-height:1.7;color:#cfc8bf;margin-top:0">${item.metricNote}</div></div>` : ''}
             </div>
           </div>
         </div>
