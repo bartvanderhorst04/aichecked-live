@@ -2644,6 +2644,7 @@
         max-width:100%;
         gap:12px;
         margin-top:24px;
+        margin-bottom:20px;
         padding:0 20px;
         justify-content:flex-start;
         box-sizing:border-box;
@@ -2675,7 +2676,7 @@
         position:relative;
         width:calc(100% - 32px);
         max-width:390px;
-        margin:32px auto 0;
+        margin:20px auto 0;
         left:auto !important;
         right:auto !important;
         inset-inline:auto !important;
@@ -2708,16 +2709,21 @@
       .hero-home-partners{
         width:calc(100% - 32px);
         max-width:430px;
-        margin:28px auto 0;
+        margin:24px auto 0;
+        margin-left:auto !important;
+        margin-right:auto !important;
+        box-sizing:border-box;
+        overflow:hidden;
       }
       .hero-home-slider{
         width:100%;
         min-height:0;
         height:auto;
         margin-top:0;
-        padding:22px 0 18px;
+        padding:20px 16px 18px;
         border-radius:24px;
         overflow:hidden;
+        box-sizing:border-box;
       }
       .hero-home-slider-label{
         margin:0;
@@ -2730,6 +2736,7 @@
         width:100%;
         overflow:hidden;
         margin-top:22px;
+        max-width:100%;
       }
       .logo-track,
       .logo-slider-track{
@@ -2744,7 +2751,7 @@
         display:flex;
         align-items:center;
         gap:30px;
-        padding:0 22px;
+        padding:0 8px;
       }
       .logo-slide{
         flex:0 0 auto;
@@ -2781,6 +2788,11 @@
       @keyframes logoMarqueeMobile{
         from{transform:translateX(0)}
         to{transform:translateX(-50%)}
+      }
+      body,
+      .hero-shell,
+      .hero-home-grid{
+        overflow-x:clip;
       }
     }
     .atmosphere{position:fixed;inset:0;pointer-events:none;z-index:-3;overflow:hidden}
