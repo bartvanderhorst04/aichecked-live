@@ -1245,9 +1245,58 @@
       .ai-result-tags span{width:100%;justify-content:center}
       .ai-problem-item + .ai-problem-item{border-left:none;border-top:1px solid var(--line)}
       .hero-home-grid{grid-template-columns:1fr;gap:28px}
-      .hero-home-media{min-height:0}
-      .hero-home-portrait{width:min(100%,440px);margin:0 auto}
-      .hero-home-partners{margin-top:0}
+      .hero-home-media{
+        order:2;
+        min-height:0;
+        width:calc(100% - 32px);
+        max-width:100%;
+        margin:0 auto;
+        padding:0;
+        align-items:flex-start;
+        justify-content:center;
+        overflow:visible
+      }
+      .hero-home-media::before{
+        inset:10% 10% 2%;
+        filter:blur(18px)
+      }
+      .hero-home-portrait{
+        width:100%;
+        max-width:440px;
+        margin:0 auto;
+        border-radius:22px;
+        overflow:hidden;
+        aspect-ratio:auto;
+        align-items:flex-start;
+        justify-content:center;
+        background:transparent
+      }
+      .hero-home-portrait img{
+        width:100%;
+        height:auto;
+        max-height:560px;
+        object-fit:contain;
+        object-position:center top;
+        margin:0 auto
+      }
+      .hero-home-partners{
+        order:3;
+        width:calc(100% - 32px);
+        max-width:100%;
+        margin:0 auto
+      }
+      .hero-home-slider{
+        margin-top:0;
+        padding:20px 18px;
+        min-height:auto;
+        height:auto
+      }
+      .hero-home-slider-label{
+        margin-bottom:14px
+      }
+      .logo-marquee{
+        padding:0
+      }
       .route-grid{grid-template-columns:1fr}
     }
     .breadcrumb-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted-2);margin-bottom:18px}
@@ -2419,7 +2468,7 @@
       .hero-home-slider{max-width:100%;margin-left:0}
       .growth-system-title{font-size:clamp(2.25rem,3.85vw,4.4rem)}
     }
-@media(max-width:860px){
+    @media(max-width:860px){
   #main-nav{top:14px;left:14px;right:14px;min-height:62px;padding:0 16px}#main-nav.scrolled{top:14px}
       .wrap{padding:0 20px}
       .nav-links{display:none}.nav-toggle{display:flex}
@@ -2506,6 +2555,9 @@
         width:100%;
         height:320px;
       }
+      #page-over-ons .about-diploma-image{
+        display:none !important;
+      }
       .section{padding:88px 0}
       .footer-bottom{flex-direction:column;align-items:flex-start}
       .login-grid{grid-template-columns:1fr}
@@ -2517,8 +2569,24 @@
       .hero-home-support{font-size:16px;line-height:1.58;max-width:100%}
       .hero-home-actions{margin-top:22px}
       .hero-home-actions .btn{width:100%}
-      .hero-home-slider{margin-top:12px}
-      .hero-home-portrait{width:min(100%,360px)}
+      .hero-home-actions{gap:12px}
+      .hero-home-media{
+        width:calc(100% - 24px);
+        margin-top:2px
+      }
+      .hero-home-portrait{
+        width:100%;
+        max-width:360px;
+        border-radius:20px
+      }
+      .hero-home-portrait img{
+        max-height:470px
+      }
+      .hero-home-partners{
+        width:calc(100% - 24px);
+        margin-top:2px
+      }
+      .hero-home-slider{margin-top:0;padding:18px 16px}
       .logo-group{grid-template-columns:repeat(3,minmax(92px,1fr));gap:10px}
       .logo-slide{height:72px;padding:14px 12px}
       .growth-system-panel{margin-top:32px;padding:12px}
@@ -2676,7 +2744,7 @@
           </div>
           <div class="hero-home-media" aria-label="Portret van Bart van der Horst">
             <div class="hero-home-portrait">
-              <img src="/public/images/bart-van-der-horst-portret.png" alt="Bart van der Horst in wit overhemd tegen een zwarte achtergrond">
+              <img src="./Images/bart-van-der-horst-portret.png" alt="Bart van der Horst in wit overhemd tegen een zwarte achtergrond">
             </div>
           </div>
           <div class="hero-home-partners">
@@ -2777,7 +2845,7 @@
           <div class="about-collage">
             <div class="photo-grid">
               <img class="main-photo over-ons-foto" src="/Images/bart-2.jpg" alt="Bart van der Horst - oprichter AIChecked" loading="eager" decoding="async" width="1145" height="1425">
-              <img class="side-photo over-ons-foto" src="/Images/bart-1.jpg" alt="Bart van der Horst - oprichter AIChecked" loading="eager" decoding="async" width="1200" height="1600">
+              <img class="side-photo over-ons-foto about-diploma-image" src="/Images/bart-1.jpg" alt="Bart van der Horst - oprichter AIChecked" loading="eager" decoding="async" width="1200" height="1600">
             </div>
             <div class="about-badge">Bart van der Horst</div>
           </div>
