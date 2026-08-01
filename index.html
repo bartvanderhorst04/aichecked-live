@@ -456,6 +456,46 @@
       min-height:52px;
       padding:0 24px
     }
+    .hero-home-media{
+      position:relative;
+      min-width:0;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      min-height:520px;
+      isolation:isolate
+    }
+    .hero-home-media::before{
+      content:'';
+      position:absolute;
+      inset:12% 14% 8%;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(32,215,153,.18) 0%,rgba(32,215,153,.08) 34%,rgba(32,215,153,0) 72%);
+      filter:blur(22px);
+      z-index:0;
+      pointer-events:none
+    }
+    .hero-home-portrait{
+      position:relative;
+      z-index:1;
+      width:min(100%,560px);
+      aspect-ratio:4 / 5;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center
+    }
+    .hero-home-portrait img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:contain;
+      object-position:center bottom;
+      filter:drop-shadow(0 28px 56px rgba(0,0,0,.34))
+    }
+    .hero-home-partners{
+      grid-column:1 / -1;
+      margin-top:6px
+    }
     .hero-home-slider,
     .logo-slider-card{
       width:100%;
@@ -481,26 +521,32 @@
     .logo-marquee{
       position:relative;
       overflow:hidden;
-      mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);
-      -webkit-mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent)
+      padding:0 4px
     }
     .logo-track,
     .logo-slider-track{
       display:flex;
-      gap:16px;
-      width:max-content;
-      animation:logoMarquee 32s linear infinite;
+      width:100%;
+      animation:logoMarquee 28s linear infinite;
       will-change:transform
     }
     @keyframes logoMarquee{
       from{transform:translateX(0)}
-      to{transform:translateX(calc(-50% - 8px))}
+      to{transform:translateX(-100%)}
     }
     .logo-slider-card:hover .logo-track,
     .logo-slider-card:hover .logo-slider-track{animation-play-state:paused}
+    .logo-group{
+      min-width:100%;
+      flex-shrink:0;
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+      align-items:stretch
+    }
     .logo-slide{
-      width:156px;
-      min-width:156px;
+      width:100%;
+      min-width:0;
       height:92px;
       border-radius:22px;
       border:1px solid rgba(255,255,255,.07);
@@ -1199,6 +1245,9 @@
       .ai-result-tags span{width:100%;justify-content:center}
       .ai-problem-item + .ai-problem-item{border-left:none;border-top:1px solid var(--line)}
       .hero-home-grid{grid-template-columns:1fr;gap:28px}
+      .hero-home-media{min-height:0}
+      .hero-home-portrait{width:min(100%,440px);margin:0 auto}
+      .hero-home-partners{margin-top:0}
       .route-grid{grid-template-columns:1fr}
     }
     .breadcrumb-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted-2);margin-bottom:18px}
@@ -2388,8 +2437,11 @@
       .hero-home-support{font-size:17px;max-width:34ch}
       .hero-home-actions{margin-top:28px}
       .hero-home-slider{padding:22px 18px}
-      .logo-slide{width:140px;min-width:140px;height:84px}
+      .logo-group{gap:14px}
+      .logo-slide{height:84px}
       .hero-shell{padding:102px 0 48px}
+      .hero-home-media{order:2}
+      .hero-home-partners{order:3}
       .growth-system-title{font-size:clamp(2.15rem,5.6vw,3.8rem)}
     .cookie-banner{
         position:fixed;
@@ -2466,6 +2518,9 @@
       .hero-home-actions{margin-top:22px}
       .hero-home-actions .btn{width:100%}
       .hero-home-slider{margin-top:12px}
+      .hero-home-portrait{width:min(100%,360px)}
+      .logo-group{grid-template-columns:repeat(3,minmax(92px,1fr));gap:10px}
+      .logo-slide{height:72px;padding:14px 12px}
       .growth-system-panel{margin-top:32px;padding:12px}
       .growth-system-title{
         font-size:clamp(2rem,9.2vw,2.8rem);
@@ -2619,16 +2674,27 @@
               <a class="btn btn-ghost" href="/aanbod">Bekijk oplossingen</a>
             </div>
           </div>
-          <div class="hero-home-slider logo-slider-card" aria-label="Merken waarmee AIChecked werkt">
-            <p class="hero-home-slider-label">Samenwerkingen</p>
-            <div class="logo-marquee">
-              <div class="logo-track logo-slider-track">
-                <div class="logo-slide"><img src="public/images/merken/thm.png" alt="THM logo"></div>
-                <div class="logo-slide"><img src="public/images/merken/dbs-kozijnen.png" alt="DBS Kozijnen logo"></div>
-                <div class="logo-slide"><img src="public/images/merken/wim-van-breda.png" alt="Wim van Breda logo"></div>
-                <div class="logo-slide" aria-hidden="true"><img src="public/images/merken/thm.png" alt=""></div>
-                <div class="logo-slide" aria-hidden="true"><img src="public/images/merken/dbs-kozijnen.png" alt=""></div>
-                <div class="logo-slide" aria-hidden="true"><img src="public/images/merken/wim-van-breda.png" alt=""></div>
+          <div class="hero-home-media" aria-label="Portret van Bart van der Horst">
+            <div class="hero-home-portrait">
+              <img src="public/images/bart-hero-portrait.png" alt="Bart van der Horst in wit overhemd tegen een zwarte achtergrond">
+            </div>
+          </div>
+          <div class="hero-home-partners">
+            <div class="hero-home-slider logo-slider-card" aria-label="Merken waarmee AIChecked werkt">
+              <p class="hero-home-slider-label">Samenwerkingen</p>
+              <div class="logo-marquee">
+                <div class="logo-track logo-slider-track">
+                  <div class="logo-group">
+                    <div class="logo-slide"><img src="public/images/merken/dbs-kozijnen.png" alt="DBS Kozijnen logo"></div>
+                    <div class="logo-slide"><img src="public/images/merken/wim-van-breda.png" alt="Wim van Breda logo"></div>
+                    <div class="logo-slide"><img src="public/images/merken/thm.png" alt="TH Motion logo"></div>
+                  </div>
+                  <div class="logo-group" aria-hidden="true">
+                    <div class="logo-slide"><img src="public/images/merken/dbs-kozijnen.png" alt=""></div>
+                    <div class="logo-slide"><img src="public/images/merken/wim-van-breda.png" alt=""></div>
+                    <div class="logo-slide"><img src="public/images/merken/thm.png" alt=""></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
