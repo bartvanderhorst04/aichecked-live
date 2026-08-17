@@ -575,6 +575,39 @@
       opacity:1;
       transform:scale(1.01)
     }
+    .logo-slide.logo-slide-brand{
+      padding:16px 20px;
+    }
+    .logo-slide-brand .brand-wordmark{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+      max-width:100%;
+    }
+    .logo-slide-brand .brand-wordmark .logo-mark{
+      flex:0 0 auto;
+      width:10px;
+      height:10px;
+      box-shadow:0 0 0 6px rgba(66,216,166,.08),0 0 16px rgba(66,216,166,.32);
+      animation:none;
+    }
+    .logo-slide-brand .brand-wordmark-text{
+      display:flex;
+      align-items:baseline;
+      min-width:0;
+      font-family:var(--sans);
+      font-size:25px;
+      font-weight:700;
+      letter-spacing:-.02em;
+      line-height:1;
+      color:var(--white);
+      white-space:nowrap;
+    }
+    .logo-slide-brand .brand-wordmark-text span{
+      display:inline;
+      color:#c0c9c4;
+    }
     .logo-slide span{display:none}
     @keyframes heroLoadUp{
       from{opacity:0;transform:translateY(20px)}
@@ -2954,10 +2987,22 @@
                   <div class="logo-group">
                     <div class="logo-slide"><img src="public/images/merken/wim-van-breda.png" alt="Wim van Breda logo"></div>
                     <div class="logo-slide"><img src="public/images/merken/thm.png" alt="TH Motion logo"></div>
+                    <div class="logo-slide logo-slide-brand" aria-label="AIChecked.nl logo">
+                      <div class="brand-wordmark" aria-hidden="true">
+                        <div class="logo-mark"></div>
+                        <div class="brand-wordmark-text">AIChecked<span>.nl</span></div>
+                      </div>
+                    </div>
                   </div>
                   <div class="logo-group" aria-hidden="true">
                     <div class="logo-slide"><img src="public/images/merken/wim-van-breda.png" alt=""></div>
                     <div class="logo-slide"><img src="public/images/merken/thm.png" alt=""></div>
+                    <div class="logo-slide logo-slide-brand">
+                      <div class="brand-wordmark" aria-hidden="true">
+                        <div class="logo-mark"></div>
+                        <div class="brand-wordmark-text">AIChecked<span>.nl</span></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
