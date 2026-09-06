@@ -465,16 +465,6 @@
       min-height:520px;
       isolation:isolate
     }
-    .hero-home-media::before{
-      content:'';
-      position:absolute;
-      inset:12% 14% 8%;
-      border-radius:50%;
-      background:radial-gradient(circle,rgba(32,215,153,.18) 0%,rgba(32,215,153,.08) 34%,rgba(32,215,153,0) 72%);
-      filter:blur(22px);
-      z-index:0;
-      pointer-events:none
-    }
     .hero-home-portrait{
       position:relative;
       z-index:1;
@@ -490,7 +480,6 @@
       display:block;
       object-fit:contain;
       object-position:center bottom;
-      filter:drop-shadow(0 28px 56px rgba(0,0,0,.34))
     }
     .hero-home-partners{
       grid-column:1 / -1;
@@ -1256,16 +1245,10 @@
         justify-content:center;
         overflow:visible
       }
-      .hero-home-media::before{
-        inset:10% 10% 2%;
-        filter:blur(18px)
-      }
       .hero-home-portrait{
         width:100%;
         max-width:440px;
         margin:0 auto;
-        border-radius:22px;
-        overflow:hidden;
         aspect-ratio:auto;
         align-items:flex-start;
         justify-content:center;
@@ -2577,7 +2560,6 @@
       .hero-home-portrait{
         width:100%;
         max-width:360px;
-        border-radius:20px
       }
       .hero-home-portrait img{
         max-height:470px
@@ -2681,7 +2663,7 @@
         right:auto !important;
         inset-inline:auto !important;
         transform:none !important;
-        overflow:hidden;
+        overflow:visible;
         justify-content:center;
         align-items:flex-start;
       }
@@ -2691,7 +2673,7 @@
         max-width:100%;
         margin-left:auto !important;
         margin-right:auto !important;
-        overflow:hidden;
+        overflow:visible;
         display:block;
         justify-content:center;
       }
@@ -2943,7 +2925,7 @@
           </div>
           <div class="hero-home-media" aria-label="Portret van Bart van der Horst">
             <div class="hero-home-portrait">
-              <img src="./Images/bart-van-der-horst-portret.png" alt="Bart van der Horst in wit overhemd tegen een zwarte achtergrond">
+              <img src="/bart-hero.png" alt="Bart van der Horst in wit overhemd tegen een zwarte achtergrond">
             </div>
           </div>
           <div class="hero-home-partners">
