@@ -2011,6 +2011,12 @@
     html.route-booting body{visibility:hidden}
   </style>
   <script>document.documentElement.classList.add('route-booting');</script>
+<style>
+#main-nav .nav-knowledgebase-cta{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 20px;border:1px solid transparent;border-radius:999px;background:var(--green);color:#07100d!important;font-weight:600;transition:background-color .16s var(--ease),border-color .16s var(--ease),transform .16s var(--ease)}
+#main-nav .nav-knowledgebase-cta::after{display:none!important}
+#main-nav .nav-knowledgebase-cta:hover,#main-nav .nav-knowledgebase-cta:focus-visible,#main-nav .nav-knowledgebase-cta.active{background:#5be2b6;color:#07100d!important;transform:translateY(-1px);outline:none}
+#mobile-menu .nav-knowledgebase-cta{display:inline-flex;align-items:center;align-self:flex-start;min-height:46px;padding:0 20px;border-radius:999px;background:var(--green);color:#07100d!important;font-weight:600}
+</style>
 </head>
 <body>
   <div class="atmosphere" aria-hidden="true">
@@ -2033,6 +2039,7 @@
     <a href="/cases">Cases</a>
     <a href="/over-ons">About</a>
     <a href="/contact">Contact</a>
+    <a class="nav-knowledgebase-cta" href="/kennisbank">Kennisbank</a>
   </div>
 
   <nav id="main-nav">
@@ -2057,6 +2064,7 @@
         <li><a id="nav-cases" href="/cases">Cases</a></li>
         <li><a id="nav-over-ons" href="/over-ons">About</a></li>
         <li><a id="nav-contact" href="/contact">Contact</a></li>
+        <li><a id="nav-kennisbank" class="nav-knowledgebase-cta" href="/kennisbank">Kennisbank</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:14px;flex:0 0 auto;margin-left:auto">
       <div class="nav-toggle" onclick="toggleMobile()"><span></span><span></span><span></span></div>
@@ -2205,7 +2213,7 @@
             <h4>Pagina’s</h4>
             <a href="/aanbod">Services</a>
             <a href="/cases">Cases</a>
-            <a href="/ai-kennisbank">AI kennisbank</a>
+            <a href="/kennisbank">Kennisbank</a>
             <a href="/contact">Contact</a>
           </div>
           <div>
