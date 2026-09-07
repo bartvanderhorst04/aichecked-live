@@ -6,6 +6,22 @@
   <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48">
   <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- Google tag (gtag.js) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': (function(){
+        try{ return localStorage.getItem('cookies_accepted') === 'all' ? 'granted' : 'denied'; }catch(e){ return 'denied'; }
+      })()
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-25TTG1TDM1');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-25TTG1TDM1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Over ons | AIChecked.nl</title>
   <meta name="description" id="meta-description" content="Bart van der Horst bouwt met AIChecked aan betrouwbare digitale infrastructuur voor bedrijven die rust en controle willen.">
@@ -1826,12 +1842,7 @@
     html.route-booting body{visibility:hidden}
   </style>
   <script>document.documentElement.classList.add('route-booting');</script>
-<style>
-#main-nav .nav-knowledgebase-cta{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 20px;border:1px solid transparent;border-radius:999px;background:var(--green);color:#07100d!important;font-weight:600;transition:background-color .16s var(--ease),border-color .16s var(--ease),transform .16s var(--ease)}
-#main-nav .nav-knowledgebase-cta::after{display:none!important}
-#main-nav .nav-knowledgebase-cta:hover,#main-nav .nav-knowledgebase-cta:focus-visible,#main-nav .nav-knowledgebase-cta.active{background:#5be2b6;color:#07100d!important;transform:translateY(-1px);outline:none}
-#mobile-menu .nav-knowledgebase-cta{display:inline-flex;align-items:center;align-self:flex-start;min-height:46px;padding:0 20px;border-radius:999px;background:var(--green);color:#07100d!important;font-weight:600}
-</style>
+<link rel="stylesheet" href="/motion.css">
 </head>
 <body>
   <div class="atmosphere" aria-hidden="true">
@@ -5266,6 +5277,9 @@ function createAiSystemsPage(){
 
     function setCookiePreference(value){
       try{localStorage.setItem('cookies_accepted', value)}catch{}
+      if(typeof gtag === 'function'){
+        gtag('consent', 'update', { 'analytics_storage': value === 'all' ? 'granted' : 'denied' });
+      }
       setCookieLauncherState(false);
       hideCookieLauncher();
       hideCookieBanner();
@@ -5273,6 +5287,9 @@ function createAiSystemsPage(){
 
     function closeCookieBannerAsMinimal(){
       try{localStorage.setItem('cookies_accepted', 'minimal')}catch{}
+      if(typeof gtag === 'function'){
+        gtag('consent', 'update', { 'analytics_storage': 'denied' });
+      }
       setCookieLauncherState(true);
       showCookieLauncher();
       hideCookieBanner();
@@ -7064,5 +7081,7 @@ function createAiSystemsPage(){
   </script>
 
 <script src="https://aichecked-chatbot-2.vercel.app/embed.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js" defer></script>
+<script src="/motion.js" defer></script>
 </body>
 </html>

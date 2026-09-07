@@ -1,0 +1,57 @@
+/* ==========================================================================
+   AIChecked.nl — premium motion layer
+   Loaded AFTER each page's own <style> block. Purely additive: no colors,
+   fonts, spacing or layout values are changed here — only scroll-reveal,
+   refined transition timing and hover micro-interactions.
+   ========================================================================== */
+
+/* --- Lenis smooth scroll: let Lenis own the smoothing, avoid double-smoothing
+   with the native `html{scroll-behavior:smooth}` already set per page --- */
+html.lenis,
+html.lenis-smooth{scroll-behavior:auto}
+html.lenis-stopped{overflow:hidden}
+
+/* --- Reveal-on-scroll: classes are only ever added by motion.js, so pages
+   render fully visible with JS disabled or before the script runs --- */
+.aic-reveal{
+  opacity:0;
+  transform:translateY(22px);
+  transition:opacity .9s cubic-bezier(.16,.8,.24,1),transform .9s cubic-bezier(.16,.8,.24,1);
+  will-change:opacity,transform;
+}
+.aic-reveal.aic-in{opacity:1;transform:translateY(0)}
+
+/* --- Header: subtle compacting + calmer border/blur transition on scroll
+   (desktop/laptop only, no layout shift since #main-nav is fixed) --- */
+@media (min-width:1024px){
+  #main-nav{
+    transition:min-height .35s var(--ease),padding .35s var(--ease),transform .16s var(--ease),
+      border-color .3s var(--ease),background-color .3s var(--ease),color .16s var(--ease),
+      opacity .16s var(--ease),box-shadow .3s var(--ease),backdrop-filter .3s var(--ease);
+  }
+  #main-nav.scrolled{min-height:60px}
+}
+
+/* --- Nav underline: slightly slower, more elegant sweep --- */
+.nav-links>li>a::after{transition:width .3s var(--ease)}
+
+/* --- Hover-capable devices only: never activate on touch --- */
+@media (hover:hover) and (pointer:fine){
+  /* Read-more / arrow nudge on existing card hover — no HTML changes needed */
+  .kb-card .read{transition:color .16s var(--ease),opacity .16s var(--ease),transform .3s var(--ease)}
+  .kb-card:hover .read,.kb-card:focus-visible .read{transform:translateX(4px)}
+  .route-card .route-arrow{transition:color .16s var(--ease),opacity .16s var(--ease),transform .3s var(--ease)}
+  .route-card:hover .route-arrow,.route-card:focus-visible .route-arrow{transform:translateX(4px)}
+
+  /* Portrait imagery: restrained zoom on hover, current crop/position untouched */
+  .main-photo,.side-photo{transition:transform .6s cubic-bezier(.16,.8,.24,1)}
+  .main-photo:hover,.side-photo:hover{transform:scale(1.025)}
+}
+
+/* --- Reduced motion: strip this entire layer, content stays fully visible --- */
+@media (prefers-reduced-motion:reduce){
+  .aic-reveal{opacity:1!important;transform:none!important;transition:none!important}
+  #main-nav,.nav-links>li>a::after,.kb-card .read,.route-card .route-arrow,.main-photo,.side-photo{
+    transition:none!important;transform:none!important;
+  }
+}
