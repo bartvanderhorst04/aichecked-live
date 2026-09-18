@@ -2,22 +2,34 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) - script itself is only loaded after analytics consent -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    window.__COOKIE_CONSENT_VERSION = '2026-09-18.1';
     gtag('consent', 'default', {
       'ad_storage': 'denied',
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
-      'analytics_storage': (function(){
-        try{ return localStorage.getItem('cookies_accepted') === 'all' ? 'granted' : 'denied'; }catch(e){ return 'denied'; }
-      })()
+      'analytics_storage': 'denied'
     });
-    gtag('js', new Date());
-    gtag('config', 'G-25TTG1TDM1');
+    window.__loadGtag = function(){
+      if(window.__gtagLoaded) return;
+      window.__gtagLoaded = true;
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      gtag('js', new Date());
+      gtag('config', 'G-25TTG1TDM1');
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-25TTG1TDM1';
+      document.head.appendChild(s);
+    };
+    try{
+      if(localStorage.getItem('cookies_accepted') === 'all' && localStorage.getItem('cookies_consent_version') === window.__COOKIE_CONSENT_VERSION){
+        window.__loadGtag();
+      }
+    }catch(e){}
   </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-25TTG1TDM1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kennisbank over AI, websites &amp; marketing | AIChecked.nl</title>
   <meta name="description" content="Praktische kennis over AI, automation, websites, SEO, advertenties, tracking en digitale groei voor bedrijven.">
@@ -50,6 +62,25 @@
     <ul class="nav-links"><li><a href="/">Home</a></li><li><a href="/aanbod">Oplossingen</a></li><li><a href="/cases">Cases</a></li><li><a href="/over-ons">About</a></li><li><a href="/contact">Contact</a></li><li><a class="nav-knowledgebase-cta active" href="/kennisbank" aria-current="page">Kennisbank</a></li></ul>
     <button class="nav-toggle" type="button" aria-label="Menu openen" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
+
+  <div id="cookie-banner" class="cookie-banner" aria-live="polite" aria-label="Cookie instellingen">
+    <div class="cookie-label">Privacy instellingen</div>
+    <div class="cookie-banner-top">
+      <h2 class="cookie-title">Cookies &amp; privacy</h2>
+      <button class="cookie-close" type="button" aria-label="Sluiten" onclick="closeCookieBannerAsMinimal()">&times;</button>
+    </div>
+    <p class="cookie-text">
+      Wij gebruiken cookies om de website goed te laten werken en om inzicht te krijgen in het gebruik. Analytische cookies helpen ons de site verbeteren.
+      Wil je meer weten?
+      <a class="cookie-link" href="/privacy">Privacyverklaring &rarr;</a>
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn-primary" type="button" onclick="setCookiePreference('all')">Alles accepteren</button>
+      <button class="cookie-btn-ghost" type="button" onclick="setCookiePreference('minimal')">Alleen noodzakelijk</button>
+    </div>
+  </div>
+  <button id="cookie-launcher" class="cookie-launcher" type="button" aria-label="Open cookie instellingen" aria-hidden="true" onclick="reopenCookieBanner()">&#127850;</button>
+
   <main>
     <section class="knowledge-hero">
       <div class="wrap">

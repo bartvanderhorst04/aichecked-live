@@ -6,22 +6,34 @@
   <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48">
   <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) - script itself is only loaded after analytics consent -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    window.__COOKIE_CONSENT_VERSION = '2026-09-18.1';
     gtag('consent', 'default', {
       'ad_storage': 'denied',
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
-      'analytics_storage': (function(){
-        try{ return localStorage.getItem('cookies_accepted') === 'all' ? 'granted' : 'denied'; }catch(e){ return 'denied'; }
-      })()
+      'analytics_storage': 'denied'
     });
-    gtag('js', new Date());
-    gtag('config', 'G-25TTG1TDM1');
+    window.__loadGtag = function(){
+      if(window.__gtagLoaded) return;
+      window.__gtagLoaded = true;
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      gtag('js', new Date());
+      gtag('config', 'G-25TTG1TDM1');
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-25TTG1TDM1';
+      document.head.appendChild(s);
+    };
+    try{
+      if(localStorage.getItem('cookies_accepted') === 'all' && localStorage.getItem('cookies_consent_version') === window.__COOKIE_CONSENT_VERSION){
+        window.__loadGtag();
+      }
+    }catch(e){}
   </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-25TTG1TDM1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Branding | Merklaag die vertrouwen opbouwt | AIChecked.nl</title>
   <meta name="description" id="meta-description" content="AIChecked ontwikkelt branding die meer rust, herkenning en overtuiging brengt in website, sales en digitale communicatie.">
@@ -1905,7 +1917,7 @@
     <p class="cookie-text">
       Wij gebruiken cookies om de website goed te laten werken en om inzicht te krijgen in het gebruik. Analytische cookies helpen ons de site verbeteren.
       Wil je meer weten?
-      <a class="cookie-link" href="/contact">Privacyverklaring →</a>
+      <a class="cookie-link" href="/privacy">Privacyverklaring →</a>
     </p>
     <div class="cookie-actions">
       <button class="btn btn-primary" type="button" onclick="setCookiePreference('all')">Alles accepteren</button>
@@ -3286,25 +3298,25 @@ const aiSystemsProcess = [
         sections:[
           ['Welke gegevens worden verzameld','AIChecked verwerkt contactgegevens, bedrijfsgegevens, technische websitegegevens, intake-informatie en servicegerelateerde metadata die nodig zijn om scans, analyses en dienstverlening uit te voeren.'],
           ['Waarom gegevens worden verwerkt','De verwerking is nodig voor communicatie, uitvoering van diensten, juridische naleving, facturatie, monitoring, support en beveiliging van systemen.'],
-          ['Cookies en tracking','Voor functionele werking, analyse, consentbeheer en eventuele marketingdoeleinden kunnen cookies of soortgelijke technieken worden gebruikt.'],
-          ['Bewaartermijnen','Gegevens worden niet langer bewaard dan nodig is voor dienstverlening, wettelijke administratie of aantoonbare compliance.'],
+          ['Cookies en tracking','Deze website gebruikt alleen Google Analytics 4 (meet-ID G-25TTG1TDM1) als analytische cookie, en uitsluitend nadat je hiervoor via de cookiebanner expliciet toestemming hebt gegeven. Er worden geen marketing- of advertentiecookies gebruikt. Zie het Cookiebeleid voor het volledige overzicht, inclusief de AI-chatassistent die geen cookies gebruikt.'],
+          ['Bewaartermijnen','Gegevens worden niet langer bewaard dan nodig is voor dienstverlening, wettelijke administratie of aantoonbare compliance. Voor Google Analytics 4 geldt: cookie-levensduur maximaal 24 maanden (in de praktijk beperkt door browsers zoals Chrome tot circa 400 dagen). In het GA4-beheerpaneel is de bewaartermijn van gegevens als volgt ingesteld: gebeurtenisgegevens 2 maanden, gebruikersgegevens 14 maanden, met resetten bij nieuwe gebruikersactiviteit ingeschakeld (de bewaartermijn van een terugkerende bezoeker gaat daardoor telkens opnieuw lopen).'],
           ['Rechten van gebruikers','Gebruikers hebben recht op inzage, correctie, verwijdering, dataportabiliteit en bezwaar binnen de grenzen van de AVG.'],
           ['Contactgegevens','Voor privacyvragen kan contact worden opgenomen via info@aichecked.nl of per post via het bedrijfsadres.'],
-          ['Verwerkers en tools','AIChecked werkt met zorgvuldig geselecteerde tools voor hosting, analytics, e-mail, opslag en monitoring met passende afspraken.'],
+          ['Verwerkers en tools','AIChecked host deze website via Vercel, gebruikt Google Analytics 4 voor websitestatistieken (uitsluitend na toestemming) en een eigen AI-chatassistent (gehost op een AIChecked-subdomein) voor klantenservice op de website. Voor deze tools gelden passende verwerkersafspraken.'],
           ['GDPR en AVG','AIChecked richt processen in volgens de AVG/GDPR en beoordeelt periodiek of tooling, bewaartermijnen en doorgiften nog passend zijn.']
         ]
       },
       {
         slug:'cookies',
         title:'Cookiebeleid',
-        intro:'Een rustige uitleg over functionele, analytics- en marketingcookies, inclusief consentbeheer en trackingtools.',
+        intro:'Een concreet overzicht van de cookies, lokale opslag en scripts die aichecked.nl daadwerkelijk gebruikt, inclusief consentbeheer.',
         sections:[
-          ['Functionele cookies','Nodig voor basisfunctionaliteit zoals voorkeuren, sessies en veilige werking van formulieren en portalen.'],
-          ['Marketing cookies','Alleen toegestaan waar daarvoor een geldige grondslag en correcte toestemming voor aanwezig is.'],
-          ['Analytics cookies','Worden gebruikt om gebruik te analyseren, mits correct ingericht en afgestemd op privacy-eisen.'],
-          ['Consent management','Toestemming wordt beheerd via een consentlaag waarin categorieën, voorkeuren en bewijs van toestemming worden bijgehouden.'],
-          ['Tracking tools','Afhankelijk van de setup kunnen tools voor analytics, advertentiemeting, heatmaps of monitoring gebruikt worden.'],
-          ['Hoe cookies uit te schakelen','Gebruikers kunnen voorkeuren aanpassen via de consent UI of via browserinstellingen.']
+          ['Noodzakelijke cookies en opslag','Deze website plaatst geen cookies voor de basiswerking, maar gebruikt wel een klein stukje lokale opslag (localStorage) in je browser om je cookiekeuze te onthouden: cookies_accepted (jouw keuze), cookies_launcher_visible (of het herstelknopje zichtbaar is) en cookies_consent_version (welke versie van dit cookiebeleid je hebt geaccepteerd). Deze opslag is noodzakelijk voor de werking van de consentbanner zelf en vereist daarom geen toestemming.'],
+          ['Analytics cookies — Google Analytics 4','Na jouw toestemming plaatst Google Analytics 4 (meet-ID G-25TTG1TDM1) de cookies _ga en _ga_[container-ID] om websitegebruik te meten. Deze cookies worden pas geladen nadat je op "Alles accepteren" klikt, of Analytics hieronder zelf aanzet. Cookie-levensduur: maximaal 24 maanden (in de praktijk beperkt door browsers zoals Chrome tot circa 400 dagen). Bewaartermijn van gegevens in het GA4-beheerpaneel: gebeurtenisgegevens 2 maanden, gebruikersgegevens 14 maanden, met resetten bij nieuwe gebruikersactiviteit ingeschakeld (de termijn van een terugkerende bezoeker gaat daardoor telkens opnieuw lopen).'],
+          ['Marketing cookies','Er worden op dit moment geen marketing- of advertentiecookies (zoals Meta Pixel, Google Ads remarketing of LinkedIn Insight Tag) gebruikt op aichecked.nl.'],
+          ['AI-chatassistent','De chatassistent rechtsonder op de website wordt geladen via een eigen AIChecked-subdomein. Technisch onderzoek (netwerk-, cookie- en localStorage-analyse, ook tijdens een actief gesprek) wijst uit dat deze chat geen cookies of localStorage gebruikt en bezoekers niet volgt: er gaat alleen een verzoek naar onze eigen server op het moment dat je zelf een bericht typt en verstuurt. Alleen als je zelf in de chat om contact of een terugbelverzoek vraagt, wordt dat bericht per e-mail doorgestuurd naar ons team — dit werkt hetzelfde als een contactformulier. Omdat er geen tracking of opslag op jouw apparaat plaatsvindt, valt de chatfunctionaliteit zelf niet onder de cookietoestemmingsplicht en wordt hij als noodzakelijk voor de dienstverlening beschouwd.'],
+          ['Consent management','Je keuze wordt onthouden via de hierboven genoemde lokale opslag, inclusief een versienummer. Wijzigt AIChecked de tracking-opzet wezenlijk, dan wordt dat versienummer verhoogd en verschijnt de cookiebanner automatisch opnieuw, ook als je eerder al een keuze had gemaakt.'],
+          ['Voorkeuren wijzigen','Gebruik het 🍪-knopje linksonder op elke pagina, of de schakelaar hieronder, om je Analytics-voorkeur op elk moment te wijzigen. Dat is net zo makkelijk als het geven van toestemming.']
         ],
         consent:true
       },
@@ -4668,7 +4680,7 @@ const aiSystemsProcess = [
                   ${page.sections.map((section,index)=>`<a href="#${page.slug}-${index}">${section[0]}</a>`).join('')}
                 </aside>
                 <div>
-                  ${page.consent ? `<div class="note-card hover-sheen" style="margin-bottom:18px"><h3>Consent UI</h3><p class="small">Functionele, analytics- en marketingvoorkeuren worden in een moderne consentlaag per categorie geregeld.</p><div class="btn-row" style="margin-top:14px"><button class="btn btn-ghost">Functioneel</button><button class="btn btn-ghost">Analytics</button><button class="btn btn-primary">Marketing</button></div></div>` : ''}
+                  ${page.consent ? `<div class="note-card hover-sheen" style="margin-bottom:18px"><h3>Jouw cookievoorkeuren</h3><p class="small">Wijzig hier direct welke categorie is toegestaan. Je keuze geldt voor de hele website en wordt meteen toegepast.</p><div class="btn-row" style="margin-top:14px;flex-wrap:wrap;gap:10px"><button class="btn btn-ghost" type="button" disabled aria-disabled="true" style="opacity:.55;cursor:default">Noodzakelijk — altijd aan</button><button id="consent-toggle-analytics" class="btn btn-ghost" type="button" onclick="toggleAnalyticsConsent()" aria-pressed="false">Analytics — laden…</button></div><p class="small" style="margin-top:10px;opacity:.7">Er worden op dit moment geen marketingcookies gebruikt op aichecked.nl, dus is er geen aparte marketingkeuze.</p></div>` : ''}
                   <div class="accordion">
                     ${page.sections.map((section,index)=>`
                       <div class="acc-item ${index===0?'open':''}" id="${page.slug}-${index}">
@@ -5241,6 +5253,10 @@ function createAiSystemsPage(){
       try{return localStorage.getItem('cookies_accepted')}catch{return null}
     }
 
+    function isCookieConsentCurrent(){
+      try{return localStorage.getItem('cookies_consent_version') === window.__COOKIE_CONSENT_VERSION}catch{return false}
+    }
+
     function getCookieLauncherState(){
       try{return localStorage.getItem('cookies_launcher_visible') === 'true'}catch{return false}
     }
@@ -5274,24 +5290,44 @@ function createAiSystemsPage(){
       }, 420);
     }
 
+    function refreshConsentUI(){
+      const btn = document.getElementById('consent-toggle-analytics');
+      if(!btn) return;
+      const on = getCookiePreference() === 'all' && isCookieConsentCurrent();
+      btn.textContent = on ? 'Analytics — aan (klik om uit te zetten)' : 'Analytics — uit (klik om aan te zetten)';
+      btn.className = on ? 'btn btn-primary' : 'btn btn-ghost';
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+
+    function toggleAnalyticsConsent(){
+      const on = getCookiePreference() === 'all' && isCookieConsentCurrent();
+      setCookiePreference(on ? 'minimal' : 'all');
+    }
+
     function setCookiePreference(value){
       try{localStorage.setItem('cookies_accepted', value)}catch{}
-      if(typeof gtag === 'function'){
-        gtag('consent', 'update', { 'analytics_storage': value === 'all' ? 'granted' : 'denied' });
+      try{localStorage.setItem('cookies_consent_version', window.__COOKIE_CONSENT_VERSION)}catch{}
+      if(value === 'all' && typeof window.__loadGtag === 'function'){
+        window.__loadGtag();
+      } else if(typeof gtag === 'function'){
+        gtag('consent', 'update', { 'analytics_storage': 'denied' });
       }
-      setCookieLauncherState(false);
-      hideCookieLauncher();
+      setCookieLauncherState(true);
+      showCookieLauncher();
       hideCookieBanner();
+      refreshConsentUI();
     }
 
     function closeCookieBannerAsMinimal(){
       try{localStorage.setItem('cookies_accepted', 'minimal')}catch{}
+      try{localStorage.setItem('cookies_consent_version', window.__COOKIE_CONSENT_VERSION)}catch{}
       if(typeof gtag === 'function'){
         gtag('consent', 'update', { 'analytics_storage': 'denied' });
       }
       setCookieLauncherState(true);
       showCookieLauncher();
       hideCookieBanner();
+      refreshConsentUI();
     }
 
     function reopenCookieBanner(){
@@ -5312,7 +5348,8 @@ function createAiSystemsPage(){
       const banner = document.getElementById('cookie-banner');
       if(!banner) return;
       if(getCookieLauncherState()) showCookieLauncher();
-      if(getCookiePreference()){
+      refreshConsentUI();
+      if(getCookiePreference() && isCookieConsentCurrent()){
         banner.style.display = 'none';
         return;
       }

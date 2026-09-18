@@ -6,22 +6,34 @@
   <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48">
   <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) - script itself is only loaded after analytics consent -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    window.__COOKIE_CONSENT_VERSION = '2026-09-18.1';
     gtag('consent', 'default', {
       'ad_storage': 'denied',
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
-      'analytics_storage': (function(){
-        try{ return localStorage.getItem('cookies_accepted') === 'all' ? 'granted' : 'denied'; }catch(e){ return 'denied'; }
-      })()
+      'analytics_storage': 'denied'
     });
-    gtag('js', new Date());
-    gtag('config', 'G-25TTG1TDM1');
+    window.__loadGtag = function(){
+      if(window.__gtagLoaded) return;
+      window.__gtagLoaded = true;
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      gtag('js', new Date());
+      gtag('config', 'G-25TTG1TDM1');
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-25TTG1TDM1';
+      document.head.appendChild(s);
+    };
+    try{
+      if(localStorage.getItem('cookies_accepted') === 'all' && localStorage.getItem('cookies_consent_version') === window.__COOKIE_CONSENT_VERSION){
+        window.__loadGtag();
+      }
+    }catch(e){}
   </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-25TTG1TDM1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sitemap | AIChecked.nl</title>
   <meta name="description" content="Overzicht van alle diensten, lokale pagina's, kennisbankartikelen en bedrijfspagina's van AIChecked.nl.">
@@ -55,12 +67,52 @@
     .footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     .footer-row p{font-size:13px}
     @media (max-width:900px){.grid{grid-template-columns:1fr}.hero{padding-top:110px}}
+    .cookie-banner{position:fixed;left:24px;bottom:24px;z-index:1100;width:min(420px,calc(100vw - 32px));background:#151210;color:rgba(255,255,255,.96);border:.5px solid var(--line);border-radius:16px;box-shadow:0 24px 48px rgba(0,0,0,.35);padding:18px 18px 16px;backdrop-filter:blur(18px);font-family:var(--sans);opacity:0;transform:translateY(18px);pointer-events:none;transition:opacity .16s ease,transform .16s ease}
+    .cookie-banner.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+    .cookie-banner.hiding{opacity:0;transform:translateY(12px);pointer-events:none}
+    .cookie-banner-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+    .cookie-title{font-size:18px;font-weight:600;color:rgba(255,255,255,.96);line-height:1.2}
+    .cookie-close{width:30px;height:30px;border-radius:999px;border:.5px solid var(--line);background:rgba(255,255,255,.02);color:rgba(255,255,255,.76);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .16s ease,border-color .16s ease,background-color .16s ease,color .16s ease}
+    .cookie-close:hover,.cookie-close:focus-visible{border-color:rgba(66,216,166,.36);color:rgba(255,255,255,.96);background:rgba(255,255,255,.04);outline:none;transform:translateY(-1px)}
+    .cookie-label{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.52);margin-bottom:12px}
+    .cookie-label::before{content:'';width:8px;height:8px;border-radius:999px;background:var(--green);box-shadow:0 0 0 6px rgba(66,216,166,.08)}
+    .cookie-text{font-size:14px;line-height:1.7;color:rgba(255,255,255,.84);margin-bottom:12px}
+    .cookie-link{color:var(--green);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .16s ease,color .16s ease;white-space:nowrap}
+    .cookie-link:hover,.cookie-link:focus-visible{border-color:rgba(66,216,166,.5);color:var(--green);outline:none}
+    .cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .cookie-actions button{flex:1 1 180px;min-width:0;min-height:44px;border-radius:999px;font-size:11px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;cursor:pointer;transition:transform .16s ease,border-color .16s ease,background-color .16s ease}
+    .cookie-actions .cookie-btn-primary{border:1px solid rgba(255,255,255,.18);background:#fbfaf7;color:#0a0b09}
+    .cookie-actions .cookie-btn-primary:hover,.cookie-actions .cookie-btn-primary:focus-visible{border-color:var(--green);background:var(--green);transform:translateY(-1px);outline:none}
+    .cookie-actions .cookie-btn-ghost{border:1px solid var(--line);background:rgba(255,255,255,.012);color:rgba(255,255,255,.9)}
+    .cookie-actions .cookie-btn-ghost:hover,.cookie-actions .cookie-btn-ghost:focus-visible{border-color:rgba(255,255,255,.3);transform:translateY(-1px);outline:none}
+    .cookie-launcher{position:fixed;left:24px;bottom:24px;z-index:1100;width:54px;height:54px;border:none;border-radius:999px;background:var(--green);color:#151210;display:inline-flex;align-items:center;justify-content:center;font-size:25px;line-height:1;cursor:pointer;box-shadow:0 22px 44px rgba(0,0,0,.34),0 0 0 1px rgba(255,255,255,.08);transition:transform .16s ease,box-shadow .16s ease,opacity .16s ease,visibility .16s ease;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(10px) scale(.92)}
+    .cookie-launcher.visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0) scale(1)}
+    .cookie-launcher:hover,.cookie-launcher:focus-visible{transform:translateY(-2px) scale(1.04);outline:none}
+    @media(max-width:560px){.cookie-banner{left:16px;bottom:16px;width:min(360px,calc(100vw - 32px));padding:16px}.cookie-launcher{left:16px;bottom:16px;width:50px;height:50px;font-size:23px}}
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="cookie-banner" class="cookie-banner" aria-live="polite" aria-label="Cookie instellingen">
+    <div class="cookie-label">Privacy instellingen</div>
+    <div class="cookie-banner-top">
+      <h2 class="cookie-title">Cookies &amp; privacy</h2>
+      <button class="cookie-close" type="button" aria-label="Sluiten" onclick="closeCookieBannerAsMinimal()">&times;</button>
+    </div>
+    <p class="cookie-text">
+      Wij gebruiken cookies om de website goed te laten werken en om inzicht te krijgen in het gebruik. Analytische cookies helpen ons de site verbeteren.
+      Wil je meer weten?
+      <a class="cookie-link" href="/privacy">Privacyverklaring &rarr;</a>
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn-primary" type="button" onclick="setCookiePreference('all')">Alles accepteren</button>
+      <button class="cookie-btn-ghost" type="button" onclick="setCookiePreference('minimal')">Alleen noodzakelijk</button>
+    </div>
+  </div>
+  <button id="cookie-launcher" class="cookie-launcher" type="button" aria-label="Open cookie instellingen" aria-hidden="true" onclick="reopenCookieBanner()">&#127850;</button>
+
   <main>
     <section class="hero">
       <div class="wrap">
@@ -245,5 +297,107 @@
   </footer>
 
 <script src="https://aichecked-chatbot-2.vercel.app/embed.js" defer></script>
+<script>
+  function getCookiePreference(){
+    try{return localStorage.getItem('cookies_accepted')}catch{return null}
+  }
+  function isCookieConsentCurrent(){
+    try{return localStorage.getItem('cookies_consent_version') === window.__COOKIE_CONSENT_VERSION}catch{return false}
+  }
+  function getCookieLauncherState(){
+    try{return localStorage.getItem('cookies_launcher_visible') === 'true'}catch{return false}
+  }
+  function setCookieLauncherState(value){
+    try{localStorage.setItem('cookies_launcher_visible', value ? 'true' : 'false')}catch{}
+  }
+  function showCookieLauncher(){
+    const launcher = document.getElementById('cookie-launcher');
+    if(!launcher) return;
+    launcher.style.display = 'inline-flex';
+    launcher.setAttribute('aria-hidden', 'false');
+    launcher.classList.add('visible');
+  }
+  function hideCookieLauncher(){
+    const launcher = document.getElementById('cookie-launcher');
+    if(!launcher) return;
+    launcher.classList.remove('visible');
+    launcher.setAttribute('aria-hidden', 'true');
+  }
+  function hideCookieBanner(){
+    const banner = document.getElementById('cookie-banner');
+    if(!banner) return;
+    banner.classList.remove('visible');
+    banner.classList.add('hiding');
+    setTimeout(() => {
+      if(banner.classList.contains('hiding')) banner.style.display = 'none';
+    }, 420);
+  }
+  function refreshConsentUI(){
+    const btn = document.getElementById('consent-toggle-analytics');
+    if(!btn) return;
+    const on = getCookiePreference() === 'all' && isCookieConsentCurrent();
+    btn.textContent = on ? 'Analytics — aan (klik om uit te zetten)' : 'Analytics — uit (klik om aan te zetten)';
+    btn.className = on ? 'btn btn-primary' : 'btn btn-ghost';
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  }
+  function toggleAnalyticsConsent(){
+    const on = getCookiePreference() === 'all' && isCookieConsentCurrent();
+    setCookiePreference(on ? 'minimal' : 'all');
+  }
+  function setCookiePreference(value){
+    try{localStorage.setItem('cookies_accepted', value)}catch{}
+    try{localStorage.setItem('cookies_consent_version', window.__COOKIE_CONSENT_VERSION)}catch{}
+    if(value === 'all' && typeof window.__loadGtag === 'function'){
+      window.__loadGtag();
+    } else if(typeof gtag === 'function'){
+      gtag('consent', 'update', { 'analytics_storage': 'denied' });
+    }
+    setCookieLauncherState(true);
+    showCookieLauncher();
+    hideCookieBanner();
+    refreshConsentUI();
+  }
+  function closeCookieBannerAsMinimal(){
+    try{localStorage.setItem('cookies_accepted', 'minimal')}catch{}
+    try{localStorage.setItem('cookies_consent_version', window.__COOKIE_CONSENT_VERSION)}catch{}
+    if(typeof gtag === 'function'){
+      gtag('consent', 'update', { 'analytics_storage': 'denied' });
+    }
+    setCookieLauncherState(true);
+    showCookieLauncher();
+    hideCookieBanner();
+    refreshConsentUI();
+  }
+  function reopenCookieBanner(){
+    const banner = document.getElementById('cookie-banner');
+    if(!banner) return;
+    setCookieLauncherState(false);
+    hideCookieLauncher();
+    banner.style.display = 'block';
+    banner.classList.remove('hiding');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        banner.classList.add('visible');
+      });
+    });
+  }
+  function initCookieBanner(){
+    const banner = document.getElementById('cookie-banner');
+    if(!banner) return;
+    if(getCookieLauncherState()) showCookieLauncher();
+    refreshConsentUI();
+    if(getCookiePreference() && isCookieConsentCurrent()){
+      banner.style.display = 'none';
+      return;
+    }
+    banner.style.display = 'block';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        banner.classList.add('visible');
+      });
+    });
+  }
+  initCookieBanner();
+</script>
 </body>
 </html>
